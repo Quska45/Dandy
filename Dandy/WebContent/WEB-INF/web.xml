@@ -10,11 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>DDController</servlet-name>
-    <servlet-class>com.dandy.controller.DandyFrontController</servlet-class>
+  	<servlet-name>DDController</servlet-name>
+  	<servlet-class>com.dandy.controller.DandyFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DDController</servlet-name>
-    <url-pattern>*.dandy</url-pattern>
+  	<servlet-name>DDController</servlet-name>
+  	<url-pattern>*.dandy</url-pattern>
   </servlet-mapping>
 </web-app>
