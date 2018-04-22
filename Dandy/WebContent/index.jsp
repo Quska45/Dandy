@@ -36,7 +36,6 @@
 		text-align: center;
 		overflow: hidden;
 		z-index: 10;
-		border: 1px solid red;
 	}
 	div#header h1 {
 		display: inline-block;;
@@ -62,16 +61,14 @@
 		width: 100%;
 		min-height: 505px;
 		overflow: hidden;
-		border: 1px solid blue;
-		height: 864px;
+		height: 900px;
 	}
 	div.mainCon {
 		position: absolute;
 		top: 80px;
 		left: 80px;
 		width: 100%;
-		height: 864px;
-		border: 1px solid purple;
+		height: 900px;
 	}
 	
 		
@@ -80,8 +77,7 @@
 			position: absolute;
 			top: 80px;
 			left:0;
-			border: 1px solid green;
-			height: 864px;
+			height: 900px;
 			width: 80px;
 			overflow: hidden;
 			line-height: 815px;
@@ -113,7 +109,6 @@
 				width: 80%;
 				height: 80%;
 				z-index: 400;
-				border: 1px solid black;
 				display: none;
 			}
 			a#navClose {
@@ -144,8 +139,7 @@
 		div#content1 {
 			position: absolute;
 			top:0!important;
-			max-width: 1200px;
-			border: 1px solid blue;
+			max-width: 1363px;
 			z-index: 300;
 			display: none;
 			margin: 0 auto;
@@ -191,7 +185,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid yellow;
 		}
 		div.txtArea {
 			position: absolute;
@@ -200,7 +193,6 @@
 			height: 400px;
 			box-sizing: border-box;
 			text-align: left;
-			border: 1px solid black;
 			color: black;
 			font-size: 50px;
 		}	
@@ -234,7 +226,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid yellow;
 		}
 		
 		/* 딕테이션 끝 */
@@ -266,7 +257,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid yellow;
 		}
 		
 		/* 쉐도잉 끝 */
@@ -321,7 +311,7 @@
 			$("#cBody").css("height","3354px");
 			$("#content1").css("height", "3235px");	
 			$("#content1").css("display", "block");	
-			$("#content1").css("width", "80%");	
+			$("#content1").css("width", "82%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
@@ -336,7 +326,7 @@
 		});
 		$("#mainContentClose").click(function(){
 			$("#content1").css("display", "none");
-			$("#cBody").css("height","864px");
+			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con2").css("width", "33.3%");
 			$(".con2").css("right", "33.3%");
@@ -391,7 +381,7 @@
 		<div id="header">
 			<!-- 로고 시작 -->
 			<h1>
-				<a href="index.jsp">
+				<a id="dandy_logo" href="index.jsp">
 					단디입니다.
 				</a>
 			</h1>
@@ -405,7 +395,7 @@
 		<!-- 로고가 있는 헤더 부분 끝 -->
 		
 		<!-- 인덱스 메인 페이지전체를 감싸는 div 시작 -->
-		<div id="cBody" class="main pc" style="height: 864px;">
+		<div id="cBody" class="main pc" style="height: 900px;">
 			<div id="nav">
 				<a href="#" id="navButton">
 				햄버거
