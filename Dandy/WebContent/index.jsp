@@ -28,6 +28,9 @@
 	/* body 전체를  감싸는 div wrapper끝*/
 	
 	/* 로고가 있는 헤더의 시작 */
+	#dandy_logo {
+		color: #FA6C00;
+	}
 	div#header {
 		position: relative;
 		width: 100%;
