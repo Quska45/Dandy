@@ -35,7 +35,7 @@
 		position: relative;
 		width: 100%;
 		height: 80px;
-		background: #fff;
+		background: #363636;
 		text-align: center;
 		overflow: hidden;
 		z-index: 10;
@@ -65,6 +65,7 @@
 		min-height: 505px;
 		overflow: hidden;
 		height: 900px;
+		background: #363636;
 	}
 	div.mainCon {
 		position: absolute;
