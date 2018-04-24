@@ -334,10 +334,14 @@
 			$(".con2").css("right", "6.5%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
+			$(".con2").css("top","80px");
+			$(".con2").text("딕테이션");
+			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
+			$(".con3").css("top","80px");
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 		});
@@ -349,10 +353,12 @@
 			$(".con2").css("right", "33.3%");
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
+			$(".con2").css("top","0");
 			$(".con3").css("width", "33.3%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "100%");
 			$(".con3").css("position", "absolute");
+			$(".con3").css("top","0");
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 		});
