@@ -10,7 +10,10 @@
 	* {
 		margin: 0;
 		padding: 0;
-		
+		color: EEE9DD;
+	}
+	body {
+		background: #363636;
 	}
 	a{
 		text-decoration: none;
@@ -47,9 +50,12 @@
 	
 		/*로그인 버튼 */
 		div#header .login {
+			width: 79px;
+    		height: 79px;
 			position: absolute;
-			top: 5px;
-			left: 5px;
+			top: 0;
+			left: 0;
+			border: 1px solid #C7C7C7;
 		}
 		div#header .login img {
 			width: 70px;
@@ -65,7 +71,11 @@
 		min-height: 505px;
 		overflow: hidden;
 		height: 900px;
+<<<<<<< HEAD
 		background: #363636;
+=======
+		border: 1px solid #C7C7C7;
+>>>>>>> branch 'master' of http://github.com/Quska45/Dandy.git
 	}
 	div.mainCon {
 		position: absolute;
@@ -79,12 +89,13 @@
 		/* nav메뉴 시작 */
 		div#nav {
 			position: absolute;
-			top: 80px;
+			top: 81px;
 			left:0;
 			height: 900px;
 			width: 80px;
 			overflow: hidden;
 			line-height: 815px;
+			border: 1px solid #C7C7C7;
 		}
 		a#navButton {
 			position: absolute;
@@ -149,6 +160,7 @@
 			margin: 0 auto;
 			top: 834px;
 			padding-bottom: 120px;
+			background: #00AE93;
 		}
 		a#mainContentClose {
 			font-size: 70px;
@@ -189,6 +201,7 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
+			border: 1px solid #C7C7C7;
 		}
 		div.txtArea {
 			position: absolute;
@@ -199,6 +212,7 @@
 			text-align: left;
 			color: black;
 			font-size: 50px;
+			color: #00AE93;
 		}	
 		/* 단어장 끝 */
 	
@@ -230,6 +244,7 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
+			border: 1px solid #C7C7C7;
 		}
 		
 		/* 딕테이션 끝 */
@@ -261,6 +276,7 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
+			border: 1px solid #C7C7C7;
 		}
 		
 		/* 쉐도잉 끝 */
@@ -272,6 +288,7 @@
 		position: relative;
 		padding: 50px 80px 120px;
 		z-index: 10;
+		background-color: C7C7C7;
 	}	
 		/* 텍스트가 들어가는 부분 시작 */
 		div.left {
@@ -382,7 +399,7 @@
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
 		<!-- 로고가 있는 헤더 부분 시작 -->
-		<div id="header">
+		<div id="header" style="background: #363636;">
 			<!-- 로고 시작 -->
 			<h1>
 				<a id="dandy_logo" href="index.jsp">
