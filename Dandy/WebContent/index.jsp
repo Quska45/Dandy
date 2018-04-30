@@ -75,7 +75,7 @@
 	}
 	div.mainCon {
 		position: absolute;
-		top: 80px;
+		top: 81px;
 		left: 80px;
 		width: 100%;
 		height: 900px;
@@ -150,7 +150,7 @@
 		div#content1 {
 			position: absolute;
 			top:0!important;
-			max-width: 1363px;
+			left: 2px;
 			z-index: 300;
 			display: none;
 			margin: 0 auto;
@@ -284,7 +284,7 @@
 		position: relative;
 		padding: 50px 80px 120px;
 		z-index: 10;
-		background-color: C7C7C7;
+		background-color: #C7C7C7;
 	}	
 		/* 텍스트가 들어가는 부분 시작 */
 		div.left {
@@ -328,20 +328,21 @@
 			$("#cBody").css("height","3354px");
 			$("#content1").css("height", "3235px");	
 			$("#content1").css("display", "block");	
-			$("#content1").css("width", "82%");	
+			$("#content1").css("width", "82.6%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","80px");
-			$(".con2").text("딕테이션");
+			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
 			$(".con3").css("top","80px");
+			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 		});
@@ -393,7 +394,44 @@
 			$("#block2").css("display", "none");
 		});
 		/* 클릭하면 다른 contents의 색깔이 변함 끝 */
+		//스크롤을 내렸을 때 햄버거와 딕테이션등의 크기가 변함 시작
+		var didScroll;
+		var lastScollTop = 0; //스크롤이 움지이고 난 후 마지막 위치
+		var delta = 600; //동작의 구현이 시작되는 위치
+		var navbarHeight = $("#nav").outerHeight(); //영향을 받는 요소
+		
+		/* //일단 스크롤이 되면 dijdScroll의 값을 트루로 바꿔서 스크롤 이벤트가 작동되도록 한다.
+		$(window).scroll(function(event){
+			didScroll = true; 
+			alert("didScroll: " + didScroll + " lastScollTop: " + lastScollTop + " delta : " + delta + " navbarHeight : " + navbarHeight);
+		});
+		
+		
+		setInterval(function(){
+			if (didScroll){ 
+			//alert("setInterval탄다.");
+				hasScrolled(); 
+				didScroll = false; 
+				} 
+		});
+
+		function hasScrolled() {
+			var st = $(this).scrollTop(); //현재 스크롤의 위치를 저장한다.
+			alert("hasScrolled탄다        " + st);
+			if(Math.abs(lastScollTop - st) <= delta){
+				//alert("그냥 끝나버림");					
+				return;
+			}
+			
+			//alert("계속됨");
+			lastScrollTop = st;	
+		}
+		
+		//스크롤을 내렸을 때 햄버거와 딕테이션등의 크기가 변함 끝 */
+		
+		
 	});
+	
 </script>
 
 </head>
