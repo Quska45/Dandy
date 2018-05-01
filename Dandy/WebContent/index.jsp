@@ -27,6 +27,7 @@
 		width: 100%;
 		max-width: 100%;
 		overflow: hidden;
+		color: black;
 	}
 	/* body 전체를  감싸는 div wrapper끝*/
 	
