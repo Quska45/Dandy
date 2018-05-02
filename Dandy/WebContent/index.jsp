@@ -446,7 +446,7 @@
 		<div id="header" style="background: #363636;">
 			<!-- 로고 시작 -->
 			<h1>
-				<a id="dandy_logo" href="index.jsp">
+				<a id="dandy_logo" href="index.dandy">
 					단디입니다.
 				</a>
 			</h1>

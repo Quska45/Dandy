@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dandy.DAO.MemberDAO;
+
 public class IndexAction implements Action {
 
 	@Override
@@ -13,7 +15,9 @@ public class IndexAction implements Action {
 			throws ServletException, IOException {
 
 		String url = "index.jsp";
-
+		MemberDAO mDao = MemberDAO.getInstance();
+		mDao.test();
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);
