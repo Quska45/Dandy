@@ -33,6 +33,7 @@
 		width: 240px;
 		height: 44px;
 		margin: 0 auto;
+		border: 1px solid black;
 	}
 	
 	
@@ -266,7 +267,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	
 	$("#manlabel").click(function(){
 		$("#manlabel").css("color", "green");
 		$("#womanlabel").css("color", "#8e8e8e");
@@ -361,7 +361,6 @@ $(document).ready(function(){
 		}
 		
 	
-		//var memail = $.trim(email.val());
 		var memail = $("#email1").val() + "@" + $("#email2").val();
 		var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		 // 정규식에 해당하면 true, 맞지 않으면 false 반환
@@ -387,25 +386,6 @@ $(document).ready(function(){
 		}
 		 
 		 
-		/* var mpostcode = $.trim(postcode.val());
-		var maddress1 = $.trim(address1.val());
-		var maddress2 = $.trim(address2.val());
-		
-		if(mpostcode == "") {
-			postcode.focus();
-			$("#addressMsg").text("우편번호 찾기 버튼을 눌러주세요").css("display", "block");
-			return false;
-		} else if(maddress1 == "") {
-			address1.focus();
-			$("#addressMsg").text("우편번호 찾기 버튼을 눌러주세요").css("display", "block");
-			return false;
-		} else if(maddress2 == "") {
-			address2.focus();
-			$("#addressMsg").text("상세 주소를 입력해 주세요.").css("display", "block");
-			return false;
-		} */
-		
-		 
 		var mphone = $.trim(phone.val());
 		var regPhone = /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
 		if(mphone == "") {
@@ -419,13 +399,6 @@ $(document).ready(function(){
 		}
 		
 				 
-		/* if($("#idCheck").val() == "N"){
-			alert("아이디 중복체크를 하세요.");
-			return false;
-		} */ 
-		 
-		 
-		 
 	});
 	
 	
@@ -471,30 +444,6 @@ $(document).ready(function(){
 	
 });
 
-	
-	/* $(document).on("click", "#idck_btn", function(){
-		if($("#id").val() == "") {
-			alert("아이디를 적고 중복체크 버튼을 눌러주세요.");
-			return false;
-		}
-		// 새창의 크기
-		cw=550;
-		ch=300;
-		// 스크린의 크기
-		sw=screen.availWidth;
-		sh=screen.availHeight;
-		// 팝업창의 포지션
-		px=((sw-cw)/2);
-		py=((sh-ch)/2);
-		
-		var id = $("#id").val();
-		var url = "id_olap_ck.bizpoll?memberid=" + id;
-		
-		window.open(url, "_blank_1", 
-				"toolbar=no, menubar=no, status=no, scrollbars=no, resizable=no, left=" + px + ", top=" + py + ", width=" + cw + ", height=" + ch);
-		
-	}); */
-	
 	
 	$(document).on("change", "#mailAddress", function(){
 		var mailAddress = $("#mailAddress").val();
@@ -553,8 +502,8 @@ $(document).ready(function(){
 	<div id="wrap">
 		<div id="header">
 			<h1>
-				<a href="index.dandy" class="header_logo">
-					<img src="image/logo.png">
+				<a href="#" class="header_logo">
+					<img src="">
 				</a>
 			</h1>
 		</div>
@@ -571,10 +520,6 @@ $(document).ready(function(){
 									<input type="text" id="id" name="id" placeholder="아이디" class="input">
 									<label id="idlb" for="id" class="label">아이디</label>
 									
-									<!-- 나중에 지울거  -->
-									<!-- <button id="idck_btn">ID 중복체크</button> -->
-									<!-- <div id="idck_btn">ID 중복체크</div> -->
-																		
 								</span>	
 								<div id="idMsg" class="error" style="display: none">필수 정보입니다.</div>						
 							</div>	
@@ -665,13 +610,6 @@ $(document).ready(function(){
 								<div id="birthMsg" class="error" style="display: none">필수 정보입니다.</div>
 							</div>	
 												
-							<!-- <div class="join_row" id="emailDiv">
-								<span>
-									<input type="text" id="email" name="email" placeholder="이메일" class="input">
-									<label id="emaillb" for="email" class="label">이메일</label>
-								</span>	
-								<div id="emailMsg" class="error" style="display: none">필수 정보입니다.</div>						
-							</div> -->						
 							<div class="join_row" id="emailDiv">
 								<span>
 									<input type="text" id="email1" name="email1" placeholder="이메일" class="input">
@@ -690,33 +628,8 @@ $(document).ready(function(){
 							<div id="emailMsg" class="error" style="display: none">필수 정보입니다.</div>						
 						</div>
 						
-						<!-- 주소창  -->
+				<!-- 주소창  -->
 					<div class="row_group">
-					<!-- 	<div class="join_row">
-							<span class="zipadress">
-								<input type="text" id="postcode" name="postcode" class="zip" placeholder="우편번호">
-							</span>
-							<span>
-								<input type="button" id="zipbtn" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-							</span>
-						</div>
-						<div class="join_row">
-							<span class="zipadress">
-								<input type="text" id="address1" name="address1" class="zip" placeholder="주소">
-							</span>
-							<span class="zipadress">
-								<input type="text" id="address2" name="address2" class="zip" placeholder="상세주소">
-							</span>
-						</div>
-						<div id="addressMsg" class="error" style="display: none">필수 정보입니다.</div> -->
-						
-						<div class="join_row" id="addressDiv">
-							<span>
-								<input type="text" id="address" name="address" placeholder="주소" class="input">
-								<label id="addresslb" for="address" class="label">휴대전화번호</label>
-							</span>	
-						<div id="addressMsg" class="error" style="display: none">필수 정보입니다.</div>						
-						</div>
 						<div class="join_row" id="phoneDiv">
 							<span>
 								<input type="text" id="phone" name="phone" placeholder="휴대전화번호" class="input" maxlength="11">
@@ -727,52 +640,6 @@ $(document).ready(function(){
 					</div>
 					
 					
-					<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-					<script>
-					    function sample6_execDaumPostcode() {
-					        new daum.Postcode({
-					            oncomplete: function(data) {
-					                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-					
-					                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-					                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-					                var fullAddr = ''; // 최종 주소 변수
-					                var extraAddr = ''; // 조합형 주소 변수
-					
-					                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-					                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-					                    fullAddr = data.roadAddress;
-					
-					                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-					                    fullAddr = data.jibunAddress;
-					                }
-					
-					                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-					                if(data.userSelectedType === 'R'){
-					                    //법정동명이 있을 경우 추가한다.
-					                    if(data.bname !== ''){
-					                        extraAddr += data.bname;
-					                    }
-					                    // 건물명이 있을 경우 추가한다.
-					                    if(data.buildingName !== ''){
-					                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-					                    }
-					                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-					                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-					                }
-					
-					                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-					                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-					                document.getElementById('sample6_address').value = fullAddr;
-					
-					                // 커서를 상세주소 필드로 이동한다.
-					                document.getElementById('sample6_address2').focus();
-					            }
-					        }).open();
-					    }
-					</script>
-						
-						
 						<div class="error_ch">
 							<span id="joinMsg" class="error" style="display: none">입력하신 정보를 다시 확인해주세요.</span>
 						</div>
