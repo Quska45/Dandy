@@ -442,6 +442,7 @@
 <body>
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
+		<div>test</div>
 		<!-- 로고가 있는 헤더 부분 시작 -->
 		<div id="header" style="background: #363636;">
 			<!-- 로고 시작 -->
