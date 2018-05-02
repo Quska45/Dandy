@@ -311,6 +311,184 @@
 		/* 텍스트가 들어가는 끝 시작 */
 	/* footer의 끝 */
 	
+	
+	
+	
+	/* modal  */
+	#kakao_content {
+		margin: 10px auto;
+		height: 95%;
+		text-align: center;
+	}
+	
+	#login_content {
+		width: 90%;
+		height: 100%;
+		padding: 0 25px;
+		border: 1px solid #ddd;
+		text-align: left;
+		display: inline-block;
+		border-top: 4px solid #ABD0CE;
+		background-color: #fff;
+		/* background-color: #f5f6f7; */
+	}
+	
+	#login_area {
+		width: 270px;
+		height: 270px;
+		position: relative;
+	}
+	
+	#subtitle {
+		position: relative;
+		height: 40px;
+		margin: 22px auto 12px 0px;
+	}
+	
+	#subtitle>a>img {
+		width: 150px;
+		height: 50px;
+	}
+	
+	.idpw {
+		color: #333;
+		letter-spacing: -1px;
+		background-color: white;
+		width: 94%;
+		height: 25px;
+		border: 1px solid #e5e5e5;
+		border-radius: 5px;
+		font-weight: normal;
+		font-size: 13px;
+		line-height: 22px;
+		padding: 8px 12px;
+		margin-bottom: 8px;
+		outline: none;
+	}
+	
+	#login_form {
+		position: relative;
+	}
+	
+	#login_form>img {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 8px;
+		right: 8px;
+	}
+	
+	#remember {
+		margin: -1px 0 16px;
+	}
+	
+	#remrmber>input {
+		color: #333;
+		margin: 3px 3px 3px 4px;
+		vertical-align: middle;
+	}
+	
+	#remember>label {
+		font-size: 13px;
+		letter-spacing: -1px;
+	}
+	
+	#btn_login {
+		display: inline-block;
+		background-color: #ABD0CE;
+		border: 1px solid #ABD0CE;
+		width: 100%;
+		padding-top: 5px;
+		line-height: 38px;
+		text-align: center;
+		border-radius: 5px;
+		font-weight: bold;
+		cursor: pointer;
+		font-size: 20px;
+		margin-bottom: 15px;
+	}
+	
+	#login_help {
+		width: 100%;
+		padding-top: 20px;
+		font-size: 15px;
+		letter-spacing: -1px;
+		border-top: 1px solid #cfcfcf;
+	}
+	
+	#login_help a {
+		letter-spacing: -1px;
+		color: #333;
+	}
+	
+	#login_help a:hover {
+		text-decoration: underline;
+	}
+	
+	.right {
+		display: inline-block;
+		position: absolute;
+		right: 46px;
+	}
+	
+	.right>a {
+		color: #777 !important;
+	}
+	
+	.right_bar {
+		display: inline-block;
+		width: 1px;
+		height: 11px;
+		background-color: #ccc;
+		font-size: 11px;
+		margin: 4px 1px 0 3px;
+	}
+	
+	
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1000; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0, 0, 0); /* Fallback color */
+		background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 500px; /* Could be more or less, depending on screen size */
+		height: 350px;
+		position: absolute;
+	    top: -60px;
+    	left: 700px;
+	}
+	/* 모달 닫기 버튼   */
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		top: -5px;
+		right: 5px;
+	}
+	
+	.close:hover, .close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -436,13 +614,23 @@
 		
 	});
 	
+	
+	/* 모달창 열기   */
+	$(document).on("click", ".login", function(){
+		$(".modal").css("display", "block");
+		
+	});
+	/* 모달창 닫기  */
+	$(document).on("click", ".close", function(){
+		$(".modal").css("display", "none");
+	});
+	
 </script>
 
 </head>
 <body>
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
-		<div>test</div>
 		<!-- 로고가 있는 헤더 부분 시작 -->
 		<div id="header" style="background: #363636;">
 			<!-- 로고 시작 -->
@@ -578,5 +766,57 @@
 		<!-- footer의 끝 -->
 		<!-- 인덱스 메인 페이지 전체를 감싸는 div 끝 -->
 	</div>
+	
+	
+	
+	
+	
+	<!-- 모달창  -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span> 
+			<div id="kakao_content">
+				<div id="login_content">
+					<div id="login_area2">
+						<div id="subtitle">
+							<a href="index.bizpoll"> 
+								<img src="image/logo.png">
+							</a>
+						</div>
+						<div id="container">
+							<form method="post" id="login_form" action="#" name="login_form">
+								<input class="idpw" type="text" name="login_id" id="login_id" placeholder="아이디를 입력해 주세요"></input> 
+									<input class="idpw" type="password" name="login_pw" id="login_pw" placeholder="비밀번호를 입력해 주세요"></input>
+								<div id="error" style="display: none">
+									아이디를 입력해 주세요.
+								</div>
+								<div id="remember">
+									<input type="checkbox" name="remember" id="remember2">
+									<label for="remember2">계정 저장</label>
+								</div>
+								<div id="btn_login">로그인</div>
+							</form>
+						</div>
+						
+						<div id="login_help">
+							<a href="#">회원가입</a>
+							<div class="right">
+								<a href="#">
+									계정 찾기
+								</a> 
+								<span class="right_bar"></span> 
+								<a href="#">비밀번호 재설정</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달창 끝   -->
+	
+	
+	
+	
 </body>
 </html>

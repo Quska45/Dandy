@@ -553,7 +553,7 @@ $(document).ready(function(){
 	<div id="wrap">
 		<div id="header">
 			<h1>
-				<a href="index.bizpoll" class="header_logo">
+				<a href="index.dandy" class="header_logo">
 					<img src="image/logo.png">
 				</a>
 			</h1>
