@@ -115,6 +115,7 @@
 				height: 100%;
 				z-index: 300;
 				display: none;
+				background: #EEE9DD;
 			}
 			div#navWrap2 {
 				padding-top: 40px; 
@@ -141,6 +142,7 @@
 				width: 100%;
   				  height: 100%;
    				 display: block;
+   				 color : #00AE93;
 			}
 			a.navSpan:hover {
 				background-color: yellow;
@@ -162,7 +164,41 @@
 			padding-bottom: 120px;
 			background: #00AE93;
 		}
-		a#mainContentClose {
+		a.mainContentClose1 {
+			font-size: 70px;
+			position: absolute;
+			top: 0;
+			right: 20px;
+		}
+		div#content2 {
+			position: absolute;
+			top:0!important;
+			left: 125.6px;
+			z-index: 300;
+			display: none;
+			margin: 0 auto;
+			top: 834px;
+			padding-bottom: 120px;
+			background: #00AE93;
+		}
+		a.mainContentClose2 {
+			font-size: 70px;
+			position: absolute;
+			top: 0;
+			right: 20px;
+		}
+		div#content3 {
+			position: absolute;
+			top:0!important;
+			left: 250.7px;
+			z-index: 300;
+			display: none;
+			margin: 0 auto;
+			top: 834px;
+			padding-bottom: 120px;
+			background: #00AE93;
+		}
+		a.mainContentClose3 {
 			font-size: 70px;
 			position: absolute;
 			top: 0;
@@ -528,7 +564,54 @@
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 		});
-		$("#mainContentClose").click(function(){
+		
+		$(".openButton2").click(function(){
+			$("#cBody").css("height","3354px");
+			$("#content2").css("height", "3235px");	
+			$("#content2").css("display", "block");	
+			$("#content2").css("width", "82.6%");	
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
+			$(".con1").css("width", "6.5%");
+			$(".con1").css("right", "89.2%");
+			$(".con1").css("height", "97%");
+			$(".con1").css("position", "fixed");
+			$(".con1").css("top","81px");
+			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			
+			$(".con3").css("width", "6.5%");
+			$(".con3").css("right", "0");
+			$(".con3").css("height", "97%");
+			$(".con3").css("position", "fixed");
+			$(".con3").css("top","80px");
+			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$("#nav").css("position", "fixed");
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		});
+		
+		$(".openButton3").click(function(){
+			$("#cBody").css("height","3354px");
+			$("#content3").css("height", "3235px");	
+			$("#content3").css("display", "block");	
+			$("#content3").css("width", "82.6%");	
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
+			$(".con1").css("width", "6.5%");
+			$(".con1").css("right", "89.2%");
+			$(".con1").css("height", "97%");
+			$(".con1").css("position", "fixed");
+			$(".con1").css("top","81px");
+			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			
+			$(".con2").css("width", "6.5%");
+			$(".con2").css("right", "82.6%");
+			$(".con2").css("height", "97%");
+			$(".con2").css("position", "fixed");
+			$(".con2").css("top","81px");
+			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$("#nav").css("position", "fixed");
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		});
+		
+		$(".mainContentClose1").click(function(){
 			$("#content1").css("display", "none");
 			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
@@ -537,11 +620,59 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
+			$(".con2").css({"background":"none"});
+			
+			
 			$(".con3").css("width", "33.3%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "100%");
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
+			$(".con3").css({"background":"none"});
+			$("#nav").css("position", "absolute");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+		});
+		
+		$(".mainContentClose2").click(function(){
+			$("#content2").css("display", "none");
+			$("#cBody").css("height","900px");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
+			$(".con1").css("width", "33.3%");
+			$(".con1").css("right", "66.6%");
+			$(".con1").css("height", "100%");
+			$(".con1").css("position", "absolute");
+			$(".con1").css("top","0");
+			$(".con1").css({"background":"none"});
+			
+			
+			$(".con3").css("width", "33.3%");
+			$(".con3").css("right", "0");
+			$(".con3").css("height", "100%");
+			$(".con3").css("position", "absolute");
+			$(".con3").css("top","0");
+			$(".con3").css({"background":"none"});
+			$("#nav").css("position", "absolute");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+		});
+		
+		$(".mainContentClose3").click(function(){
+			$("#content3").css("display", "none");
+			$("#cBody").css("height","900px");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
+			$(".con1").css("width", "33.3%");
+			$(".con1").css("right", "66.6%");
+			$(".con1").css("height", "100%");
+			$(".con1").css("position", "absolute");
+			$(".con1").css("top","0");
+			$(".con1").css({"background":"none"});
+			
+			
+			$(".con2").css("width", "33.3%");
+			$(".con2").css("right", "33.3%");
+			$(".con2").css("height", "100%");
+			$(".con2").css("position", "absolute");
+			$(".con2").css("top","0");
+			$(".con2").css({"background":"none"});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 		});
@@ -660,7 +791,7 @@
 			<div class="mainCon">
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
-					<a href="#" id="mainContentClose">&times;</a>
+					<a href="#" class="mainContentClose1">&times;</a>
 					메인콘텐트 입니다.
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
@@ -699,6 +830,10 @@
 				
 				
 				<!-- 딕테이션 페이지 시작 -->
+				<div id="content2">
+					<a href="#" class="mainContentClose2">&times;</a>
+					메인콘텐트 입니다.
+				</div>
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
@@ -719,6 +854,10 @@
 				
 				
 				<!-- 쉐도잉 페이지 시작 -->
+				<div id="content3">
+					<a href="#" class="mainContentClose3">&times;</a>
+					메인콘텐트 입니다.
+				</div>
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
