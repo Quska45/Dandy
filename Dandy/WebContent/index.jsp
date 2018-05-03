@@ -111,7 +111,8 @@
 				position: fixed;
 				top: 82px;
 				left: 80px;
-				width: 100%;
+				/* width: 100%; */
+				width: 1800px;
 				height: 100%;
 				z-index: 45;
 				display: none;
@@ -828,7 +829,8 @@
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
 					<a href="#" class="mainContentClose1">&times;</a>
-					메인콘텐트 입니다.
+					<!-- 메인콘텐트 입니다. -->
+					<%@ include file="dandy_contents_movie.jsp" %>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
 			

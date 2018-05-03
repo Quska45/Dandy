@@ -18,6 +18,7 @@
 		border: 2px solid white;
 		background-color: #EEE9DD;
 		border-radius: 10px;
+		margin: 100px 200px;
 	}
 	
 
