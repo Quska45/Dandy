@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 <link rel="icon" type="image/png" href="image/cupfavi.png">
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* font-family: 'Noto Sans KR', sans-serif; */
 	
  /** contents page body */
 	#wrap_contents {
+		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
 		height: 1500px;
 		border: 2px solid white;
@@ -26,6 +29,7 @@
 	
  /*- 검색창 키워드 박스  */
  	#search_keyword {
+ 		font-family: 'Noto Sans KR', sans-serif;
  		width: 300px;
  		height: 30px;
  		border: 1px solid white;
@@ -54,6 +58,7 @@
  		height: 50px;
  	}
  	#alpha_page > a {
+ 		font-family: 'Noto Sans KR', sans-serif;
  		text-decoration: none;
  		font-size: 25px;
  		color: black;
@@ -88,6 +93,7 @@
  		border-radius: 5px;
  	}
  	.poster_frame a {
+ 		font-family: 'Noto Sans KR', sans-serif;
  		width: 240px;
  		height: 30px;
  		/* border: 1px solid yellow; */
@@ -106,6 +112,7 @@
  		height: 50px;
  	}
  	#num_page > a {
+ 		font-family: 'Noto Sans KR', sans-serif;
  		text-decoration: none;
  		font-size: 18px;
  		background-color: #EEE9DD;
@@ -199,6 +206,7 @@
  		line-height: 100px;
  	}
  	#detail_title > span {
+ 	 	font-family: 'Noto Sans KR', sans-serif;
  		font-size: 22px;
  		font-weight: bold;
  		
@@ -212,6 +220,7 @@
 	}
 	.frequency {
 		/* border: 1px solid gray;  */
+		font-family: 'Noto Sans KR', sans-serif;
 		width: 50px;
 		height: 80px;
 		text-align: center;
@@ -228,6 +237,7 @@
 	}
  /** 단어장 table */
  	#word_table {
+ 		font-family: 'Noto Sans KR', sans-serif;
  		margin-top: 420px;
  		/* border: 1px solid red; */
  		width: 700px;
@@ -301,7 +311,7 @@ $(document).ready(function(){
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a href="#">ALL</a>
+				<a href="#">0</a>
 				<a href="#">A</a>
 				<a href="#">B</a>
 				<a href="#">C</a>

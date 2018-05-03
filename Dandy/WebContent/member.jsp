@@ -6,9 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>여행에 미치다 : 회원가입</title>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* font-family: 'Noto Sans KR', sans-serif; */
 	
 	body {
 		background: #f5f6f7;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 	body, div, h1 {
 		margin: 0;
@@ -95,6 +98,7 @@
 		position: relative;
 	}
 	.input {
+		font-family: 'Noto Sans KR', sans-serif;
 		font-size: 15px;
 		position: relative;
 		z-index: 10;
@@ -220,6 +224,7 @@
 		background: #1fbc02;
 	}
 	.btn_join input {
+		font-family: 'Noto Sans KR', sans-serif;
 		background: #ABD0CE;
 		width: 100%;
 		height: 61px;

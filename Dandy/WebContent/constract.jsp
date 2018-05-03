@@ -6,12 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Dandy : 회원가입</title>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* font-family: 'Noto Sans KR', sans-serif; */
 	body, h1, ul, p, h3 {
 		margin: 0px;
 		padding: 0px;
 	}
 	body {
 		background-color: #f5f6f7;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 	h1#naver_logo {
 		font-size: 2em;
@@ -223,11 +226,13 @@
 		color: #333;
 		border: 1px solid #e7e7e7;
 		background-color: #fff;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 	.btn_agree {
 		color: #fff;
 		border: 1px solid #ABD0CE;
 		background-color: #ABD0CE;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 	a {
 		text-decoration: none;
