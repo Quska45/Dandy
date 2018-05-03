@@ -103,17 +103,17 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		
 			/* nav를 누르면 나오는 div 시작*/
 			div#navWrap1 {
-				position: absolute;
-				top: 0;
-				left: 0;
+				position: fixed;
+				top: 82px;
+				left: 80px;
 				width: 100%;
 				height: 100%;
-				z-index: 300;
+				z-index: 45;
 				display: none;
 				background: #EEE9DD;
 			}
@@ -124,7 +124,7 @@
 				left: 100px;
 				width: 80%;
 				height: 80%;
-				z-index: 400;
+				z-index: 50;
 				display: none;
 			}
 			a#navClose {
@@ -157,7 +157,7 @@
 			position: absolute;
 			top:0!important;
 			left: 2px;
-			z-index: 300;
+			z-index: 40;
 			display: none;
 			margin: 0 auto;
 			top: 834px;
@@ -174,7 +174,7 @@
 			position: absolute;
 			top:0!important;
 			left: 125.6px;
-			z-index: 300;
+			z-index: 40;
 			display: none;
 			margin: 0 auto;
 			top: 834px;
@@ -191,7 +191,7 @@
 			position: absolute;
 			top:0!important;
 			left: 250.7px;
-			z-index: 300;
+			z-index: 40;
 			display: none;
 			margin: 0 auto;
 			top: 834px;
@@ -214,7 +214,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div#block1 {
 			position: absolute;
@@ -222,7 +222,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -260,7 +260,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div#block2 {
 			position: absolute;
@@ -268,7 +268,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -292,7 +292,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -303,7 +303,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div.con3 {
 			position: absolute;
@@ -485,7 +485,7 @@
 	.modal {
 		display: none; /* Hidden by default */
 		position: fixed; /* Stay in place */
-		z-index: 1000; /* Sit on top */
+		z-index: 60; /* Sit on top */
 		left: 0;
 		top: 0;
 		width: 100%; /* Full width */
@@ -542,7 +542,8 @@
 		/* 햄버거 버튼을 클릭하면 div가 뜸 끝 */
 		
 		/* 단어장 등을 클릭하면 컨텐츠를 띄우기 시작 */
-		$(".openButton1").click(function(){
+		
+		function openButton1(){
 			$("#cBody").css("height","3354px");
 			$("#content1").css("height", "3235px");	
 			$("#content1").css("display", "block");	
@@ -563,9 +564,16 @@
 			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+			
+		}
+		
+		$(".openButton1").click(function(){
+			mainContentClose2();
+			mainContentClose3();
+			openButton1();
 		});
 		
-		$(".openButton2").click(function(){
+		function openButton2() {
 			$("#cBody").css("height","3354px");
 			$("#content2").css("height", "3235px");	
 			$("#content2").css("display", "block");	
@@ -586,9 +594,15 @@
 			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		}
+		
+		$(".openButton2").click(function(){
+			mainContentClose1();
+			mainContentClose3();
+			openButton2();
 		});
 		
-		$(".openButton3").click(function(){
+		function openButton3(){
 			$("#cBody").css("height","3354px");
 			$("#content3").css("height", "3235px");	
 			$("#content3").css("display", "block");	
@@ -609,9 +623,15 @@
 			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		}
+		
+		$(".openButton3").click(function(){
+			mainContentClose1();
+			mainContentClose2();
+			openButton3();
 		});
 		
-		$(".mainContentClose1").click(function(){
+		function mainContentClose1(){
 			$("#content1").css("display", "none");
 			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
@@ -631,9 +651,14 @@
 			$(".con3").css({"background":"none"});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		$(".mainContentClose1").click(function(){
+			mainContentClose1();
 		});
 		
-		$(".mainContentClose2").click(function(){
+		function mainContentClose2() {
 			$("#content2").css("display", "none");
 			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
@@ -653,9 +678,15 @@
 			$(".con3").css({"background":"none"});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		
+		$(".mainContentClose2").click(function(){
+			mainContentClose2();
 		});
 		
-		$(".mainContentClose3").click(function(){
+		function mainContentClose3() {
 			$("#content3").css("display", "none");
 			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
@@ -675,6 +706,11 @@
 			$(".con2").css({"background":"none"});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		$(".mainContentClose3").click(function(){
+			mainContentClose3();
 		});
 		/* 단어장 등을 클릭하면 컨텐츠를 띄우기 끝 */
 		
