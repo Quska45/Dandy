@@ -203,7 +203,12 @@
 	#viewcnt, #goodcnt {
 		color: #555555;
 	}
-	
+	#board_sel {
+		border: 1px solid red;
+		width: 400px;
+		height: 100px;
+		margin: 50px auto;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -240,6 +245,7 @@
 <body>
 <div id="board">
 	<div id="table">
+		<div id="board_sel"></div>
 		<div id="subject">
 			<span>Q & A</span>
 		</div>
