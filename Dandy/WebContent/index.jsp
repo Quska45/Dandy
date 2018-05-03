@@ -39,7 +39,7 @@
 		position: relative;
 		width: 100%;
 		height: 80px;
-		background: #fff;
+		background: #363636;
 		text-align: center;
 		overflow: hidden;
 		z-index: 10;
@@ -72,7 +72,11 @@
 		min-height: 505px;
 		overflow: hidden;
 		height: 900px;
+<<<<<<< HEAD
+		background: #363636;
+=======
 		border: 1px solid #C7C7C7;
+>>>>>>> branch 'master' of http://github.com/Quska45/Dandy.git
 	}
 	div.mainCon {
 		position: absolute;
@@ -100,18 +104,19 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		
 			/* nav를 누르면 나오는 div 시작*/
 			div#navWrap1 {
-				position: absolute;
-				top: 0;
-				left: 0;
+				position: fixed;
+				top: 82px;
+				left: 80px;
 				width: 100%;
 				height: 100%;
-				z-index: 300;
+				z-index: 45;
 				display: none;
+				background: #EEE9DD;
 			}
 			div#navWrap2 {
 				padding-top: 40px; 
@@ -120,7 +125,7 @@
 				left: 100px;
 				width: 80%;
 				height: 80%;
-				z-index: 400;
+				z-index: 50;
 				display: none;
 			}
 			a#navClose {
@@ -138,6 +143,7 @@
 				width: 100%;
   				  height: 100%;
    				 display: block;
+   				 color : #00AE93;
 			}
 			a.navSpan:hover {
 				background-color: yellow;
@@ -152,14 +158,48 @@
 			position: absolute;
 			top:0!important;
 			left: 2px;
-			z-index: 300;
+			z-index: 40;
 			display: none;
 			margin: 0 auto;
 			top: 834px;
 			padding-bottom: 120px;
 			background: #00AE93;
 		}
-		a#mainContentClose {
+		a.mainContentClose1 {
+			font-size: 70px;
+			position: absolute;
+			top: 0;
+			right: 20px;
+		}
+		div#content2 {
+			position: absolute;
+			top:0!important;
+			left: 125.6px;
+			z-index: 40;
+			display: none;
+			margin: 0 auto;
+			top: 834px;
+			padding-bottom: 120px;
+			background: #00AE93;
+		}
+		a.mainContentClose2 {
+			font-size: 70px;
+			position: absolute;
+			top: 0;
+			right: 20px;
+		}
+		div#content3 {
+			position: absolute;
+			top:0!important;
+			left: 250.7px;
+			z-index: 40;
+			display: none;
+			margin: 0 auto;
+			top: 834px;
+			padding-bottom: 120px;
+			background: #00AE93;
+		}
+		a.mainContentClose3 {
 			font-size: 70px;
 			position: absolute;
 			top: 0;
@@ -175,7 +215,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div#block1 {
 			position: absolute;
@@ -183,7 +223,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -221,7 +261,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div#block2 {
 			position: absolute;
@@ -229,7 +269,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -253,7 +293,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 200;
+			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
 			display: none;
@@ -264,7 +304,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 100;
+			z-index: 20;
 		}
 		div.con3 {
 			position: absolute;
@@ -308,6 +348,184 @@
 		/* 텍스트가 들어가는 끝 시작 */
 	/* footer의 끝 */
 	
+	
+	
+	
+	/* modal  */
+	#kakao_content {
+		margin: 10px auto;
+		height: 95%;
+		text-align: center;
+	}
+	
+	#login_content {
+		width: 90%;
+		height: 100%;
+		padding: 0 25px;
+		border: 1px solid #ddd;
+		text-align: left;
+		display: inline-block;
+		border-top: 4px solid #ABD0CE;
+		background-color: #fff;
+		/* background-color: #f5f6f7; */
+	}
+	
+	#login_area {
+		width: 270px;
+		height: 270px;
+		position: relative;
+	}
+	
+	#subtitle {
+		position: relative;
+		height: 40px;
+		margin: 22px auto 12px 0px;
+	}
+	
+	#subtitle>a>img {
+		width: 150px;
+		height: 50px;
+	}
+	
+	.idpw {
+		color: #333;
+		letter-spacing: -1px;
+		background-color: white;
+		width: 94%;
+		height: 25px;
+		border: 1px solid #e5e5e5;
+		border-radius: 5px;
+		font-weight: normal;
+		font-size: 13px;
+		line-height: 22px;
+		padding: 8px 12px;
+		margin-bottom: 8px;
+		outline: none;
+	}
+	
+	#login_form {
+		position: relative;
+	}
+	
+	#login_form>img {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 8px;
+		right: 8px;
+	}
+	
+	#remember {
+		margin: -1px 0 16px;
+	}
+	
+	#remrmber>input {
+		color: #333;
+		margin: 3px 3px 3px 4px;
+		vertical-align: middle;
+	}
+	
+	#remember>label {
+		font-size: 13px;
+		letter-spacing: -1px;
+	}
+	
+	#btn_login {
+		display: inline-block;
+		background-color: #ABD0CE;
+		border: 1px solid #ABD0CE;
+		width: 100%;
+		padding-top: 5px;
+		line-height: 38px;
+		text-align: center;
+		border-radius: 5px;
+		font-weight: bold;
+		cursor: pointer;
+		font-size: 20px;
+		margin-bottom: 15px;
+	}
+	
+	#login_help {
+		width: 100%;
+		padding-top: 20px;
+		font-size: 15px;
+		letter-spacing: -1px;
+		border-top: 1px solid #cfcfcf;
+	}
+	
+	#login_help a {
+		letter-spacing: -1px;
+		color: #333;
+	}
+	
+	#login_help a:hover {
+		text-decoration: underline;
+	}
+	
+	.right {
+		display: inline-block;
+		position: absolute;
+		right: 46px;
+	}
+	
+	.right>a {
+		color: #777 !important;
+	}
+	
+	.right_bar {
+		display: inline-block;
+		width: 1px;
+		height: 11px;
+		background-color: #ccc;
+		font-size: 11px;
+		margin: 4px 1px 0 3px;
+	}
+	
+	
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 60; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0, 0, 0); /* Fallback color */
+		background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 500px; /* Could be more or less, depending on screen size */
+		height: 350px;
+		position: absolute;
+	    top: -60px;
+    	left: 700px;
+	}
+	/* 모달 닫기 버튼   */
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		top: -5px;
+		right: 5px;
+	}
+	
+	.close:hover, .close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -325,7 +543,8 @@
 		/* 햄버거 버튼을 클릭하면 div가 뜸 끝 */
 		
 		/* 단어장 등을 클릭하면 컨텐츠를 띄우기 시작 */
-		$(".openButton1").click(function(){
+		
+		function openButton1(){
 			$("#cBody").css("height","3354px");
 			$("#content1").css("height", "3235px");	
 			$("#content1").css("display", "block");	
@@ -346,8 +565,74 @@
 			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+			
+		}
+		
+		$(".openButton1").click(function(){
+			mainContentClose2();
+			mainContentClose3();
+			openButton1();
 		});
-		$("#mainContentClose").click(function(){
+		
+		function openButton2() {
+			$("#cBody").css("height","3354px");
+			$("#content2").css("height", "3235px");	
+			$("#content2").css("display", "block");	
+			$("#content2").css("width", "82.6%");	
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
+			$(".con1").css("width", "6.5%");
+			$(".con1").css("right", "89.2%");
+			$(".con1").css("height", "97%");
+			$(".con1").css("position", "fixed");
+			$(".con1").css("top","81px");
+			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			
+			$(".con3").css("width", "6.5%");
+			$(".con3").css("right", "0");
+			$(".con3").css("height", "97%");
+			$(".con3").css("position", "fixed");
+			$(".con3").css("top","80px");
+			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$("#nav").css("position", "fixed");
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		}
+		
+		$(".openButton2").click(function(){
+			mainContentClose1();
+			mainContentClose3();
+			openButton2();
+		});
+		
+		function openButton3(){
+			$("#cBody").css("height","3354px");
+			$("#content3").css("height", "3235px");	
+			$("#content3").css("display", "block");	
+			$("#content3").css("width", "82.6%");	
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
+			$(".con1").css("width", "6.5%");
+			$(".con1").css("right", "89.2%");
+			$(".con1").css("height", "97%");
+			$(".con1").css("position", "fixed");
+			$(".con1").css("top","81px");
+			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			
+			$(".con2").css("width", "6.5%");
+			$(".con2").css("right", "82.6%");
+			$(".con2").css("height", "97%");
+			$(".con2").css("position", "fixed");
+			$(".con2").css("top","81px");
+			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$("#nav").css("position", "fixed");
+			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+		}
+		
+		$(".openButton3").click(function(){
+			mainContentClose1();
+			mainContentClose2();
+			openButton3();
+		});
+		
+		function mainContentClose1(){
 			$("#content1").css("display", "none");
 			$("#cBody").css("height","900px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
@@ -356,13 +641,77 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
+			$(".con2").css({"background":"none"});
+			
+			
 			$(".con3").css("width", "33.3%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "100%");
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
+			$(".con3").css({"background":"none"});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		$(".mainContentClose1").click(function(){
+			mainContentClose1();
+		});
+		
+		function mainContentClose2() {
+			$("#content2").css("display", "none");
+			$("#cBody").css("height","900px");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
+			$(".con1").css("width", "33.3%");
+			$(".con1").css("right", "66.6%");
+			$(".con1").css("height", "100%");
+			$(".con1").css("position", "absolute");
+			$(".con1").css("top","0");
+			$(".con1").css({"background":"none"});
+			
+			
+			$(".con3").css("width", "33.3%");
+			$(".con3").css("right", "0");
+			$(".con3").css("height", "100%");
+			$(".con3").css("position", "absolute");
+			$(".con3").css("top","0");
+			$(".con3").css({"background":"none"});
+			$("#nav").css("position", "absolute");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		
+		$(".mainContentClose2").click(function(){
+			mainContentClose2();
+		});
+		
+		function mainContentClose3() {
+			$("#content3").css("display", "none");
+			$("#cBody").css("height","900px");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
+			$(".con1").css("width", "33.3%");
+			$(".con1").css("right", "66.6%");
+			$(".con1").css("height", "100%");
+			$(".con1").css("position", "absolute");
+			$(".con1").css("top","0");
+			$(".con1").css({"background":"none"});
+			
+			
+			$(".con2").css("width", "33.3%");
+			$(".con2").css("right", "33.3%");
+			$(".con2").css("height", "100%");
+			$(".con2").css("position", "absolute");
+			$(".con2").css("top","0");
+			$(".con2").css({"background":"none"});
+			$("#nav").css("position", "absolute");
+			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
+			
+		}
+		
+		$(".mainContentClose3").click(function(){
+			mainContentClose3();
 		});
 		/* 단어장 등을 클릭하면 컨텐츠를 띄우기 끝 */
 		
@@ -433,6 +782,17 @@
 		
 	});
 	
+	
+	/* 모달창 열기   */
+	$(document).on("click", ".login", function(){
+		$(".modal").css("display", "block");
+		
+	});
+	/* 모달창 닫기  */
+	$(document).on("click", ".close", function(){
+		$(".modal").css("display", "none");
+	});
+	
 </script>
 
 </head>
@@ -443,7 +803,7 @@
 		<div id="header" style="background: #363636;">
 			<!-- 로고 시작 -->
 			<h1>
-				<a id="dandy_logo" href="index.jsp">
+				<a id="dandy_logo" href="index.dandy">
 					단디입니다.
 				</a>
 			</h1>
@@ -468,7 +828,7 @@
 			<div class="mainCon">
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
-					<a href="#" id="mainContentClose">&times;</a>
+					<a href="#" class="mainContentClose1">&times;</a>
 					메인콘텐트 입니다.
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
@@ -507,6 +867,10 @@
 				
 				
 				<!-- 딕테이션 페이지 시작 -->
+				<div id="content2">
+					<a href="#" class="mainContentClose2">&times;</a>
+					메인콘텐트 입니다.
+				</div>
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
@@ -527,6 +891,10 @@
 				
 				
 				<!-- 쉐도잉 페이지 시작 -->
+				<div id="content3">
+					<a href="#" class="mainContentClose3">&times;</a>
+					메인콘텐트 입니다.
+				</div>
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
@@ -574,5 +942,57 @@
 		<!-- footer의 끝 -->
 		<!-- 인덱스 메인 페이지 전체를 감싸는 div 끝 -->
 	</div>
+	
+	
+	
+	
+	
+	<!-- 모달창  -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span> 
+			<div id="kakao_content">
+				<div id="login_content">
+					<div id="login_area2">
+						<div id="subtitle">
+							<a href="index.bizpoll"> 
+								<img src="image/logo.png">
+							</a>
+						</div>
+						<div id="container">
+							<form method="post" id="login_form" action="#" name="login_form">
+								<input class="idpw" type="text" name="login_id" id="login_id" placeholder="아이디를 입력해 주세요"></input> 
+									<input class="idpw" type="password" name="login_pw" id="login_pw" placeholder="비밀번호를 입력해 주세요"></input>
+								<div id="error" style="display: none">
+									아이디를 입력해 주세요.
+								</div>
+								<div id="remember">
+									<input type="checkbox" name="remember" id="remember2">
+									<label for="remember2">계정 저장</label>
+								</div>
+								<div id="btn_login">로그인</div>
+							</form>
+						</div>
+						
+						<div id="login_help">
+							<a href="#">회원가입</a>
+							<div class="right">
+								<a href="#">
+									계정 찾기
+								</a> 
+								<span class="right_bar"></span> 
+								<a href="#">비밀번호 재설정</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달창 끝   -->
+	
+	
+	
+	
 </body>
 </html>
