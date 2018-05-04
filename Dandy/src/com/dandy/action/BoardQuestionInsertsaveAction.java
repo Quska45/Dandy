@@ -19,6 +19,7 @@ public class BoardQuestionInsertsaveAction implements Action {
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
+		String flag;
 		
 		ActionForward forward = new ActionForward();
 		
