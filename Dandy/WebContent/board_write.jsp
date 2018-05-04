@@ -292,7 +292,20 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<span>&nbsp;</span>
+						<span>
+							<select id="qna_select">
+									<option value="선택해주세요.">선택해주세요.</option>
+									<option value="-------------">-------------</option>
+									<option value="상품관련">상품관련</option>
+									<option value="주문/결제 관련">주문/결제 관련</option>
+									<option value="교환/환불 관련">교환/환불 관련</option>
+									<option value="배송관련">배송관련</option>
+									<option value="품절관련">품절관련</option>
+									<option value="해외배송">해외배송</option>
+									<option value="기타문의">기타문의</option>
+							</select>
+							&nbsp;
+						</span>
 						<span id="select_m">
 							※ 상품관련 문의시에는 해당 상품명을 반드시 기재해 주시기 바랍니다.
 						</span>
