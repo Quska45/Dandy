@@ -14,10 +14,11 @@
 	#wrap_contents {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
-		height: 1500px;
+		height: 1700px;
 		border: 2px solid white;
 		background-color: #EEE9DD;
 		border-radius: 10px;
+		margin: 100px 200px;
 	}
 	
 
@@ -72,7 +73,7 @@
  	}
  	.poster_frame {
  		width: 250px;
- 		height: 300px;
+ 		height: 375px;
  		background-color: #FA6C00;
  		float: left;
  		margin: 0 40px 50px 40px;
@@ -81,7 +82,7 @@
  	}
  	#movieposter {
  		width: 240px;
- 		height: 270px;
+ 		height: 345px;
  		/* border: 1px solid red; */
  		border-radius: 5px;
  		margin: 2px 5px;
@@ -89,7 +90,7 @@
  	}
  	#movieposter > img {
  		width: 240px;
- 		height: 270px;
+ 		height: 345px;
  		border-radius: 5px;
  	}
  	.poster_frame a {
@@ -107,7 +108,7 @@
  /** 숫자 페이지 */
  	#num_page {
  		text-align: center;
- 		margin-top: 1200px;
+ 		margin-top: 1350px;
  		width :1200px;
  		height: 50px;
  	}

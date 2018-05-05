@@ -36,13 +36,15 @@
 		color: #FA6C00;
 	}
 	div#header {
-		position: relative;
+		position: fixed;
 		width: 100%;
 		height: 80px;
 		background: #363636;
 		text-align: center;
 		overflow: hidden;
-		z-index: 10;
+		background: #363636;
+    		border: 1px solid #C7C7C7;
+    		z-index: 70;
 	}
 	div#header h1 {
 		display: inline-block;;
@@ -71,7 +73,7 @@
 		width: 100%;
 		min-height: 505px;
 		overflow: hidden;
-		height: 900px;
+		height: 1000px;
 <<<<<<< HEAD
 		background: #363636;
 =======
@@ -83,7 +85,7 @@
 		top: 81px;
 		left: 80px;
 		width: 100%;
-		height: 900px;
+		height: 1000px;
 	}
 	
 		
@@ -92,7 +94,7 @@
 			position: absolute;
 			top: 81px;
 			left:0;
-			height: 900px;
+			height: 1000px;
 			width: 80px;
 			overflow: hidden;
 			line-height: 815px;
@@ -112,7 +114,8 @@
 				position: fixed;
 				top: 82px;
 				left: 80px;
-				width: 100%;
+				/* width: 100%; */
+				width: 1800px;
 				height: 100%;
 				z-index: 45;
 				display: none;
@@ -222,7 +225,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height:91.8%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -268,7 +271,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height: 91.8%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -292,7 +295,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height: 91.8%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -546,7 +549,7 @@
 		
 		function openButton1(){
 			$("#cBody").css("height","3354px");
-			$("#content1").css("height", "3235px");	
+			$("#content1").css("height", "3153px");	
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "82.6%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
@@ -576,7 +579,7 @@
 		
 		function openButton2() {
 			$("#cBody").css("height","3354px");
-			$("#content2").css("height", "3235px");	
+			$("#content2").css("height", "3153px");	
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "82.6%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
@@ -605,7 +608,7 @@
 		
 		function openButton3(){
 			$("#cBody").css("height","3354px");
-			$("#content3").css("height", "3235px");	
+			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
 			$("#content3").css("width", "82.6%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
@@ -634,7 +637,7 @@
 		
 		function mainContentClose1(){
 			$("#content1").css("display", "none");
-			$("#cBody").css("height","900px");
+			$("#cBody").css("height","1000px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con2").css("width", "33.3%");
 			$(".con2").css("right", "33.3%");
@@ -661,7 +664,7 @@
 		
 		function mainContentClose2() {
 			$("#content2").css("display", "none");
-			$("#cBody").css("height","900px");
+			$("#cBody").css("height","1000px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");
@@ -689,7 +692,7 @@
 		
 		function mainContentClose3() {
 			$("#content3").css("display", "none");
-			$("#cBody").css("height","900px");
+			$("#cBody").css("height","1000px");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");
@@ -817,7 +820,7 @@
 		<!-- 로고가 있는 헤더 부분 끝 -->
 		
 		<!-- 인덱스 메인 페이지전체를 감싸는 div 시작 -->
-		<div id="cBody" class="main pc" style="height: 900px;">
+		<div id="cBody" class="main pc" style="height: 1000px;">
 			<div id="nav">
 				<a href="#" id="navButton">
 				햄버거
@@ -829,7 +832,8 @@
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
 					<a href="#" class="mainContentClose1">&times;</a>
-					메인콘텐트 입니다.
+					<!-- 메인콘텐트 입니다. -->
+					<%@ include file="dandy_contents_movie.jsp" %>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
 			

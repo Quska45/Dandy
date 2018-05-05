@@ -116,12 +116,12 @@
 		margin-bottom: 100px;
 		color: black!important;
 	}
-	#subject {
+	/* #subject {
 		font-size: 45px;
 		text-align: center;
 		color: #a7a7a7;
 		margin: 20px auto; 
-	}
+	} */
 	#reline {
 		height: 30px;
 	}
@@ -203,7 +203,27 @@
 	#viewcnt, #goodcnt {
 		color: #555555;
 	}
-	
+	#board_sel {
+		/* border: 1px solid red; */
+		width: 500px;
+		height: 60px;
+		margin: 50px auto;
+	}
+	.board_selbtn {
+		border: 1px solid #FFDF24;
+		width: 180px;
+		height: 40px;
+		margin: 8px 33px;
+		float: left;
+		background-color: white;
+		border-radius: 5px;
+		text-align: center;
+	}
+	.board_selbtn > span {
+		line-height: 40px;
+		padding: 0 auto;
+		color: #FFDF24
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -240,9 +260,17 @@
 <body>
 <div id="board">
 	<div id="table">
-		<div id="subject">
-			<span>Q & A</span>
+		<div id="board_sel">
+			<div class="board_selbtn">
+				<span>Q & A</span>
+			</div>
+			<div class="board_selbtn">
+				<span>자유게시판</span>
+			</div>
 		</div>
+		<!-- <div id="subject">
+			<span>Q & A</span>
+		</div> -->
 		<form action="boardsearch.bizpoll" method="GET" name ="frm_search">
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">

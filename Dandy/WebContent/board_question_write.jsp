@@ -27,6 +27,17 @@
 		});
 	});
 	
+	
+	$(document).on("click", "#secret_input", function(){
+		var input=$("#secret_input").val();
+		alert(input);
+		$("#secret_input") = "0";
+	});
+	
+	$(document).on("click", "#secret_label_flag", function(){
+		
+	});
+	
 </script>
 <!DOCTYPE html>
 <html>
@@ -181,7 +192,7 @@
 </head>
 <body>
 	<div id="contents">
-			<form role="form" action="boardinsertsave.bizpoll" method="post" enctype="multipart/form-data">
+			<form role="form" action="boardQuestionInsertsave.dandy" method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
@@ -238,25 +249,20 @@
 						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 첨부파일 -->
+	<!-- 비밀글여부 -->
 				<tr>
 					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td class="tx_cen">
-						<span>파일첨부</span>
+						<span>비밀글여부</span>
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
-					<td id="file_td">
-						<label for="file_upload">
-						<span><input type="text" class="upload_text" readonly="readonly"></span>
-						</label>
-						<div class="upload-btn_wrap">
-							<button type="button" id="filebtn"><i class="fa fa-file"></i></button>
-							<input type="file" class="input_file" name="file_upload" id="file_upload">
-						</div>
+					<td id="secret_td">
+						<label for="secret_input_flag" id="secret_label_flag">비밀글 여부</label>
+						<input id="secret_input_flag" name="secret_inputflag" type="hidden" value="1">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -296,18 +302,14 @@
 							<select id="qna_select">
 									<option value="선택해주세요.">선택해주세요.</option>
 									<option value="-------------">-------------</option>
-									<option value="상품관련">상품관련</option>
-									<option value="주문/결제 관련">주문/결제 관련</option>
-									<option value="교환/환불 관련">교환/환불 관련</option>
-									<option value="배송관련">배송관련</option>
-									<option value="품절관련">품절관련</option>
-									<option value="해외배송">해외배송</option>
-									<option value="기타문의">기타문의</option>
+									<option value="상품관련">회원</option>
+									<option value="주문/결제 관련">사이트이용</option>
+									<option value="교환/환불 관련">단어장관련문의</option>
 							</select>
 							&nbsp;
 						</span>
 						<span id="select_m">
-							※ 상품관련 문의시에는 해당 상품명을 반드시 기재해 주시기 바랍니다.
+							※ 단어장관련 문의시에는 해당 단어장명을 기재해 주시면 보다 원활한 처리가 가능합니다.
 						</span>
 					</td>
 					<td class="empty">
