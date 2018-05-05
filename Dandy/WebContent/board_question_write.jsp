@@ -28,15 +28,8 @@
 	});
 	
 	
-	$(document).on("click", "#secret_input", function(){
-		var input=$("#secret_input").val();
-		alert(input);
-		$("#secret_input") = "0";
-	});
 	
-	$(document).on("click", "#secret_label_flag", function(){
-		
-	});
+
 	
 </script>
 <!DOCTYPE html>
@@ -188,11 +181,28 @@
 		font-family: 'Hanna', serif;
 		color: #a7a7a7;
 	}
+	#secret_label_flag {
+		cursor: pointer;
+		/* background: (image/password-protection-symbol-on-monitor-screen.png) center 90px no-repeat; */
+	}
 </style>
+<script type="text/javascript">
+$(document).on("click", "#secret_span_flag", function(){
+	var flag = $("#secret_input_flag").val();
+	if(flag==1){
+		//공개글로 작성하려는 것
+		flag = $("#secret_input_flag").val("0");
+	} else {
+		//비밀글로 작성하려는 것
+		flag = $("#secret_input_flag").val("1");
+	}
+});
+
+</script>
 </head>
 <body>
 	<div id="contents">
-			<form role="form" action="boardQuestionInsertsave.dandy" method="post" enctype="multipart/form-data">
+			<form role="form" action="boardQuestionInsertsave.dandy" method="post">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
@@ -261,8 +271,10 @@
 						<span>&nbsp;</span>
 					</td>
 					<td id="secret_td">
+						<span id="secret_span_flag">
 						<label for="secret_input_flag" id="secret_label_flag">비밀글 여부</label>
-						<input id="secret_input_flag" name="secret_inputflag" type="hidden" value="1">
+						<input id="secret_input_flag" name="secret_input_flag" type="hidden">
+						</span>
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -299,12 +311,12 @@
 					</td>
 					<td>
 						<span>
-							<select id="qna_select">
+							<select id="qna_select" name="qna_select">
 									<option value="선택해주세요.">선택해주세요.</option>
 									<option value="-------------">-------------</option>
-									<option value="상품관련">회원</option>
-									<option value="주문/결제 관련">사이트이용</option>
-									<option value="교환/환불 관련">단어장관련문의</option>
+									<option value="회원">회원</option>
+									<option value="사이트이용">사이트이용</option>
+									<option value="단어장관련문의">단어장관련문의</option>
 							</select>
 							&nbsp;
 						</span>

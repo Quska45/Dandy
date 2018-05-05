@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
+import com.dandy.action.BoardList2Action;
 import com.dandy.action.BoardQuestionInsertsaveAction;
 import com.dandy.action.IndexAction;
 
@@ -60,6 +61,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/boardQuestionInsertsave.dandy")) {
 			action = new BoardQuestionInsertsaveAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/boardlist2.dandy")) {
+			action = new BoardList2Action(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		

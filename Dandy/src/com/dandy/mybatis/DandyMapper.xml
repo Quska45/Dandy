@@ -5,8 +5,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com/dandy/mybatis/DandyMapper.xml">
-
-	
+	<insert id="questionInsert" parameterType="qDTO">
+		INSERT INTO question_board(bno, title, content, writer, ref, re_step, re_level, question_type, flag)
+		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},#{flag})
+	</insert>
+		
+	<select id="boardlist2" resultType="qDTO">
+		SELECT * FROM question_board
+	</select>
 </mapper>
 
 

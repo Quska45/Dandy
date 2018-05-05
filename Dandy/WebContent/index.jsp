@@ -902,7 +902,7 @@
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton3"></a>
+					<a href="boardlist2.dandy" class="openButton3"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
