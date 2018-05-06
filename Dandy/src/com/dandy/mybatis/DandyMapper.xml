@@ -58,6 +58,16 @@
 		WHERE bno = #{bno}
 	</select>
 	
+	<select id="memIdCheck" resultType="memDTO" parameterType="String">
+	  	SELECT mid FROM dandy_member 
+	  	WHERE mid = #{mid}
+	</select>
+	
+	<insert id="registerMember" parameterType="memDTO">
+	  	INSERT INTO dandy_member(mid, mpw, mname, msex, mbirth, memail, mphone)
+		VALUES(#{mid}, #{mpw}, #{mname}, #{msex}, #{mbirth}, #{memail}, #{mphone})
+	</insert>
+	
 </mapper>
 
 
