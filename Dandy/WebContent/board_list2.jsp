@@ -345,7 +345,7 @@
 										<table>
 											<tr>
 												<td>
-													<a href="boarddetail.bizpoll?bno=${bDto.bno}">
+													<a href="questionBoardDetail.dandy?bno=${bDto.bno}">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
@@ -406,18 +406,18 @@
 						<tr>
 							<c:if test="${pageMaker.prev}">
 								<td>
-									<a href="qna.bizpoll?page=${pageMaker.startPage - 1}">◀</a>
+									<a href="questionBoardList.dandy?page=${pageMaker.startPage - 1}">◀</a>
 								</td>
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
 									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>></a>
-									<a href="qna.bizpoll?page=${idx}">${idx}</a>
+									<a href="questionBoardList.dandy?page=${idx}">${idx}</a>
 								</td>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">
 								<td>
-									<a href="qna.bizpoll?page=${pageMaker.endPage + 1}">▶</a>
+									<a href="questionBoardList.dandy?page=${pageMaker.endPage + 1}">▶</a>
 								</td>
 							</c:if>
 						</tr>

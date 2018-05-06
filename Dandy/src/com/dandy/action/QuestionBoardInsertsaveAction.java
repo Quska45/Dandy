@@ -10,7 +10,7 @@ import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DTO.QuestionBoardDTO;
 import com.dandy.action.ActionForward;
 
-public class BoardQuestionInsertsaveAction implements Action {
+public class QuestionBoardInsertsaveAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)

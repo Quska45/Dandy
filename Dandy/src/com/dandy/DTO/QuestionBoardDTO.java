@@ -15,7 +15,18 @@ public class QuestionBoardDTO {
 	private int re_level;
 	private String question_type;
 	private String flag;
+	private int replycnt;
 	
+	public int getReplycnt() {
+		return replycnt;
+	}
+
+
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+
+
 	public QuestionBoardDTO() {
 		// TODO Auto-generated constructor stub
 	}

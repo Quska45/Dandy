@@ -10,9 +10,54 @@
 		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},#{flag})
 	</insert>
 		
-	<select id="boardlist2" resultType="qDTO">
-		SELECT * FROM question_board
+	<select id="listCriteria" resultType="qDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT b.*, (SELECT COUNT(*)
+							FROM tblreply d
+							WHERE b.bno = d.bno) replycnt
+					FROM question_board b
+					WHERE bno > 0
+					ORDER BY ref desc, re_step
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
 	</select>
+	
+	
+	<select id="scountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(bno)
+			FROM question_board]]>
+			<if test='flag == "직접입력"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "제목"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "내용"'>
+				<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "제목 + 내용"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "작성자"'>
+				<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
+			</if>
+		
+	</select>
+	
+	<select id="questionDetail" parameterType="Integer" resultType="qDTO">
+		SELECT *
+		FROM question_board
+		WHERE bno = #{bno}
+	</select>
+	
 </mapper>
 
 

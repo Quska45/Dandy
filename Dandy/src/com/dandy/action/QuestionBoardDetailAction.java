@@ -1,7 +1,6 @@
 package com.dandy.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,18 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DTO.QuestionBoardDTO;
 
-public class BoardList2Action implements Action {
+public class QuestionBoardDetailAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "board_list2.jsp";
+		String url = "board_detail2.jsp";
+		
+		Integer bno = Integer.parseInt(request.getParameter("bno"));
+		System.out.println("bno" + bno);
 		
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
-		List<QuestionBoardDTO> list = qDao.boardlist2();
+		QuestionBoardDTO qDto = qDao.questionDetail(bno);
 		
-		request.setAttribute("boardlist", list);
+		request.setAttribute("boardview", qDto);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
@@ -29,5 +31,5 @@ public class BoardList2Action implements Action {
 
 		return forward;
 	}
-	
+
 }
