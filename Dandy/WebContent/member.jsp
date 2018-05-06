@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>여행에 미치다 : 회원가입</title>
+<title>단디 : 회원가입</title>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 /* font-family: 'Noto Sans KR', sans-serif; */
@@ -56,31 +56,7 @@
 		margin-bottom: 10px;
 		border: 1px solid #dadada;
 		background: #fff;
-		position: relative; /* 버튼 테스트 하고 지울때 같이 지울꺼 */
 	}
-	
-	
-	/* 아이디 유효성 체크 버튼, 예전 방식이라 테스트 하고 지울것  */
-	#idck_btn {
-		position: absolute;
-		top: 0;
-		right: -110px;
-		width: 90px;
-		height: 24px;
-		border: 1px solid #ccc;
-		text-align: center;
-		vertical-align: middle;
-		background: #ccc;
-		color: #fff;
-		cursor: pointer;
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	.join_row {
@@ -291,12 +267,7 @@ $(document).ready(function(){
 			yy = $("#yy"),
 			mm = $("#mm"),
 			dd = $("#dd"),
-			email = $("#email"),
 			sex = $("input[type=radio][name=sex]:checked").val(),		
-			post = $("#postcode"),
-			address1 = $("#address1"),
-			address2 = $("#address2"),
-			address = $("#address"),
 			phone = $("#phone"),
 			email1 = $("#email1"),
 			email2 = $("#email2");
@@ -305,14 +276,13 @@ $(document).ready(function(){
 		var mid = $.trim(id.val());
 		if(mid == ""){
 			id.focus();
-			$("#idMsg").css("display", "block");
+			$("#idMsg").css("display", "block").css("color", "red");
 			return false;
 		}
 		
 		var mpw = $.trim(pw.val());
 		var mpw2 = $.trim(pw2.val());
 		var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; // 6~20 자 이내 숫자 + 영문
-		
 		if(mpw == "") {
 			pw.focus();
 			$("#pwMsg").css("display", "block");
@@ -338,16 +308,14 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		
 		if(sex == 1){
 			$("#manlabel").css("color", "green");
-		}else if(sex == 2){
+		} else if(sex == 2){
 			$("#womanlabel").css("color", "green");
-		}else {
+		} else {
 			$("#sexMsg").css("display", "block");
 			return false;
 		} 
-		
 		
 		if(yy.val() == ""){
 			yy.focus();
@@ -365,8 +333,7 @@ $(document).ready(function(){
 			return false;
 		}
 		
-	
-		var memail = $("#email1").val() + "@" + $("#email2").val();
+		/* var memail = email1.val() + "@" + email2.val();
 		var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		 // 정규식에 해당하면 true, 맞지 않으면 false 반환
 		if(email1.val() == "") {
@@ -383,13 +350,6 @@ $(document).ready(function(){
 			return false;
 		}
 		 
-		var maddress = $.trim(address.val());
-		if(maddress == "") {
-			address.focus();
-			$("#addressMsg").css("display", "block");
-			return false;
-		}
-		 
 		 
 		var mphone = $.trim(phone.val());
 		var regPhone = /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
@@ -401,7 +361,7 @@ $(document).ready(function(){
 			phone.select();
 			$("#phoneMsg").text("'-'를 제외한 11자리 숫자만 입력해 주세요.").css("display", "block");
 			return false;
-		}
+		} */
 		
 				 
 	});
@@ -437,14 +397,9 @@ $(document).ready(function(){
 	$("#emai2").blur(function(){
 		$("#emailMsg").css("display", "none");
 	});
-	$("#address").blur(function(){
-		$("#addressMsg").css("display", "none");
-	});
 	$("#phone").blur(function(){
 		$("#phoneMsg").css("display", "none");
 	});
-	
-	
 	
 	
 });
@@ -466,6 +421,7 @@ $(document).ready(function(){
 	});
 	
 	
+	// ID 중복체크 Ajax
 	$(document).on("blur", "#id", function(){
 		var id = $("#id").val();
 		
@@ -476,7 +432,7 @@ $(document).ready(function(){
 		} else if(id != "") {
 			$("#idMsg").text("아이디를 입력하세요.").css("display", "block");
 			$.ajax({
-				url: "memajax.bizpoll",
+				url: "memberCheckAjax.dandy",
 				type: "POST",
 				dataType: "json",
 				data: "id=" + id,
@@ -517,7 +473,7 @@ $(document).ready(function(){
 		<div id="container">
 			<div id="content">
 				<div class="join_content">
-					<form id="join_form" name="frm_member" action="memberinsert.bizpoll">
+					<form id="join_form" name="frm_member" action="memberRegister.dandy">
 						<div class="row_group">
 							<!-- 아이디  -->
 							<div class="join_row" id="idDiv">
@@ -633,7 +589,7 @@ $(document).ready(function(){
 							<div id="emailMsg" class="error" style="display: none">필수 정보입니다.</div>						
 						</div>
 						
-				<!-- 주소창  -->
+					<!-- 휴대전화  -->
 					<div class="row_group">
 						<div class="join_row" id="phoneDiv">
 							<span>
