@@ -534,9 +534,10 @@
 <script type="text/javascript">
 	
 	function movie_list() {
+		//alert("onclick");
 		$.ajax({
 			type : "post",
-			url : "movieList.bizpoll",
+			url : "movieList.dandy",
 			success : function(result) {
 				$("#movieList").html(result);
 			}
@@ -868,7 +869,7 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="movieList.dandy" class="openButton1"></a>
+					<a href="#" class="openButton1" onclick="movie_list();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">

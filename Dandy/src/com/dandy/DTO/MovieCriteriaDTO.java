@@ -6,7 +6,7 @@ public class MovieCriteriaDTO {
 	private int perPageNum;	//한 페이지에 보여줄 게시글 수
 	private String keyword;
 	private String flag;
-	
+	private String index;
 	
 	
 	public String getFlag() {
@@ -81,25 +81,22 @@ public class MovieCriteriaDTO {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+
+
+	public String getIndex() {
+		return index;
+	}
+
+
+	public void setIndex(String index) {
+		this.index = index;
+	}
+	
+	
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

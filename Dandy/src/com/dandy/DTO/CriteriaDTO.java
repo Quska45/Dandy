@@ -8,7 +8,6 @@ public class CriteriaDTO {
 	private String flag;
 	
 	
-	
 	public String getFlag() {
 		return flag;
 	}
@@ -81,25 +80,11 @@ public class CriteriaDTO {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+
+
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

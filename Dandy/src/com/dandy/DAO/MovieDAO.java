@@ -15,21 +15,21 @@ import com.dandy.mybatis.SqlMapConfig;
 public class MovieDAO {
 	
 	// MyBatis 세팅값 호출
-			SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
 
-			// mapper에 접근하기 위한 SqlSession
-			SqlSession sqlSession;
+	// mapper에 접근하기 위한 SqlSession
+	SqlSession sqlSession;
 
-			private MovieDAO() {
-			}
+	private MovieDAO() {
+	}
 
-			private static MovieDAO instance = new MovieDAO();
+	private static MovieDAO instance = new MovieDAO();
 
-			public static MovieDAO getInstance() {
-				return instance;
-			}
-			
-			int result = 0;
+	public static MovieDAO getInstance() {
+		return instance;
+	}
+	
+	int result = 0;
 	
 	public int totalCount(MovieCriteriaDTO criDto) {
 		
@@ -46,6 +46,7 @@ public class MovieDAO {
 		}
 		
 		return result;
+		
 	}
 	
 	
@@ -77,6 +78,34 @@ public class MovieDAO {
 		return list;
 	}
 	
+	
+	public List<MovieDTO> movieIndexList(MovieCriteriaDTO movieCriDto) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		List<MovieDTO> list = new ArrayList<>();
+		
+		try {
+			list = sqlSession.selectList("movieIndexListCriteria", movieCriDto);
+			
+			/*for (BoardDTO boardDTO : list) {
+				System.out.print(boardDTO.getBno() + ",");
+				System.out.print(boardDTO.getTitle() + ",");
+				System.out.print(boardDTO.getContent() + ",");
+				System.out.print(boardDTO.getWriter() + ",");
+				System.out.print(boardDTO.getRegdate() + ",");
+				System.out.print(boardDTO.getViewcnt() + ",");
+				System.out.print(boardDTO.getRecommand() + ",");
+				System.out.println();
+			}*/
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return list;
+	}
 	
 
 }

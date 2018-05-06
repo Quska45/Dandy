@@ -317,43 +317,47 @@ $(document).ready(function(){
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a href="#">0</a>
-				<a href="#">A</a>
-				<a href="#">B</a>
-				<a href="#">C</a>
-				<a href="#">D</a>
-				<a href="#">E</a>
-				<a href="#">F</a>
-				<a href="#">G</a>
-				<a href="#">H</a>
-				<a href="#">I</a>
-				<a href="#">J</a>
-				<a href="#">K</a>
-				<a href="#">L</a>
-				<a href="#">M</a>
-				<a href="#">N</a>
-				<a href="#">O</a>
-				<a href="#">P</a>
-				<a href="#">Q</a>
-				<a href="#">R</a>
-				<a href="#">S</a>
-				<a href="#">T</a>
-				<a href="#">U</a>
-				<a href="#">V</a>
-				<a href="#">W</a>
-				<a href="#">X</a>
-				<a href="#">Y</a>
-				<a href="#">Z</a>
+				<a href="movieIndexList.dandy?index=0">0</a>
+				<a href="movieIndexList.dandy?index=a">A</a>
+				<a href="movieIndexList.dandy?index=b">B</a>
+				<a href="movieIndexList.dandy?index=c">C</a>
+				<a href="movieIndexList.dandy?index=d">D</a>
+				<a href="movieIndexList.dandy?index=e">E</a>
+				<a href="movieIndexList.dandy?index=f">F</a>
+				<a href="movieIndexList.dandy?index=g">G</a>
+				<a href="movieIndexList.dandy?index=h">H</a>
+				<a href="movieIndexList.dandy?index=i">I</a>
+				<a href="movieIndexList.dandy?index=j">J</a>
+				<a href="movieIndexList.dandy?index=k">K</a>
+				<a href="movieIndexList.dandy?index=l">L</a>
+				<a href="movieIndexList.dandy?index=m">M</a>
+				<a href="movieIndexList.dandy?index=n">N</a>
+				<a href="movieIndexList.dandy?index=o">O</a>
+				<a href="movieIndexList.dandy?index=p">P</a>
+				<a href="movieIndexList.dandy?index=q">Q</a>
+				<a href="movieIndexList.dandy?index=r">R</a>
+				<a href="movieIndexList.dandy?index=s">S</a>
+				<a href="movieIndexList.dandy?index=t">T</a>
+				<a href="movieIndexList.dandy?index=u">U</a>
+				<a href="movieIndexList.dandy?index=v">V</a>
+				<a href="movieIndexList.dandy?index=w">W</a>
+				<a href="movieIndexList.dandy?index=x">X</a>
+				<a href="movieIndexList.dandy?index=y">Y</a>
+				<a href="movieIndexList.dandy?index=z">Z</a>
 			</div>
 	<!-- 영화 포스터 -->
 			<div id="poster">
 				<c:forEach items="${movieList}" var="ml">
 					<div class="poster_frame">
 						<div id="movieposter">
-							<c:if test="${empty ml.img}">
-								<img src="image/aven.jpg">
-							</c:if>
-								<img src="${ml.img}">
+							<c:choose>
+								<c:when test="${empty ml.img}">
+									<img src="image/img_ready.jpg">
+								</c:when>
+								<c:otherwise>
+									<img src="${ml.img}">
+								</c:otherwise>
+							</c:choose>	
 						</div>
 						<a href="#modalLayer" class="modalLink">${ml.title}</a>
 					</div>
