@@ -14,6 +14,8 @@ import com.dandy.action.ActionForward;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardInsertsaveAction;
 import com.dandy.action.IndexAction;
+import com.dandy.action.MemberCheckAjaxAction;
+import com.dandy.action.MemberRegisterAction;
 import com.dandy.action.QuestionBoardDetailAction;
 
 /**
