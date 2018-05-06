@@ -470,7 +470,6 @@
 </head>
 <body>
 <div id="board">
-	<input type="hidden">
 	<div id="table">
 		<div id="subject">
 			<span>Q & A</span>
