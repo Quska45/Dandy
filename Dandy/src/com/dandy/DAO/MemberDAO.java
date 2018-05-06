@@ -1,8 +1,14 @@
 package com.dandy.DAO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dandy.DTO.MemberDTO;
 import com.dandy.mybatis.SqlMapConfig;
 
 
@@ -34,5 +40,58 @@ public class MemberDAO {
 			sqlSession.close();
 		}
 	}
+	
+	Connection conn = null;
+	ResultSet rs = null;
+	PreparedStatement pstmt = null;
+	int result, flag;
+	
+	
+	public int memIdCheck(String memberid) {
+		sqlSession = sqlSessionFactory.openSession();
+		List<MemberDTO> list = null;
+
+		try {
+
+			list = sqlSession.selectList("memIdCheck", memberid);
+
+			if (list.size() > 0) {
+				System.out.println("중복된 아이디 입니다.");
+				flag = 0;
+			} else {
+				System.out.println("사용 가능한 아이디 입니다.");
+				flag = 1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+
+		return flag;
+	}
+	
+	
+	public int registerMember(MemberDTO mDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+
+		try {
+
+			result = sqlSession.insert("registerMember", mDto);
+			sqlSession.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+
+		return result;
+	}
+	
+	
+	
 	
 }
