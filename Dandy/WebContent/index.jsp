@@ -848,7 +848,6 @@
 					<a href="#" class="mainContentClose1">&times;</a>
 					<!-- 메인콘텐트 입니다. -->
 					<div id="movieList"></div>
-					<%-- <%@ include file="dandy_contents_movie.jsp" %> --%>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
 			
