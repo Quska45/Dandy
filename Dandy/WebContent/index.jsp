@@ -979,7 +979,7 @@
 						</div>
 						
 						<div id="login_help">
-							<a href="#">회원가입</a>
+							<a href="memberConstract.dandy">회원가입</a>
 							<div class="right">
 								<a href="#">
 									계정 찾기

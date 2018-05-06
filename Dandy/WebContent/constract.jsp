@@ -382,7 +382,7 @@
 
 
 	<div id="container">
-		<form id="join_content" action="">
+		<form id="join_content" action="memberInsert.dandy">
 			<div id="terms">
 				<p class="terms_p">
 					<span class="terms_span">
