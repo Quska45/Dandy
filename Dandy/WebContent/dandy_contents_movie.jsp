@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -342,44 +347,33 @@ $(document).ready(function(){
 			</div>
 	<!-- 영화 포스터 -->
 			<div id="poster">
-				<div class="poster_frame">
-					<div id="movieposter">
-							<img src="image/aven.jpg">
+				<c:forEach items="${movieList}" var="ml">
+					<div class="poster_frame">
+						<div id="movieposter">
+							<c:if test="${empty ml.img}">
+								<img src="image/aven.jpg">
+							</c:if>
+								<img src="${ml.img}">
+						</div>
+						<a href="#modalLayer" class="modalLink">${ml.title}</a>
 					</div>
-					<a href="#modalLayer" class="modalLink">Avengers: Infinity War, 2018</a>
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
+				</c:forEach>
 			</div>
 	<!-- 숫자 페이지 -->
 			<div id="num_page">
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<a href="#">5</a>
+			
+				<c:if test="${pageMaker.prev}">
+					<a href="movieList.dandy?page=${pageMaker.startPage-1}" class="active_page">◀</a>
+				</c:if>
+			
+				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					
+						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="movieList.dandy?page=${idx}" class="active_page">${idx}</a>
+					
+				</c:forEach>
+				<c:if test="${pageMaker.next}">
+					<a href="movieList.dandy?page=${pageMaker.endPage+1}" class="active_page">▶</a>
+				</c:if>
 			</div>
 			
 		</div>

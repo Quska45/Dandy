@@ -68,6 +68,44 @@
 		VALUES(#{mid}, #{mpw}, #{mname}, #{msex}, #{mbirth}, #{memail}, #{mphone})
 	</insert>
 	
+	<select id="movieListCriteria" resultType="movieDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT * 
+					FROM movieindex 
+					WHERE mno > 0
+					ORDER BY mno
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+	
+	<select id="movieCountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(mno)
+			FROM movieindex]]>
+			<if test='flag == "a"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'a']]>
+			</if>
+			<if test='flag == "b"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'b']]>
+			</if>
+			<if test='flag == "c"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'c']]>
+			</if>
+			<if test='flag == "d"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'd']]>
+			</if>
+			
+		
+	</select>
+	
+	
 </mapper>
 
 

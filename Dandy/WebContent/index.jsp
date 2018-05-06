@@ -532,6 +532,19 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+	
+	function movie_list() {
+		$.ajax({
+			type : "post",
+			url : "movieList.bizpoll",
+			success : function(result) {
+				$("#movieList").html(result);
+			}
+		});
+		
+	}
+
+
 	$(document).ready(function(){
 		
 		/* 햄버거 버튼을 클릭하면 div가 뜸 시작 */
@@ -833,7 +846,8 @@
 				<div id="content1">
 					<a href="#" class="mainContentClose1">&times;</a>
 					<!-- 메인콘텐트 입니다. -->
-					<%@ include file="dandy_contents_movie.jsp" %>
+					<div id="movieList"></div>
+					<%-- <%@ include file="dandy_contents_movie.jsp" %> --%>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
 			
@@ -854,7 +868,7 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton1"></a>
+					<a href="movieList.dandy" class="openButton1"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">
