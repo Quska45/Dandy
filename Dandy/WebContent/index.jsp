@@ -548,10 +548,11 @@
 	
 	$(document).on("click", ".active_page", function() {
 		var page = $(this).attr("page_num");
+		var index = $("#index_number").val();
 			$.ajax({
 				url : "movieList.dandy",
 				type : "POST",
-				data : "page=" + page,
+				data : "page=" + page + "&index=" + index,
 				success : function(result) {
 					$("#movieList").html(result);
 				},

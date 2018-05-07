@@ -87,16 +87,6 @@ public class MovieDAO {
 		try {
 			list = sqlSession.selectList("movieIndexListCriteria", movieCriDto);
 			
-			/*for (BoardDTO boardDTO : list) {
-				System.out.print(boardDTO.getBno() + ",");
-				System.out.print(boardDTO.getTitle() + ",");
-				System.out.print(boardDTO.getContent() + ",");
-				System.out.print(boardDTO.getWriter() + ",");
-				System.out.print(boardDTO.getRegdate() + ",");
-				System.out.print(boardDTO.getViewcnt() + ",");
-				System.out.print(boardDTO.getRecommand() + ",");
-				System.out.println();
-			}*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();

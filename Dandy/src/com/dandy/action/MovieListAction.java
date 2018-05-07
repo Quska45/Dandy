@@ -23,7 +23,8 @@ public class MovieListAction implements Action {
 			throws ServletException, IOException {
 
 		String url = "dandy_contents_movie.jsp";
-		
+		String index = request.getParameter("index");
+		System.out.println(index);
 		
 		MovieCriteriaDTO CriDto = new MovieCriteriaDTO();
 		int page = 1;
@@ -32,7 +33,7 @@ public class MovieListAction implements Action {
 		}
 		System.out.println("페이지 번호 : " + page);
 		CriDto.setPage(page);
-		
+		CriDto.setIndex(index);
 		
 		
 		MovieDAO mDao = MovieDAO.getInstance();

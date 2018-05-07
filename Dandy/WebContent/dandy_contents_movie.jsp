@@ -354,7 +354,7 @@
 				<a href="#" class="active_index" index_num="N">N</a>
 				<a href="#" class="active_index" index_num="O">O</a>
 				<a href="#" class="active_index" index_num="P">P</a>
-				<a href="#" class="active_index" index_num="W">Q</a>
+				<a href="#" class="active_index" index_num="Q">Q</a>
 				<a href="#" class="active_index" index_num="R">R</a>
 				<a href="#" class="active_index" index_num="S">S</a>
 				<a href="#" class="active_index" index_num="T">T</a>
@@ -368,7 +368,8 @@
 	<!-- 영화 포스터 -->
 			<div id="poster">
 				<c:forEach items="${movieList}" var="ml">
-					<div class="poster_frame">
+					<input type="hidden" id="index_number" value="${ml.indexchar}">
+						<div class="poster_frame">
 						<div id="movieposter">
 							<c:choose>
 								<c:when test="${empty ml.img}">
@@ -392,7 +393,7 @@
 			
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 					
-						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="active_page" page_num="${idx}"">${idx}</a>
+						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="active_page" page_num="${idx}">${idx}</a>
 					
 				</c:forEach>
 				<c:if test="${pageMaker.next}">
