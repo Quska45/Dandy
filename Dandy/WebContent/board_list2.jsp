@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>QnA</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* font-family: 'Nanum Gothic', serif; */
@@ -278,7 +279,7 @@
 					<span>
 					
 					<!-- view 단 이어놓기 위해 임의로 jsp끼리 연결 -->
-						<a href="board_write.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
+						<a href="board_question_write.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
 						
 						
 					</span>
@@ -346,12 +347,17 @@
 											<tr>
 												<td>
 													<a href="questionBoardDetail.dandy?bno=${bDto.bno}">
+														
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
 															</c:forEach>
 															${bDto.title}&nbsp;&nbsp;&nbsp;
-															</span>
+															<c:if test="${bDto.flag == 1}">
+																<i class="fa fa-expeditedssl"></i>
+															</c:if>
+														</span>
+															
 														<c:if test="${bDto.replycnt!='0'}">
 															<span id="recount">(${bDto.replycnt})</span>
 														</c:if>

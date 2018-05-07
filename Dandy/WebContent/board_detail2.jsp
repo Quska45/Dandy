@@ -395,7 +395,7 @@
 		// 댓글 번호
 		var re_bno = $("#re_bno").val();
 		$.ajax({
-			url: "reply.bizpoll",
+			url: "questionReply.dandy",
 			type: "POST",
 			dataType: "json",
 			data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
