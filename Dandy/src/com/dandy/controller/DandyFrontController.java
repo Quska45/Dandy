@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
+import com.dandy.action.FreeBoardDetailAction;
+import com.dandy.action.FreeBoardInsertSaveAction;
+import com.dandy.action.FreeBoardListAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
@@ -112,7 +115,18 @@ public class DandyFrontController extends HttpServlet {
 			action = new QuestionCommentListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
-		
+		else if (command.equals("/freeBoardList.dandy")) {
+			action = new FreeBoardListAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeBoardDetail.dandy")) {
+			action = new FreeBoardDetailAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeBoardInsertSave.dandy")) {
+			action = new FreeBoardInsertSaveAction(); 
+			forward = action.excute(request, response); 
+		}
 		
 		
 		
