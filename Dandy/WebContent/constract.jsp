@@ -325,20 +325,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		/* $("#cbox").click(function(){
-		var checked = $("#cbox").is(":checked");
-			if(checked == true){
-				$("#li1box").prop("checked", true);
-				$("#li2box").prop("checked", true);
-				$("#li3box").prop("checked", true);
-				$("#li4box").prop("checked", true);
-			} else if(checked == false) {
-				$("#li1box").prop("checked", false);
-				$("#li2box").prop("checked", false);
-				$("#li3box").prop("checked", false);
-				$("#li4box").prop("checked", false);
-			}
-		}); */
 		$("#cbox").click(function(){
 		var checked = $("#cbox").is(":checked");
 			if(checked == true){
@@ -349,51 +335,6 @@
 		});
 		
 		
-		/* $("#li1box").click(function(){
-			var li1 = $("#li1box").is(":checked");
-			var li2 = $("#li2box").is(":checked");
-			var li3 = $("#li3box").is(":checked");
-			var li4 = $("#li4box").is(":checked");
-			if(li1 == false) {
-				$("#cbox").prop("checked", false);
-			} else if(li1 == true && li2 == true && li3 == true && li4 == true) {
-				$("#cbox").prop("checked", true);
-			}
-		});
-		$("#li2box").click(function(){
-			var li1 = $("#li1box").is(":checked");
-			var li2 = $("#li2box").is(":checked");
-			var li3 = $("#li3box").is(":checked");
-			var li4 = $("#li4box").is(":checked");
-			if(li2 == false) {
-				$("#cbox").prop("checked", false);
-			} else if(li1 == true && li2 == true && li3 == true && li4 == true) {
-				$("#cbox").prop("checked", true);
-			}
-		});
-		$("#li3box").click(function(){
-			var li1 = $("#li1box").is(":checked");
-			var li2 = $("#li2box").is(":checked");
-			var li3 = $("#li3box").is(":checked");
-			var li4 = $("#li4box").is(":checked");
-			if(li3 == false) {
-				$("#cbox").prop("checked", false);
-			} else if(li1 == true && li2 == true && li3 == true && li4 == true) {
-				$("#cbox").prop("checked", true);
-			}
-		});
-		$("#li4box").click(function(){
-			var li1 = $("#li1box").is(":checked");
-			var li2 = $("#li2box").is(":checked");
-			var li3 = $("#li3box").is(":checked");
-			var li4 = $("#li4box").is(":checked");
-			if(li4 == false) {
-				$("#cbox").prop("checked", false);
-			} else if(li1 == true && li2 == true && li3 == true && li4 == true) {
-				$("#cbox").prop("checked", true);
-			}
-		}); */
-		
 		/* 하나라도 체크 해제되면 전체동의도 해제되게 만들기 */
 		$(".ckbox").on("click", function(){
 			var ckChecked = $(".ckbox:checkbox:checked").length;
@@ -403,7 +344,6 @@
 				$("#cbox").prop("checked", false);
 			}
 		});
-		
 		
 		
 		/* 동의 눌렀을 때 유효성 체크 */
@@ -442,7 +382,7 @@
 
 
 	<div id="container">
-		<form id="join_content" action="">
+		<form id="join_content" action="memberInsert.dandy">
 			<div id="terms">
 				<p class="terms_p">
 					<span class="terms_span">
@@ -460,7 +400,7 @@
 						<span class="ul_li_span">
 							<input type="checkbox" id="li1box" class="ckbox">
 							<label for="li1box" class="label1">
-								여행에 미치다 이용약관 동의<span class="span_only">(필수)</span>
+								단디 이용약관 동의<span class="span_only">(필수)</span>
 							</label>
 						</span>
 						<div class="terms_box">
@@ -468,7 +408,7 @@
 								<h3 class="article_title">제 1 조 (목적)</h3>
 								<p>제 1 조 (목적)
 								이 약관은 단디 주식회사 ("회사" 또는 "단디")가 제공하는 단디<br> 
-								및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리,<br> 
+								및 단디 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리,<br> 
 								의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
 								</p>
 
@@ -539,7 +479,7 @@
 				</ul>
 				
 				<span id="warning">
-					 네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.
+					 단디 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.
 				</span>
 				
 			</div>

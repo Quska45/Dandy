@@ -11,8 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
-import com.dandy.action.BoardQuestionInsertsaveAction;
+import com.dandy.action.QuestionBoardListAction;
+import com.dandy.action.QuestionCommentListAction;
+import com.dandy.action.QuestionReplyAction;
+import com.dandy.action.QuestionBoardInsertsaveAction;
 import com.dandy.action.IndexAction;
+import com.dandy.action.MemberCheckAjaxAction;
+import com.dandy.action.MemberConstractAction;
+import com.dandy.action.MemberInsertAction;
+import com.dandy.action.MemberRegisterAction;
+import com.dandy.action.MovieIndexListAction;
+import com.dandy.action.MovieListAction;
+import com.dandy.action.QuestionBoardDetailAction;
 
 /**
  * Servlet implementation class DandyFrontController
@@ -59,9 +69,50 @@ public class DandyFrontController extends HttpServlet {
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		else if (command.equals("/boardQuestionInsertsave.dandy")) {
-			action = new BoardQuestionInsertsaveAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			action = new QuestionBoardInsertsaveAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
+		else if (command.equals("/questionBoardList.dandy")) {
+			action = new QuestionBoardListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/questionBoardDetail.dandy")) {
+			action = new QuestionBoardDetailAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/questionReply.dandy")) {
+			action = new QuestionReplyAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/memberCheckAjax.dandy")) {
+			action = new MemberCheckAjaxAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/memberRegister.dandy")) {
+			action = new MemberRegisterAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/memberConstract.dandy")) {
+			action = new MemberConstractAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/memberInsert.dandy")) {
+			action = new MemberInsertAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/movieList.dandy")) {
+			action = new MovieListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/movieIndexList.dandy")) {
+			action = new MovieIndexListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/questionCommentList.dandy")) {
+			action = new QuestionCommentListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		
 		
 		
 		

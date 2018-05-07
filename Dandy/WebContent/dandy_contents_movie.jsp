@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -275,7 +280,7 @@
 
 
 /* 단어장 상세페이지 모달창 */
-$(document).ready(function(){
+	$(document).ready(function(){
 	  var modalLayer = $("#modalLayer");
 	  var modalLink = $(".modalLink");
 	  var modalCont = $(".modalContent");
@@ -295,6 +300,26 @@ $(document).ready(function(){
 	    modalLink.focus();
 	  });        
 	});
+	
+	
+	/* $(document).on("click", ".active_page", function() {
+		var page = $(this).attr("page_num");
+			$.ajax({
+				url : "movieListAjax.dandy",
+				type : "POST",
+				dataType : "JSON",
+				data : "page=" + page,
+				success : function(data) {
+					alert("aaaaaaa");
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+
+	}); */
 
 
 
@@ -312,74 +337,67 @@ $(document).ready(function(){
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a href="#">0</a>
-				<a href="#">A</a>
-				<a href="#">B</a>
-				<a href="#">C</a>
-				<a href="#">D</a>
-				<a href="#">E</a>
-				<a href="#">F</a>
-				<a href="#">G</a>
-				<a href="#">H</a>
-				<a href="#">I</a>
-				<a href="#">J</a>
-				<a href="#">K</a>
-				<a href="#">L</a>
-				<a href="#">M</a>
-				<a href="#">N</a>
-				<a href="#">O</a>
-				<a href="#">P</a>
-				<a href="#">Q</a>
-				<a href="#">R</a>
-				<a href="#">S</a>
-				<a href="#">T</a>
-				<a href="#">U</a>
-				<a href="#">V</a>
-				<a href="#">W</a>
-				<a href="#">X</a>
-				<a href="#">Y</a>
-				<a href="#">Z</a>
+				<a href="#" class="active_index" index_num="0">0</a>
+				<a href="#" class="active_index" index_num="A">A</a>
+				<a href="#" class="active_index" index_num="B">B</a>
+				<a href="#" class="active_index" index_num="C">C</a>
+				<a href="#" class="active_index" index_num="D">D</a>
+				<a href="#" class="active_index" index_num="E">E</a>
+				<a href="#" class="active_index" index_num="F">F</a>
+				<a href="#" class="active_index" index_num="G">G</a>
+				<a href="#" class="active_index" index_num="H">H</a>
+				<a href="#" class="active_index" index_num="I">I</a>
+				<a href="#" class="active_index" index_num="J">J</a>
+				<a href="#" class="active_index" index_num="K">K</a>
+				<a href="#" class="active_index" index_num="L">L</a>
+				<a href="#" class="active_index" index_num="M">M</a>
+				<a href="#" class="active_index" index_num="N">N</a>
+				<a href="#" class="active_index" index_num="O">O</a>
+				<a href="#" class="active_index" index_num="P">P</a>
+				<a href="#" class="active_index" index_num="W">Q</a>
+				<a href="#" class="active_index" index_num="R">R</a>
+				<a href="#" class="active_index" index_num="S">S</a>
+				<a href="#" class="active_index" index_num="T">T</a>
+				<a href="#" class="active_index" index_num="U">U</a>
+				<a href="#" class="active_index" index_num="V">V</a>
+				<a href="#" class="active_index" index_num="W">W</a>
+				<a href="#" class="active_index" index_num="X">X</a>
+				<a href="#" class="active_index" index_num="Y">Y</a>
+				<a href="#" class="active_index" index_num="Z">Z</a>
 			</div>
 	<!-- 영화 포스터 -->
 			<div id="poster">
-				<div class="poster_frame">
-					<div id="movieposter">
-							<img src="image/aven.jpg">
+				<c:forEach items="${movieList}" var="ml">
+					<div class="poster_frame">
+						<div id="movieposter">
+							<c:choose>
+								<c:when test="${empty ml.img}">
+									<img src="image/img_ready.jpg">
+								</c:when>
+								<c:otherwise>
+									<img src="${ml.img}">
+								</c:otherwise>
+							</c:choose>	
+						</div>
+						<a href="#modalLayer" class="modalLink">${ml.title}</a>
 					</div>
-					<a href="#modalLayer" class="modalLink">Avengers: Infinity War, 2018</a>
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
-				<div class="poster_frame">
-				
-				</div>
+				</c:forEach>
 			</div>
 	<!-- 숫자 페이지 -->
 			<div id="num_page">
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<a href="#">5</a>
+			
+				<c:if test="${pageMaker.prev}">
+					<a href="#" class="active_page" page_num="${pageMaker.startPage-1}">◀</a>
+				</c:if>
+			
+				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					
+						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="active_page" page_num="${idx}"">${idx}</a>
+					
+				</c:forEach>
+				<c:if test="${pageMaker.next}">
+					<a href="#" class="active_page" page_num="${pageMaker.endPage+1}">▶</a>
+				</c:if>
 			</div>
 			
 		</div>

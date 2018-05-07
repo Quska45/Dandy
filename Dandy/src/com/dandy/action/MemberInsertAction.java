@@ -6,18 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dandy.DAO.MemberDAO;
-import com.dandy.DAO.QuestionBoardDAO;
-
-public class IndexAction implements Action {
+public class MemberInsertAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String url = "index.jsp";
-		
-		
+		String url = "member.jsp";
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

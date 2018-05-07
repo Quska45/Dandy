@@ -27,6 +27,7 @@
 		width: 100%;
 		max-width: 100%;
 		overflow: hidden;
+		color: black;
 	}
 	/* body 전체를  감싸는 div wrapper끝*/
 	
@@ -531,6 +532,56 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+	
+	function movie_list() {
+		//alert("onclick");
+		$.ajax({
+			type : "post",
+			url : "movieList.dandy",
+			success : function(result) {
+				$("#movieList").html(result);
+			}
+		});
+		
+	}
+
+	
+	$(document).on("click", ".active_page", function() {
+		var page = $(this).attr("page_num");
+			$.ajax({
+				url : "movieList.dandy",
+				type : "POST",
+				data : "page=" + page,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+	});
+	
+	
+	$(document).on("click", ".active_index", function() {
+		var index = $(this).attr("index_num");
+			$.ajax({
+				url : "movieIndexList.dandy",
+				type : "POST",
+				data : "index=" + index,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+	});
+	
+
 	$(document).ready(function(){
 		
 		/* 햄버거 버튼을 클릭하면 div가 뜸 시작 */
@@ -832,7 +883,7 @@
 				<div id="content1">
 					<a href="#" class="mainContentClose1">&times;</a>
 					<!-- 메인콘텐트 입니다. -->
-					<%@ include file="dandy_contents_movie.jsp" %>
+					<div id="movieList"></div>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
 			
@@ -853,7 +904,7 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton1"></a>
+					<a href="#" class="openButton1" onclick="movie_list();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">
@@ -901,7 +952,7 @@
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton3"></a>
+					<a href="questionBoardList.dandy" class="openButton3"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
@@ -978,7 +1029,7 @@
 						</div>
 						
 						<div id="login_help">
-							<a href="#">회원가입</a>
+							<a href="memberConstract.dandy">회원가입</a>
 							<div class="right">
 								<a href="#">
 									계정 찾기
