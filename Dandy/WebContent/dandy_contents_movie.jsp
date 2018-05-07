@@ -280,7 +280,7 @@
 
 
 /* 단어장 상세페이지 모달창 */
-$(document).ready(function(){
+	$(document).ready(function(){
 	  var modalLayer = $("#modalLayer");
 	  var modalLink = $(".modalLink");
 	  var modalCont = $(".modalContent");
@@ -300,6 +300,26 @@ $(document).ready(function(){
 	    modalLink.focus();
 	  });        
 	});
+	
+	
+	/* $(document).on("click", ".active_page", function() {
+		var page = $(this).attr("page_num");
+			$.ajax({
+				url : "movieListAjax.dandy",
+				type : "POST",
+				dataType : "JSON",
+				data : "page=" + page,
+				success : function(data) {
+					alert("aaaaaaa");
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+
+	}); */
 
 
 
@@ -317,33 +337,33 @@ $(document).ready(function(){
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a href="movieIndexList.dandy?index=0">0</a>
-				<a href="movieIndexList.dandy?index=a">A</a>
-				<a href="movieIndexList.dandy?index=b">B</a>
-				<a href="movieIndexList.dandy?index=c">C</a>
-				<a href="movieIndexList.dandy?index=d">D</a>
-				<a href="movieIndexList.dandy?index=e">E</a>
-				<a href="movieIndexList.dandy?index=f">F</a>
-				<a href="movieIndexList.dandy?index=g">G</a>
-				<a href="movieIndexList.dandy?index=h">H</a>
-				<a href="movieIndexList.dandy?index=i">I</a>
-				<a href="movieIndexList.dandy?index=j">J</a>
-				<a href="movieIndexList.dandy?index=k">K</a>
-				<a href="movieIndexList.dandy?index=l">L</a>
-				<a href="movieIndexList.dandy?index=m">M</a>
-				<a href="movieIndexList.dandy?index=n">N</a>
-				<a href="movieIndexList.dandy?index=o">O</a>
-				<a href="movieIndexList.dandy?index=p">P</a>
-				<a href="movieIndexList.dandy?index=q">Q</a>
-				<a href="movieIndexList.dandy?index=r">R</a>
-				<a href="movieIndexList.dandy?index=s">S</a>
-				<a href="movieIndexList.dandy?index=t">T</a>
-				<a href="movieIndexList.dandy?index=u">U</a>
-				<a href="movieIndexList.dandy?index=v">V</a>
-				<a href="movieIndexList.dandy?index=w">W</a>
-				<a href="movieIndexList.dandy?index=x">X</a>
-				<a href="movieIndexList.dandy?index=y">Y</a>
-				<a href="movieIndexList.dandy?index=z">Z</a>
+				<a href="#" class="active_index" index_num="0">0</a>
+				<a href="#" class="active_index" index_num="A">A</a>
+				<a href="#" class="active_index" index_num="B">B</a>
+				<a href="#" class="active_index" index_num="C">C</a>
+				<a href="#" class="active_index" index_num="D">D</a>
+				<a href="#" class="active_index" index_num="E">E</a>
+				<a href="#" class="active_index" index_num="F">F</a>
+				<a href="#" class="active_index" index_num="G">G</a>
+				<a href="#" class="active_index" index_num="H">H</a>
+				<a href="#" class="active_index" index_num="I">I</a>
+				<a href="#" class="active_index" index_num="J">J</a>
+				<a href="#" class="active_index" index_num="K">K</a>
+				<a href="#" class="active_index" index_num="L">L</a>
+				<a href="#" class="active_index" index_num="M">M</a>
+				<a href="#" class="active_index" index_num="N">N</a>
+				<a href="#" class="active_index" index_num="O">O</a>
+				<a href="#" class="active_index" index_num="P">P</a>
+				<a href="#" class="active_index" index_num="W">Q</a>
+				<a href="#" class="active_index" index_num="R">R</a>
+				<a href="#" class="active_index" index_num="S">S</a>
+				<a href="#" class="active_index" index_num="T">T</a>
+				<a href="#" class="active_index" index_num="U">U</a>
+				<a href="#" class="active_index" index_num="V">V</a>
+				<a href="#" class="active_index" index_num="W">W</a>
+				<a href="#" class="active_index" index_num="X">X</a>
+				<a href="#" class="active_index" index_num="Y">Y</a>
+				<a href="#" class="active_index" index_num="Z">Z</a>
 			</div>
 	<!-- 영화 포스터 -->
 			<div id="poster">
@@ -372,7 +392,7 @@ $(document).ready(function(){
 			
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 					
-						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="movieList.dandy?page=${idx}" class="active_page">${idx}</a>
+						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="active_page" page_num="${idx}"">${idx}</a>
 					
 				</c:forEach>
 				<c:if test="${pageMaker.next}">

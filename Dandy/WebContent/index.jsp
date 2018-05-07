@@ -545,6 +545,42 @@
 		
 	}
 
+	
+	$(document).on("click", ".active_page", function() {
+		var page = $(this).attr("page_num");
+			$.ajax({
+				url : "movieList.dandy",
+				type : "POST",
+				data : "page=" + page,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+	});
+	
+	
+	$(document).on("click", ".active_index", function() {
+		var index = $(this).attr("index_num");
+			$.ajax({
+				url : "movieIndexList.dandy",
+				type : "POST",
+				data : "index=" + index,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+
+	});
+	
 
 	$(document).ready(function(){
 		
