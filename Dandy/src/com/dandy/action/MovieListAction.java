@@ -50,11 +50,6 @@ public class MovieListAction implements Action {
 		request.setAttribute("pageMaker", moviePageMaker);
 		
 		
-		//오늘 날짜를 보내준다.
-		Date today = new Date();
-		
-		request.setAttribute("today", today);
-		
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
