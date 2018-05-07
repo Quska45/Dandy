@@ -58,6 +58,12 @@
 		WHERE bno = #{bno}
 	</select>
 	
+	<select id="questionReplyList" resultType="rDTO">
+		SELECT *
+		FROM question_reply
+		WHERE bno = #{bno}
+	</select>
+	
 	<select id="memIdCheck" resultType="memDTO" parameterType="String">
 	  	SELECT mid FROM dandy_member 
 	  	WHERE mid = #{mid}
@@ -268,8 +274,6 @@
 			<if test='index == "0"'>
 				<![CDATA[WHERE mno > 0 AND indexchar = '0']]>
 			</if>
-			
-		
 	</select>
 	
 	

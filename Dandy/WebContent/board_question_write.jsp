@@ -192,9 +192,11 @@ $(document).on("click", "#secret_span_flag", function(){
 	if(flag==1){
 		//공개글로 작성하려는 것
 		flag = $("#secret_input_flag").val("0");
+		$("#secret_span_flag").css({"background":"url(image/checked1.png)", 'background-repeat' : 'no-repeat', 'background-position':'left center'}); 
 	} else {
 		//비밀글로 작성하려는 것
 		flag = $("#secret_input_flag").val("1");
+		$("#secret_span_flag").css({"background":"url(image/checked.png)", 'background-repeat' : 'no-repeat', 'background-position':'left center'}); 
 	}
 });
 
@@ -271,7 +273,7 @@ $(document).on("click", "#secret_span_flag", function(){
 						<span>&nbsp;</span>
 					</td>
 					<td id="secret_td">
-						<span id="secret_span_flag">
+						<span id="secret_span_flag" style="background: url('image/checked1.png') 100% 50% no-repeat; background-position: 2px; padding-left: 20px; ">
 						<label for="secret_input_flag" id="secret_label_flag">비밀글 여부</label>
 						<input id="secret_input_flag" name="secret_input_flag" type="hidden">
 						</span>

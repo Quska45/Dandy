@@ -330,6 +330,19 @@
 			del_link.focus();
 		  });        
 		});
+	
+	function comment_list() {
+		var bno = ${boardview.bno};
+		alert(bno);
+		$.ajax({
+			type: "post",
+			url: "questionCommentList.dandy",
+			data: "bno=" + bno,
+			success: function(result) {
+				$("#commentList").html(result);
+			}
+		});
+	}
 
 	$(document).ready(function() {
 		var formObj = $("#frm1");
@@ -425,17 +438,6 @@
 	 	 });
 	});
 		
-	function comment_list() {
-		var bno = ${boardview.bno};
-		$.ajax({
-			type: "post",
-			url: "commentlist.bizpoll",
-			data: "bno=" + bno,
-			success: function(result) {
-				$("#commentList").html(result);
-			}
-		});
-	}
 		 $(document).on("click", "#good_fafa", function(){
 			alert("좋아요 클릭!");
 			
