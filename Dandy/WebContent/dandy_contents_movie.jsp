@@ -387,7 +387,7 @@
 			<div id="num_page">
 			
 				<c:if test="${pageMaker.prev}">
-					<a href="movieList.dandy?page=${pageMaker.startPage-1}" class="active_page">◀</a>
+					<a href="#" class="active_page" page_num="${pageMaker.startPage-1}">◀</a>
 				</c:if>
 			
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
@@ -396,7 +396,7 @@
 					
 				</c:forEach>
 				<c:if test="${pageMaker.next}">
-					<a href="movieList.dandy?page=${pageMaker.endPage+1}" class="active_page">▶</a>
+					<a href="#" class="active_page" page_num="${pageMaker.endPage+1}">▶</a>
 				</c:if>
 			</div>
 			
