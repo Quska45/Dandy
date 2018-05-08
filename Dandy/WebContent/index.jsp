@@ -88,8 +88,8 @@
 		/* 단어장 등을 누르면 시작되는 컨텐츠를 띄워주는 페이지 시작 */
 		div#content1 {
 			position: absolute;
-			top:82px!important;
-			left: 2px;
+			top:81.4px!important;
+			left: 3.8px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
@@ -105,8 +105,8 @@
 		}
 		div#content2 {
 			position: absolute;
-			top:82px!important;
-			left: 125.6px;
+			top:81.4px!important;
+			left: 126.4px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
@@ -122,8 +122,8 @@
 		}
 		div#content3 {
 			position: absolute;
-			top:82px!important;
-			left: 250.7px;
+			top:81.4px!important;
+			left: 250.8px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
@@ -154,7 +154,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height:85.5%;
+			height:85.4%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -202,7 +202,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 85.5%;
+			height: 85.4%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -228,7 +228,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 85.5%;
+			height: 85.4%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -628,14 +628,14 @@
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","80px");
-			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
 			$(".con3").css("top","80px");
-			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			
@@ -651,21 +651,21 @@
 			$("#cBody").css("height","3354px");
 			$("#content2").css("height", "3153px");	
 			$("#content2").css("display", "block");	
-			$("#content2").css("width", "86.8%");	
+			$("#content2").css("width", "86.9%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
-			$(".con1").css("width", "6.5%");
-			$(".con1").css("right", "93.4%");
+			$(".con1").css("width", "6.7%");
+			$(".con1").css("right", "93.3%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
 			$(".con3").css("top","80px");
-			$(".con3").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 		}
@@ -680,21 +680,22 @@
 			$("#cBody").css("height","3354px");
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
-			$("#content3").css("width", "86.8%");	
+			$("#content3").css("width", "86.9%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
 			$(".con1").css("right", "93.4%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
+			$(".con1").css("top","81px");
+			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "86.8%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","81px");
-			$(".con2").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '92%'});
+			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 		}
@@ -714,7 +715,7 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"none"});
+			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -723,6 +724,7 @@
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
 			$(".con3").css({"background":"none"});
+			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			
@@ -741,7 +743,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"none"});
+			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -749,7 +751,7 @@
 			$(".con3").css("height", "100%");
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
-			$(".con3").css({"background":"none"});
+			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			
@@ -769,7 +771,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"none"});
+			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con2").css("width", "33.3%");
@@ -777,7 +779,7 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"none"});
+			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			
