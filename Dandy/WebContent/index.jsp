@@ -303,7 +303,7 @@
 		border: 1px solid #ddd;
 		text-align: left;
 		display: inline-block;
-		border-top: 4px solid #ABD0CE;
+		border-top: 4px solid #0daa62;
 		background-color: #fff;
 		/* background-color: #f5f6f7; */
 	}
@@ -371,8 +371,8 @@
 	
 	#btn_login {
 		display: inline-block;
-		background-color: #ABD0CE;
-		border: 1px solid #ABD0CE;
+		background-color: #0daa62;
+		border: 1px solid #0daa62;
 		width: 100%;
 		padding-top: 5px;
 		line-height: 38px;
@@ -382,6 +382,7 @@
 		cursor: pointer;
 		font-size: 20px;
 		margin-bottom: 15px;
+		color: white;
 	}
 	
 	#login_help {

@@ -175,9 +175,9 @@
 							<tbody>
 								<tr>
 									<td class="table_no"><span>No.</span></td>
-									<td class="table_word"><span>abc</span></td>
-									<td class="table_mean"><span>가나다</span></td>
-									<td class="table_fre"><span>10</span></td>
+									<td class="table_word"><span>단어</span></td>
+									<td class="table_mean"><span>뜻</span></td>
+									<td class="table_fre"><span>빈도</span></td>
 								</tr>
 							</tbody>
 						</table>
