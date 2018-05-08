@@ -180,9 +180,11 @@
 			<div id="poster">
 				<c:forEach items="${movieList}" var="ml">
 					<input type="hidden" id="index_number" value="${ml.indexchar}">
-					<input type="hidden" id="index_number" value="${ml.mno}">
+					<input type="hidden" id="mno" value="${ml.mno}">
+					<input type="hidden" id="img" value="${ml.img}">
+					<input type="hidden" id="title" value="${ml.title}">
 						<div class="poster_frame">
-						<a href="contents_detail.jsp" class="modalLink">
+						<a href="#" class="modalLink" data_mno="${ml.mno}" data_img="${ml.img}" data_title="${ml.title}">
 							<div id="movieposter">
 								<c:choose>
 									<c:when test="${empty ml.img}">

@@ -127,6 +127,16 @@
 		width: 100px;
 		height: 30px;
 	}
+	.list_search {
+		list-style: none;
+	}
+	.list_search li {
+		float: left;
+	}
+	
+	
+	
+	
 </style>
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -142,18 +152,18 @@
 				<div id="detail_modal_movie">
 				
 					<div id="detail_modal_poster">
-						<img src="image/aven.jpg">
+						<img src="${img}">
 					</div>
 					<div id="detail_modal_info">
 						<div id="detail_title">
-							<span>〈Avengers: Infinity War, 2018〉</span>
+							<span>${title}</span>
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
 								<span>단어:</span>
 							</div>
 							<div class="frequency" id="frequency_count">
-								<span>123</span>
+								<span>${size}</span>
 							</div>
 							<div class="frequency">
 								<span>개</span>
@@ -173,12 +183,14 @@
 						</table>
 						<table>
 							<tbody>
-								<tr>
-									<td class="table_no"><span>No.</span></td>
-									<td class="table_word"><span>abc</span></td>
-									<td class="table_mean"><span>가나다</span></td>
-									<td class="table_fre"><span>10</span></td>
-								</tr>
+								<c:forEach items="${movieEach}" var="each">
+									<tr>
+										<td class="table_no"><span>No.</span></td>
+										<td class="table_word"><span>${each.word}</span></td>
+										<td class="table_mean"><span>${each.meaning}</span></td>
+										<td class="table_fre"><span>${each.freq}</span></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

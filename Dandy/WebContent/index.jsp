@@ -687,6 +687,26 @@
 	});
 	
 	
+	$(document).on("click", ".modalLink", function() {
+		var mno = $(this).attr("data_mno");
+		var img = $(this).attr("data_img");
+		var title = $(this).attr("data_title");
+		$.ajax({
+			url : "contentsDetail.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&img=" + img + "&title=" + title,
+			success : function(result) {
+				$("#movieList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+
+	});
+	
+	
 
 	$(document).ready(function(){
 		

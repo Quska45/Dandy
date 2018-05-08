@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.dandy.DTO.CriteriaDTO;
 import com.dandy.DTO.MovieCriteriaDTO;
 import com.dandy.DTO.MovieDTO;
+import com.dandy.DTO.MovieEachDTO;
 import com.dandy.mybatis.SqlMapConfig;
 
 
@@ -58,16 +59,6 @@ public class MovieDAO {
 		try {
 			list = sqlSession.selectList("movieListCriteria", movieCriDto);
 
-			/*for (BoardDTO boardDTO : list) {
-				System.out.print(boardDTO.getBno() + ",");
-				System.out.print(boardDTO.getTitle() + ",");
-				System.out.print(boardDTO.getContent() + ",");
-				System.out.print(boardDTO.getWriter() + ",");
-				System.out.print(boardDTO.getRegdate() + ",");
-				System.out.print(boardDTO.getViewcnt() + ",");
-				System.out.print(boardDTO.getRecommand() + ",");
-				System.out.println();
-			}*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,6 +78,25 @@ public class MovieDAO {
 		try {
 			list = sqlSession.selectList("movieIndexListCriteria", movieCriDto);
 			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return list;
+	}
+	
+	
+	public List<MovieEachDTO> movieEach(MovieEachDTO mDto) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		List<MovieEachDTO> list = new ArrayList<>();
+		
+		try {
+			list = sqlSession.selectList("movieEach", mDto);
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
