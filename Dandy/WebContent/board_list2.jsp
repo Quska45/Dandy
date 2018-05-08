@@ -20,6 +20,10 @@
 		font-family: 'Hanna', serif;
 		line-height: 0 ;
 	}
+	a {
+		text-decoration: none;
+		color: none;
+	}
 	#table {
 		width: 1200px;
 		margin: 100px 360px;
@@ -211,19 +215,33 @@
 		margin: 50px auto;
 	}
 	.board_selbtn {
-		border: 1px solid #FFDF24;
 		width: 180px;
 		height: 40px;
 		margin: 8px 33px;
 		float: left;
-		background-color: white;
 		border-radius: 5px;
 		text-align: center;
 	}
-	.board_selbtn > span {
+	#qna_btn{
+		border: 1px solid white;
+		background-color: #FFDF24;
+	}
+	#qna_btn > a > span {
+		color: white;
+	}
+	#free_btn{
+		border: 1px solid #FFDF24;
+		background-color: white;
+	}
+	#free_btn > a > span {
+		color: #FFDF24
+	}
+	.board_selbtn > a > span {
 		line-height: 40px;
 		padding: 0 auto;
-		color: #FFDF24
+	}
+	.lineup {
+		color: white;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -249,12 +267,33 @@
 			var bnoform = $("#bnoform");
 			bnoform.submit();
 		
-});
+	});
 	
 	$(document).on("click","#qnasearch_btn",function(){
 		
 		$("#frm_search").submit();
 		
+	});
+	
+	// 게시판 정렬
+	var lineup_code = $("#lineup_code").val();
+	$(document).on("click", "#l_no", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_no";
+	});
+	$(document).on("click", "#l_contents", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_contents";
+	});
+	$(document).on("click", "#l_name", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_name";
+	});
+	$(document).on("click", "#l_date", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_date";
+	});
+	$(document).on("click", "#l_view", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_view";
+	});
+	$(document).on("click", "#l_good", function(){
+		location.href="qna.bizpoll?lineup_code=" + "l_good";
 	});
 </script>
 </head>
@@ -262,11 +301,11 @@
 <div id="board">
 	<div id="table">
 		<div id="board_sel">
-			<div class="board_selbtn">
-				<span>Q & A</span>
+			<div class="board_selbtn" id="qna_btn">
+				<a href="questionBoardList.dandy"><span>Q & A</span></a>
 			</div>
-			<div class="board_selbtn">
-				<span>자유게시판</span>
+			<div class="board_selbtn" id="free_btn">
+				<a href="freeBoardList.dandy"><span>자유게시판</span></a>
 			</div>
 		</div>
 		<!-- <div id="subject">
@@ -311,16 +350,40 @@
 				</tr>
 				<tr>
 					<td id="table_top">
+						<input type="hidden" name="lineup_code" value="">
 						<table>
 							<tbody>
 								<tr>
-									<td class="no"><span>NO</span></td>
-									<td class="point"><span>&nbsp;</span></td>
-									<td class="upload">&nbsp;</span></td>
-									<td class="contents" id="contents"><span>CONTENTS</span></td>
-									<td class="name" id="name"><span>NAME</span></td>
-									<td class="date" id="date"><span>DATE</span></td>
-									<td class="view" id="view"><span>&nbsp;</span></td>
+									<td class="no">
+										<a href="#" id="l_no" class="lineup">
+											<span>NO</span>
+										</a>
+									</td>
+									<td class="point"></td>
+									<td class="upload"></td>
+									<td class="contents" id="contents">
+										<a href="#"  id="l_contents"  class="lineup">
+											<span>CONTENTS</span>
+										</a>
+									</td>
+									<td class="name" id="name">
+										<a href="#"  id="l_name" class="lineup">
+											<span>NAME</span></a>
+										</td>
+									<td class="date" id="date">
+										<a href="#"  id="l_date" class="lineup">
+											<span>DATE</span>
+										</a>
+									</td>
+									<td class="view" id="view">
+										<a href="#"  id="l_view" class="lineup">
+											<span><i class="fa fa-eye"></i></span>
+										</a>
+										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										<a href="#" id="l_good"  class="lineup">
+											<span><i class="fa fa-heart"></i></span>
+										</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
