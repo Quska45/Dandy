@@ -16,7 +16,6 @@
 		<typeAlias type="com.dandy.DTO.QuestionBoardDTO" alias="qDTO"/>
 		<typeAlias type="com.dandy.DTO.ReplyDTO" alias="rDTO"/>
 		<typeAlias type="com.dandy.DTO.MovieDTO" alias="movieDTO"/>
-		<typeAlias type="com.dandy.DTO.BoardDTO" alias="bDTO"/>
 	</typeAliases>
 	
 

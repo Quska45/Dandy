@@ -6,18 +6,8 @@ public class CriteriaDTO {
 	private int perPageNum;	//한 페이지에 보여줄 게시글 수
 	private String keyword;
 	private String flag;
-	private String lineup_code;
 	
-	public String getLineup_code() {
-		return lineup_code;
-	}
-
-
-	public void setLineup_code(String lineup_code) {
-		this.lineup_code = lineup_code;
-	}
-
-
+	
 	public String getFlag() {
 		return flag;
 	}

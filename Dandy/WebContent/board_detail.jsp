@@ -9,7 +9,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
@@ -340,7 +339,7 @@
 		
 		// 목록버튼 클릭
 		$("#list_btn").on("click", function(){
-			location.href="freeBoardList.dandy";
+			location.href="qna.bizpoll";
 		});
 		// 수정버튼 클릭
 		$("#modify_btn").on("click", function(){

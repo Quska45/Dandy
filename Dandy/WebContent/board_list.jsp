@@ -9,8 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>QnA</title>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* font-family: 'Nanum Gothic', serif; */
@@ -211,33 +210,19 @@
 		margin: 50px auto;
 	}
 	.board_selbtn {
+		border: 1px solid #FFDF24;
 		width: 180px;
 		height: 40px;
 		margin: 8px 33px;
 		float: left;
+		background-color: white;
 		border-radius: 5px;
 		text-align: center;
 	}
-	#free_btn {
-		border: 1px solid white;
-		background-color: #FFDF24;
-	}
-	#free_btn > a > span {
-		color: white;
-	}
-	#qna_btn {
-		border: 1px solid #FFDF24;
-		background-color: white;
-	}
-	#qna_btn > a > span {
-		color: #FFDF24
-	}
-	.board_selbtn > a > span {
+	.board_selbtn > span {
 		line-height: 40px;
 		padding: 0 auto;
-	}
-	.lineup {
-		color: white;
+		color: #FFDF24
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -263,33 +248,12 @@
 			var bnoform = $("#bnoform");
 			bnoform.submit();
 		
-	});
+});
 	
 	$(document).on("click","#qnasearch_btn",function(){
 		
 		$("#frm_search").submit();
 		
-	});
-	
-	// 게시판 정렬
-	var lineup_code = $("#lineup_code").val();
-	$(document).on("click", "#l_no", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_no";
-	});
-	$(document).on("click", "#l_contents", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_contents";
-	});
-	$(document).on("click", "#l_name", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_name";
-	});
-	$(document).on("click", "#l_date", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_date";
-	});
-	$(document).on("click", "#l_view", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_view";
-	});
-	$(document).on("click", "#l_good", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_good";
 	});
 </script>
 </head>
@@ -297,11 +261,11 @@
 <div id="board">
 	<div id="table">
 		<div id="board_sel">
-			<div class="board_selbtn" id="qna_btn">
-				<a href="questionBoardList.dandy"><span>Q & A</span></a>
+			<div class="board_selbtn">
+				<span>Q & A</span>
 			</div>
-			<div class="board_selbtn" id="free_btn">
-				<a href="freeBoardList.dandy"><span>자유게시판</span></a>
+			<div class="board_selbtn">
+				<span>자유게시판</span>
 			</div>
 		</div>
 		<!-- <div id="subject">
@@ -313,7 +277,8 @@
 					<span width="100">&nbsp;</span>
 					<span>
 					
-						<a href="board_write_free.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
+					<!-- view 단 이어놓기 위해 임의로 jsp끼리 연결 -->
+						<a href="board_write.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
 						
 						
 					</span>
@@ -345,40 +310,16 @@
 				</tr>
 				<tr>
 					<td id="table_top">
-						<input type="hidden" name="lineup_code" value="">
 						<table>
 							<tbody>
 								<tr>
-									<td class="no">
-										<a href="#" id="l_no" class="lineup">
-											<span>NO</span>
-										</a>
-									</td>
-									<td class="point"></td>
-									<td class="upload"></td>
-									<td class="contents" id="contents">
-										<a href="#"  id="l_contents"  class="lineup">
-											<span>CONTENTS</span>
-										</a>
-									</td>
-									<td class="name" id="name">
-										<a href="#"  id="l_name" class="lineup">
-											<span>NAME</span></a>
-										</td>
-									<td class="date" id="date">
-										<a href="#"  id="l_date" class="lineup">
-											<span>DATE</span>
-										</a>
-									</td>
-									<td class="view" id="view">
-										<a href="#"  id="l_view" class="lineup">
-											<span><i class="fa fa-eye"></i></span>
-										</a>
-										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										<a href="#" id="l_good"  class="lineup">
-											<span><i class="fa fa-heart"></i></span>
-										</a>
-									</td>
+									<td class="no"><span>NO</span></td>
+									<td class="point"><span>&nbsp;</span></td>
+									<td class="upload">&nbsp;</span></td>
+									<td class="contents" id="contents"><span>CONTENTS</span></td>
+									<td class="name" id="name"><span>NAME</span></td>
+									<td class="date" id="date"><span>DATE</span></td>
+									<td class="view" id="view"><span>&nbsp;</span></td>
 								</tr>
 							</tbody>
 						</table>
@@ -411,7 +352,7 @@
 										<table>
 											<tr>
 												<td>
-													<a href="freeBoardDetail.dandy?bno=${bDto.bno}">
+													<a href="boarddetail.bizpoll?bno=${bDto.bno}">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
@@ -472,18 +413,18 @@
 						<tr>
 							<c:if test="${pageMaker.prev}">
 								<td>
-									<a href="freeBoardList.dandy?page=${pageMaker.startPage - 1}">◀</a>
+									<a href="qna.bizpoll?page=${pageMaker.startPage - 1}">◀</a>
 								</td>
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
 									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>></a>
-									<a href="freeBoardList.dandy?page=${idx}">${idx}</a>
+									<a href="qna.bizpoll?page=${idx}">${idx}</a>
 								</td>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">
 								<td>
-									<a href="freeBoardList.dandy?page=${pageMaker.endPage + 1}">▶</a>
+									<a href="qna.bizpoll?page=${pageMaker.endPage + 1}">▶</a>
 								</td>
 							</c:if>
 						</tr>

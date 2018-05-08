@@ -6,6 +6,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.48/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.48/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/lib/cos.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
