@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
 import com.dandy.action.BoardListAction;
+import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
@@ -131,6 +132,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/freeBoardInsertSave.dandy")) {
 			action = new FreeBoardInsertSaveAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/diypage.dandy")) {
+			action = new DiyPageAction(); 
 			forward = action.excute(request, response); 
 		}
 		

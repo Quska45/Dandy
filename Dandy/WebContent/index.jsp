@@ -589,6 +589,18 @@
 
 	});
 	
+	
+	function diy_page() {
+		$.ajax({
+			type : "post",
+			url : "diypage.dandy",
+			success : function(result) {
+				$("#diyPage").html(result);
+			}
+		});
+		
+	}
+	
 
 	$(document).ready(function(){
 		
@@ -910,11 +922,12 @@
 				<div id="content2">
 					<a href="#" class="mainContentClose2">&times;</a>
 					메인콘텐트 입니다.
+					<div id="diyPage"></div>
 				</div>
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton2"></a>
+					<a href="#" class="openButton2" onclick="diy_page();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background2">
