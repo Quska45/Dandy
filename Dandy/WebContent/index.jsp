@@ -43,7 +43,6 @@
 		text-align: center;
 		overflow: hidden;
 		background: #363636;
-    		border: 1px solid #C7C7C7;
     		z-index: 70;
 	}
 	div#header h1 {
@@ -77,7 +76,6 @@
 <<<<<<< HEAD
 		background: #363636;
 =======
-		border: 1px solid #C7C7C7;
 >>>>>>> branch 'master' of http://github.com/Quska45/Dandy.git
 	}
 	div.mainCon {
@@ -87,79 +85,11 @@
 		width: 100%;
 		height: 1000px;
 	}
-	
-		
-		/* nav메뉴 시작 */
-		div#nav {
-			position: absolute;
-			top: 81px;
-			left:0;
-			height: 1000px;
-			width: 80px;
-			overflow: hidden;
-			line-height: 815px;
-			border: 1px solid #C7C7C7;
-		}
-		a#navButton {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 20;
-		}
-		
-			/* nav를 누르면 나오는 div 시작*/
-			div#navWrap1 {
-				position: fixed;
-				top: 82px;
-				left: 80px;
-				/* width: 100%; */
-				width: 1800px;
-				height: 100%;
-				z-index: 45;
-				display: none;
-				background: #EEE9DD;
-			}
-			div#navWrap2 {
-				padding-top: 40px; 
-				position: absolute;
-				top: 100px;
-				left: 100px;
-				width: 80%;
-				height: 80%;
-				z-index: 50;
-				display: none;
-			}
-			a#navClose {
-				font-size: 70px;
-				position: absolute;
-				top: 0;
-				right: 20px;
-			}
-			div.navContent {
-				margin-top:70px;
-				font-size: 70px;
-				text-align: center;
-			}
-			a.navSpan {
-				width: 100%;
-  				  height: 100%;
-   				 display: block;
-   				 color : #00AE93;
-			}
-			a.navSpan:hover {
-				background-color: yellow;
-			}
-			/* nav를 누르면 나오는 div 끝*/
-		
-			
-		/* nav메뉴 끝 */
 		
 		/* 단어장 등을 누르면 시작되는 컨텐츠를 띄워주는 페이지 시작 */
 		div#content1 {
 			position: absolute;
-			top:0!important;
+			top:82px!important;
 			left: 2px;
 			z-index: 40;
 			display: none;
@@ -176,7 +106,7 @@
 		}
 		div#content2 {
 			position: absolute;
-			top:0!important;
+			top:82px!important;
 			left: 125.6px;
 			z-index: 40;
 			display: none;
@@ -193,7 +123,7 @@
 		}
 		div#content3 {
 			position: absolute;
-			top:0!important;
+			top:82px!important;
 			left: 250.7px;
 			z-index: 40;
 			display: none;
@@ -225,7 +155,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height:91.8%;
+			height:85.5%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -241,7 +171,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid #C7C7C7;
 		}
 		div.txtArea {
 			position: absolute;
@@ -271,7 +200,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 91.8%;
+			height: 85.5%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -284,7 +213,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid #C7C7C7;
 		}
 		
 		/* 딕테이션 끝 */
@@ -295,7 +223,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 91.8%;
+			height: 85.5%;
 			z-index: 30;
 			background-color: black;
 			transition: 0.7s;
@@ -316,7 +244,6 @@
 			width: 33.3%;
 			height: 100%;
 			overflow: hidden;
-			border: 1px solid #C7C7C7;
 		}
 		
 		/* 쉐도잉 끝 */
@@ -674,7 +601,7 @@
 			$("#cBody").css("height","3354px");
 			$("#content1").css("height", "3153px");	
 			$("#content1").css("display", "block");	
-			$("#content1").css("width", "82.6%");	
+			$("#content1").css("width", "86.8%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
@@ -704,10 +631,10 @@
 			$("#cBody").css("height","3354px");
 			$("#content2").css("height", "3153px");	
 			$("#content2").css("display", "block");	
-			$("#content2").css("width", "82.6%");	
+			$("#content2").css("width", "86.8%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
-			$(".con1").css("right", "89.2%");
+			$(".con1").css("right", "93.4%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
@@ -733,17 +660,17 @@
 			$("#cBody").css("height","3354px");
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
-			$("#content3").css("width", "82.6%");	
+			$("#content3").css("width", "86.8%");	
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
-			$(".con1").css("right", "89.2%");
+			$(".con1").css("right", "93.4%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
 			$(".con1").css({"background":"url(image/picture.png)" , 'background-repeat' : 'no-repeat', 'background-position': '4%'});
 			
 			$(".con2").css("width", "6.5%");
-			$(".con2").css("right", "82.6%");
+			$(".con2").css("right", "86.8%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","81px");
@@ -944,14 +871,7 @@
 		
 		<!-- 인덱스 메인 페이지전체를 감싸는 div 시작 -->
 		<div id="cBody" class="main pc" style="height: 1000px;">
-			<div id="nav">
-				<a href="#" id="navButton">
-				햄버거
-				</a>
-			</div>
-			
 			<!-- 메인콘텐츠 시작 -->
-			<div class="mainCon">
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
 					<a href="#" class="mainContentClose1">&times;</a>
@@ -959,20 +879,7 @@
 					<div id="movieList"></div>
 				</div>
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 끝 -->
-			
-			
-				<!-- nav를 클릭하면 뜨는 창 시작-->
-				<div id="navWrap1">
-					<div id="navWrap2">
-						<a href="#" id="navClose">&times;</a>
-						<div class="navContent"><a href="#" class="navSpan">단어장</a></div>
-						<div class="navContent"><a href="#" class="navSpan">딕테이션</a></div>
-						<div class="navContent"><a href="#" class="navSpan">쉐도잉</a></div>
-						<div class="navContent"><a href="#" class="navSpan">마이페이지</a></div>
-					</div>
-				</div>
-				<!-- nav를 클릭하면 뜨는 창 끝-->
-				
+
 				<!-- 단어장 페이지 시작 -->
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
@@ -1039,7 +946,7 @@
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
 				<!-- 쉐도잉 페이지 끝 -->
-			</div>
+			
 			<!-- 메인콘텐츠 끝 -->
 		</div>
 		
