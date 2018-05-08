@@ -12,10 +12,12 @@ public class DiyPageAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url = "diy.jsp";
-		System.out.println("diypage action");
-		System.out.println("url : " + url);
 		
-		return null;
+		ActionForward forward = new ActionForward();
+		forward.setPath(url);
+		forward.setRedirect(false);
+
+		return forward;
 	}
 
 }

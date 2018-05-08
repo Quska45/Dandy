@@ -664,8 +664,28 @@
 				alert("System Error!!!");
 			}
 		});
-		
 	}
+	
+	
+	// 단어장 만들기 버튼 클릭했을때 단어장 띄워주는 페이지
+	$(document).on("click", "#diy_btn", function() {
+		var title = $("#diy_title").val();
+		var text = $("#diy_text").val();
+		$.ajax({
+			url : "diyComplete.dandy",
+			type : "POST",
+			data : "title=" + title + "&text=" + text,
+			success : function(result) {
+				$("#diyPage").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+
+	});
+	
 	
 
 	$(document).ready(function(){

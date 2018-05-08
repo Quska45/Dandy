@@ -58,11 +58,11 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	$(document).on("click", "#diy_btn", function(){
+	/* $(document).on("click", "#diy_btn", function(){
 		var form = $("#frm_diy");
 		form.submit();
 		
-	});
+	}); */
 
 </script>
 
@@ -70,7 +70,6 @@
 <body>
 	<!-- Contents : 영화별 단어장 -->
 	<div id="wrap_contents">
-		<form action="diyComplete.dandy" method="post" id="frm_diy" name="frm_diy">
 			<div class="diy_title_wrap">
 				<input type="text" id="diy_title" name="diy_title" placeholder="제목을 입력해 주세요.">
 			</div>
@@ -78,7 +77,6 @@
 				<textarea rows="50" cols="100" id="diy_text" name="diy_text" placeholder="스크립트를 입력해 주세요." style="resize: none;"></textarea>
 			</div>
 			<div id="diy_btn">단어장 만들기</div>
-		</form>
 	</div>
 </body>
 </html>

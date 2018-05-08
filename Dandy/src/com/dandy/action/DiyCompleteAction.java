@@ -12,9 +12,9 @@ public class DiyCompleteAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "constract.jsp";
-		String title = request.getParameter("diy_title");
-		String text = request.getParameter("diy_text");
+		String url = "diy_complete.jsp";
+		String title = request.getParameter("title");
+		String text = request.getParameter("text");
 		
 		System.out.println(title + ", " + text);
 		
