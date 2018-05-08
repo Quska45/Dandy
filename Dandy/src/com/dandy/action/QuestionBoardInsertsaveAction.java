@@ -16,14 +16,14 @@ public class QuestionBoardInsertsaveAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "board_list2.jsp";
+		String url = "questionBoardList.dandy";
 		
 		
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-		String flag = request.getParameter("secret_input_flag");
-		String question_type = request.getParameter("qna_select");
+		String flag = request.getParameter("flag");
+		String question_type = request.getParameter("select");
 		
 		System.out.println(title+ "," + writer+ "," + content+ "," + flag+ "," + question_type);
 		writer = "123";

@@ -242,27 +242,21 @@
 	.lineup {
 		color: white;
 	}
-	#wrap_contents {
-		font-family: 'Noto Sans KR', sans-serif;
-		width: 1200px;
-		height: 1700px;
-		border: 2px solid white;
-		background-color: #EEE9DD;
-		border-radius: 10px;
-		margin: 100px 200px;
-	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-
+	
+	
+	
+	
 
 	$(document).ready(function() {
 		
 		var code = $("#code").val();
 		
-		$("#wr_btn").on("click", function(){
+		/* $("#wr_btn").on("click", function(){
 			location.href="boardloginck.bizpoll";
-		});
+		}); */
 	
 			if(code == 1){
 				$("#id01").css("display","block");
@@ -308,7 +302,7 @@
 </script>
 </head>
 <body>
-<div id="wrap_contents">
+
 <div id="board">
 	<div id="table">
 		<div id="board_sel">
@@ -328,8 +322,9 @@
 					<span width="100">&nbsp;</span>
 					<span>
 					
+					
 					<!-- view 단 이어놓기 위해 임의로 jsp끼리 연결 -->
-						<a href="board_question_write.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
+						<a href="#"><input type="button" id="wr_btn" value="글쓰기"></a>
 						
 						
 					</span>
@@ -506,6 +501,6 @@
 		</div>
 	</div>
 </div>
-</div>
+
 </body>
 </html>

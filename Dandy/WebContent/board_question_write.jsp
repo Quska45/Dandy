@@ -5,32 +5,6 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
-	$(document).ready(function() {
-	
-		$("#btn_success").on("click", function(){
-				form.submit();
-		});
-	});
-	$(document).ready(function() {
-		$("#sub_input").val("");
-		$("#con_input").val("");
-	});
-	
-	
-	$(document).ready(function(){
-		$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
-		$('.input_file').change(function(){
-			var i = $(this).val();
-			$('.upload_text').val(i).css("color","black");
-			$("#filebtn").css("color","#FFDF24");
-			
-		});
-	});
-	
-	
-	
-
-	
 </script>
 <!DOCTYPE html>
 <html>
@@ -50,6 +24,7 @@
 		border-bottom : 2px solid #FFDF24; 
  		border-collapse: collapse;
  		width: 1000px;
+ 		margin-left: 95px;
 	}
 	tr {
 		height: 100px;
@@ -65,7 +40,6 @@
 	}
 	#contents {
 		width: 1200px;
-		margin: 10px 460px;
 		margin-top: 30px;
 	}
 	.tx_cen {
@@ -94,11 +68,8 @@
 		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
-	.empty {
-		width: 25px;
-	}
+	
 	#title {
-		text-indent: 230px;
 		font-size: 25px;
 		font-weight: bold;
 		color: #a7a7a7;
@@ -203,74 +174,41 @@ $(document).on("click", "#secret_span_flag", function(){
 </script>
 </head>
 <body>
+
 	<div id="contents">
-			<form role="form" action="boardQuestionInsertsave.dandy" method="post">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
 				<tr id="title_tr">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
-						<span>&nbsp;</span>
-					</td>
-					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td id="title">
 						<span>Q & A 작성하기</span>
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 작성 제목 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>제목</span>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
 					</td>
 					<td>
 						<input type="text" id="sub_input" name="title" >
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 작성자 정보 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>작성자</span>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
 					</td>
 					<td>
 						<input type="text" id="name_input" name="writer" value="${sessionScope.loginUser.mid}" readonly="readonly">
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 비밀글여부 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>비밀글여부</span>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
 					</td>
 					<td id="secret_td">
 						<span id="secret_span_flag" style="background: url('image/checked1.png') 100% 50% no-repeat; background-position: 2px; padding-left: 20px; ">
@@ -278,37 +216,19 @@ $(document).on("click", "#secret_span_flag", function(){
 						<input id="secret_input_flag" name="secret_input_flag" type="hidden">
 						</span>
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 문의내용 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>문의내용</span>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
 					</td>
 					<td>
 						<input type="text" id="con_input" name="content">
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 질문구분 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
-						<span>&nbsp;</span>
-					</td>
-					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td>
@@ -326,19 +246,10 @@ $(document).on("click", "#secret_span_flag", function(){
 							※ 단어장관련 문의시에는 해당 단어장명을 기재해 주시면 보다 원활한 처리가 가능합니다.
 						</span>
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 	<!-- 작성완료 버튼 -->
 				<tr class="bin">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
-						<span>&nbsp;</span>
-					</td>
-					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td>
@@ -346,14 +257,9 @@ $(document).on("click", "#secret_span_flag", function(){
 							<button id="btn_success">문의사항 작성완료</button>
 						</div>
 					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 				</tr>
 			</tbody>
 		</table>
-			</form>
 	</div>
-	
 </body>
 </html>

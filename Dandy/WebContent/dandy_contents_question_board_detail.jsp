@@ -353,10 +353,10 @@
 				
 		var code = $("#code").val();
 		
-		$("#wr_btn").on("click", function(){
+		/* $("#wr_btn").on("click", function(){
 			location.href="boardloginck.bizpoll";
 			alert(code);
-		});
+		}); */
 	
 			if(code == 1){
 				alert("모달창 나와랏");
@@ -461,7 +461,7 @@
 </script>
 </head>
 <body>
-<div id="wrap_contents">
+
 <div id="board">
 	<div id="table">
 		<div id="subject">

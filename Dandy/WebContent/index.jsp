@@ -462,6 +462,15 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
+	#wrap_contents {
+		font-family: 'Noto Sans KR', sans-serif;
+		width: 1200px;
+		height: 1700px;
+		border: 2px solid white;
+		background-color: #EEE9DD;
+		border-radius: 10px;
+		margin: 100px 200px;
+	}
 	
 	
 </style>
@@ -518,7 +527,6 @@
 			type : "post",
 			url : "questionBoardList.dandy",
 			success : function(result) {
-				$("#boardList").css("display", "block");
 				$("#boardList").html(result);
 			}
 		});
@@ -533,9 +541,7 @@
 			type : "POST",
 			data : "bno=" + bno,
 			success : function(result) {
-				$("#boardDetailList").css("display", "block");
-				$("#boardList").css("display", "none");
-				$("#boardDetailList").html(result);
+				$("#boardList").html(result);
 			},
 			error : function() {
 				alert("System Error!!!");
@@ -545,18 +551,54 @@
 		
 	});
 	
-	// 목록버튼 클릭
+	// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
 	$(document).on("click", "#list_btn",function(){
 		$.ajax({
 			type : "post",
 			url : "questionBoardList.dandy",
 			success : function(result) {
-				$("#boardDetailList").css("display", "none");
-				$("#boardList").css("display", "block");
 				$("#boardList").html(result);
 			}
 		});
 	});
+	
+	//글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	$(document).on("click", "#wr_btn", function(){
+		var sessionLogin = $("#sessionMid").val();
+		if(sessionLogin==null){
+			$(".modal").css("display", "block");
+		} else {
+			$.ajax({
+				type : "post",
+				url : "questionBoardWrite.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		}
+	});
+
+	
+	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+	$(document).on("click", "#btn_success", function(){
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var flag = $("#secret_input_flag").val();
+		var content = $("#con_input").val();
+		var select = $("#qna_select").val();
+		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		
+		$.ajax({
+			type : "post",
+			url : "boardQuestionInsertsave.dandy",
+			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	
 	
 	function movie_list() {
 		//alert("onclick");
@@ -636,7 +678,7 @@
 		/* 단어장 등을 클릭하면 컨텐츠를 띄우기 시작 */
 		
 		function openButton1(){
-			$("#cBody").css("height","3354px");
+			$("#cBody").css("height","1938px");
 			$("#content1").css("height", "3153px");	
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
@@ -667,7 +709,7 @@
 		});
 		
 		function openButton2() {
-			$("#cBody").css("height","3354px");
+			$("#cBody").css("height","1938px");
 			$("#content2").css("height", "3153px");	
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
@@ -697,7 +739,7 @@
 		});
 		
 		function openButton3(){
-			$("#cBody").css("height","3354px");
+			$("#cBody").css("height","1938px");
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
 			$("#content3").css("width", "86.9%");	
@@ -893,6 +935,7 @@
 
 </head>
 <body>
+	<input type="hidden" id="sessionMid" value="${sessionScope.loginUser}">
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
 		<!-- 로고가 있는 헤더 부분 시작 -->
@@ -969,8 +1012,9 @@
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
 					<a href="#" class="mainContentClose3">&times;</a>
-					<div id="boardList"></div>
-					<div id="boardDetailList"></div>
+					<div id="wrap_contents">
+						<div id="boardList"></div>
+					</div>
 				</div>
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
