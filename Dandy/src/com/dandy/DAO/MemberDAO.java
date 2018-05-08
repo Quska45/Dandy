@@ -91,6 +91,28 @@ public class MemberDAO {
 		return result;
 	}
 	
+	public MemberDTO sessionLogin(String mid, String mpw) {
+		sqlSession = sqlSessionFactory.openSession();
+		
+		MemberDTO mDto = new MemberDTO(mid, mpw);
+		try {
+			mDto = sqlSession.selectOne("sessionlogin", mDto);
+			System.out.print(mDto.getMid());
+			System.out.print(mDto.getMpw());
+			System.out.print(mDto.getMname());
+			System.out.print(mDto.getMphone());
+			System.out.print(mDto.getMsex());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return mDto;
+	}
+	
 	
 	
 	

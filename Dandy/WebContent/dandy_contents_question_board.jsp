@@ -18,15 +18,15 @@
 /* font-family: 'Hanna', serif; */
 	body {
 		font-family: 'Hanna', serif;
-		line-height: 0 ;
+
 	}
 	a {
 		text-decoration: none;
 		color: none;
 	}
 	#table {
-		width: 1200px;
-		margin: 100px 360px;
+		width: 1100px;
+		margin: 90px 35px;
 	}
 	#board_table > tr {
 		height: 30px;
@@ -243,9 +243,20 @@
 	.lineup {
 		color: white;
 	}
+	#wrap_contents {
+		font-family: 'Noto Sans KR', sans-serif;
+		width: 1200px;
+		height: 1700px;
+		border: 2px solid white;
+		background-color: #EEE9DD;
+		border-radius: 10px;
+		margin: 100px 200px;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+
+
 	$(document).ready(function() {
 		
 		var code = $("#code").val();
@@ -298,6 +309,8 @@
 </script>
 </head>
 <body>
+<div id="wrap_contents">
+<div id="boardDetailList"></div>
 <div id="board">
 	<div id="table">
 		<div id="board_sel">
@@ -398,6 +411,7 @@
 							
 								<c:forEach items="${boardlist}" var="bDto">
 								<tr id="line">
+									<input type="hidden" id="hiddenBno" name="hiddenBno" value="${bDto.bno}">
 									<td class="no"><span>${bDto.bno}</span></td>
 									<td class="point">
 										<c:if test="${today2 == regdate2}">
@@ -409,8 +423,7 @@
 										<table>
 											<tr>
 												<td>
-													<a href="questionBoardDetail.dandy?bno=${bDto.bno}">
-														
+													<a id="boardDetailBtn" href="#">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
@@ -495,6 +508,6 @@
 		</div>
 	</div>
 </div>
-
+</div>
 </body>
 </html>

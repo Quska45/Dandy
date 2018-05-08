@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
+import com.dandy.action.BoardListAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
@@ -19,6 +20,7 @@ import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
 import com.dandy.action.QuestionBoardInsertsaveAction;
 import com.dandy.action.IndexAction;
+import com.dandy.action.LoginAjaxAction;
 import com.dandy.action.MemberCheckAjaxAction;
 import com.dandy.action.MemberConstractAction;
 import com.dandy.action.MemberInsertAction;
@@ -69,6 +71,10 @@ public class DandyFrontController extends HttpServlet {
 		// 실제로 동작하는 곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
 		if (command.equals("/index.dandy")) {
 			action = new IndexAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/loginajax.dandy")) {
+			action = new LoginAjaxAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		else if (command.equals("/boardQuestionInsertsave.dandy")) {

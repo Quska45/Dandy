@@ -14,15 +14,11 @@
 /* font-family: 'Hanna', serif; */
 	
 	body{
-		margin: 0;
-		padding: 0;
 		font-family: 'Hanna', serif;
-		background-color: #FFFFFF;	
-		min-width: 960px;
 	}
 	#table {
-		width: 1200px;
-		margin: 100px 360px;
+		width: 1100px;
+		margin: 90px 35px;
 	}
 	#table_contents, #inner_contents {
 		border-left: none;
@@ -44,7 +40,7 @@
 		padding: 5px 0;
 	}
 	#table_contents {
-		width: 1200px;
+		width: 1100px;
 		margin: 0;
 	}
 	.no {
@@ -330,19 +326,6 @@
 			del_link.focus();
 		  });        
 		});
-	
-	function comment_list() {
-		var bno = ${boardview.bno};
-		alert(bno);
-		$.ajax({
-			type: "post",
-			url: "questionCommentList.dandy",
-			data: "bno=" + bno,
-			success: function(result) {
-				$("#commentList").html(result);
-			}
-		});
-	}
 
 	$(document).ready(function() {
 		var formObj = $("#frm1");
@@ -352,7 +335,13 @@
 		
 		// 목록버튼 클릭
 		$("#list_btn").on("click", function(){
-			location.href="qna.bizpoll";
+			$.ajax({
+				type : "post",
+				url : "questionBoardList.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
 		});
 		// 수정버튼 클릭
 		$("#modify_btn").on("click", function(){
@@ -552,7 +541,7 @@
 					</tr>
 					<tr>
 						<td class="no" id="list">
-							<input type="button" class="board_btn" id="list_btn" value="목록">
+							<input type="button" class="board_btn" id="list_btn" value="목록" onclick="board_list();">
 						</td>
 						<td id="rewrite">
 							<c:choose>
@@ -663,5 +652,6 @@
 	</div>
 	
 </div>
+
 </body>
 </html>

@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.QuestionBoardDAO;
-import com.dandy.DTO.QuestionBoardDTO;
-import com.dandy.DTO.PageMakerDTO;
 import com.dandy.DTO.CriteriaDTO;
+import com.dandy.DTO.PageMakerDTO;
+import com.dandy.DTO.QuestionBoardDTO;
 
-public class QuestionBoardListAction implements Action {
+public class BoardListAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "dandy_contents_question_board.jsp";
+		String url = "board_list2.jsp";
 		
 		CriteriaDTO criDto = new CriteriaDTO();
 		int page = 1;
@@ -54,5 +54,5 @@ public class QuestionBoardListAction implements Action {
 
 		return forward;
 	}
-	
+
 }

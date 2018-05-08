@@ -19,7 +19,7 @@ public class QuestionBoardDetailAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "board_detail2.jsp";
+		String url = "dandy_contents_question_board_detail.jsp";
 		
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		System.out.println("bno" + bno);

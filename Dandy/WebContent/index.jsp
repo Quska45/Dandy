@@ -532,6 +532,78 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+
+	$(document).on("click", "#btn_login", function(){
+		var id = $("#login_id");
+		var pw = $("#login_pw");
+		
+		var lid = id.val();
+		
+		if(lid == "") {
+			$("#ErrCk").text("ID값을 입력하시오").css("display", "block").css("color", "red");
+			id.focus();
+			return false;
+		}
+		
+		var lpw = pw.val();
+		
+		if(lpw == "") {
+			$("#ErrCk").text("PW값을 입력하시오").css("display", "block").css("color", "red");
+			pw.focus();
+			return false;
+		}
+		
+		$.ajax({
+			url: "loginajax.dandy",
+			type: "POST",
+			dataType :  "JSON",
+			data: "id=" + lid + "&pw=" + lpw,
+			success: (function(data){
+				if(data.id != null && data.pw != null) {
+					alert("로그인 성공");
+					//index 페이지로 이동
+					location.reload();
+				} else {
+					alert("로그인실패");
+					$("#login_id").select();
+					$("#ErrCk").css("display", "block");
+				}
+			}),
+			error: function(){
+				alert("system error");
+			}
+		});
+	});
+	
+	function board_list() {
+		//alert("onclick");
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+		
+	};
+	
+	$(document).on("click", "#boardDetailBtn", function(){
+		var bno = $("#hiddenBno").val();
+		$.ajax({
+			url : "questionBoardDetail.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardDetailList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
 	
 	function movie_list() {
 		//alert("onclick");
@@ -948,12 +1020,12 @@
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
 					<a href="#" class="mainContentClose3">&times;</a>
-					메인콘텐트 입니다.
+					<div id="boardList"></div>
 				</div>
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="questionBoardList.dandy" class="openButton3"></a>
+					<a href="#" class="openButton3" onclick="board_list();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
@@ -1018,8 +1090,8 @@
 							<form method="post" id="login_form" action="#" name="login_form">
 								<input class="idpw" type="text" name="login_id" id="login_id" placeholder="아이디를 입력해 주세요"></input> 
 									<input class="idpw" type="password" name="login_pw" id="login_pw" placeholder="비밀번호를 입력해 주세요"></input>
-								<div id="error" style="display: none">
-									아이디를 입력해 주세요.
+								<div id="ErrCk" style="display: none">
+									
 								</div>
 								<div id="remember">
 									<input type="checkbox" name="remember" id="remember2">

@@ -19,7 +19,12 @@ public class MemberDTO {
 	public MemberDTO() {
 		super();
 	}
-
+	
+	public MemberDTO(String mid, String mpw) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+	}
 
 	public MemberDTO(String mid, String mpw, String mname, String msex, String mbirth, String memail, String mphone,
 			String filename, int filesize, Date regdate) {
