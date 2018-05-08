@@ -599,7 +599,7 @@
 	});
 	
 	
-	
+	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
 	function movie_list() {
 		//alert("onclick");
 		$.ajax({
@@ -613,6 +613,7 @@
 	}
 
 	
+	// 영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
 	$(document).on("click", ".active_page", function() {
 		var page = $(this).attr("page_num");
 		var index = $("#index_number").val();
@@ -632,6 +633,7 @@
 	});
 	
 	
+	// 영화 목록에서 위에 알파벳 눌렀을때 띄워주는 페이지 스크립트
 	$(document).on("click", ".active_index", function() {
 		var index = $(this).attr("index_num");
 			$.ajax({
@@ -650,12 +652,16 @@
 	});
 	
 	
+	// diy 버튼 눌렀을때 입력창 띄워주는 스크립트
 	function diy_page() {
 		$.ajax({
 			type : "post",
 			url : "diypage.dandy",
 			success : function(result) {
 				$("#diyPage").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
 			}
 		});
 		
@@ -987,8 +993,9 @@
 				<!-- 딕테이션 페이지 시작 -->
 				<div id="content2">
 					<a href="#" class="mainContentClose2">&times;</a>
-					메인콘텐트 입니다.
+					
 					<div id="diyPage"></div>
+					
 				</div>
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->

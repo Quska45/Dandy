@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
 import com.dandy.action.BoardListAction;
+import com.dandy.action.DiyCompleteAction;
 import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
@@ -140,7 +141,11 @@ public class DandyFrontController extends HttpServlet {
 			forward = action.excute(request, response); 
 		}
 		else if (command.equals("/diypage.dandy")) {
-			action = new DiyPageAction(); 
+			action = new DiyPageAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/diyComplete.dandy")) {
+			action = new DiyCompleteAction(); 
 			forward = action.excute(request, response); 
 		}
 		
