@@ -442,6 +442,7 @@
 <!-- 영화 개별 단어장  -->
 	<select id="movieEach" resultType="eachDTO" parameterType="eachDTO">
 	  	SELECT * FROM ${tablename}
+	  	ORDER BY freq desc
 	</select>
 
 
