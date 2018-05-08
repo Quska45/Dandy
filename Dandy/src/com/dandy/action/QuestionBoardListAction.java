@@ -33,7 +33,6 @@ public class QuestionBoardListAction implements Action {
 		
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
 		List<QuestionBoardDTO> list = qDao.questionList(criDto);
-		
 		request.setAttribute("boardlist", list);
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
@@ -42,7 +41,6 @@ public class QuestionBoardListAction implements Action {
 		pageMaker.setTotalCount(result);
 		System.out.println("게시글 전체" + pageMaker.getTotalCount());
 		request.setAttribute("pageMaker", pageMaker);
-		
 		
 		Date date = new Date();
 		request.setAttribute("today", date);

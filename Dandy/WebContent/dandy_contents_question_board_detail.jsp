@@ -326,23 +326,24 @@
 			del_link.focus();
 		  });        
 		});
-
+		
+	function comment_list() {
+		var bno = ${boardview.bno};
+		$.ajax({
+			type: "post",
+			url: "questionCommentList.dandy",
+			data: "bno=" + bno,
+			success: function(result) {
+				$("#commentList").html(result);
+			}
+		});
+	}
+	
 	$(document).ready(function() {
 		var formObj = $("#frm1");
 		
 		comment_list();
 		
-		
-		// 목록버튼 클릭
-		$("#list_btn").on("click", function(){
-			$.ajax({
-				type : "post",
-				url : "questionBoardList.dandy",
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-		});
 		// 수정버튼 클릭
 		$("#modify_btn").on("click", function(){
 			formObj.attr("action", "boardupdateview.bizpoll");
@@ -460,6 +461,7 @@
 </script>
 </head>
 <body>
+<div id="wrap_contents">
 <div id="board">
 	<div id="table">
 		<div id="subject">
@@ -541,7 +543,7 @@
 					</tr>
 					<tr>
 						<td class="no" id="list">
-							<input type="button" class="board_btn" id="list_btn" value="목록" onclick="board_list();">
+							<input type="button" class="board_btn" id="list_btn" value="목록">
 						</td>
 						<td id="rewrite">
 							<c:choose>
@@ -652,6 +654,6 @@
 	</div>
 	
 </div>
-
+</div>
 </body>
 </html>

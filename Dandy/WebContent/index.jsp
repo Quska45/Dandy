@@ -468,6 +468,7 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+	//로그인 모달창에서 로그인을 할 수 있도록 하는 쿼리
 	$(document).on("click", "#btn_login", function(){
 		var id = $("#login_id");
 		var pw = $("#login_pw");
@@ -510,18 +511,21 @@
 		});
 	});
 	
+	//게시글목록을 띄우는 콜백함수. openButton3에 onclick으로 걸려있다.
 	function board_list() {
 		//alert("onclick");
 		$.ajax({
 			type : "post",
 			url : "questionBoardList.dandy",
 			success : function(result) {
+				$("#boardList").css("display", "block");
 				$("#boardList").html(result);
 			}
 		});
 		
 	};
 	
+	//게시판 상세 페이지를 띄우는 쿼리
 	$(document).on("click", "#boardDetailBtn", function(){
 		var bno = $("#hiddenBno").val();
 		$.ajax({
@@ -529,6 +533,8 @@
 			type : "POST",
 			data : "bno=" + bno,
 			success : function(result) {
+				$("#boardDetailList").css("display", "block");
+				$("#boardList").css("display", "none");
 				$("#boardDetailList").html(result);
 			},
 			error : function() {
@@ -539,6 +545,18 @@
 		
 	});
 	
+	// 목록버튼 클릭
+	$(document).on("click", "#list_btn",function(){
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			success : function(result) {
+				$("#boardDetailList").css("display", "none");
+				$("#boardList").css("display", "block");
+				$("#boardList").html(result);
+			}
+		});
+	});
 	
 	function movie_list() {
 		//alert("onclick");
@@ -622,6 +640,7 @@
 			$("#content1").css("height", "3153px");	
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
+			$("#content1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
@@ -652,6 +671,7 @@
 			$("#content2").css("height", "3153px");	
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
+			$("#content2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.7%");
 			$(".con1").css("right", "93.3%");
@@ -681,6 +701,7 @@
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
 			$("#content3").css("width", "86.9%");	
+			$("#content3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
 			$(".con1").css("right", "93.4%");
@@ -949,6 +970,7 @@
 				<div id="content3">
 					<a href="#" class="mainContentClose3">&times;</a>
 					<div id="boardList"></div>
+					<div id="boardDetailList"></div>
 				</div>
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->

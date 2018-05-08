@@ -86,7 +86,6 @@
 	#table_top {
 		border-top: 2px solid #FFDF24;
 		border-bottom : 2px solid #FFDF24;
-		width: 1200px;
 		height: 40px;
 		background-color: #FFDF24;
 		color: white;
@@ -310,7 +309,6 @@
 </head>
 <body>
 <div id="wrap_contents">
-<div id="boardDetailList"></div>
 <div id="board">
 	<div id="table">
 		<div id="board_sel">

@@ -12,6 +12,7 @@
 
 	<!-- 별명 부여 -->
 	<typeAliases>
+		<typeAlias type="com.dandy.DTO.CriteriaDTO" alias="criDTO"/>
 		<typeAlias type="com.dandy.DTO.MemberDTO" alias="memDTO"/>
 		<typeAlias type="com.dandy.DTO.QuestionBoardDTO" alias="qDTO"/>
 		<typeAlias type="com.dandy.DTO.ReplyDTO" alias="rDTO"/>

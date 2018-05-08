@@ -17,7 +17,7 @@
 		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},#{flag})
 	</insert>
 <!-- Q & A 게시판 리스트 출력 -->
-	<select id="listCriteria" resultType="qDTO">
+	<select id="listCriteria" resultType="qDTO" parameterType="criDTO">
 		<![CDATA[
 			SELECT *
 			FROM (
@@ -25,7 +25,7 @@
 				a.*
 				FROM (
 					SELECT b.*, (SELECT COUNT(*)
-							FROM tblreply d
+							FROM question_reply d
 							WHERE b.bno = d.bno) replycnt
 					FROM question_board b
 					WHERE bno > 0
