@@ -38,16 +38,15 @@
 	div#header {
 		position: fixed;
 		width: 100%;
-		height: 80px;
-		background: #363636;
+		height: 81px;
+		background: white;
 		text-align: center;
 		overflow: hidden;
-		background: #363636;
     		z-index: 70;
 	}
 	div#header h1 {
 		display: inline-block;;
-		margin-top: 21px;
+		margin-top: 7px;
 	}
 	
 		/*로그인 버튼 */
@@ -160,15 +159,18 @@
 			background-color: black;
 			transition: 0.7s;
 			display: none;
+			opacity: 0.4;
 		}
 		div.background {
 			position: absolute;
 			top: 0;
 		}
 		div.con1 {
+			background: url('image/bk1.jpg') 100% 50% no-repeat;
+			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
-			width: 33.3%;
+			width: 33.4%;
 			height: 100%;
 			overflow: hidden;
 		}
@@ -205,8 +207,11 @@
 			background-color: black;
 			transition: 0.7s;
 			display: none;
+			opacity: 0.4;
 		}
 		div.con2 {
+			background: url('image/bk2.jpg') 100% 50% no-repeat;
+			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
 			right: 33.3%;
@@ -228,6 +233,7 @@
 			background-color: black;
 			transition: 0.7s;
 			display: none;
+			opacity: 0.4;
 		}
 		a.openButton3 {
 			position: absolute;
@@ -238,6 +244,8 @@
 			z-index: 20;
 		}
 		div.con3 {
+			background: url('image/bk6.jpg') 100% 50% no-repeat;
+			background-position: 30% -12.8%;
 			position: absolute;
 			right:0;
 			top: 0;
@@ -853,18 +861,16 @@
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
 		<!-- 로고가 있는 헤더 부분 시작 -->
-		<div id="header" style="background: #363636;">
+		<div id="header" style="background: white;">
 			<!-- 로고 시작 -->
 			<h1>
 				<a id="dandy_logo" href="index.dandy">
-					단디입니다.
+					<img src="image/logo.png" style="width: 170px;">
 				</a>
 			</h1>
 			<!-- 로고 끝 -->
 			<!-- 로그인 버튼 시작-->
-			<a class="login">
-				<img src="image/login.png">
-			</a>
+			<a class="login">My</a>
 			<!-- 로그인 버튼 끝 -->
 		</div>
 		<!-- 로고가 있는 헤더 부분 끝 -->
