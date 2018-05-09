@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/dandy/mybatis/DandyMapper.xml">
+	<select id="sessionlogin" resultType="memDTO" parameterType="memDTO">
+		SELECT * 
+		FROM dandy_member 
+		WHERE mid=#{mid} AND mpw=#{mpw} 
+	</select>
+<!-- =================================================================Q & A 게시판================================================================= -->
+<!-- Q & A 게시판 글 등록 -->
+	<insert id="questionInsert" parameterType="qDTO">
+		INSERT INTO question_board(bno, title, content, writer, ref, re_step, re_level, question_type, flag)
+		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},#{flag})
+	</insert>
+<!-- Q & A 게시판 리스트 출력 -->
+	<select id="listCriteria" resultType="qDTO" parameterType="criDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT b.*, (SELECT COUNT(*)
+							FROM question_reply d
+							WHERE b.bno = d.bno) replycnt
+					FROM question_board b
+					WHERE bno > 0
+					ORDER BY ref desc, re_step
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+<!-- Q & A 게시판 검색 pagecount -->
+	<select id="scountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(bno)
+			FROM question_board]]>
+			<if test='flag == "직접입력"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "제목"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "내용"'>
+				<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "제목 + 내용"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "작성자"'>
+				<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
+			</if>
+	</select>
+<!-- Q & A 게시글 상세페이지 -->	
+	<select id="questionDetail" parameterType="Integer" resultType="qDTO">
+		SELECT *
+		FROM question_board
+		WHERE bno = #{bno}
+	</select>
+<!-- Q & A 게시판 댓글리스트 -->	
+	<select id="questionReplyList" resultType="rDTO">
+		SELECT *
+		FROM question_reply
+		WHERE bno = #{bno}
+	</select>
+<!-- =================================================================자유게시판================================================================= -->
+<!-- 자유게시판 리스트 출력 (정렬 추가) -->
+	  <select id="fblistCriteria" resultType="bDTO">
+	  		<![CDATA[
+	  			SELECT *
+	  			FROM (
+	  				SELECT rownum rnum,
+	  				a.*
+	  				FROM (
+	  					SELECT b.*, (SELECT COUNT(*) 
+	  								FROM fbreply d
+	  								WHERE b.bno = d.bno) replycnt 
+	  					FROM board b
+	  					WHERE bno > 0]]>
+	  					<if test='lineup_code == null'>
+							<![CDATA[ORDER BY ref DESC, re_step ASC]]>
+						</if>
+						<if test='lineup_code == "l_no"'>
+							<![CDATA[ORDER BY bno desc]]>
+						</if>
+						<if test='lineup_code == "l_contents"'>
+							<![CDATA[ORDER BY title desc]]>
+						</if>
+						<if test='lineup_code == "l_name"'>
+							<![CDATA[ORDER BY writer desc]]>
+						</if>
+						<if test='lineup_code == "l_date"'>
+							<![CDATA[ORDER BY regdate desc]]>
+						</if>
+						<if test='lineup_code == "l_view"'>
+							<![CDATA[ORDER BY viewcnt desc]]>
+						</if>
+						<if test='lineup_code == "l_good"'>
+							<![CDATA[ORDER BY goodcnt desc]]>
+						</if>
+						<![CDATA[
+	  				) a
+	  			)
+	  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+	  		]]>
+	  	</select>
+<!-- 자유게시판 게시글 등록 -->
+		<insert id="boardinsert">
+		  	INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
+			VALUES((SELECT nvl(max(bno)+1, 1)from tblboard), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, (SELECT nvl(max(bno)+1, 1) from tblboard), 1, 0)
+		</insert>
+<!-- 자유게시판 게시글 상세페이지 -->
+		<select id="boarddetailview" resultType="bDTO" parameterType="Integer">
+		  	SELECT * FROM board
+		  	WHERE bno = #{bno}
+		</select>
+<!-- 자유게시판 게시글 수정 -->
+		<update id="boardupdate" parameterType="bDTO">
+		  	UPDATE board
+		  	SET title = #{title}, content = #{content}
+		  	WHERE bno = #{bno}
+		</update>
+<!-- 자유게시판 게시글 삭제 -->
+		<delete id="boarddelete" parameterType="Integer">
+		  	DELETE FROM board
+		  	WHERE bno = #{bno}
+		</delete>
+<!-- 자유게시판 조회수 -->
+		<update id="boardViewCnt">
+		  	UPDATE board
+		  		SET viewcnt = viewcnt+1
+		  		WHERE bno = #{bno}
+	 	</update> 
+<!-- 자유게시판 좋아요 포인트 증가 -->
+	 	<update id="boardGoodCnt">
+		  	UPDATE board
+		  		SET goodcnt = goodcnt+1
+		  		WHERE bno = #{bno}
+	 	</update>
+<!-- 자유게시판 검색 키워드 -->
+	 	<select id="boardSearch" resultType="bDTO" >
+			<![CDATA[
+	  			SELECT *
+	  			FROM (
+	  				SELECT rownum rnum,
+	  				a.*
+	  				FROM (
+	  					SELECT b.*, (SELECT COUNT(*) 
+	  								FROM fbreply d
+	  								WHERE b.bno = d.bno) replycnt 
+	  					FROM board b]]>
+						<if test='flag == "1"'>
+							<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+						</if>
+						<if test='flag == "2"'>
+							<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+						</if>
+						<if test='flag == "3"'>
+							<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
+						</if>
+						<if test='flag == "4"'>
+							<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+						</if>
+						<if test='flag == "5"'>
+							<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
+						</if>
+						
+						<![CDATA[ORDER BY bno desc
+	  				) a
+	  			)
+	  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+	  		]]>
+	  	</select>
+<!-- 자유게시판 검색 페이지 -->
+		<select id="fbscountPaging" resultType="int">
+			<![CDATA[
+				SELECT count(bno)
+				FROM board]]>
+				<if test='flag == "1"'>
+					<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test='flag == "2"'>
+					<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test='flag == "3"'>
+					<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test='flag == "4"'>
+					<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test='flag == "5"'>
+					<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
+				</if>
+		</select>
+
+<!-- 자유게시판 파일 다운로드 -->
+		<select id="getFileName" parameterType="Integer" resultType="String" >
+			SELECT filename
+			FROM board
+			WHERE bno= #{bno}
+		</select>
+<!-- 자유게시판 다운로드 수 증가 -->
+	 	<update id="downCount">
+		  	UPDATE board
+		  		SET downcnt = downcnt+1
+		  		WHERE bno = #{bno}
+	 	</update>
+<!-- 자유게시판 답글 -->
+		<update id="updateStep">
+			UPDATE board
+			SET re_step = re_step + 1
+			WHERE ref = #{ref} AND re_step >= #{re_step} 
+		</update>
+<!-- 자유게시판 답글추가 -->
+		<insert id="answerInsert" parameterType="bDTO" >
+			INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
+			VALUES((SELECT nvl(max(bno)+1, 1)from tblboard), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, #{ref}, #{re_step}, #{re_level})
+	 	</insert>
+	
+<!-- =================================================================login check================================================================= -->
+	<select id="memIdCheck" resultType="memDTO" parameterType="String">
+	  	SELECT mid FROM dandy_member 
+	  	WHERE mid = #{mid}
+	</select>
+	
+<!-- ================================================================= 회원가입 ================================================================= -->	
+	<insert id="registerMember" parameterType="memDTO">
+	  	INSERT INTO dandy_member(mid, mpw, mname, msex, mbirth, memail, mphone)
+		VALUES(#{mid}, #{mpw}, #{mname}, #{msex}, #{mbirth}, #{memail}, #{mphone})
+	</insert>
+	
+<!-- =================================================================MovieLIst================================================================= -->
+	<select id="movieListCriteria" resultType="movieDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT * 
+					FROM movieindex 
+					WHERE mno > 0
+					ORDER BY mno
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+	
+<!-- =================================================================index movie================================================================= -->
+<!-- Index Page Movie List -->
+	<select id="movieIndexListCriteria" resultType="movieDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT * 
+					FROM movieindex ]]>
+					<if test='index == "a"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'A']]>
+					</if>
+					<if test='index == "b"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'B']]>
+					</if>
+					<if test='index == "c"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'C']]>
+					</if>
+					<if test='index == "d"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'D']]>
+					</if>
+					<if test='index == "e"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'E']]>
+					</if>
+					<if test='index == "f"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'F']]>
+					</if>
+					<if test='index == "g"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'G']]>
+					</if>
+					<if test='index == "h"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'H']]>
+					</if>
+					<if test='index == "i"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'I']]>
+					</if>
+					<if test='index == "j"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'J']]>
+					</if>
+					<if test='index == "k"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'K']]>
+					</if>
+					<if test='index == "l"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'L']]>
+					</if>
+					<if test='index == "m"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'M']]>
+					</if>
+					<if test='index == "n"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'N']]>
+					</if>
+					<if test='index == "o"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'O']]>
+					</if>
+					<if test='index == "p"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'P']]>
+					</if>
+					<if test='index == "q"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'Q']]>
+					</if>
+					<if test='index == "r"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'R']]>
+					</if>
+					<if test='index == "s"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'S']]>
+					</if>
+					<if test='index == "t"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'T']]>
+					</if>
+					<if test='index == "u"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'U']]>
+					</if>
+					<if test='index == "v"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'V']]>
+					</if>
+					<if test='index == "w"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'W']]>
+					</if>
+					<if test='index == "x"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'X']]>
+					</if>
+					<if test='index == "y"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'Y']]>
+					</if>
+					<if test='index == "z"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = 'Z']]>
+					</if>
+					<if test='index == "0"'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = '0']]>
+					</if>
+					<![CDATA[
+					ORDER BY mno
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+<!-- Index Page Movie List page count -->
+	<select id="movieCountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(mno)
+			FROM movieindex]]>
+			<if test='index == "a"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'A']]>
+			</if>
+			<if test='index == "b"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'B']]>
+			</if>
+			<if test='index == "c"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'C']]>
+			</if>
+			<if test='index == "d"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'D']]>
+			</if>
+			<if test='index == "e"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'E']]>
+			</if>
+			<if test='index == "f"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'F']]>
+			</if>
+			<if test='index == "g"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'G']]>
+			</if>
+			<if test='index == "h"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'H']]>
+			</if>
+			<if test='index == "i"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'I']]>
+			</if>
+			<if test='index == "j"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'J']]>
+			</if>
+			<if test='index == "k"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'K']]>
+			</if>
+			<if test='index == "l"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'L']]>
+			</if>
+			<if test='index == "m"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'M']]>
+			</if>
+			<if test='index == "n"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'N']]>
+			</if>
+			<if test='index == "o"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'O']]>
+			</if>
+			<if test='index == "p"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'P']]>
+			</if>
+			<if test='index == "q"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'Q']]>
+			</if>
+			<if test='index == "r"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'R']]>
+			</if>
+			<if test='index == "s"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'S']]>
+			</if>
+			<if test='index == "t"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'T']]>
+			</if>
+			<if test='index == "u"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'U']]>
+			</if>
+			<if test='index == "v"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'V']]>
+			</if>
+			<if test='index == "w"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'W']]>
+			</if>
+			<if test='index == "x"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'X']]>
+			</if>
+			<if test='index == "y"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'Y']]>
+			</if>
+			<if test='index == "z"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = 'Z']]>
+			</if>
+			<if test='index == "0"'>
+				<![CDATA[WHERE mno > 0 AND indexchar = '0']]>
+			</if>
+	</select>
+	
+<!-- 영화 개별 단어장  -->
+	<select id="movieEach" resultType="eachDTO" parameterType="eachDTO">
+	  	SELECT * FROM ${tablename}
+	  	ORDER BY freq desc
+	</select>
+
+
+	
+	
+</mapper>
