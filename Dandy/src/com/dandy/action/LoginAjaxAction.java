@@ -43,9 +43,13 @@ public class LoginAjaxAction implements Action {
 		}
 		
 		JSONObject jObj = new JSONObject();
-		jObj.put("id", mDto.getMid());
-		jObj.put("pw", mDto.getMpw());
-		
+		if(mDto == null) {
+			jObj.put("id", null);
+			jObj.put("pw", null);
+		} else {
+			jObj.put("id", mDto.getMid());
+			jObj.put("pw", mDto.getMpw());
+		}
 		response.setContentType("application/x-json; charset=UTF-8");
 		response.getWriter().println(jObj);
 		
