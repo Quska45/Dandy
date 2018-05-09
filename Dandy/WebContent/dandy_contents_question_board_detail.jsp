@@ -23,7 +23,7 @@
 	#table_contents, #inner_contents {
 		border-left: none;
 		border-right: none;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
 	}
 	table {
 		 table-layout: fixed;
@@ -123,7 +123,7 @@
 	}
 	#re_btn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -135,7 +135,7 @@
 	}
 	.board_btn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 70px;
 		height: 26px;
@@ -169,7 +169,7 @@
 		font-family: 'Hanna', serif !important;	
 	}
 	#wr_btn {
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -186,7 +186,7 @@
 	}
 	#remove_rebtn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		width: 50px;
 		height: 26px;
 		margin-bottom: 10px;
@@ -202,7 +202,7 @@
 	}
 	#file_upload{
 		font-size: 16px;
-		color: #FFDF24;
+		color: #0daa62;
 		background-color: white;
 		text-align: center;
 		font-weight: bold;
@@ -235,10 +235,10 @@
 		color: #555555;
 	}
 	#table_top {
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		color: white;
 		border-radius: 5px;
-		border: #FFDF24;
+		border: #0daa62;
 		height: 40px;
 	}
 	/* 게시판 삭제 확인 모달 */	
@@ -292,9 +292,9 @@
 		border: 1px solid white;
 	}
 	.bbtn:hover {
-		border: 1px solid #ffdf24;
+		border: 1px solid #0daa62;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>

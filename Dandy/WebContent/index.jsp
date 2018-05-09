@@ -468,7 +468,7 @@
 		width: 1200px;
 		height: 1700px;
 		border: 2px solid white;
-		background-color: #EEE9DD;
+		background-color: #f7f7f7;
 		border-radius: 10px;
 		margin: 100px 200px;
 	}

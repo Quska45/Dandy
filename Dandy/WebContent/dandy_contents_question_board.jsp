@@ -44,7 +44,7 @@
 		width: 50px!important;
 		text-align: center;
 		font-size: 16px;
-		color: #FFDF24;
+		color: #0daa62;
 		font-weight: bold;
 	
 	}
@@ -72,7 +72,7 @@
 		color: #990000;
 	}
 	#wr_btn {
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -84,10 +84,10 @@
 		font-family: 'Hanna', serif;
 	}
 	#table_top {
-		border-top: 2px solid #FFDF24;
-		border-bottom : 2px solid #FFDF24;
+		border-top: 2px solid #0daa62;
+		border-bottom : 2px solid #0daa62;
 		height: 40px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		color: white;
 		border-radius: 5px;
 	}
@@ -100,7 +100,7 @@
 		font-size: 13px;
 		box-sizing: border-box;
 		display: block;
-		border: 1px solid #FFDF24;
+		border: 1px solid #0daa62;
 		padding-left: 5px;
 		margin-left: 15px;
 		font-style: oblique;
@@ -109,7 +109,7 @@
 	#qnasearch_btn {
 		width: 50px;
 		height: 26px;
-		background-color: #FFDF24; 
+		background-color: #0daa62; 
 		color: #FFFFFF;
 		display: block;
 		border: 0px;
@@ -156,10 +156,10 @@
 	 	line-height: 40px;
 	 	background-color: white;
 	 	font-weight: bold;
-	 	color: #FFDF24;
+	 	color: #0daa62;
 	}
 	#pagetable tr, #pagetable td {
-		border: 1px solid #FFDF24;
+		border: 1px solid #0daa62;
 	 }
 	 #pagetable tr {
 	 	height: 40px;
@@ -168,7 +168,7 @@
 	 	width: 40px;
 	 }
 	 #pagetable td > a{
-	 	color: #FFDF24;
+	 	color: #0daa62;
 	 } 
 	 .active > a{
 	 	color: #990000;
@@ -223,17 +223,17 @@
 	}
 	#qna_btn{
 		border: 1px solid white;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 	}
 	#qna_btn > a > span {
 		color: white;
 	}
 	#free_btn{
-		border: 1px solid #FFDF24;
+		border: 1px solid #0daa62;
 		background-color: white;
 	}
 	#free_btn > a > span {
-		color: #FFDF24
+		color: #0daa62
 	}
 	.board_selbtn > a > span {
 		line-height: 40px;
