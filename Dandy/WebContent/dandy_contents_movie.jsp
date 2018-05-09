@@ -188,7 +188,7 @@
 							<div id="movieposter">
 								<c:choose>
 									<c:when test="${empty ml.img}">
-										<img src="image/img_ready.jpg">
+										<img src="image/img_ready.gif">
 									</c:when>
 									<c:otherwise>
 										<img src="${ml.img}">
