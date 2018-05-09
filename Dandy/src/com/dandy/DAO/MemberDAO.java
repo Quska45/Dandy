@@ -97,12 +97,17 @@ public class MemberDAO {
 		MemberDTO mDto = new MemberDTO(mid, mpw);
 		try {
 			mDto = sqlSession.selectOne("sessionlogin", mDto);
-			System.out.print(mDto.getMid());
-			System.out.print(mDto.getMpw());
-			System.out.print(mDto.getMname());
-			System.out.print(mDto.getMphone());
-			System.out.print(mDto.getMsex());
-			
+			if(mDto == null) {
+				System.out.println("로그인정보가 틀림");
+			} else {
+				System.out.print(mDto.getMid());
+				System.out.print(mDto.getMpw());
+				System.out.print(mDto.getMname());
+				System.out.print(mDto.getMphone());
+				System.out.print(mDto.getMsex());
+				
+				
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
