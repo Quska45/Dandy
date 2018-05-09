@@ -244,11 +244,11 @@
 				FROM (
 					SELECT * 
 					FROM movieindex ]]>
-					<if test='index == null'>
-						<![CDATA[ WHERE mno > 0]]>
-					</if>
 					<if test='index != null'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = #{index}]]>
+						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+					</if>
+					<if test='index == null'>
+						<![CDATA[WHERE mno > 0 ]]>
 					</if>
 					<![CDATA[
 					ORDER BY mno
@@ -270,9 +270,11 @@
 					SELECT * 
 					FROM movieindex ]]>
 					<if test='index != null'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = #{index}]]>
+						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 					</if>
-					
+					<if test='index == null'>
+						<![CDATA[WHERE mno > 0 ]]>
+					</if>
 					<![CDATA[
 					ORDER BY mno
 				) a
