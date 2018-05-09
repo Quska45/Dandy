@@ -606,6 +606,9 @@
 			}
 		});
 	});
+	$(document).on("click", "#question_board_detail_login", function(){
+		$(".modal").css("display", "block");
+	});
 	
 	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트

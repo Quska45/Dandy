@@ -598,8 +598,9 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.loginUser}">
 							<td colspan="5" id="re_login">
-								<span id="re_idch"><a href="#" id="login">로그인</a>을 하시면 댓글과 답변을 등록하실 수 있습니다.</span>
+								<span id="re_idch"><a href="#" id="question_board_detail_login">로그인</a>을 하시면 댓글과 답변을 등록하실 수 있습니다.</span>
 							</td>
+							
 					</c:when>
 					<c:otherwise>
 							<td class="no" >
