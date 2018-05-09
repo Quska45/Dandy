@@ -94,7 +94,7 @@
 	.qnasearch {
 		float: right;
 	}
-	#qnasearch_keyword {
+	#question_search_keyword {
 		width: 140px;
 		height: 26px;
 		font-size: 13px;
@@ -106,7 +106,7 @@
 		font-style: oblique;
 		font-family: 'Hanna', serif;
 	}
-	#qnasearch_btn {
+	#question_search_btn {
 		width: 50px;
 		height: 26px;
 		background-color: #0daa62; 
@@ -179,7 +179,7 @@
 	  #recount{
 	 	color: #990000;
 	 } 
-	 #selsearch {
+	 #question_selsearch {
 		width: 80px;
 		height: 26px;
 		font-family: 'Hanna', serif;
@@ -273,32 +273,7 @@
 		
 	});
 	
-	$(document).on("click","#qnasearch_btn",function(){
-		
-		$("#frm_search").submit();
-		
-	});
-	
-	// 게시판 정렬
-	var lineup_code = $("#lineup_code").val();
-	$(document).on("click", "#l_no", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_no";
-	});
-	$(document).on("click", "#l_contents", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_contents";
-	});
-	$(document).on("click", "#l_name", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_name";
-	});
-	$(document).on("click", "#l_date", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_date";
-	});
-	$(document).on("click", "#l_view", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_view";
-	});
-	$(document).on("click", "#l_good", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_good";
-	});
+
 </script>
 </head>
 <body>
@@ -316,7 +291,7 @@
 		<!-- <div id="subject">
 			<span>Q & A</span>
 		</div> -->
-		<form action="boardsearch.bizpoll" method="GET" name ="frm_search">
+
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">
 					<span width="100">&nbsp;</span>
@@ -328,9 +303,9 @@
 						
 						
 					</span>
-					<input id="qnasearch_btn" class="qnasearch" type="submit" value="검색">
-					<input id="qnasearch_keyword" class="qnasearch" name="search_keyword" type="text" placeholder="검색어">
-					<select id="selsearch" name="selsearch" class="qnasearch" >
+					<input id="question_search_btn" class="qnasearch" type="button" value="검색">
+					<input id="question_search_keyword" class="qnasearch" name="search_keyword" type="text" placeholder="검색어">
+					<select id="question_selsearch" name="selsearch" class="qnasearch" >
 							<option value="1">전체</option>
 							<option value="---------------">---------------</option>
 							<option value="2">제목</option>
@@ -339,7 +314,7 @@
 							<option value="5">작성자</option>
 						</select>
 				</div>
-			</form>
+
 		<table id="big_table">
 			<tbody>
 				<tr>
@@ -362,6 +337,7 @@
 								<tr>
 									<td class="no">
 										<a href="#" id="l_no" class="lineup">
+										<input type="hidden" id="l_no_input" value="${sort}">
 											<span>NO</span>
 										</a>
 									</td>
@@ -369,24 +345,29 @@
 									<td class="upload"></td>
 									<td class="contents" id="contents">
 										<a href="#"  id="l_contents"  class="lineup">
+										<input type="hidden" id="l_content_input" value="DESC">
 											<span>CONTENTS</span>
 										</a>
 									</td>
 									<td class="name" id="name">
 										<a href="#"  id="l_name" class="lineup">
+										<input type="hidden" id="l_name_input" value="DESC">
 											<span>NAME</span></a>
 										</td>
 									<td class="date" id="date">
 										<a href="#"  id="l_date" class="lineup">
+										<input type="hidden" id="l_date_input" value="DESC">
 											<span>DATE</span>
 										</a>
 									</td>
 									<td class="view" id="view">
 										<a href="#"  id="l_view" class="lineup">
+										<input type="hidden" id="l_view_input" value="DESC">
 											<span><i class="fa fa-eye"></i></span>
 										</a>
 										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 										<a href="#" id="l_good"  class="lineup">
+										<input type="hidden" id="l_good_input" value="DESC">
 											<span><i class="fa fa-heart"></i></span>
 										</a>
 									</td>
@@ -404,7 +385,7 @@
 							
 								<c:forEach items="${boardlist}" var="bDto">
 								<tr id="line">
-									<input type="hidden" id="hiddenBno" name="hiddenBno" value="${bDto.bno}">
+									<input type="hidden" class="hiddenBno" name="hiddenBno" value="${bDto.bno}">
 									<td class="no"><span>${bDto.bno}</span></td>
 									<td class="point">
 										<c:if test="${today2 == regdate2}">

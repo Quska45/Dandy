@@ -456,14 +456,13 @@
 			});
 			
 		});  
-		$(document).on("click", "#rewrite_btn", function(){
-			location.href="answer.bizpoll?bno=${boardview.bno}";
-		});
+		
 </script>
 </head>
 <body>
 
 <div id="board">
+	<input type="hidden" id="question_detail_bno" value="${boardview.bno}">
 	<div id="table">
 		<div id="subject">
 			<span>Q & A</span>
@@ -552,7 +551,7 @@
 									<span>&nbsp;</span>
 								</c:when>
 								<c:otherwise>
-									<input type="button" class="board_btn" id="rewrite_btn" value="답변">
+									<input type="button" class="board_btn" id="qustion_rewrite_btn" value="답변">
 								</c:otherwise>
 							</c:choose>
 						</td>

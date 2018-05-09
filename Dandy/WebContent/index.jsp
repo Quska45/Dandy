@@ -529,6 +529,27 @@
 		
 	});
 	
+	//임시로 로그아웃 버튼 만듦
+	$(document).on("click", "#index_logout", function(){
+			$.ajax({
+				url: "logout.dandy",
+				type: "POST",
+				dataType :  "JSON",
+				success: function(data){
+					if(data.flag=="1"){
+						//index.bizpoll을 띄우라는 것이다.
+						location.reload();
+					} else if(data.flag!="0"){
+						alert("data.flag" + data.flag);
+						alert("로그아웃 실패");
+					}
+				},
+				error: function(){
+					alert("system error");
+				}	
+			});
+	});
+	
 	//게시글목록을 띄우는 콜백함수. openButton3에 onclick으로 걸려있다.
 	function board_list() {
 		//alert("onclick");
@@ -544,7 +565,8 @@
 	
 	//게시판 상세 페이지를 띄우는 쿼리
 	$(document).on("click", "#boardDetailBtn", function(){
-		var bno = $("#hiddenBno").val();
+		var bno = $(".hiddenBno").val();
+		alert("bno" + bno);
 		$.ajax({
 			url : "questionBoardDetail.dandy",
 			type : "POST",
@@ -557,6 +579,58 @@
 			}
 
 		});
+		
+	});
+	
+	//QnA 게시판검색기능
+	$(document).on("click", "#question_search_btn", function(){
+		var keyword = $("#question_search_keyword").val();
+		var type = $("#question_selsearch").val();
+		$.ajax({
+			url : "questionBoardSearch.dandy",
+			type : "POST",
+			data : "keyword=" + keyword + "&type=" + type,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	// QnA 게시판 정렬 해준다.
+	$(document).on("click", "#l_no", function(){
+		var sort = $("#l_no_input").val();
+		alert(sort);
+		$.ajax({
+			url : "questionBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
+	$(document).on("click", "#l_contents", function(){
+		
+	});
+	$(document).on("click", "#l_name", function(){
+		
+	});
+	$(document).on("click", "#l_date", function(){
+		
+	});
+	$(document).on("click", "#l_view", function(){
+		
+	});
+	$(document).on("click", "#l_good", function(){
 		
 	});
 	
@@ -610,6 +684,34 @@
 		$(".modal").css("display", "block");
 	});
 	
+	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
+	$(document).on("click", "#qustion_rewrite_btn", function(){
+		var bno = $("#question_detail_bno").val();
+			$.ajax({
+				type : "post",
+				url : "question_answer.dandy",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+	});
+	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
+	$(document).on("click", "#question_answer_wr_btn", function(){
+		var title = $("#sub_input").val();
+		var bno = $("#question_answer_bno").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		alert(title + ", " + bno  + ", " + writer  + ", " + content);
+		$.ajax({
+			type : "post",
+			url : "questionAnswerInsert.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
 	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
 	function movie_list() {
@@ -1015,6 +1117,7 @@
 				<c:otherwise>
 					<a href="#" class="login" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
+					<a href="#" id="index_logout">로그아웃</a>
 				
 				</c:otherwise>
 				

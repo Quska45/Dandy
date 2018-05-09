@@ -7,7 +7,18 @@ public class CriteriaDTO {
 	private String keyword;
 	private String flag;
 	private String lineup_code;
+	private String sort;
 	
+	public String getSort() {
+		return sort;
+	}
+
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
+
 	public String getLineup_code() {
 		return lineup_code;
 	}

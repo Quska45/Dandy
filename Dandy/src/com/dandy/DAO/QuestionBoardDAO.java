@@ -90,8 +90,6 @@ public class QuestionBoardDAO {
 			
 			System.out.print(qDto.getBno());
 			System.out.print(qDto.getContent());
-			System.out.print(qDto.getContent());
-			System.out.print(qDto.getGoodcnt());
 			System.out.print(qDto.getTitle());
 			System.out.println();
 		} catch (Exception e) {
@@ -160,9 +158,96 @@ public class QuestionBoardDAO {
 		}
 	}
 	
+	//답글의 순서를 조정 해줌
+	public void updateStep(int ref, int re_step) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			QuestionBoardDTO bDto = new QuestionBoardDTO();
+			bDto.setRef(ref);
+			bDto.setRe_step(re_step);
+			sqlSession.update("questionUpdateStep", bDto);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
+	//답글을 입력시키는 메소드
+	public int answerInsert(QuestionBoardDTO qDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.insert("questionAnswerInsert", qDto);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return result;
+	}
 	
 	
+	//게시글 검색해주는 메소드
+	public List<QuestionBoardDTO> questionSeach(CriteriaDTO criDto){
+		sqlSession = sqlSessionFactory.openSession();
+		List<QuestionBoardDTO> list = null;
+		try {
+			System.out.println("keyword=====>" + criDto.getKeyword());
+			System.out.println("flag=====>" + criDto.getFlag());
+			
+			list = sqlSession.selectList("questionSearch", criDto);
+			
+			for(QuestionBoardDTO bDto : list) {
+				System.out.print(bDto.getBno()+", ");
+				System.out.print(bDto.getTitle()+", ");
+				System.out.print(bDto.getContent()+", ");
+				System.out.print(bDto.getWriter()+", ");
+				System.out.print(bDto.getRegdate()+", ");
+				System.out.print(bDto.getViewcnt()+", ");
+				System.out.println();
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		
+		return list;
+	}
 	
-	
-	
+	//게시글을 정렬하는 메소드
+	public List<QuestionBoardDTO> questionSort(CriteriaDTO criDto){
+		sqlSession = sqlSessionFactory.openSession();
+		List<QuestionBoardDTO> list = null;
+		try {
+			list = sqlSession.selectList("questionSort", criDto);
+			for(QuestionBoardDTO qDto : list){
+				System.out.print(qDto.getBno());
+				System.out.print(qDto.getContent());
+				System.out.print(qDto.getTitle());
+				System.out.print(qDto.getWriter());
+				System.out.print(qDto.getViewcnt());
+				System.out.print(qDto.getRegdate());
+				System.out.print(qDto.getGoodcnt());
+				System.out.println();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		
+		return list;
+	}
 }

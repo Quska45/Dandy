@@ -5,6 +5,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com/dandy/mybatis/DandyMapper.xml">
+
 	<select id="sessionlogin" resultType="memDTO" parameterType="memDTO">
 		SELECT * 
 		FROM dandy_member 
@@ -40,19 +41,22 @@
 		<![CDATA[
 			SELECT count(bno)
 			FROM question_board]]>
-			<if test='flag == "직접입력"'>
+			<if test='flag == "1"'>
 				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
 			</if>
-			<if test='flag == "제목"'>
+			<if test='flag == "---------------"'>
+				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+			</if>
+			<if test='flag == "2"'>
 				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
 			</if>
-			<if test='flag == "내용"'>
+			<if test='flag == "3"'>
 				<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
 			</if>
-			<if test='flag == "제목 + 내용"'>
+			<if test='flag == "4"'>
 				<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
 			</if>
-			<if test='flag == "작성자"'>
+			<if test='flag == "5"'>
 				<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
 			</if>
 	</select>
@@ -84,6 +88,67 @@
 		DELETE FROM question_reply
 		WHERE rno = #{rno}
 	</delete>
+	
+<!-- 새로운 답글이 들어왔을 때 기존의 답글의 스텝값을 바꿔준다. -->
+	<update id="questionUpdateStep">
+		UPDATE question_board
+		SET re_step = re_step + 1
+		WHERE ref=#{ref} AND re_step >= #{re_step}
+	</update>
+	
+<!-- 최종적으로 완성된 답글을 디비에 넣어준다. -->
+	<insert id="questionAnswerInsert" parameterType="qDTO">
+		INSERT INTO question_board(bno, title, content, writer, ref, re_step, re_level)
+		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title}, #{content}, #{writer}, #{ref},  #{re_step}, #{re_level})
+	</insert>
+	
+<!-- 검색을 하게 해주는 쿼리문 -->
+	<select id="questionSearch" resultType="qDTO" parameterType="criDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT *
+					FROM question_board]]>
+					<if test='flag == "1"'>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR contents LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<if test='flag == "---------------"'>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<if test='flag == "2"'>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<if test='flag == "3"'>
+						<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<if test='flag == "4"'>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR contents LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<if test='flag == "5"'>
+						<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
+					</if>
+					<![CDATA[
+					ORDER BY bno desc
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}]]>
+	</select>	
+
+<!-- 정렬해주는 쿼리 -->	
+	<select id="questionSort" parameterType="criDTO" resultType="qDTO">
+		<![CDATA[
+		SELECT *
+		FROM question_board]]>
+		<if test='sort=="DESC"'>
+			<![CDATA[ORDER BY bno ASC]]>
+		</if>
+		<if test='sort=="ASC"'>
+			<![CDATA[ORDER BY bno DESC]]>
+		</if>
+	</select>
 <!-- =================================================================자유게시판================================================================= -->
 <!-- 자유게시판 리스트 출력 (정렬 추가) -->
 	  <select id="fblistCriteria" resultType="bDTO">

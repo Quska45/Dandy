@@ -16,7 +16,18 @@ public class QuestionBoardDTO {
 	private String question_type;
 	private String flag;
 	private int replycnt;
+	private String sort;
 	
+	public String getSort() {
+		return sort;
+	}
+
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
+
 	public int getReplycnt() {
 		return replycnt;
 	}
@@ -31,7 +42,17 @@ public class QuestionBoardDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public QuestionBoardDTO(String title, String content, String writer, int ref, int re_step, int re_level) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.ref = ref;
+		this.re_step = re_step;
+		this.re_level = re_level;
+	}
+
+
 	public QuestionBoardDTO(String title, String content, String writer, String question_type, String flag) {
 		super();
 		this.title = title;
