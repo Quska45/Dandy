@@ -49,7 +49,7 @@ public class MovieListAction implements Action {
 		moviePageMaker.setTotalCount(mDao.totalCount(CriDto));
 		
 		request.setAttribute("pageMaker", moviePageMaker);
-		
+		request.setAttribute("index", index);
 		
 		
 		ActionForward forward = new ActionForward();

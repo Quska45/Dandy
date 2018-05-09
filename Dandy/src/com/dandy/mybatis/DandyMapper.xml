@@ -269,87 +269,10 @@
 				FROM (
 					SELECT * 
 					FROM movieindex ]]>
-					<if test='index == "A"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'A']]>
+					<if test='index != null'>
+						<![CDATA[ WHERE mno > 0 AND indexchar = #{index}]]>
 					</if>
-					<if test='index == "B"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'B']]>
-					</if>
-					<if test='index == "C"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'C']]>
-					</if>
-					<if test='index == "D"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'D']]>
-					</if>
-					<if test='index == "E"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'E']]>
-					</if>
-					<if test='index == "F"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'F']]>
-					</if>
-					<if test='index == "G"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'G']]>
-					</if>
-					<if test='index == "H"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'H']]>
-					</if>
-					<if test='index == "I"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'I']]>
-					</if>
-					<if test='index == "J"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'J']]>
-					</if>
-					<if test='index == "K"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'K']]>
-					</if>
-					<if test='index == "L"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'L']]>
-					</if>
-					<if test='index == "M"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'M']]>
-					</if>
-					<if test='index == "N"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'N']]>
-					</if>
-					<if test='index == "O"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'O']]>
-					</if>
-					<if test='index == "P"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'P']]>
-					</if>
-					<if test='index == "Q"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'Q']]>
-					</if>
-					<if test='index == "R"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'R']]>
-					</if>
-					<if test='index == "S"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'S']]>
-					</if>
-					<if test='index == "T"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'T']]>
-					</if>
-					<if test='index == "U"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'U']]>
-					</if>
-					<if test='index == "V"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'V']]>
-					</if>
-					<if test='index == "W"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'W']]>
-					</if>
-					<if test='index == "X"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'X']]>
-					</if>
-					<if test='index == "Y"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'Y']]>
-					</if>
-					<if test='index == "Z"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = 'Z']]>
-					</if>
-					<if test='index == "0"'>
-						<![CDATA[ WHERE mno > 0 AND indexchar = '0']]>
-					</if>
+					
 					<![CDATA[
 					ORDER BY mno
 				) a
@@ -362,86 +285,11 @@
 		<![CDATA[
 			SELECT count(mno)
 			FROM movieindex]]>
-			<if test='index == "A"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'A']]>
+			<if test='index != null'>
+				<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 			</if>
-			<if test='index == "B"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'B']]>
-			</if>
-			<if test='index == "C"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'C']]>
-			</if>
-			<if test='index == "D"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'D']]>
-			</if>
-			<if test='index == "E"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'E']]>
-			</if>
-			<if test='index == "F"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'F']]>
-			</if>
-			<if test='index == "G"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'G']]>
-			</if>
-			<if test='index == "H"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'H']]>
-			</if>
-			<if test='index == "I"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'I']]>
-			</if>
-			<if test='index == "J"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'J']]>
-			</if>
-			<if test='index == "K"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'K']]>
-			</if>
-			<if test='index == "L"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'L']]>
-			</if>
-			<if test='index == "M"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'M']]>
-			</if>
-			<if test='index == "N"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'N']]>
-			</if>
-			<if test='index == "O"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'O']]>
-			</if>
-			<if test='index == "P"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'P']]>
-			</if>
-			<if test='index == "Q"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'Q']]>
-			</if>
-			<if test='index == "R"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'R']]>
-			</if>
-			<if test='index == "S"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'S']]>
-			</if>
-			<if test='index == "T"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'T']]>
-			</if>
-			<if test='index == "U"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'U']]>
-			</if>
-			<if test='index == "v"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'V']]>
-			</if>
-			<if test='index == "W"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'W']]>
-			</if>
-			<if test='index == "X"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'X']]>
-			</if>
-			<if test='index == "Y"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'Y']]>
-			</if>
-			<if test='index == "Z"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = 'Z']]>
-			</if>
-			<if test='index == "0"'>
-				<![CDATA[WHERE mno > 0 AND indexchar = '0']]>
+			<if test='index == null'>
+				<![CDATA[WHERE mno > 0 ]]>
 			</if>
 	</select>
 	
