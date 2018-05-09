@@ -136,7 +136,7 @@
 					<div id="mylog" class="mycontent_box">
 						<div class="mycontent_boxtitle"><span>최근 활동 로그</span></div>
 						<div class="mycontent_contents">
-							<span>최근에 이용한 사이트 내역</span>
+							<span>최근에 이용한 사이트 내역 표시</span>
 						</div>
 					</div>
 				</div>
