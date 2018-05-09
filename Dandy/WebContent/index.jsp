@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,11 +55,10 @@
 		/*로그인 버튼 */
 		div#header .login {
 			width: 79px;
-    		height: 79px;
+    			height: 79px;
 			position: absolute;
 			top: 0;
 			left: 0;
-			border: 1px solid #C7C7C7;
 		}
 		div#header .login img {
 			width: 70px;
@@ -478,47 +480,58 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+
+
 	//로그인 모달창에서 로그인을 할 수 있도록 하는 쿼리
 	$(document).on("click", "#btn_login", function(){
-		var id = $("#login_id");
-		var pw = $("#login_pw");
+		var mid = $("#sessionMid").val();
+		alert(mid);
 		
-		var lid = id.val();
-		
-		if(lid == "") {
-			$("#ErrCk").text("ID값을 입력하시오").css("display", "block").css("color", "red");
-			id.focus();
-			return false;
-		}
-		
-		var lpw = pw.val();
-		
-		if(lpw == "") {
-			$("#ErrCk").text("PW값을 입력하시오").css("display", "block").css("color", "red");
-			pw.focus();
-			return false;
-		}
-		
-		$.ajax({
-			url: "loginajax.dandy",
-			type: "POST",
-			dataType :  "JSON",
-			data: "id=" + lid + "&pw=" + lpw,
-			success: (function(data){
-				if(data.id != null && data.pw != null) {
-					alert("로그인 성공");
-					//index 페이지로 이동
-					location.reload();
-				} else {
-					alert("로그인실패");
-					$("#login_id").select();
-					$("#ErrCk").css("display", "block");
-				}
-			}),
-			error: function(){
-				alert("system error");
+		if(mid == "") {
+			var id = $("#login_id");
+			var pw = $("#login_pw");
+			alert(id);
+			alert(pw);
+			
+			var lid = id.val();
+			
+			if(lid == "") {
+				$("#ErrCk").text("ID값을 입력하시오").css("display", "block").css("color", "red");
+				id.focus();
+				return false;
 			}
-		});
+			
+			var lpw = pw.val();
+			
+			if(lpw == "") {
+				$("#ErrCk").text("PW값을 입력하시오").css("display", "block").css("color", "red");
+				pw.focus();
+				return false;
+			}
+			
+			$.ajax({
+				url: "loginajax.dandy",
+				type: "POST",
+				dataType :  "JSON",
+				data: "id=" + lid + "&pw=" + lpw,
+				success: (function(data){
+					if(data.id != null && data.pw != null) {
+						alert("로그인 성공");
+						//index 페이지로 이동
+						location.reload();
+					} else {
+						$("#login_id").select();
+						$("#ErrCk").text("ID, PW값을 정확히 입력하시오.").css("display", "block").css("color", "red");
+					}
+				}),
+				error: function(){
+					alert("system error");
+				}
+			});
+		} else {
+			alert("test");
+		}
+		
 	});
 	
 	//게시글목록을 띄우는 콜백함수. openButton3에 onclick으로 걸려있다.
@@ -995,7 +1008,18 @@
 			</h1>
 			<!-- 로고 끝 -->
 			<!-- 로그인 버튼 시작-->
-			<a class="login">My</a>
+			<c:choose>
+				<c:when  test="${empty sessionScope.loginUser.mid}">
+					<a class="login" style="background: url('image/mypage_icon1.png') 40% 50% no-repeat;
+			background-size: 75px;"></a>
+				</c:when>
+				
+				<c:otherwise>
+					<a class="login" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
+			background-size: 75px;"></a>
+				</c:otherwise>
+				
+			</c:choose>
 			<!-- 로그인 버튼 끝 -->
 		</div>
 		<!-- 로고가 있는 헤더 부분 끝 -->
