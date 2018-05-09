@@ -191,18 +191,18 @@
     	font-size: 17px;
 	}
 	#key {
-		color: #FFBB00;
+		color: #0daa62;
 	}
 	#new {
-		color: #FFBB00;
-		border: 1px solid #FFBB00;
+		color: #0daa62;
+		border: 1px solid #0daa62;
 		font-size: 14px;
 		background-color: white;
 		border-radius: 5px;
 		padding: 1px 3px;
 	}
 	#fafa_icon, #good_fafa {
-		color: #FFBB00;
+		color: #0daa62;
 	}
 	#viewcnt, #goodcnt {
 		color: #555555;

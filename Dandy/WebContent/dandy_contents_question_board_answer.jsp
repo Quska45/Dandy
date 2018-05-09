@@ -17,7 +17,7 @@
 		border-left: none;
 		border-right: none;
 		border-top: 2px solid white;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
  		border-collapse: collapse;
  		width: 1000px;
 	}
@@ -31,11 +31,11 @@
 		padding: 15px;
 	}
 	#title_tr{
-		border-bottom : 2px solid #FFDF24;
+		border-bottom : 2px solid #0daa62;
 	}
 	#contents {
-		width: 1200px;
-		margin: 10px 460px;
+		width: 1100px;
+		margin-left: 100px;
 		margin-top: 30px;
 	}
 	.tx_cen {
@@ -89,9 +89,9 @@
 		font-family: 'Hanna', serif;
 	}
 	#question_answer_wr_btn:hover {
-		border: 1px solid #ffdf24;
+		border: 1px solid #0daa62;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 	#page_footer {
 		height: 200px;

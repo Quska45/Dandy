@@ -21,7 +21,7 @@
 		border-left: none;
 		border-right: none;
 		border-top: 2px solid white;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
  		border-collapse: collapse;
  		width: 1000px;
  		margin-left: 95px;
@@ -36,7 +36,7 @@
 		padding: 15px;
 	}
 	#title_tr{
-		border-bottom : 2px solid #FFDF24;
+		border-bottom : 2px solid #0daa62;
 	}
 	#contents {
 		width: 1200px;
@@ -90,9 +90,9 @@
 		font-family: 'Hanna', serif;
 	}
 	#btn_success:hover {
-		border: 1px solid #ffdf24;
+		border: 1px solid #0daa62;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 	#page_footer {
 		height: 200px;
