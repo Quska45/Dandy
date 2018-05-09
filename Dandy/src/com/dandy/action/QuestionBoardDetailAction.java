@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DAO.ReplyDAO;
@@ -25,6 +26,9 @@ public class QuestionBoardDetailAction implements Action{
 		System.out.println("bno" + bno);
 		
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
+		HttpSession session = request.getSession();
+		qDao.questionBoardViewCnt(bno, session);
+		
 		QuestionBoardDTO qDto = qDao.questionDetail(bno);
 		
 		request.setAttribute("boardview", qDto);

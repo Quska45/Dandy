@@ -22,6 +22,7 @@ import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardWriteAction;
 import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
+import com.dandy.action.QuestionReplyDeleteAction;
 import com.dandy.action.QuestionBoardInsertsaveAction;
 import com.dandy.action.IndexAction;
 import com.dandy.action.LoginAjaxAction;
@@ -99,6 +100,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/questionBoardWrite.dandy")) {
 			action = new QuestionBoardWriteAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/questionReplyDelete.dandy")) {
+			action = new QuestionReplyDeleteAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		else if (command.equals("/memberCheckAjax.dandy")) {

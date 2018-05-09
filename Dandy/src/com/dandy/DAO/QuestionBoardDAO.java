@@ -3,6 +3,8 @@ package com.dandy.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -123,6 +125,39 @@ public class QuestionBoardDAO {
 		
 		
 		return result;
+	}
+	
+	//조회수를 세주는 메소드
+	public void questionBoardViewCnt(Integer bno, HttpSession countSession) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result=0;
+		try {
+			
+			long update_time = 0;
+			if(countSession.getAttribute("read_time_" + bno) != null) {
+				update_time = (long)countSession.getAttribute("read_time_"+bno);
+			}
+			
+			long current_time = System.currentTimeMillis();
+			
+			if(current_time - update_time > 24 * 60 * 60 * 1000) {
+				result = sqlSession.update("questionBoardViewCnt", bno);
+				sqlSession.commit();
+				
+				countSession.setAttribute("read_time_"+bno, current_time);
+			}
+
+			if(result > 0) {
+				System.out.println("count 1 증가 성공");
+			} else {
+				System.out.println("count 1 증가 실패");
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
 	}
 	
 	

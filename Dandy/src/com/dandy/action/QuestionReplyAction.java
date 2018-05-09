@@ -6,6 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
+import com.dandy.DAO.ReplyDAO;
+import com.dandy.DTO.ReplyDTO;
+
 public class QuestionReplyAction implements Action {
 
 	@Override
@@ -16,16 +21,27 @@ public class QuestionReplyAction implements Action {
 		
 		String content = request.getParameter("re_input");
 		String writer = request.getParameter("rn_input");
-		String rno = request.getParameter("re_bno");
-		System.out.println(content + ", " + writer + ", " + rno);
+		Integer bno = Integer.parseInt(request.getParameter("re_bno"));
+		System.out.println(content + ", " + writer + ", " + bno);
+		
+		ReplyDTO rDto = new ReplyDTO(content, writer, bno);
+		ReplyDAO rDao = ReplyDAO.getInstance();
+		int result = rDao.questionReplyInsert(rDto);
+		
+		if(result > 0) {
+			System.out.println("댓글 등록 성공");
+		} else {
+			System.out.println("댓글 등록 실패");
+		}
 		
 		
 		
-		ActionForward forward = new ActionForward();
-		forward.setPath(url);
-		forward.setRedirect(false);
+		JSONObject jObj = new JSONObject();
 
-		return forward;
+		response.setContentType("application/x-json; charset=UTF-8");
+		response.getWriter().println(jObj);
+		
+		return null;
 	}
 
 }

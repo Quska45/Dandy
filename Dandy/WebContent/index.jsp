@@ -485,13 +485,10 @@
 	//로그인 모달창에서 로그인을 할 수 있도록 하는 쿼리
 	$(document).on("click", "#btn_login", function(){
 		var mid = $("#sessionMid").val();
-		alert(mid);
 		
 		if(mid == "") {
 			var id = $("#login_id");
 			var pw = $("#login_pw");
-			alert(id);
-			alert(pw);
 			
 			var lid = id.val();
 			
@@ -528,9 +525,7 @@
 					alert("system error");
 				}
 			});
-		} else {
-			alert("test");
-		}
+		} 
 		
 	});
 	
@@ -579,7 +574,7 @@
 	//글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#wr_btn", function(){
 		var sessionLogin = $("#sessionMid").val();
-		if(sessionLogin==null){
+		if(sessionLogin==""){
 			$(".modal").css("display", "block");
 		} else {
 			$.ajax({
@@ -1015,8 +1010,9 @@
 				</c:when>
 				
 				<c:otherwise>
-					<a class="login" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
+					<a href="#" class="login" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
+				
 				</c:otherwise>
 				
 			</c:choose>

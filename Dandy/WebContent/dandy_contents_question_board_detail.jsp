@@ -414,8 +414,9 @@
 	// 댓글 삭제 AJAX
 	$(document).on("click", ".reply_del", function(){
 		var rno = $(this).attr("data_num");
-		 $.ajax({
-	 		 url: "replydelete.bizpoll",
+		alert(rno);
+		$.ajax({
+	 		 url: "questionReplyDelete.dandy",
 	 		 type: "POST",	
 	 		 dataType: "json",
 	 		 data: "rno=" + rno,
@@ -586,6 +587,7 @@
 					<!-- 댓글 -->
 					<input type="hidden" id="re_count" name="re_count" value=" ${re_count}">
 					<tbody id="commentList"></tbody>
+					
 					
 					<!-- 댓글 등록 -->
 					<tbody>

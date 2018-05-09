@@ -32,7 +32,7 @@ public class QuestionCommentListAction implements Action{
 		request.setAttribute("replyview", replylist);
 		
 		int listCount = replylist.size();
-		request.setAttribute("replycount", listCount);
+		request.setAttribute("re_count", listCount);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

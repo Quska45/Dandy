@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.json.simple.JSONObject;
 
 import com.dandy.DTO.ReplyDTO;
 import com.dandy.mybatis.SqlMapConfig;
+import com.dandy.DAO.ReplyDAO;
 
 public class ReplyDAO {
 	SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
@@ -24,6 +26,7 @@ public class ReplyDAO {
 		return instance;
 	}
 	
+	//댓글리스트를 띄워주는 메소드 
 	public List<ReplyDTO> questionReplyList(Integer bno){
 		sqlSession = sqlSessionFactory.openSession();
 		List<ReplyDTO> list = new ArrayList<>();
@@ -45,4 +48,46 @@ public class ReplyDAO {
 		return list;
 	}
 	
+	//댓글을 입력하는 메소드
+	public int questionReplyInsert(ReplyDTO rDto) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.insert("questionReplyInsert", rDto);
+			
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+
+	
+	//댓글 삭제하는 메소드
+	public void questionReplyDelete(Integer rno) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.delete("questionReplydelete", rno);
+			sqlSession.commit();
+			
+			if(result > 0) {
+				System.out.println("댓글 삭제 성공");
+			} else {
+				System.out.println("댓글 삭제 실패");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
 }
