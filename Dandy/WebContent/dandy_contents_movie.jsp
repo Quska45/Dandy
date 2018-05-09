@@ -176,10 +176,10 @@
 				<a href="#" class="active_index" index_num="Y">Y</a>
 				<a href="#" class="active_index" index_num="Z">Z</a>
 			</div>
+			<input type="hidden" id="index_number" value="${index}">
 	<!-- 영화 포스터 -->
 			<div id="poster">
 				<c:forEach items="${movieList}" var="ml">
-					<input type="hidden" id="index_number" value="${ml.indexchar}">
 					<input type="hidden" id="mno" value="${ml.mno}">
 					<input type="hidden" id="img" value="${ml.img}">
 					<input type="hidden" id="title" value="${ml.title}">

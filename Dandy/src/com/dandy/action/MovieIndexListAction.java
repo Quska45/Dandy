@@ -44,7 +44,7 @@ public class MovieIndexListAction implements Action {
 		List<MovieDTO> list = mDao.movieIndexList(CriDto); // = 게시글 목록
 		request.setAttribute("movieList", list);
 		
-		
+		request.setAttribute("index", index);
 		
 		
 		//페이지 메이커
