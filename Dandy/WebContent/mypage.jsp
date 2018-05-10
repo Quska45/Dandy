@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,9 +95,30 @@
 	}
 	
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(document).on("click", "#test",function(){
+		var mid = "2";
+		alert(mid);
+		mid="1";
+		alert(mid);
+		$.ajax({
+			url : "mypageMovieList.dandy",
+			type : "POST",
+			data : "mid=" + mid,
+			success : function(result) {
+				alert("성공");
+				location.href="mypage.jsp";
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
+</script>
 </head>
 <body>
-
 	<!-- My Page : 전체 감싸는 div -->
 	<div id="mypage_wrap">
 		<!-- My Page : contents 영역 wrap div -->
@@ -118,7 +141,7 @@
 					<div id="myword" class="mycontent_box">
 						<div class="mycontent_boxtitle"><span>나의 단어장</span></div>
 						<div class="mycontent_contents">
-							<span>D.I.Y 단어장 목록</span>
+							<span>qw${memlist.mno1}</span>
 						</div>
 					</div>
 				</div>

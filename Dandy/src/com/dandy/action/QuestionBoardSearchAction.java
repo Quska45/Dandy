@@ -38,7 +38,7 @@ public class QuestionBoardSearchAction implements Action{
 		
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
 		List<QuestionBoardDTO> list = qDao.questionSeach(criDto);
-		request.setAttribute("boardlist", list);
+		request.setAttribute("questionboardlist", list);
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
 		pageMaker.setCriDto(criDto);

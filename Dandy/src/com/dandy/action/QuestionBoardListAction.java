@@ -33,7 +33,7 @@ public class QuestionBoardListAction implements Action {
 		
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
 		List<QuestionBoardDTO> list = qDao.questionList(criDto);
-		request.setAttribute("boardlist", list);
+		request.setAttribute("questionboardlist", list);
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
 		pageMaker.setCriDto(criDto);

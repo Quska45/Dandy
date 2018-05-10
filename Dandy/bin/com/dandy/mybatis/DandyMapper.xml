@@ -113,7 +113,7 @@
 					SELECT *
 					FROM question_board]]>
 					<if test='flag == "1"'>
-						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR contents LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%' OR writer LIKE '%'||#{keyword}||'%']]>
 					</if>
 					<if test='flag == "---------------"'>
 						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%']]>
@@ -125,7 +125,7 @@
 						<![CDATA[WHERE bno > 0 AND content LIKE '%'||#{keyword}||'%']]>
 					</if>
 					<if test='flag == "4"'>
-						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR contents LIKE '%'||#{keyword}||'%']]>
+						<![CDATA[WHERE bno > 0 AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
 					</if>
 					<if test='flag == "5"'>
 						<![CDATA[WHERE bno > 0 AND writer LIKE '%'||#{keyword}||'%']]>
@@ -375,7 +375,12 @@
 	  	SELECT * FROM ${tablename}
 	  	ORDER BY freq desc
 	</select>
-
+<!-- =================================================================mypage.jsp에서 쓰는 쿼리================================================================= -->
+<select id="selectMno" parameterType="String" resultType="memDTO">
+	SELECT *
+	FROM dandy_member
+	WHERE mid=#{value}
+</select>
 
 	
 	

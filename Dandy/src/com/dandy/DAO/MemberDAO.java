@@ -118,6 +118,29 @@ public class MemberDAO {
 		return mDto;
 	}
 	
+	//mypage에서 회원의 단어장 mno를 가져오는 메소드
+	public MemberDTO getMno(String mid){
+		sqlSession = sqlSessionFactory.openSession();
+		MemberDTO mDto = null;
+		try {
+			mDto = sqlSession.selectOne("selectMno", mid);
+				System.out.println(mDto.getMno1());
+				System.out.println(mDto.getMno2());
+				System.out.println(mDto.getMno3());
+				System.out.println(mDto.getMno4());
+				System.out.println(mDto.getMno5());
+				System.out.println(mDto.getMno6());
+				System.out.println(mDto.getMno7());
+				System.out.println(mDto.getMno8());
+				System.out.println(mDto.getMno9());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return mDto;
+	}
 	
 	
 	

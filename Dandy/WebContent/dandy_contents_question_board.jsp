@@ -268,7 +268,7 @@
 					<td class="searchkey_ms"  id="searchkeyword_block">
 						<span>『 ${selflag} 』&nbsp;&nbsp;</span>
 						<span id="key">"${keyword}"</span>
-						<span>&nbsp;&nbsp;검색&nbsp;&nbsp;결과&nbsp;:&nbsp;&nbsp;${boardlist.size()}&nbsp;건</span>
+						<span>&nbsp;&nbsp;검색&nbsp;&nbsp;결과&nbsp;:&nbsp;&nbsp;${questionboardlist.size()}&nbsp;건</span>
 					</td>
 			</c:if>
 					<td class="searchkey_ms" id="searchkeyword_none">
@@ -277,13 +277,13 @@
 				</tr>
 				<tr>
 					<td id="table_top">
-						<input type="hidden" name="lineup_code" value="">
 						<table>
 							<tbody>
 								<tr>
 									<td class="no">
 										<a href="#" id="l_no" class="lineup">
 										<input type="hidden" id="l_no_input" value="${sort}">
+										
 											<span>NO</span>
 										</a>
 									</td>
@@ -291,29 +291,29 @@
 									<td class="upload"></td>
 									<td class="contents" id="contents">
 										<a href="#"  id="l_contents"  class="lineup">
-										<input type="hidden" id="l_content_input" value="DESC">
+										<input type="hidden" id="l_content_input" value="${sort}">
 											<span>CONTENTS</span>
 										</a>
 									</td>
 									<td class="name" id="name">
 										<a href="#"  id="l_name" class="lineup">
-										<input type="hidden" id="l_name_input" value="DESC">
+										<input type="hidden" id="l_name_input" value="${sort}">
 											<span>NAME</span></a>
 										</td>
 									<td class="date" id="date">
 										<a href="#"  id="l_date" class="lineup">
-										<input type="hidden" id="l_date_input" value="DESC">
+										<input type="hidden" id="l_date_input" value="${sort}">
 											<span>DATE</span>
 										</a>
 									</td>
 									<td class="view" id="view">
 										<a href="#"  id="l_view" class="lineup">
-										<input type="hidden" id="l_view_input" value="DESC">
+										<input type="hidden" id="l_view_input" value="${sort}">
 											<span><i class="fa fa-eye"></i></span>
 										</a>
 										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 										<a href="#" id="l_good"  class="lineup">
-										<input type="hidden" id="l_good_input" value="DESC">
+										<input type="hidden" id="l_good_input" value="${sort}">
 											<span><i class="fa fa-heart"></i></span>
 										</a>
 									</td>
@@ -329,7 +329,7 @@
 						<table>
 							<tbody>
 							
-								<c:forEach items="${boardlist}" var="bDto">
+								<c:forEach items="${questionboardlist}" var="bDto">
 								<tr id="line">
 									<td class="no"><span>${bDto.bno}</span></td>
 									<td class="point">

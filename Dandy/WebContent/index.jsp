@@ -636,7 +636,7 @@
 	
 	//게시판 상세 페이지를 띄우는 쿼리 : QnA
 	$(document).on("click", "#boardDetailBtn", function(){
-		var bno = $(".hiddenBno").val();
+		var bno = $(this).attr("data_num");
 		alert("bno" + bno);
 		$.ajax({
 			url : "questionBoardDetail.dandy",
@@ -693,7 +693,9 @@
 	// QnA 게시판 정렬 해준다.
 	$(document).on("click", "#l_no", function(){
 		var sort = $("#l_no_input").val();
+		var keyword = $("#l_no_input_keyword").val();
 		alert(sort);
+		alert0(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
