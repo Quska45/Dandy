@@ -238,14 +238,6 @@
 
 <div id="board">
 	<div id="table">
-		<div id="board_sel">
-			<div class="board_selbtn" id="qna_btn">
-				<a href="questionBoardList.dandy"><span>Q & A</span></a>
-			</div>
-			<div class="board_selbtn" id="free_btn">
-				<a href="freeBoardList.dandy"><span>자유게시판</span></a>
-			</div>
-		</div>
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">
 					<span width="100">&nbsp;</span>
