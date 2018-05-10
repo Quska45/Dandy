@@ -331,7 +331,6 @@
 							
 								<c:forEach items="${boardlist}" var="bDto">
 								<tr id="line">
-									<input type="hidden" class="hiddenBno" name="hiddenBno" value="${bDto.bno}">
 									<td class="no"><span>${bDto.bno}</span></td>
 									<td class="point">
 										<c:if test="${today2 == regdate2}">
@@ -343,7 +342,7 @@
 										<table>
 											<tr>
 												<td>
-													<a id="boardDetailBtn" href="#">
+													<a id="boardDetailBtn" href="#" data_num="${bDto.bno}">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;

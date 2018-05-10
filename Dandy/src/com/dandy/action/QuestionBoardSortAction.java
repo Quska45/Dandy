@@ -25,12 +25,13 @@ public class QuestionBoardSortAction implements Action{
 		String url = "dandy_contents_question_board.jsp";
 				
 		String sort=request.getParameter("sort");
+		String keyword = request.getParameter("keyword");
 		System.out.println("sort:" + sort);
-		
-		if(sort == null || sort=="ASC"){
-			sort="DESC";
-		} else{
+		System.out.println("Keyword" + keyword);
+		if(sort == "" || sort.equals("DESC")){
 			sort="ASC";
+		} else{
+			sort="DESC";
 		}
 		System.out.println("sort:" + sort);
 
@@ -42,6 +43,7 @@ public class QuestionBoardSortAction implements Action{
 		}
 		criDto.setPage(page);
 		criDto.setSort(sort);
+		criDto.setKeyword(keyword);
 				
 		//내가 원하는 정렬 키워드에 맞게 정렬된 리스트의 목록을 가져온다.
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();

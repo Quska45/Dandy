@@ -228,6 +228,8 @@ public class QuestionBoardDAO {
 	public List<QuestionBoardDTO> questionSort(CriteriaDTO criDto){
 		sqlSession = sqlSessionFactory.openSession();
 		List<QuestionBoardDTO> list = null;
+		System.out.println(criDto.getKeyword());
+		System.out.println(criDto.getSort());
 		try {
 			list = sqlSession.selectList("questionSort", criDto);
 			for(QuestionBoardDTO qDto : list){
