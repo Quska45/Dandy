@@ -475,6 +475,40 @@
 		margin: 100px 200px;
 	}
 	
+	#board_sel {
+		/* border: 1px solid red; */
+		width: 500px;
+		height: 60px;
+		margin: 50px auto;
+	}
+	.board_selbtn {
+		width: 180px;
+		height: 40px;
+		margin: 8px 33px;
+		float: left;
+		border-radius: 5px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 16px;
+	}
+	#qna_btn{
+		border: 2px solid white;
+		background-color: #0daa62;
+	}
+	#qna_btn > a > span {
+		color: white;
+	}
+	#free_btn{
+		border: 2px solid #0daa62;
+		background-color: white;
+	}
+	#free_btn > a > span {
+		color: #0daa62
+	}
+	.board_selbtn > a > span {
+		line-height: 40px;
+		padding: 0 auto;
+	} 	
 	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -550,6 +584,43 @@
 			});
 	});
 	
+	// 게시판 버튼 이동 : QnA
+	
+	$(document).on("click", "#qna_btn", function(){
+		$("#qna_btn").css("background-color", "#0daa62");
+		$("#qna_btn").css("border", "2px solid white");
+		$("#qna_btn > a > span").css("color", "white");
+		$("#free_btn").css("background-color", "white");
+		$("#free_btn").css("border", "2px solid #0daa62");
+		$("#free_btn > a > span").css("color", "#0daa62");
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	// 게시판 버튼 이동 : 자유게시판
+		
+	$(document).on("click", "#free_btn", function(){
+		$("#free_btn").css("background-color", "#0daa62");
+		$("#free_btn").css("border", "2px solid white");
+		$("#free_btn > a > span").css("color", "white");
+		$("#qna_btn").css("background-color", "white");
+		$("#qna_btn").css("border", "2px solid #0daa62");
+		$("#qna_btn > a > span").css("color", "#0daa62");
+		$.ajax({
+			type : "post",
+			url : "freeBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	
 	//게시글목록을 띄우는 콜백함수. openButton3에 onclick으로 걸려있다.
 	function board_list() {
 		//alert("onclick");
@@ -563,12 +634,30 @@
 		
 	};
 	
-	//게시판 상세 페이지를 띄우는 쿼리
+	//게시판 상세 페이지를 띄우는 쿼리 : QnA
 	$(document).on("click", "#boardDetailBtn", function(){
 		var bno = $(".hiddenBno").val();
 		alert("bno" + bno);
 		$.ajax({
 			url : "questionBoardDetail.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	//게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
+	$(document).on("click", "#freeboardDetailBtn", function(){
+		var bno = $("#free_hiddenBno").val();
+		$.ajax({
+			url : "freeBoardDetail.dandy",
 			type : "POST",
 			data : "bno=" + bno,
 			success : function(result) {
@@ -645,7 +734,7 @@
 		});
 	});
 	
-	//글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#wr_btn", function(){
 		var sessionLogin = $("#sessionMid").val();
 		if(sessionLogin==""){
@@ -660,7 +749,23 @@
 			});
 		}
 	});
-
+	
+	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	$(document).on("click", "#freewr_btn", function(){
+		var sessionLogin = $("#sessionMid").val();
+		if(sessionLogin==null){
+			$(".modal").css("display", "block");
+		} else {
+			$.ajax({
+				type : "post",
+				url : "freeBoardWrite.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		}
+	});
+	
 	
 	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
 	$(document).on("click", "#btn_success", function(){
@@ -682,6 +787,25 @@
 	});
 	$(document).on("click", "#question_board_detail_login", function(){
 		$(".modal").css("display", "block");
+	});
+	
+	//자유게시판 글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+	$(document).on("click", "#btn_freesuccess", function(){
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var flag = $("#secret_input_flag").val();
+		var content = $("#con_input").val();
+		var select = $("#qna_select").val();
+		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		
+		$.ajax({
+			type : "post",
+			url : "freeBoardInsertSave.dandy",
+			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
 	});
 	
 	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
@@ -1187,7 +1311,17 @@
 				<div id="content3">
 					<a href="#" class="mainContentClose3">&times;</a>
 					<div id="wrap_contents">
-						<div id="boardList"></div>
+						<div id="board_sel">
+							<div class="board_selbtn" id="qna_btn">
+								<a href="#"><span>Q & A</span></a>
+							</div>
+							<div class="board_selbtn" id="free_btn">
+								<a href="#"><span>자유게시판</span></a>
+							</div>
+						</div>
+						<div id="boardList">
+						
+						</div>
 					</div>
 				</div>
 				<div class="con3">
