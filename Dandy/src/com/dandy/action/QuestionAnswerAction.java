@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dandy.DAO.BoardDAO;
+import com.dandy.DAO.FreeBoardDAO;
 import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DTO.BoardDTO;
 import com.dandy.DTO.QuestionBoardDTO;

@@ -12,13 +12,13 @@ import com.dandy.DTO.BoardDTO;
 import com.dandy.DTO.CriteriaDTO;
 import com.dandy.mybatis.SqlMapConfig;
 
-public class BoardDAO {
+public class FreeBoardDAO {
 	
 		SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
 		SqlSession sqlSession;
 		
-		private static BoardDAO instance = new BoardDAO();
-		public static BoardDAO getInstance() {
+		private static FreeBoardDAO instance = new FreeBoardDAO();
+		public static FreeBoardDAO getInstance() {
 			
 			return instance;
 		}
@@ -59,7 +59,7 @@ public class BoardDAO {
 			sqlSession = sqlSessionFactory.openSession();
 			
 			try {
-				result = sqlSession.selectOne("countPaging", criDto);
+				result = sqlSession.selectOne("fbscountPaging", criDto);
 				
 			} catch(Exception e) {
 				e.printStackTrace();

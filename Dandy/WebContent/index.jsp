@@ -796,6 +796,10 @@
 		var flag = $("#secret_input_flag").val();
 		var content = $("#con_input").val();
 		var select = $("#qna_select").val();
+		
+		/* var formData = new FormData();
+		formData.append("file_upload",$("input[name=file_upload]")[0].files[0]); */
+		
 		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
 		
 		$.ajax({
@@ -807,6 +811,27 @@
 			}
 		});
 	});
+	
+	
+	/* 
+	$(function(){
+	     $("#btn_freesuccess").click(function(){
+	         var form = $('form')[0];
+	         var formData = new FormData(form);
+	             $.ajax({
+	                url: '/fileupload',
+	                processData: false,
+	                    contentType: false,
+	                data: formData,
+	                type: 'POST',
+	                success: function(result){
+	                    alert("업로드 성공!!");
+	                }
+	            });
+	         });
+	}) */
+	
+	
 	
 	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
 	$(document).on("click", "#qustion_rewrite_btn", function(){

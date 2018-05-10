@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dandy.DAO.BoardDAO;
+import com.dandy.DAO.FreeBoardDAO;
 import com.dandy.DTO.BoardDTO;
 
 public class FreeBoardDetailAction implements Action{
@@ -21,7 +21,7 @@ public class FreeBoardDetailAction implements Action{
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		System.out.println("게시글 번호 = " + bno);
 		
-		BoardDAO bDao = BoardDAO.getInstance();
+		FreeBoardDAO bDao = FreeBoardDAO.getInstance();
 		
 		// ---조회수 1 증가---
 		// ***조회수 증가 방지*** (1. IP, 2. Cookie, 3. Session-server)

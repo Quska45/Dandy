@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dandy.DAO.BoardDAO;
+import com.dandy.DAO.FreeBoardDAO;
 import com.dandy.DTO.BoardDTO;
 import com.dandy.common.Constants;
 import com.oreilly.servlet.MultipartRequest;
@@ -68,7 +68,7 @@ public class FreeBoardInsertSaveAction implements Action{
 				
 				
 				
-				BoardDAO bDAO = BoardDAO.getInstance();
+				FreeBoardDAO bDAO = FreeBoardDAO.getInstance();
 				BoardDTO bDto = new BoardDTO(title, content, writer, filename, filesize);
 				int result = bDAO.boardInsert(bDto);
 				// 게시글을 실제로 등록하고, 게시글 등록 후 게시글 목록 페이지로 이동

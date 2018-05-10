@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dandy.DAO.BoardDAO;
+import com.dandy.DAO.FreeBoardDAO;
 import com.dandy.DTO.BoardDTO;
 import com.dandy.DTO.CriteriaDTO;
 import com.dandy.DTO.PageMakerDTO;
@@ -34,7 +34,7 @@ public class FreeBoardListAction implements Action {
 		
 		/*criDto.setLineup_code(lineup_code);*/
 		
-		BoardDAO bDao = BoardDAO.getInstance();
+		FreeBoardDAO bDao = FreeBoardDAO.getInstance();
 		List<BoardDTO> boardlist = bDao.listAll(criDto);
 
 		request.setAttribute("boardlist", boardlist);
