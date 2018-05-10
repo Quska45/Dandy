@@ -193,7 +193,7 @@
 <!-- 자유게시판 게시글 등록 -->
 		<insert id="boardinsert">
 		  	INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
-			VALUES((SELECT nvl(max(bno)+1, 1)from tblboard), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, (SELECT nvl(max(bno)+1, 1) from tblboard), 1, 0)
+			VALUES((SELECT nvl(max(bno)+1, 1)from board), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, (SELECT nvl(max(bno)+1, 1) from board), 1, 0)
 		</insert>
 <!-- 자유게시판 게시글 상세페이지 -->
 		<select id="boarddetailview" resultType="bDTO" parameterType="Integer">

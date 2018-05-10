@@ -15,20 +15,16 @@
 /* font-family: 'Hanna', serif; */
 	
 	body{
-		margin: 0;
-		padding: 0;
 		font-family: 'Hanna', serif;
-		background-color: #FFFFFF;	
-		min-width: 960px;
 	}
 	#table {
-		width: 1200px;
-		margin: 100px 360px;
+		width: 1100px;
+		margin: 90px 35px;
 	}
 	#table_contents, #inner_contents {
 		border-left: none;
 		border-right: none;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
 	}
 	table {
 		 table-layout: fixed;
@@ -45,7 +41,7 @@
 		padding: 5px 0;
 	}
 	#table_contents {
-		width: 1200px;
+		width: 1100px;
 		margin: 0;
 	}
 	.no {
@@ -122,13 +118,14 @@
 		text-align: center;
 		font-family: 'Hanna', serif;
 		font-size: 16px;
+		background-color: #f7f7f7;
 	}
 	#page_footer {
 		height: 200px;
 	}
 	#re_btn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -140,7 +137,7 @@
 	}
 	.board_btn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 70px;
 		height: 26px;
@@ -152,7 +149,8 @@
 		font-family: 'Hanna', serif;
 		}
 	#bno {
-		border: 1px solid white;
+		border: none;
+		background-color: #f7f7f7;
 		text-align: center;
 		font-family: 'Hanna', serif;
 		width: 100px !important;
@@ -166,7 +164,7 @@
 		color: black;
 	}
 	#login {
-		color: #FFBB00;
+		color: #0daa62;
 		text-decoration: none;
 		font-size: 17px;
 	}
@@ -174,7 +172,7 @@
 		font-family: 'Hanna', serif !important;	
 	}
 	#wr_btn {
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -191,7 +189,7 @@
 	}
 	#remove_rebtn {
 		border-radius: 5px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		width: 50px;
 		height: 26px;
 		margin-bottom: 10px;
@@ -207,7 +205,7 @@
 	}
 	#file_upload{
 		font-size: 16px;
-		color: #FFDF24;
+		color: #0daa62;
 		background-color: white;
 		text-align: center;
 		font-weight: bold;
@@ -218,7 +216,7 @@
 		height: 25px;
 		margin-bottom: 10px;
 		//font-size: 20px;
-		//color: #FFBB00;
+		//color: #0daa62;;
 		text-align: center;
 		line-height: 25px;
 		border: none;
@@ -231,19 +229,19 @@
 	}
 	#downcnt {
 		margin-left: 50px;
-		color: #FFBB00;
+		color: #0daa62;;
 	}
 	#fafa_icon, #good_fafa {
-		color: #FFBB00;
+		color: #0daa62;;
 	}
 	#viewcnt, #goodcnt {
 		color: #555555;
 	}
 	#table_top {
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		color: white;
 		border-radius: 5px;
-		border: #FFDF24;
+		border: #0daa62;
 		height: 40px;
 	}
 	/* 게시판 삭제 확인 모달 */	
@@ -297,176 +295,14 @@
 		border: 1px solid white;
 	}
 	.bbtn:hover {
-		border: 1px solid #ffdf24;
+		border: 1px solid #0daa62;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-/* 게시판 삭제 확인 모달 */
-	$(document).ready(function(){
-		  var mo_board_del = $("#mo_board_del");
-		  var del_link = $(".del_link");
-		  var modalCont = $(".modal_del");
-		  var marginLeft = modalCont.outerWidth()/2;
-		  var marginTop = modalCont.outerHeight()/2; 
-		 
-		  del_link.click(function(){
-		    mo_board_del.fadeIn("slow");
-		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
-		    $(this).blur();
-		    $(".modal_del > a").focus(); 
-		    return false;
-		  });
-		  
-		  $("#cancel_btn").click(function(){
-		    mo_board_del.fadeOut("slow");
-		    del_link.focus();
-		  });
-		  
-		  $("#okay_btn").click(function(){
-			mo_board_del.fadeOut("slow");
-			del_link.focus();
-		  });        
-		});
-
-	$(document).ready(function() {
-		var formObj = $("#frm1");
-		
-		comment_list();
-		
-		
-		// 목록버튼 클릭
-		$("#list_btn").on("click", function(){
-			location.href="freeBoardList.dandy";
-		});
-		// 수정버튼 클릭
-		$("#modify_btn").on("click", function(){
-			formObj.attr("action", "boardupdateview.bizpoll");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-				
-		var code = $("#code").val();
-		
-		$("#wr_btn").on("click", function(){
-			location.href="boardloginck.bizpoll";
-			alert(code);
-		});
-	
-			if(code == 1){
-				alert("모달창 나와랏");
-				$("#id01").css("display","block");
-			} else if(code != 1){
-				$("#id01").css("display","none");
-			}		
-			var replyinsert = $("#replyinsert");
-	});
-		
-	$(document).ready(function(){
-		  var mo_board_del = $("#mo_board_del");
-		  var del_link = $(".del_link");
-		  var modalCont = $(".modal_del");
-		  var marginLeft = modalCont.outerWidth()/2;
-		  var marginTop = modalCont.outerHeight()/2; 
-		 
-		  del_link.click(function(){
-		    mo_board_del.fadeIn("slow");
-		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
-		    $(this).blur();
-		    $(".modal_del > a").focus(); 
-		    return false;
-		  });
-		 
-		  $(".modal_del > button").click(function(){
-		    mo_board_del.fadeOut("slow");
-		    del_link.focus();
-		  });        
-		});
-	
-		
-	// 댓글 등록 AJAX
-	$(document).on("click", "#re_btn", function(){
-		// 댓글 내용
-		var re_input = $("#re_input").val();
-		// 댓글 작성자
-		var rn_input = $("#rn_input").val();
-		// 댓글 번호
-		var re_bno = $("#re_bno").val();
-		$.ajax({
-			url: "reply.bizpoll",
-			type: "POST",
-			dataType: "json",
-			data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
-			success: function(data) {
-				comment_list();
-			},
-			error: function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	
-	// 댓글 삭제 AJAX
-	$(document).on("click", ".reply_del", function(){
-		var rno = $(this).attr("data_num");
-		 $.ajax({
-	 		 url: "replydelete.bizpoll",
-	 		 type: "POST",	
-	 		 dataType: "json",
-	 		 data: "rno=" + rno,
-	 		 success: function(data) {
-	 			comment_list();
-	 		 },
-	 		 error: function() {
-	 			 alert("System Error!!!");
-	 		 }
-	 	 });
-	});
-		
-	function comment_list() {
-		var bno = ${boardview.bno};
-		$.ajax({
-			type: "post",
-			url: "commentlist.bizpoll",
-			data: "bno=" + bno,
-			success: function(result) {
-				$("#commentList").html(result);
-			}
-		});
-	}
-		 $(document).on("click", "#good_fafa", function(){
-			alert("좋아요 클릭!");
-			
-			var gpoint = $("#gpoint").val();
-			var bno = ${boardview.bno};
-			$.ajax({
-				url: "goodpoint.bizpoll",
-				type: "POST",
-				dataType: "json",
-				data: "bno=" + bno,
-				success: function(data) {
-							alert(data.gpoint);
-						if(data.gpoint >= "0"){
-							alert("좋아요 포인트 증가 성공");
-							location.reload();
-							$("#good_fafa").attr('class', 'fa fa-heart');
-						} else{
-							 alert("좋아요 포인트 증가 실패");
-							 return false; 
-						 }
-				},
-				error: function() {
-					alert("System Error!!!");
-				}
-			});
-			
-		});  
-		$(document).on("click", "#rewrite_btn", function(){
-			location.href="answer.bizpoll?bno=${boardview.bno}";
-		});
 </script>
 </head>
 <body>
@@ -511,7 +347,6 @@
 						<td class="view">
 							<i id="fafa_icon" class="fa fa-eye"></i>
 							<span id="viewcnt">${boardview.viewcnt}</span>
-							&nbsp;&nbsp;
 							<i id="good_fafa" name="good_fafa" class="fa fa-heart-o"></i>
 							<input type="hidden" id="gpoint" value="${gpoint}" readonly="readonly">
 							<span id="goodcnt">${boardview.goodcnt}</span>
@@ -524,7 +359,8 @@
 							<span><i class="fa fa-file"></i></span>
 						</td>
 						<td class="contents">
-							<a href="download.bizpoll?bno=${boardview.bno}" id="down">
+<%-- 							<a href="download.bizpoll?bno=${boardview.bno}" id="down"> --%>
+							<a href="#" id="down">
 								<span id ="download">${boardview.filename}</span>
 								<span id="downcnt">
 									<i class="fa fa-arrow-circle-o-down"></i>
@@ -572,7 +408,7 @@
 						<td colspan="5" bgcolor="#ddd" height="1"></td>
 					</tr>
 					<tr>
-						<td colspan="5" bgcolor="white" height="10"></td>
+						<td colspan="5" bgcolor="white" height="#f7f7f7"></td>
 					</tr>
 					<tr>
 						<td class="no" id="list">
@@ -594,7 +430,7 @@
 									<input type="button" class="board_btn" id="modify_btn"  value="수정">
 								</td>
 								<td class="date">
-									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="remove_btn"  value="삭제"></a>
+									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="freeremove_btn"  value="삭제"></a>
 									<input type="hidden" name="pcode" id="pcode" value="${pcode}">
 								</td>
 							</c:when>
@@ -613,7 +449,7 @@
 						
 					</tr>
 					<tr>
-						<td colspan="5" bgcolor="white" height="50"></td>
+						<td colspan="5" bgcolor="#f7f7f7" height="50"></td>
 					</tr>
 					</tbody>
 					<!-- 댓글 -->
@@ -636,7 +472,7 @@
 							<td class="no" >
 								<span>&nbsp;</span>
 							</td>
-					<form id="replyinsert" name="replyinsert" action="reply.bizpoll" method="post">
+					<!-- <form id="replyinsert" name="replyinsert" action="reply.bizpoll" method="post"> -->
 					<input type="hidden" name="re_bno" id="re_bno" value="${boardview.bno}" >
 							<td id="re_con">
 								<input type="text" id="re_input" name="re_input" placeholder="댓글 작성하기" >
@@ -647,7 +483,7 @@
 							<td class="date">
 								<input type="button" id="re_btn" name="re_btn" value="댓글달기">
 							</td>
-					</form>
+					<!-- </form> -->
 							<td class="view">
 								<span>&nbsp;</span>
 							</td>
@@ -669,7 +505,8 @@
 						<span id="text">글을 삭제하시겠습니까?</span>
 					<div id="sel_bbtn">
 							<br>
-							<a href="boarddelete.bizpoll?bno=${boardview.bno}">
+							<%-- <a href="boarddelete.bizpoll?bno=${boardview.bno}"> --%>
+							<a href="#">
 								<button class="bbtn" id="remove_btn2">삭제</button>
 							</a>
 							<button class="bbtn" id="cancel_btn">취소</button>

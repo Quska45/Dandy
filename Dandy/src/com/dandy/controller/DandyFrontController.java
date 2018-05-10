@@ -18,16 +18,13 @@ import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
+import com.dandy.action.FreeBoardWriteAction;
 import com.dandy.action.QuestionBoardListAction;
-import com.dandy.action.QuestionBoardSearchAction;
-import com.dandy.action.QuestionBoardSortAction;
 import com.dandy.action.QuestionBoardWriteAction;
 import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
-import com.dandy.action.QuestionReplyDeleteAction;
 import com.dandy.action.QuestionBoardInsertsaveAction;
 import com.dandy.action.IndexAction;
-import com.dandy.action.LogOutAction;
 import com.dandy.action.LoginAjaxAction;
 import com.dandy.action.MemberCheckAjaxAction;
 import com.dandy.action.MemberConstractAction;
@@ -35,8 +32,6 @@ import com.dandy.action.MemberInsertAction;
 import com.dandy.action.MemberRegisterAction;
 import com.dandy.action.MovieIndexListAction;
 import com.dandy.action.MovieListAction;
-import com.dandy.action.QuestionAnswerAction;
-import com.dandy.action.QuestionAnswerInsertAction;
 import com.dandy.action.QuestionBoardDetailAction;
 
 /**
@@ -83,10 +78,6 @@ public class DandyFrontController extends HttpServlet {
 			action = new IndexAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
-		else if (command.equals("/logout.dandy")) {
-			action = new LogOutAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
 		else if (command.equals("/loginajax.dandy")) {
 			action = new LoginAjaxAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
@@ -109,26 +100,6 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/questionBoardWrite.dandy")) {
 			action = new QuestionBoardWriteAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
-		else if (command.equals("/questionReplyDelete.dandy")) {
-			action = new QuestionReplyDeleteAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
-		else if (command.equals("/question_answer.dandy")) {
-			action = new QuestionAnswerAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
-		else if (command.equals("/questionAnswerInsert.dandy")) {
-			action = new QuestionAnswerInsertAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
-		else if (command.equals("/questionBoardSearch.dandy")) {
-			action = new QuestionBoardSearchAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
-			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
-		}
-		else if (command.equals("/questionBoardSort.dandy")) {
-			action = new QuestionBoardSortAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		else if (command.equals("/memberCheckAjax.dandy")) {
@@ -181,6 +152,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/contentsDetail.dandy")) {
 			action = new ContentsDetailAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeBoardWrite.dandy")) {
+			action = new FreeBoardWriteAction(); 
 			forward = action.excute(request, response); 
 		}
 		

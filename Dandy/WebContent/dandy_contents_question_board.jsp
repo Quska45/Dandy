@@ -46,7 +46,6 @@
 		font-size: 16px;
 		color: #0daa62;
 		font-weight: bold;
-	
 	}
 	.point {
 		width: 50px;
@@ -120,12 +119,6 @@
 		margin-bottom: 100px;
 		color: black!important;
 	}
-	/* #subject {
-		font-size: 45px;
-		text-align: center;
-		color: #a7a7a7;
-		margin: 20px auto; 
-	} */
 	#reline {
 		height: 30px;
 	}
@@ -141,9 +134,6 @@
 	}
 	.text_black {
 		color: black!important;
-	}
-	a {
-		text-decoration: none;
 	}
 	#pageline {
 		text-align: center;
@@ -207,38 +197,6 @@
 	#viewcnt, #goodcnt {
 		color: #555555;
 	}
-	#board_sel {
-		/* border: 1px solid red; */
-		width: 500px;
-		height: 60px;
-		margin: 50px auto;
-	}
-	.board_selbtn {
-		width: 180px;
-		height: 40px;
-		margin: 8px 33px;
-		float: left;
-		border-radius: 5px;
-		text-align: center;
-	}
-	#qna_btn{
-		border: 1px solid white;
-		background-color: #0daa62;
-	}
-	#qna_btn > a > span {
-		color: white;
-	}
-	#free_btn{
-		border: 1px solid #0daa62;
-		background-color: white;
-	}
-	#free_btn > a > span {
-		color: #0daa62
-	}
-	.board_selbtn > a > span {
-		line-height: 40px;
-		padding: 0 auto;
-	}
 	.lineup {
 		color: white;
 	}
@@ -288,10 +246,6 @@
 				<a href="freeBoardList.dandy"><span>자유게시판</span></a>
 			</div>
 		</div>
-		<!-- <div id="subject">
-			<span>Q & A</span>
-		</div> -->
-
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">
 					<span width="100">&nbsp;</span>

@@ -3,35 +3,29 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	
-	$(document).ready(function() {
-	
-		$("#btn_success").on("click", function(){
-				form.submit();
+
+		$(document).ready(function() {
+			$("#sub_input").val("");
+			$("#con_input").val("");
 		});
-	});
-	$(document).ready(function() {
-		$("#sub_input").val("");
-		$("#con_input").val("");
-	});
-	
-	
-	$(document).ready(function(){
-		$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
-		$('.input_file').change(function(){
-			var i = $(this).val();
-			$('.upload_text').val(i).css("color","black");
-			$("#filebtn").css("color","#FFDF24");
-			
+		
+		$(document).ready(function(){
+			$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
+			$('.input_file').change(function(){
+				var i = $(this).val();
+				$('.upload_text').val(i).css("color","black");
+				$("#filebtn").css("color","#0daa62");
+				
+			});
 		});
-	});
-	
+		
 </script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
@@ -42,9 +36,10 @@
 		border-left: none;
 		border-right: none;
 		border-top: 2px solid white;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
  		border-collapse: collapse;
  		width: 1000px;
+ 		margin-left: 95px;
 	}
 	tr {
 		height: 100px;
@@ -56,11 +51,10 @@
 		padding: 15px;
 	}
 	#title_tr{
-		border-bottom : 2px solid #FFDF24;
+		border-bottom : 2px solid #0daa62;
 	}
 	#contents {
 		width: 1200px;
-		margin: 10px 460px;
 		margin-top: 30px;
 	}
 	.tx_cen {
@@ -76,6 +70,7 @@
 		font-family: 'Hanna', serif;
 		font-size: 16px;
 		border: none;
+		background-color: #f7f7f7;
 	}
 	#con_input {
 		width: 700px;
@@ -93,7 +88,7 @@
 		width: 25px;
 	}
 	#title {
-		text-indent: 230px;
+		text-indent: 170px;
 		font-size: 25px;
 		font-weight: bold;
 		color: #a7a7a7;
@@ -103,7 +98,7 @@
 		width: 200px;
 		
 	}
-	#btn_success { 
+	#btn_freesuccess { 
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 16px;
@@ -113,10 +108,10 @@
 		border: 1px solid white;
 		font-family: 'Hanna', serif;
 	}
-	#btn_success:hover {
-		border: 1px solid #ffdf24;
+	#btn_freesuccess:hover {
+		border: 1px solid #0daa62;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 	#page_footer {
 		height: 200px;
@@ -159,7 +154,7 @@
 	}
 	#filebtn{
 		height:21px;
-		background: white;
+		background: #f7f7f7;
 		color:#a7a7a7;
 		border: none;
 		font-size: 16px;
@@ -231,8 +226,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<%-- <input type="text" id="name_input" name="writer" value="${sessionScope.loginUser.mid}" readonly="readonly"> --%>
-						<input type="text" id="name_input" name="writer" >
+						<input type="text" id="name_input" name="writer" value="${sessionScope.loginUser.mid}" readonly="readonly">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -293,7 +287,7 @@
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_success">문의사항 작성완료</button>
+							<button id="btn_freesuccess">문의사항 작성완료</button>
 						</div>
 					</td>
 					<td class="empty">

@@ -18,11 +18,14 @@
 /* font-family: 'Hanna', serif; */
 	body {
 		font-family: 'Hanna', serif;
-		line-height: 0 ;
+	}
+	a {
+		text-decoration: none;
+		color: none;
 	}
 	#table {
-		width: 1200px;
-		margin: 100px 360px;
+		width: 1100px;
+		margin: 90px 35px;
 	}
 	#board_table > tr {
 		height: 30px;
@@ -40,9 +43,8 @@
 		width: 50px!important;
 		text-align: center;
 		font-size: 16px;
-		color: #FFDF24;
+		color: #0daa62;
 		font-weight: bold;
-	
 	}
 	.point {
 		width: 50px;
@@ -67,8 +69,8 @@
 	#re {
 		color: #990000;
 	}
-	#wr_btn {
-		background-color: #FFDF24;
+	#freewr_btn {
+		background-color: #0daa62;
 		border: none;
 		width: 100px;
 		height: 26px;
@@ -80,11 +82,10 @@
 		font-family: 'Hanna', serif;
 	}
 	#table_top {
-		border-top: 2px solid #FFDF24;
-		border-bottom : 2px solid #FFDF24;
-		width: 1200px;
+		border-top: 2px solid #0daa62;
+		border-bottom : 2px solid #0daa62;
 		height: 40px;
-		background-color: #FFDF24;
+		background-color: #0daa62;
 		color: white;
 		border-radius: 5px;
 	}
@@ -97,7 +98,7 @@
 		font-size: 13px;
 		box-sizing: border-box;
 		display: block;
-		border: 1px solid #FFDF24;
+		border: 1px solid #0daa62;
 		padding-left: 5px;
 		margin-left: 15px;
 		font-style: oblique;
@@ -106,7 +107,7 @@
 	#qnasearch_btn {
 		width: 50px;
 		height: 26px;
-		background-color: #FFDF24; 
+		background-color: #0daa62; 
 		color: #FFFFFF;
 		display: block;
 		border: 0px;
@@ -117,12 +118,6 @@
 		margin-bottom: 100px;
 		color: black!important;
 	}
-	/* #subject {
-		font-size: 45px;
-		text-align: center;
-		color: #a7a7a7;
-		margin: 20px auto; 
-	} */
 	#reline {
 		height: 30px;
 	}
@@ -139,9 +134,6 @@
 	.text_black {
 		color: black!important;
 	}
-	a {
-		text-decoration: none;
-	}
 	#pageline {
 		text-align: center;
 		float: none;
@@ -153,10 +145,10 @@
 	 	line-height: 40px;
 	 	background-color: white;
 	 	font-weight: bold;
-	 	color: #FFDF24;
+	 	color: #0daa62;
 	}
 	#pagetable tr, #pagetable td {
-		border: 1px solid #FFDF24;
+		border: 1px solid #0daa62;
 	 }
 	 #pagetable tr {
 	 	height: 40px;
@@ -165,7 +157,7 @@
 	 	width: 40px;
 	 }
 	 #pagetable td > a{
-	 	color: #FFDF24;
+	 	color: #0daa62;
 	 } 
 	 .active > a{
 	 	color: #990000;
@@ -188,53 +180,21 @@
     	font-size: 17px;
 	}
 	#key {
-		color: #FFBB00;
+		color: #0daa62;
 	}
 	#new {
-		color: #FFBB00;
-		border: 1px solid #FFBB00;
+		color: #0daa62;
+		border: 1px solid #0daa62;
 		font-size: 14px;
 		background-color: white;
 		border-radius: 5px;
 		padding: 1px 3px;
 	}
 	#fafa_icon, #good_fafa {
-		color: #FFBB00;
+		color: #0daa62;
 	}
 	#viewcnt, #goodcnt {
 		color: #555555;
-	}
-	#board_sel {
-		/* border: 1px solid red; */
-		width: 500px;
-		height: 60px;
-		margin: 50px auto;
-	}
-	.board_selbtn {
-		width: 180px;
-		height: 40px;
-		margin: 8px 33px;
-		float: left;
-		border-radius: 5px;
-		text-align: center;
-	}
-	#free_btn {
-		border: 1px solid white;
-		background-color: #FFDF24;
-	}
-	#free_btn > a > span {
-		color: white;
-	}
-	#qna_btn {
-		border: 1px solid #FFDF24;
-		background-color: white;
-	}
-	#qna_btn > a > span {
-		color: #FFDF24
-	}
-	.board_selbtn > a > span {
-		line-height: 40px;
-		padding: 0 auto;
 	}
 	.lineup {
 		color: white;
@@ -246,9 +206,9 @@
 		
 		var code = $("#code").val();
 		
-		$("#wr_btn").on("click", function(){
+		/* $("#freewr_btn").on("click", function(){
 			location.href="boardloginck.bizpoll";
-		});
+		}); */
 	
 			if(code == 1){
 				$("#id01").css("display","block");
@@ -271,7 +231,7 @@
 		
 	});
 	
-	// 게시판 정렬
+	/* // 게시판 정렬
 	var lineup_code = $("#lineup_code").val();
 	$(document).on("click", "#l_no", function(){
 		location.href="qna.bizpoll?lineup_code=" + "l_no";
@@ -290,30 +250,19 @@
 	});
 	$(document).on("click", "#l_good", function(){
 		location.href="qna.bizpoll?lineup_code=" + "l_good";
-	});
+	}); */
 </script>
 </head>
 <body>
 <div id="board">
 	<div id="table">
-		<div id="board_sel">
-			<div class="board_selbtn" id="qna_btn">
-				<a href="questionBoardList.dandy"><span>Q & A</span></a>
-			</div>
-			<div class="board_selbtn" id="free_btn">
-				<a href="freeBoardList.dandy"><span>자유게시판</span></a>
-			</div>
-		</div>
-		<!-- <div id="subject">
-			<span>Q & A</span>
-		</div> -->
-		<form action="boardsearch.bizpoll" method="GET" name ="frm_search">
+		<!-- <form action="boardsearch.bizpoll" method="GET" name ="frm_search"> -->
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">
 					<span width="100">&nbsp;</span>
 					<span>
 					
-						<a href="board_write_free.jsp"><input type="button" id="wr_btn" value="글쓰기"></a>
+						<a href="#"><input type="button" id="freewr_btn" value="글쓰기"></a>
 						
 						
 					</span>
@@ -328,7 +277,7 @@
 							<option value="5">작성자</option>
 						</select>
 				</div>
-			</form>
+			<!-- </form> -->
 		<table id="big_table">
 			<tbody>
 				<tr>
@@ -393,6 +342,7 @@
 							
 								<c:forEach items="${boardlist}" var="bDto">
 								<tr id="line">
+									<input type="hidden" id="free_hiddenBno" name="free_hiddenBno" value="${bDto.bno}">
 									<td class="no"><span>${bDto.bno}</span></td>
 									<td class="point">
 										<c:if test="${today2 == regdate2}">
@@ -411,7 +361,7 @@
 										<table>
 											<tr>
 												<td>
-													<a href="freeBoardDetail.dandy?bno=${bDto.bno}">
+													<a id="freeboardDetailBtn" href="#">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
