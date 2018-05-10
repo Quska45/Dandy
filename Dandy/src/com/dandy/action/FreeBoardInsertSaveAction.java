@@ -32,13 +32,15 @@ public class FreeBoardInsertSaveAction implements Action{
 				
 				// request를 확장시킨 MultipartRequest 생성
 				// new MultipartRequest(request, 파일업로드 디렉토리, 업로드 용량, 인코딩, 파일이름중복정책)
-				MultipartRequest multi = new MultipartRequest(request, Constants.UPLOAD_PATH, Constants.MAX_UPLOAD, "UTF-8", new DefaultFileRenamePolicy());
+				DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+				MultipartRequest multi = new MultipartRequest(request, Constants.UPLOAD_PATH, Constants.MAX_UPLOAD, "UTF-8", policy);
+				
 				String title = multi.getParameter("title");
 				String writer = multi.getParameter("writer");
 				String content = multi.getParameter("content");
 				String filename = " "; //(공백)
 				int filesize = 0;
-				System.out.println(title + ", " + writer + ", " + content + ", ");
+				System.out.println(title + ", " + writer + ", " + content);
 				
 				
 				  try {

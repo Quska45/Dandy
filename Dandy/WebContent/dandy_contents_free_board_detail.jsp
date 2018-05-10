@@ -308,9 +308,6 @@
 <body>
 <div id="board">
 	<div id="table">
-		<div id="subject">
-			<span>Q & A</span>
-		</div>
 		<div>
 			<input type="hidden" name="code" id="code" value="${code}">
 			<span width="100">&nbsp;</span>

@@ -16,7 +16,7 @@ public class FreeBoardDetailAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "board_detail.jsp";	// 게시글 상세페이지 출력
+		String url = "dandy_contents_free_board_detail.jsp";	// 게시글 상세페이지 출력
 		
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		System.out.println("게시글 번호 = " + bno);

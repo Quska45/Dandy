@@ -18,11 +18,11 @@ public class FreeBoardListAction implements Action {
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "board_list.jsp";
+		String url = "dandy_contents_free_board.jsp";
 		
 		
-		String lineup_code = request.getParameter("lineup_code");
-		System.out.println("lineup_code : " + lineup_code);
+		/*String lineup_code = request.getParameter("lineup_code");
+		System.out.println("lineup_code : " + lineup_code);*/
 		
 		CriteriaDTO criDto = new CriteriaDTO();
 		int page = 1;
@@ -32,7 +32,7 @@ public class FreeBoardListAction implements Action {
 		System.out.println("페이지 번호" + page);
 		criDto.setPage(page);
 		
-		criDto.setLineup_code(lineup_code);
+		/*criDto.setLineup_code(lineup_code);*/
 		
 		BoardDAO bDao = BoardDAO.getInstance();
 		List<BoardDTO> boardlist = bDao.listAll(criDto);
