@@ -92,7 +92,7 @@
 	.qnasearch {
 		float: right;
 	}
-	#qnasearch_keyword {
+	#free_search_keyword {
 		width: 140px;
 		height: 26px;
 		font-size: 13px;
@@ -104,7 +104,7 @@
 		font-style: oblique;
 		font-family: 'Hanna', serif;
 	}
-	#qnasearch_btn {
+	#free_search_btn {
 		width: 50px;
 		height: 26px;
 		background-color: #0daa62; 
@@ -137,7 +137,7 @@
 	#pageline {
 		text-align: center;
 		float: none;
-		margin: 25px 550px;
+		margin: 25px 550px 25px 500px;
 	}
 	#pagetable {
 		border-collapse: collapse;
@@ -154,21 +154,19 @@
 	 	height: 40px;
 	 }
 	 #pagetable td {
-	 	width: 40px;
+	 	padding-left: 15px;
+	 	padding-right: 15px;
 	 }
 	 #pagetable td > a{
 	 	color: #0daa62;
 	 } 
-	 .active > a{
-	 	color: #990000;
-	 }
 	 #big_table {
 	 	margin-bottom: 30px;
 	 }
 	  #recount{
 	 	color: #990000;
 	 } 
-	 #selsearch {
+	 #free_selsearch {
 		width: 80px;
 		height: 26px;
 		font-family: 'Hanna', serif;
@@ -256,19 +254,15 @@
 <body>
 <div id="board">
 	<div id="table">
-		<!-- <form action="boardsearch.bizpoll" method="GET" name ="frm_search"> -->
 				<div>
 					<input type="hidden" name="code" id="code" value="${code}">
 					<span width="100">&nbsp;</span>
 					<span>
-					
 						<a href="#"><input type="button" id="freewr_btn" value="글쓰기"></a>
-						
-						
 					</span>
-					<input id="qnasearch_btn" class="qnasearch" type="submit" value="검색">
-					<input id="qnasearch_keyword" class="qnasearch" name="search_keyword" type="text" placeholder="검색어">
-					<select id="selsearch" name="selsearch" class="qnasearch" >
+					<input id="free_search_btn" class="qnasearch" type="submit" value="검색">
+					<input id="free_search_keyword" class="qnasearch" name="search_keyword" type="text" placeholder="검색어">
+					<select id="free_selsearch" name="free_selsearch" class="qnasearch" >
 							<option value="1">전체</option>
 							<option value="---------------">---------------</option>
 							<option value="2">제목</option>
@@ -277,7 +271,6 @@
 							<option value="5">작성자</option>
 						</select>
 				</div>
-			<!-- </form> -->
 		<table id="big_table">
 			<tbody>
 				<tr>
@@ -285,7 +278,7 @@
 					<td class="searchkey_ms"  id="searchkeyword_block">
 						<span>『 ${selflag} 』&nbsp;&nbsp;</span>
 						<span id="key">"${keyword}"</span>
-						<span>&nbsp;&nbsp;검색&nbsp;&nbsp;결과&nbsp;:&nbsp;&nbsp;${boardlist.size()}&nbsp;건</span>
+						<span>&nbsp;&nbsp;검색&nbsp;&nbsp;결과&nbsp;:&nbsp;&nbsp;${freeboardlist.size()}&nbsp;건</span>
 					</td>
 			</c:if>
 					<td class="searchkey_ms" id="searchkeyword_none">
@@ -340,7 +333,7 @@
 						<table>
 							<tbody>
 							
-								<c:forEach items="${boardlist}" var="bDto">
+								<c:forEach items="${freeboardlist}" var="bDto">
 								<tr id="line">
 									<input type="hidden" id="free_hiddenBno" name="free_hiddenBno" value="${bDto.bno}">
 									<td class="no"><span>${bDto.bno}</span></td>
@@ -361,7 +354,7 @@
 										<table>
 											<tr>
 												<td>
-													<a id="freeboardDetailBtn" href="#">
+													<a id="freeboardDetailBtn" href="#" data_num="${bDto.bno}">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;

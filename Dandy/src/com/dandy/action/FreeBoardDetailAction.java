@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dandy.DAO.FreeBoardDAO;
-import com.dandy.DTO.BoardDTO;
+import com.dandy.DTO.FreeBoardDTO;
 
 public class FreeBoardDetailAction implements Action{
 
@@ -31,7 +31,7 @@ public class FreeBoardDetailAction implements Action{
 		
 		
 		// 상세 게시글 출력
-		BoardDTO bDto = bDao.boardDetailView(bno);
+		FreeBoardDTO bDto = bDao.boardDetailView(bno);
 		request.setAttribute("boardview", bDto);
 		
 		ActionForward forward = new ActionForward();

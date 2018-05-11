@@ -2,7 +2,7 @@ package com.dandy.DTO;
 
 import java.util.Date;
 
-public class BoardDTO {
+public class FreeBoardDTO {
 	private int bno;
 	private String title;
 	private String content;
@@ -18,12 +18,12 @@ public class BoardDTO {
 	private String filename;
 	private int filesize;
 	
-	public BoardDTO() {
+	public FreeBoardDTO() {
 		
 	}
 	
 	
-	public BoardDTO(String title, String content, String writer, String filename, int filesize) {
+	public FreeBoardDTO(String title, String content, String writer, String filename, int filesize) {
 		super();
 		this.title = title;
 		this.content = content;

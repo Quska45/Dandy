@@ -15,9 +15,12 @@ import com.dandy.action.BoardListAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
 import com.dandy.action.DiyPageAction;
+import com.dandy.action.FreeBoardDeleteAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
+import com.dandy.action.FreeBoardSearchAction;
+import com.dandy.action.FreeBoardUpdateViewAction;
 import com.dandy.action.FreeBoardWriteAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
@@ -188,6 +191,19 @@ public class DandyFrontController extends HttpServlet {
 			action = new MypageMovieListAction(); 
 			forward = action.excute(request, response); 
 		}
+		else if (command.equals("/freeBoardSearch.dandy")) {
+			action = new FreeBoardSearchAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeBoardDelete.dandy")) {
+			action = new FreeBoardDeleteAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeBoardUpdateView.dandy")) {
+			action = new FreeBoardUpdateViewAction();
+			forward = action.excute(request, response);
+		}
+		
 		
 		
 		

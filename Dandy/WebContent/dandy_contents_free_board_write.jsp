@@ -35,7 +35,7 @@
 	table {
 		border-left: none;
 		border-right: none;
-		border-top: 2px solid white;
+		border-top: 2px solid #f7f7f7;
 		border-bottom : 2px solid #0daa62; 
  		border-collapse: collapse;
  		width: 1000px;
@@ -62,6 +62,7 @@
 	}
 	#sub_input {
 		width: 500px;
+		height: 20px;
 		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
@@ -126,7 +127,7 @@
 	input.upload_text {
 		float:left;
 		width:230px;
-		height:19px;
+		height:20px;
 		line-height:19px;
 		padding:0 3px;
 		border:1px solid #bbb;

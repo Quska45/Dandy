@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.FreeBoardDAO;
-import com.dandy.DTO.BoardDTO;
+import com.dandy.DTO.FreeBoardDTO;
 import com.dandy.common.Constants;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -20,7 +20,7 @@ public class FreeBoardInsertSaveAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "freeBoardList.dandy";
+		String url = "index.dandy#freeboard";
 		
 		//파일 업로드 처리
 				File uploadDir = new File(Constants.UPLOAD_PATH);
@@ -69,7 +69,7 @@ public class FreeBoardInsertSaveAction implements Action{
 				
 				
 				FreeBoardDAO bDAO = FreeBoardDAO.getInstance();
-				BoardDTO bDto = new BoardDTO(title, content, writer, filename, filesize);
+				FreeBoardDTO bDto = new FreeBoardDTO(title, content, writer, filename, filesize);
 				int result = bDAO.boardInsert(bDto);
 				// 게시글을 실제로 등록하고, 게시글 등록 후 게시글 목록 페이지로 이동
 				if(result > 0) {

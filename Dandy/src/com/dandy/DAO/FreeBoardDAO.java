@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.dandy.DTO.BoardDTO;
+import com.dandy.DTO.FreeBoardDTO;
 import com.dandy.DTO.CriteriaDTO;
 import com.dandy.mybatis.SqlMapConfig;
 
@@ -26,10 +26,10 @@ public class FreeBoardDAO {
 		int result = 0;
 	
 		// 게시판 목록
-		public List<BoardDTO> listAll(CriteriaDTO criDto) {
+		public List<FreeBoardDTO> freeboardListAll(CriteriaDTO criDto) {
 			
 			sqlSession = sqlSessionFactory.openSession();
-			List<BoardDTO> list = new ArrayList<>();
+			List<FreeBoardDTO> list = new ArrayList<>();
 			
 			String lineup_code = criDto.getLineup_code();
 			System.out.println(lineup_code);
@@ -37,7 +37,7 @@ public class FreeBoardDAO {
 			try {
 				list = sqlSession.selectList("fblistCriteria", criDto);
 				
-				for (BoardDTO boardDTO : list) {
+				for (FreeBoardDTO boardDTO : list) {
 					System.out.print(boardDTO.getBno() + ", ");
 					System.out.print(boardDTO.getTitle() + ", ");
 					System.out.print(boardDTO.getContent() + ", ");
@@ -70,7 +70,7 @@ public class FreeBoardDAO {
 		}
 		
 		// 게시글 등록
-		public int boardInsert(BoardDTO bDto) {
+		public int boardInsert(FreeBoardDTO bDto) {
 			
 			sqlSession = sqlSessionFactory.openSession();
 			
@@ -90,9 +90,9 @@ public class FreeBoardDAO {
 		}
 		
 		// 게시글 상세 뷰 
-		public BoardDTO boardDetailView(Integer bno) {
+		public FreeBoardDTO boardDetailView(Integer bno) {
 			
-			BoardDTO bDto = null;
+			FreeBoardDTO bDto = null;
 			sqlSession = sqlSessionFactory.openSession();
 			
 			try {
@@ -116,7 +116,7 @@ public class FreeBoardDAO {
 		}
 		
 		// 게시글 수정
-		public int boardUpdate(BoardDTO bDto) {
+		public int boardUpdate(FreeBoardDTO bDto) {
 			
 			sqlSession = sqlSessionFactory.openSession();
 			
@@ -205,9 +205,9 @@ public class FreeBoardDAO {
 			} return result;
 		}
 		
-		public List<BoardDTO> boardSearch(CriteriaDTO criDto){
+		public List<FreeBoardDTO> boardSearch(CriteriaDTO criDto){
 			sqlSession = sqlSessionFactory.openSession();
-			List<BoardDTO> list = null;
+			List<FreeBoardDTO> list = null;
 			
 			String flag = criDto.getFlag();
 			
@@ -217,7 +217,7 @@ public class FreeBoardDAO {
 				
 				list = sqlSession.selectList("boardSearch", criDto);
 				
-				for (BoardDTO boardDTO : list) {
+				for (FreeBoardDTO boardDTO : list) {
 					System.out.print(boardDTO.getBno() + ", ");
 					System.out.print(boardDTO.getTitle() + ", ");
 					System.out.print(boardDTO.getContent() + ", ");
@@ -319,7 +319,7 @@ public class FreeBoardDAO {
 			sqlSession = sqlSessionFactory.openSession();
 			
 			try {
-				BoardDTO bDto = new BoardDTO();
+				FreeBoardDTO bDto = new FreeBoardDTO();
 				bDto.setRef(ref);
 				bDto.setRe_step(re_step);
 				
@@ -335,7 +335,7 @@ public class FreeBoardDAO {
 		}
 		
 		// 답변 등록
-		public int answerInsert(BoardDTO bDto) {
+		public int answerInsert(FreeBoardDTO bDto) {
 			sqlSession = sqlSessionFactory.openSession();
 			int result = 0;
 			

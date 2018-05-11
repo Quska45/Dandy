@@ -171,7 +171,7 @@
 	form {
 		font-family: 'Hanna', serif !important;	
 	}
-	#wr_btn {
+	#freewr_btn {
 		background-color: #0daa62;
 		border: none;
 		width: 100px;
@@ -356,7 +356,6 @@
 							<span><i class="fa fa-file"></i></span>
 						</td>
 						<td class="contents">
-<%-- 							<a href="download.bizpoll?bno=${boardview.bno}" id="down"> --%>
 							<a href="#" id="down">
 								<span id ="download">${boardview.filename}</span>
 								<span id="downcnt">
@@ -409,7 +408,7 @@
 					</tr>
 					<tr>
 						<td class="no" id="list">
-							<input type="button" class="board_btn" id="list_btn" value="목록">
+							<input type="button" class="board_btn" id="freelist_btn" value="목록">
 						</td>
 						<td id="rewrite">
 							<c:choose>
@@ -424,7 +423,7 @@
 						<c:choose>
 							<c:when test="${sessionScope.loginUser.mid == boardview.writer}">
 								<td class="name">
-									<input type="button" class="board_btn" id="modify_btn"  value="수정">
+									<input type="button" class="board_btn" id="freemodify_btn"  value="수정">
 								</td>
 								<td class="date">
 									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="freeremove_btn"  value="삭제"></a>
@@ -441,7 +440,7 @@
 							</c:otherwise>
 						</c:choose>
 						<td class="view">
-							<a href="#"><input type="button" id="wr_btn" value="글쓰기"></a>
+							<a href="#"><input type="button" id="freewr_btn" value="글쓰기"></a>
 						</td>
 						
 					</tr>

@@ -145,7 +145,7 @@
 	</select>
 <!-- =================================================================자유게시판================================================================= -->
 <!-- 자유게시판 리스트 출력 (정렬 추가) -->
-	  <select id="fblistCriteria" resultType="bDTO">
+	  <select id="fblistCriteria" resultType="fDTO">
 	  		<![CDATA[
 	  			SELECT *
 	  			FROM (
@@ -190,12 +190,12 @@
 			VALUES((SELECT nvl(max(bno)+1, 1)from board), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, (SELECT nvl(max(bno)+1, 1) from board), 1, 0)
 		</insert>
 <!-- 자유게시판 게시글 상세페이지 -->
-		<select id="boarddetailview" resultType="bDTO" parameterType="Integer">
+		<select id="boarddetailview" resultType="fDTO" parameterType="Integer">
 		  	SELECT * FROM board
 		  	WHERE bno = #{bno}
 		</select>
 <!-- 자유게시판 게시글 수정 -->
-		<update id="boardupdate" parameterType="bDTO">
+		<update id="boardupdate" parameterType="fDTO">
 		  	UPDATE board
 		  	SET title = #{title}, content = #{content}
 		  	WHERE bno = #{bno}
@@ -218,7 +218,7 @@
 		  		WHERE bno = #{bno}
 	 	</update>
 <!-- 자유게시판 검색 키워드 -->
-	 	<select id="boardSearch" resultType="bDTO" >
+	 	<select id="boardSearch" resultType="fDTO" parameterType="criDTO">
 			<![CDATA[
 	  			SELECT *
 	  			FROM (
@@ -292,7 +292,7 @@
 			WHERE ref = #{ref} AND re_step >= #{re_step} 
 		</update>
 <!-- 자유게시판 답글추가 -->
-		<insert id="answerInsert" parameterType="bDTO" >
+		<insert id="answerInsert" parameterType="fDTO" >
 			INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
 			VALUES((SELECT nvl(max(bno)+1, 1)from tblboard), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, #{ref}, #{re_step}, #{re_level})
 	 	</insert>

@@ -1,16 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	
+
+		$(document).ready(function() {
+			$("#sub_input").val("");
+			$("#con_input").val("");
+		});
+		
+		$(document).ready(function(){
+			$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
+			$('.input_file').change(function(){
+				var i = $(this).val();
+				$('.upload_text').val(i).css("color","black");
+				$("#filebtn").css("color","#0daa62");
+				
+			});
+		});
+		
 </script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
@@ -47,6 +62,7 @@
 	}
 	#sub_input {
 		width: 500px;
+		height: 20px;
 		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
@@ -69,9 +85,11 @@
 		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
-	
+	.empty {
+		width: 25px;
+	}
 	#title {
-		text-indent: 270px;
+		text-indent: 170px;
 		font-size: 25px;
 		font-weight: bold;
 		color: #a7a7a7;
@@ -81,7 +99,7 @@
 		width: 200px;
 		
 	}
-	#btn_success { 
+	#btn_freesuccess { 
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 16px;
@@ -91,7 +109,7 @@
 		border: 1px solid white;
 		font-family: 'Hanna', serif;
 	}
-	#btn_success:hover {
+	#btn_freesuccess:hover {
 		border: 1px solid #0daa62;
 		background-color: white;
 		color: #0daa62;
@@ -109,7 +127,7 @@
 	input.upload_text {
 		float:left;
 		width:230px;
-		height:19px;
+		height:20px;
 		line-height:19px;
 		padding:0 3px;
 		border:1px solid #bbb;
@@ -137,7 +155,7 @@
 	}
 	#filebtn{
 		height:21px;
-		background: white;
+		background: #f7f7f7;
 		color:#a7a7a7;
 		border: none;
 		font-size: 16px;
@@ -154,114 +172,151 @@
 		font-family: 'Hanna', serif;
 		color: #a7a7a7;
 	}
-	#secret_label_flag {
-		cursor: pointer;
-		/* background: (image/password-protection-symbol-on-monitor-screen.png) center 90px no-repeat; */
-	}
 </style>
-<script type="text/javascript">
-$(document).on("click", "#secret_span_flag", function(){
-	var flag = $("#secret_input_flag").val();
-	if(flag==1){
-		//공개글로 작성하려는 것
-		flag = $("#secret_input_flag").val("0");
-		$("#secret_span_flag").css({"background":"url(image/checked1.png)", 'background-repeat' : 'no-repeat', 'background-position':'left center'}); 
-	} else {
-		//비밀글로 작성하려는 것
-		flag = $("#secret_input_flag").val("1");
-		$("#secret_span_flag").css({"background":"url(image/checked.png)", 'background-repeat' : 'no-repeat', 'background-position':'left center'}); 
-	}
-});
-
-</script>
 </head>
 <body>
-
 	<div id="contents">
+			<form role="form" action="freeBoardInsertSave.dandy" method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
 				<tr id="title_tr">
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td id="title">
-						<span>Q & A 작성하기</span>
+						<span>자유게시판 글쓰기</span>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 작성 제목 -->
+	<!-- 수정될 게시글 번호 -->			
 				<tr>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+					<td class="tx_cen">
+						<span>NO</span>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+					<td>
+						<input type="text" id="bno" name="bno"  class="form-control" value="${boardupdate.bno}" readonly="readonly">
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+				</tr>
+	<!-- 수정될 게시글 제목 -->
+				<tr>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td class="tx_cen">
 						<span>제목</span>
 					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td>
-						<input type="text" id="sub_input" name="title" >
+						<input type="text" id="sub_input" name="title"  class="form-control1" value="${boardupdate.title}">
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 작성자 정보 -->
+	<!-- 수정될 게시글 작성자 정보 -->
 				<tr>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td class="tx_cen">
 						<span>작성자</span>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 					<td>
 						<input type="text" id="name_input" name="writer" value="${sessionScope.loginUser.mid}" readonly="readonly">
 					</td>
-				</tr>
-	<!-- 비밀글여부 -->
-				<tr>
-					<td class="tx_cen">
-						<span>비밀글여부</span>
-					</td>
-					<td id="secret_td">
-						<span id="secret_span_flag" style="background: url('image/checked1.png') 100% 50% no-repeat; background-position: 2px; padding-left: 20px; ">
-						<label for="secret_input_flag" id="secret_label_flag">비밀글 여부</label>
-						<input id="secret_input_flag" name="secret_input_flag" type="hidden">
-						</span>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 문의내용 -->
+	<!-- 수정될 게시글 첨부파일 -->
 				<tr>
-					<td class="tx_cen">
-						<span>문의내용</span>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
-					<td>
-						<input type="text" id="con_input" name="content">
+					<td class="tx_cen">
+						<span>파일첨부</span>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+					<td id="file_td">
+						<label for="file_upload">
+						<span><input type="text" class="upload_text" readonly="readonly"></span>
+						</label>
+						<div class="upload-btn_wrap">
+							<button type="button" id="filebtn"><i class="fa fa-file"></i></button>
+							<input type="file" class="input_file" name="file_upload" id="file_upload">
+						</div>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 질문구분 -->
+	<!-- 수정될 게시글 내용 -->
 				<tr>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td class="tx_cen">
+						<span>내용</span>
+					</td>
+					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<span>
-							<select id="qna_select" name="qna_select">
-									<option value="선택해주세요.">선택해주세요.</option>
-									<option value="-------------">-------------</option>
-									<option value="회원">회원</option>
-									<option value="사이트이용">사이트이용</option>
-									<option value="단어장관련문의">단어장관련문의</option>
-							</select>
-							&nbsp;
-						</span>
-						<span id="select_m">
-							※ 단어장관련 문의시에는 해당 단어장명을 기재해 주시면 보다 원활한 처리가 가능합니다.
-						</span>
+						<input type="text" id="con_input" name="content"  class="form-control1" value="${boardupdate.content}" >
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 작성완료 버튼 -->
+	<!-- 게시글 수정완료 버튼 -->
 				<tr class="bin">
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
 					<td class="tx_cen">
+						<span>&nbsp;</span>
+					</td>
+					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_success">문의사항 작성완료</button>
+							<button id="btn_freesuccess">문의사항 작성완료</button>
 						</div>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+			</form>
 	</div>
+	
 </body>
 </html>

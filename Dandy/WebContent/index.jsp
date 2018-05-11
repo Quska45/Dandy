@@ -655,7 +655,7 @@
 	
 	//게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
 	$(document).on("click", "#freeboardDetailBtn", function(){
-		var bno = $("#free_hiddenBno").val();
+		var bno = $(this).attr("data_num");
 		$.ajax({
 			url : "freeBoardDetail.dandy",
 			type : "POST",
@@ -670,6 +670,40 @@
 		});
 		
 	});
+	// 자유게시판 : 게시글 삭제
+	$(document).on("click", "#freeremove_btn", function(){
+		//alert("게시글 삭제 버튼을 클릭하셨습니다.");
+		var bno = $("#bno").val();
+		//alert(bno);
+		$.ajax({
+			url : "freeBoardDelete.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!");
+			}
+		});
+		
+	});
+	// 자유게시판 : 게시글 수정
+	$(document).on("click", "#freemodify_btn", function(){
+		//alert("게시글 수정");
+		$.ajax({
+			url : "freeBoardUpdateView.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!");
+			}
+		});
+		
+	});
 	
 	//QnA 게시판검색기능
 	$(document).on("click", "#question_search_btn", function(){
@@ -677,6 +711,25 @@
 		var type = $("#question_selsearch").val();
 		$.ajax({
 			url : "questionBoardSearch.dandy",
+			type : "POST",
+			data : "keyword=" + keyword + "&type=" + type,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	// 자유게시판 검색
+	$(document).on("click", "#free_search_btn", function(){
+		var keyword = $("#free_search_keyword").val();
+		var type = $("#free_selsearch").val();
+		$.ajax({
+			url : "freeBoardSearch.dandy",
 			type : "POST",
 			data : "keyword=" + keyword + "&type=" + type,
 			success : function(result) {
@@ -736,6 +789,21 @@
 		});
 	});
 	
+	// 자유게시판 목록버튼 클릭 리스트 출력
+	$(document).on("click", "#freelist_btn",function(){
+		//alert("목록 버튼 클릭");
+		 $.ajax({
+			type : "post",
+			url : "freeBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		}); 
+	});
+	
 	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#wr_btn", function(){
 		var sessionLogin = $("#sessionMid").val();
@@ -755,7 +823,7 @@
 	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#freewr_btn", function(){
 		var sessionLogin = $("#sessionMid").val();
-		if(sessionLogin==null){
+		if(sessionLogin==""){
 			$(".modal").css("display", "block");
 		} else {
 			$.ajax({
@@ -1343,7 +1411,7 @@
 								<a href="#"><span>Q & A</span></a>
 							</div>
 							<div class="board_selbtn" id="free_btn">
-								<a href="#"><span>자유게시판</span></a>
+								<a href="#freeboard"><span>자유게시판</span></a>
 							</div>
 						</div>
 						<div id="boardList">

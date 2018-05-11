@@ -7,36 +7,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.FreeBoardDAO;
-import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DTO.FreeBoardDTO;
-import com.dandy.DTO.QuestionBoardDTO;
-import com.dandy.action.ActionForward;
 
-public class QuestionAnswerAction implements Action{
+public class FreeBoardUpdateViewAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String url = "dandy_contents_question_board_answer.jsp";
+		String url = "updateqna.jsp";
 		
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
-		System.out.println("bno"+bno);
+		System.out.println("bno =" + bno);
 		
-		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
-		QuestionBoardDTO qDto = qDao.questionDetail(bno);
+		FreeBoardDAO fDao = FreeBoardDAO.getInstance();
+		FreeBoardDTO fDto = fDao.boardDetailView(bno);
 		
-		qDto.setContent("=======게시물의 내용=======\n\n" + qDto.getContent());
-		
-		request.setAttribute("boardview", qDto);
-		
+		request.setAttribute("boardupdate", fDto);
 		
 		ActionForward forward = new ActionForward();
-		
 		forward.setPath(url);
 		forward.setRedirect(false);
-		
+				
 		return forward;
+		
 	}
 
 }

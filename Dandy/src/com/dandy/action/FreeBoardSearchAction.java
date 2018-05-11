@@ -13,29 +13,31 @@ import com.dandy.DTO.FreeBoardDTO;
 import com.dandy.DTO.CriteriaDTO;
 import com.dandy.DTO.PageMakerDTO;
 
-public class FreeBoardListAction implements Action {
+
+public class FreeBoardSearchAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url = "dandy_contents_free_board.jsp";
 		
-		/*String lineup_code = request.getParameter("lineup_code");
-		System.out.println("lineup_code : " + lineup_code);*/
+		String keyword = request.getParameter("keyword");		
+		String flag = request.getParameter("type");	
 		
 		CriteriaDTO criDto = new CriteriaDTO();
 		int page = 1;
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		System.out.println("페이지 번호" + page);
-		criDto.setPage(page);
 		
-		/*criDto.setLineup_code(lineup_code);*/
+		System.out.println("페이지 번호" + page);
+		
+		criDto.setPage(page);
+		criDto.setFlag(flag);
+		criDto.setKeyword(keyword);
 		
 		FreeBoardDAO bDao = FreeBoardDAO.getInstance();
-		List<FreeBoardDTO> fboardlist = bDao.freeboardListAll(criDto);
-
+		List<FreeBoardDTO> fboardlist = bDao.boardSearch(criDto);
 		request.setAttribute("freeboardlist", fboardlist);
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
@@ -48,6 +50,7 @@ public class FreeBoardListAction implements Action {
 		Date date = new Date();
 		request.setAttribute("today", date);
 		
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);
@@ -55,4 +58,5 @@ public class FreeBoardListAction implements Action {
 		return forward;
 	}
 	
+
 }
