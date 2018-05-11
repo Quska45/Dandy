@@ -29,7 +29,7 @@
  	#detail_modal_movie {
  		text-align: center;
  		width: 700px;
- 		height: 400px;
+ 		height: 200px;
  		margin: 50px 246px;
  		border: 2px solid white;
  		padding: 3px;
@@ -52,14 +52,12 @@
  /*- 상세페이지 정보 */
  	#detail_modal_info {
  		width: 360px;
- 		height: 400px;
+ 		height: 0;
  		/* border: 1px solid yellow; */
- 		float: right;
- 		margin-right: 10px;
+ 		margin: 0 auto;
  	}
  /*- 상세페이지 영화제목 */
  	#detail_title {
- 		margin-top: 120px;
  		width: 360px;
  		/* border: 1px solid green; */
  		height: 100px;
@@ -99,7 +97,7 @@
  /** 단어장 table */
  	#word_table {
  		font-family: 'Noto Sans KR', sans-serif;
- 		margin-top: 420px;
+ 		margin-top: 240px;
  		/* border: 1px solid red; */
  		width: 700px;
  		height: 300px;
@@ -141,9 +139,7 @@
 		
 				<div id="detail_modal_movie">
 				
-					<div id="detail_modal_poster">
-						<img src="image/aven.jpg">
-					</div>
+					
 					<div id="detail_modal_info">
 						<div id="detail_title">
 							<span>〈Avengers: Infinity War, 2018〉</span>
