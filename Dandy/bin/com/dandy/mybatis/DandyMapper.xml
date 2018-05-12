@@ -318,14 +318,8 @@
 				a.*
 				FROM (
 					SELECT * 
-					FROM movieindex ]]>
-					<if test='index != null'>
-						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
-					</if>
-					<if test='index == null'>
-						<![CDATA[WHERE mno > 0 ]]>
-					</if>
-					<![CDATA[
+					FROM movieindex 
+					WHERE mno > 0 
 					ORDER BY mno
 				) a
 			)
