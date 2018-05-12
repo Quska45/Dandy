@@ -338,10 +338,10 @@
 				FROM (
 					SELECT * 
 					FROM movieindex ]]>
-					<if test='index.equals("")'>
+					<if test='index != null'>
 						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 					</if>
-					<if test='index.equals("")'>
+					<if test='index == null'>
 						<![CDATA[WHERE mno > 0 ]]>
 					</if>
 					<![CDATA[
@@ -356,10 +356,10 @@
 		<![CDATA[
 			SELECT count(mno)
 			FROM movieindex]]>
-			<if test='index.equals("")'>
+			<if test='index != null'>
 				<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 			</if>
-			<if test='index.equals("")'>
+			<if test='index == null'>
 				<![CDATA[WHERE mno > 0 ]]>
 			</if>
 	</select>
