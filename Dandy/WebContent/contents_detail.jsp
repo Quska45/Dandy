@@ -96,10 +96,73 @@
 		color: #00AE93;
 		font-size: 22px;
 	}
+	
+	.myword {
+		border: 1px solid #00AE93;
+		color: white;
+		background: #00AE93;
+		height: 36px;
+		line-height: 36px;
+		border-radius: 5px;
+		margin-top: 10px;
+	}
+	
+	
+	/* 통계  */
+	.statistics {
+		border-left: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		width: 700px;
+		height: 200px;
+		display: inline-block;
+		margin-top: 20px;
+	}
+	.statistics_label {
+		width: 700px;
+		height: 30px;
+		display: inline-block;
+		margin-top: 20px;
+	}
+	.statistics_label ul {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		margin-top: -33px; 
+	}
+	.statistics_label ul li{
+		display: inline-block;
+		list-style: none;
+		width: 6%;
+		height: 100%;
+		margin: 0 2%;
+		font-size: 13px;
+		text-align: center;
+	}
+	.statistics ul {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.stat_li {
+		display: inline-block;
+		list-style: none;
+		width: 6%;
+		height: 100%;
+		margin: 0 2%;
+		position: relative;
+	}
+	.stat_span {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	
+	
  /** 단어장 table */
  	#word_table {
  		font-family: 'Noto Sans KR', sans-serif;
- 		margin-top: 420px;
  		/* border: 1px solid red; */
  		width: 700px;
  		height: 300px;
@@ -169,7 +232,36 @@
 								<span>개</span>
 							</div>
 						</div>
+						<div class="myword">
+							내 단어장에 추가
+						</div>
 					</div>
+					
+					<div class="statistics">
+						<ul>
+							<li class="stat_li"><span style="height: 20%; background: #ACD9F8;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #FA716A;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 0%; background: #ccc;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #7e44ae;" class="stat_span"></span></li>
+							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
+						</ul>
+					</div>
+					<div class="statistics_label">
+						<ul>
+							<li class="stat_li">남자</li>
+							<li class="stat_li">여자</li>						
+							<li class="stat_li"></li>						
+							<li class="stat_li">10대</li>						
+							<li class="stat_li">20대</li>						
+							<li class="stat_li">30대</li>						
+							<li class="stat_li">40대</li>						
+							<li class="stat_li">50대↑</li>						
+						</ul>
+					</div>
+					
 					<div id="word_table">
 						<table id="word-table-top">
 							<tbody>

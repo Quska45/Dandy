@@ -10,6 +10,7 @@ import com.dandy.DTO.CriteriaDTO;
 import com.dandy.DTO.MovieCriteriaDTO;
 import com.dandy.DTO.MovieDTO;
 import com.dandy.DTO.MovieEachDTO;
+import com.dandy.DTO.MovieIndexDTO;
 import com.dandy.mybatis.SqlMapConfig;
 
 
@@ -124,6 +125,25 @@ public class MovieDAO {
 		}
 		
 		return list;
+	}
+	
+	
+	public List<MovieIndexDTO> movieStatistics(int mno2) {
+		sqlSession = sqlSessionFactory.openSession();
+		List<MovieIndexDTO> list = new ArrayList<>();
+		
+		try {
+			list = sqlSession.selectList("movieIndex", mno2);
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return list;
+		
 	}
 	
 

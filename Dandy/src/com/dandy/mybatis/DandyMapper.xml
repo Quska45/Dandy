@@ -363,7 +363,7 @@
 				<![CDATA[WHERE mno > 0 ]]>
 			</if>
 	</select>
-<!-- Index Page Movie List page count -->
+<!-- Movie List page count -->
 	<select id="smovieCountPaging"  resultType="int">
 		<![CDATA[
 			SELECT count(mno)
@@ -376,6 +376,12 @@
 	  	SELECT * FROM ${tablename}
 	  	ORDER BY freq desc
 	</select>
+	
+	<select id="movieIndex" resultType="miDTO" parameterType="Integer">
+		SELECT * FROM movieindex
+		WHERE mno = #{mno2}
+	</select>
+	
 <!-- =================================================================mypage.jsp에서 쓰는 쿼리================================================================= -->
 <select id="selectMno" parameterType="String" resultType="memDTO">
 	SELECT *
