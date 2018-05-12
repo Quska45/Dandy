@@ -185,7 +185,7 @@
 							<tbody>
 								<c:forEach items="${movieEach}" var="each">
 									<tr>
-										<td class="table_no"><span>No.</span></td>
+										<td class="table_no"><span>${each.wno}</span></td>
 										<td class="table_word"><span>${each.word}</span></td>
 										<td class="table_mean"><span>${each.meaning}</span></td>
 										<td class="table_fre"><span>${each.freq}</span></td>

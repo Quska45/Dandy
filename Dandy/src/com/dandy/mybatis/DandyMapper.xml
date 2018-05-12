@@ -338,10 +338,10 @@
 				FROM (
 					SELECT * 
 					FROM movieindex ]]>
-					<if test='index != null'>
+					<if test='index.equals("")'>
 						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 					</if>
-					<if test='index == null'>
+					<if test='index.equals("")'>
 						<![CDATA[WHERE mno > 0 ]]>
 					</if>
 					<![CDATA[
@@ -356,12 +356,19 @@
 		<![CDATA[
 			SELECT count(mno)
 			FROM movieindex]]>
-			<if test='index != null'>
+			<if test='index.equals("")'>
 				<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
 			</if>
-			<if test='index == null'>
+			<if test='index.equals("")'>
 				<![CDATA[WHERE mno > 0 ]]>
 			</if>
+	</select>
+<!-- Index Page Movie List page count -->
+	<select id="smovieCountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(mno)
+			FROM movieindex
+			WHERE mno > 0 ]]>
 	</select>
 	
 <!-- 영화 개별 단어장  -->

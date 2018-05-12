@@ -25,9 +25,7 @@ public class MovieListAction implements Action {
 		String url = "dandy_contents_movie.jsp";
 		String index = request.getParameter("index");
 		System.out.println("index : " +  index);
-		if(index == null) {
-			index = "empty";
-		}
+
 		
 		MovieCriteriaDTO CriDto = new MovieCriteriaDTO();
 		int page = 1;
@@ -49,10 +47,11 @@ public class MovieListAction implements Action {
 		//페이지 메이커
 		MoviePageMakerDTO moviePageMaker = new MoviePageMakerDTO();
 		moviePageMaker.setCriDto(CriDto);
-		moviePageMaker.setTotalCount(mDao.totalCount(CriDto));
+		moviePageMaker.setTotalCount(mDao.stotalCount(CriDto));
 		
 		request.setAttribute("pageMaker", moviePageMaker);
 		
+		request.setAttribute("index", CriDto.getIndex());
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
