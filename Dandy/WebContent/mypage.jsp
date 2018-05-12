@@ -20,6 +20,9 @@
 		background-color: white;
 		position: relative;
 		font-family: 'Noto Sans KR', sans-serif;
+		position: absolute!important;
+		z-index: 50;
+		
 	}
 	
 	/* My Page : contents 영역 wrap div */
@@ -84,7 +87,7 @@
 	
 	/* My Page : content 내용 */
 	.mycontent_contents {
-		margin: 5%;
+		margin: 1%;
 		width: 95%;
 		height: 95%;
 		text-align: center;
@@ -93,34 +96,33 @@
 		color: black;
 		font-size: 15px;
 	}
+	#myPageClose {
+		position: absolute;
+   		top: 90px;
+		right: 110px;
+		cursor: pointer;
+	}
+	#movieImgWrap {
+		display: inline-block;
+		width: 95px;
+		height: 110px;
+	}
 	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-	$(document).on("click", "#test",function(){
-		var mid = "2";
-		alert(mid);
-		mid="1";
-		alert(mid);
-		$.ajax({
-			url : "mypageMovieList.dandy",
-			type : "POST",
-			data : "mid=" + mid,
-			success : function(result) {
-				alert("성공");
-				location.href="mypage.jsp";
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
+	
 
-		});
+<script type="text/javascript">
+	//mypage를 닫는 스크립트
+	$(document).on("click", "#myPageClose", function(){
+		$("#mypage_wrap").css("display", "none");
 	});
 </script>
 </head>
 <body>
 	<!-- My Page : 전체 감싸는 div -->
 	<div id="mypage_wrap">
+		<div id="myPageClose">X</div>
 		<!-- My Page : contents 영역 wrap div -->
 		<div id="mycontent_wrap">
 			<!-- My Page : content 영역 상하분할 -->
@@ -141,7 +143,11 @@
 					<div id="myword" class="mycontent_box">
 						<div class="mycontent_boxtitle"><span>나의 단어장</span></div>
 						<div class="mycontent_contents">
-							<span>qw${memlist.mno1}</span>
+							<c:forEach items="${movieList}" var="mDto">
+								<div id="movieImgWrap">
+									<img src="${mDto.img}" style="width: 100px; height: 110px;">
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

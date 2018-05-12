@@ -7,11 +7,33 @@ public class MovieDTO {
 	private String title;
 	private int createyear;
 	private String img;
-	
+	private int i;
+	private String mid;
 	
 	public MovieDTO() {
 		super();
 	}
+	
+	
+
+	public MovieDTO(String mid, int i) {
+		super();
+		this.mid = mid;
+		this.i = i;
+	}
+
+
+
+	public String getMid() {
+		return mid;
+	}
+
+
+
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+
 
 
 	public MovieDTO(int mno, String indexchar, String title, int createyear, String img) {
@@ -21,6 +43,16 @@ public class MovieDTO {
 		this.title = title;
 		this.createyear = createyear;
 		this.img = img;
+	}
+
+
+	public int getI() {
+		return i;
+	}
+
+
+	public void setI(int i) {
+		this.i = i;
 	}
 
 

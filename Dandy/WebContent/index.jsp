@@ -64,7 +64,19 @@
 			width: 70px;
 			height: 70px;
 		}
+		div#header .login_in {
+			width: 79px;
+    			height: 79px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		div#header .login_in img {
+			width: 70px;
+			height: 70px;
+		}
 		/*로그인 버튼 */
+		login_in
 	/* 로고가 있는 헤더의 끝 */
 	
 	/* 인덱스 메인 페이지 시작 */
@@ -932,6 +944,26 @@
 		});
 	});
 	
+	//mypage를 띄우기 위해 필요한 함수
+	function myPageAll(){
+		var mid=$("#sessionMid_id").val();
+		alert(mid);
+		
+		$.ajax({
+			type : "post",
+			url : "mypageMovieList.dandy",
+			data: "mid=" + mid,
+			success : function(result) {
+				$("#myPageAll").html(result);
+			}
+		});
+	}
+	
+	//로그인 되어 있으면 마이페이지 띄워주는 스크립트
+	$(document).on("click", ".login_in", function(){
+		myPageAll();
+	});
+	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
 	function movie_list() {
 		//alert("onclick");
@@ -1305,6 +1337,8 @@
 		$(".modal").css("display", "block");
 		
 	});
+	
+	
 	/* 모달창 닫기  */
 	$(document).on("click", ".close", function(){
 		$(".modal").css("display", "none");
@@ -1314,7 +1348,9 @@
 
 </head>
 <body>
+	<div id="myPageAll"></div>
 	<input type="hidden" id="sessionMid" value="${sessionScope.loginUser}">
+	<input type="hidden" id="sessionMid_id" value="${sessionScope.loginUser.mid}">
 	<!-- body전체를 감싸는 div -->
 	<div id="wrapper" style = "height: auto">
 		<!-- 로고가 있는 헤더 부분 시작 -->
@@ -1334,7 +1370,7 @@
 				</c:when>
 				
 				<c:otherwise>
-					<a href="#" class="login" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
+					<a href="#" class="login_in" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
 					<a href="#" id="index_logout">로그아웃</a>
 				

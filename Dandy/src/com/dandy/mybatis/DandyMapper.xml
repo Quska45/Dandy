@@ -386,9 +386,17 @@
 <select id="selectMno" parameterType="String" resultType="memDTO">
 	SELECT *
 	FROM dandy_member
-	WHERE mid=#{value}
+	WHERE mid=#{mid}
 </select>
 
+<select id="getMyPageMovieList" parameterType="movieDTO" resultType="movieDTO">
+	select title, img
+	FROM MOVIEINDEX
+	WHERE mno = (select mno${i}
+    		    from dandy_member
+        		where mid=#{mid}
+    )
+</select>
 	
 	
 </mapper>

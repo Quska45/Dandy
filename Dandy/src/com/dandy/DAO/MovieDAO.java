@@ -146,5 +146,18 @@ public class MovieDAO {
 		
 	}
 	
-
+	//mypage에서 mid를 가지고 영화제목, 이미지를 가져오는 메소드
+	public MovieDTO getMyPageMovieList(String mid, int i){
+		sqlSession = sqlSessionFactory.openSession();
+		MovieDTO mDto = new MovieDTO(mid, i);
+		try {
+			mDto = sqlSession.selectOne("getMyPageMovieList", mDto);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return mDto;
+	}
 }
