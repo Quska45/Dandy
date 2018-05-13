@@ -157,6 +157,62 @@
 		left: 0;
 		bottom: 0;
 	}
+	#manview_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#womanview_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#view_10_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#view_20_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#view_30_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#view_40_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
+	#view_50_span:before {
+		content: attr(data-before);
+		position: absolute;
+		top: -20px;
+		font-size: 11px;
+		left: 0;
+		width: 42px;
+	}
 
 	
 	
@@ -205,6 +261,36 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+	$(document).ready(function(){
+		var manview = $("#manview").val();
+		var womanview = $("#womanview").val();
+		var view_10 = $("#view_10").val();
+		var view_20 = $("#view_20").val();
+		var view_30 = $("#view_30").val();
+		var view_40 = $("#view_40").val();
+		var view_50 = $("#view_50").val();
+		
+		$("#manview_span").css("background", "#ACD9F8").css("height", manview);
+		$("#womanview_span").css("background", "#FA716A").css("height", womanview);
+		$("#view_10_span").css("background", "#d9dee3").css("height", view_10);
+		$("#view_20_span").css("background", "#d9dee3").css("height", view_20);
+		$("#view_30_span").css("background", "#d9dee3").css("height", view_30);
+		$("#view_40_span").css("background", "#d9dee3").css("height", view_40);
+		$("#view_50_span").css("background", "#d9dee3").css("height", view_50);
+	
+		$("#manview_span").attr("data-before", manview)
+		$("#womanview_span").attr("data-before", womanview)
+		$("#view_10_span").attr("data-before", view_10)
+		$("#view_20_span").attr("data-before", view_20)
+		$("#view_30_span").attr("data-before", view_30)
+		$("#view_40_span").attr("data-before", view_40)
+		$("#view_50_span").attr("data-before", view_50)
+		
+		
+	});
+
+
+
 </script>
 
 </head>
@@ -239,15 +325,22 @@
 					
 					<div class="statistics">
 						<ul>
-							<li class="stat_li"><span style="height: 20%; background: #ACD9F8;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #FA716A;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 0%; background: #ccc;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #7e44ae;" class="stat_span"></span></li>
-							<li class="stat_li"><span style="height: 20%; background: #d9dee3;" class="stat_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="manview_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="womanview_span"></span></li>
+							<li class="stat_li"><span style="height: 0%;" class="stat_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="view_10_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="view_20_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="view_30_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="view_40_span"></span></li>
+							<li class="stat_li"><span class="stat_span" id="view_50_span"></span></li>
 						</ul>
+						<input type="hidden" id="manview" value="<fmt:formatNumber type="percent" value="${manview}" pattern="0.00%"/>">
+						<input type="hidden" id="womanview" value="<fmt:formatNumber type="percent" value="${womanview}" pattern="0.00%"/>">
+						<input type="hidden" id="view_10" value="<fmt:formatNumber type="percent" value="${view_10}" pattern="0.00%"/>">
+						<input type="hidden" id="view_20" value="<fmt:formatNumber type="percent" value="${view_20}" pattern="0.00%"/>">
+						<input type="hidden" id="view_30" value="<fmt:formatNumber type="percent" value="${view_30}" pattern="0.00%"/>">
+						<input type="hidden" id="view_40" value="<fmt:formatNumber type="percent" value="${view_40}" pattern="0.00%"/>">
+						<input type="hidden" id="view_50" value="<fmt:formatNumber type="percent" value="${view_50}" pattern="0.00%"/>">
 					</div>
 					<div class="statistics_label">
 						<ul>

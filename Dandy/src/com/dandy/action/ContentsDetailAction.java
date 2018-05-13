@@ -38,29 +38,40 @@ public class ContentsDetailAction implements Action {
 		request.setAttribute("movieEach", list);
 		
 		List<MovieIndexDTO> list2 = mDao.movieStatistics(mno2);
-		request.setAttribute("movieStat", list2);
-		/*int manview = 0; 
-		int womanview = 0;
-		int view_10 = 0;
-		int view_20 = 0;
-		int view_30 = 0;
-		int view_40 = 0;
-		int view_50 = 0;
+		double manview1 = 0; 
+		double womanview1 = 0;
+		double view_101 = 0;
+		double view_201 = 0;
+		double view_301 = 0;
+		double view_401 = 0;
+		double view_501 = 0;
 		
 		for (MovieIndexDTO movieIndexDTO : list2) {
-			manview = movieIndexDTO.getMno();
-			womanview = movieIndexDTO.getWomanview();
-			view_10 = movieIndexDTO.getView_10();
-			view_20 = movieIndexDTO.getView_20();
-			view_30 = movieIndexDTO.getView_30();
-			view_40 = movieIndexDTO.getView_40();
-			view_50 = movieIndexDTO.getView_50();
+			manview1 = movieIndexDTO.getMno();
+			womanview1 = movieIndexDTO.getWomanview();
+			view_101 = movieIndexDTO.getView_10();
+			view_201 = movieIndexDTO.getView_20();
+			view_301 = movieIndexDTO.getView_30();
+			view_401 = movieIndexDTO.getView_40();
+			view_501 = movieIndexDTO.getView_50();
 		}
 		
-		int manview_result = manview/(manview + womanview) * 100;
-		int womanview_result = womanview/(manview + womanview) * 100;*/
+		double manview = manview1/(manview1 + womanview1);
+		double womanview = womanview1/(manview1 + womanview1);
+		double view_10 = view_101/(view_101 + view_201 + view_301 + view_401 + view_501);
+		double view_20 = view_201/(view_101 + view_201 + view_301 + view_401 + view_501);
+		double view_30 = view_301/(view_101 + view_201 + view_301 + view_401 + view_501);
+		double view_40 = view_401/(view_101 + view_201 + view_301 + view_401 + view_501);
+		double view_50 = view_501/(view_101 + view_201 + view_301 + view_401 + view_501);
+
 		
-		
+		request.setAttribute("manview", manview);
+		request.setAttribute("womanview", womanview);
+		request.setAttribute("view_10", view_10);
+		request.setAttribute("view_20", view_20);
+		request.setAttribute("view_30", view_30);
+		request.setAttribute("view_40", view_40);
+		request.setAttribute("view_50", view_50);
 		
 		request.setAttribute("title", title);
 		request.setAttribute("img", img);
