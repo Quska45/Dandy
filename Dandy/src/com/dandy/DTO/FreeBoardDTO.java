@@ -17,12 +17,32 @@ public class FreeBoardDTO {
 	private int replycnt;
 	private String filename;
 	private int filesize;
+	private int downcnt;
 	
+	public int getDowncnt() {
+		return downcnt;
+	}
+
+
+	public void setDowncnt(int downcnt) {
+		this.downcnt = downcnt;
+	}
+
+
 	public FreeBoardDTO() {
 		
 	}
 	
 	
+	public FreeBoardDTO(int bno, String title, String content, String writer) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+	}
+
+
 	public FreeBoardDTO(String title, String content, String writer, String filename, int filesize) {
 		super();
 		this.title = title;

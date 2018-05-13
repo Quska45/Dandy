@@ -703,9 +703,11 @@
 	// 자유게시판 : 게시글 수정
 	$(document).on("click", "#freemodify_btn", function(){
 		//alert("게시글 수정");
+		var bno = $("#bno").val();
 		$.ajax({
 			url : "freeBoardUpdateView.dandy",
 			type : "POST",
+			//dataType:"JSON",
 			data : "bno=" + bno,
 			success : function(result) {
 				$("#boardList").html(result);
@@ -716,6 +718,25 @@
 		});
 		
 	});
+	//자유게시판 글 수정 등록
+	$(document).on("click", "#btn_freeup", function(){
+		var bno = $("bno").val();
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		$.ajax({
+			type : "post",
+			url : "freeBoardUpdateSaveAction.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
 	
 	//QnA 게시판검색기능
 	$(document).on("click", "#question_search_btn", function(){
@@ -875,19 +896,16 @@
 	$(document).on("click", "#btn_freesuccess", function(){
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
-		var flag = $("#secret_input_flag").val();
 		var content = $("#con_input").val();
-		var select = $("#qna_select").val();
-		
-		/* var formData = new FormData();
-		formData.append("file_upload",$("input[name=file_upload]")[0].files[0]); */
-		
-		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
-		
+		var form = $('form')[0];
+        var formData = new FormData(form);
+        
 		$.ajax({
 			type : "post",
+			processData: false,
+            contentType: false,
 			url : "freeBoardInsertSave.dandy",
-			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content,
+			data : "title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
 			success : function(result) {
 				$("#boardList").html(result);
 			}
@@ -912,6 +930,19 @@
 	            });
 	         });
 	}) */
+	$(document).on("click", "#down", function(){
+		alert("다운 버튼 클릭");
+		/* $.ajax({
+			type : "post",
+			url : "download.bizpoll?bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		}); */
+	});
 	
 	
 	

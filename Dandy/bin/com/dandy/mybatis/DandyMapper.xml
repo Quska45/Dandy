@@ -194,6 +194,11 @@
 		  	SELECT * FROM board
 		  	WHERE bno = #{bno}
 		</select>
+<!-- 자유게시판 게시글 수정페이지 -->
+		<select id="boardupdateview" resultType="fDTO" parameterType="Integer">
+		  	SELECT * FROM board
+		  	WHERE bno = #{bno}
+		</select>		
 <!-- 자유게시판 게시글 수정 -->
 		<update id="boardupdate" parameterType="fDTO">
 		  	UPDATE board

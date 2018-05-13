@@ -4,10 +4,10 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-		$(document).ready(function() {
+		/* $(document).ready(function() {
 			$("#sub_input").val("");
 			$("#con_input").val("");
-		});
+		}); */
 		
 		$(document).ready(function(){
 			$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
@@ -66,6 +66,10 @@
 		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
+	#bno {
+		border: none;
+		background-color: #f7f7f7;
+	}
 	#name_input {
 		width: 150px;
 		font-family: 'Hanna', serif;
@@ -89,7 +93,7 @@
 		width: 25px;
 	}
 	#title {
-		text-indent: 170px;
+		text-indent: 140px;
 		font-size: 25px;
 		font-weight: bold;
 		color: #a7a7a7;
@@ -99,7 +103,7 @@
 		width: 200px;
 		
 	}
-	#btn_freesuccess { 
+	#btn_freeup { 
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 16px;
@@ -109,7 +113,7 @@
 		border: 1px solid white;
 		font-family: 'Hanna', serif;
 	}
-	#btn_freesuccess:hover {
+	#btn_freeup:hover {
 		border: 1px solid #0daa62;
 		background-color: white;
 		color: #0daa62;
@@ -176,7 +180,6 @@
 </head>
 <body>
 	<div id="contents">
-			<form role="form" action="freeBoardInsertSave.dandy" method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
@@ -191,7 +194,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td id="title">
-						<span>자유게시판 글쓰기</span>
+						<span>자유게시판 글 수정하기</span>
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -209,7 +212,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<input type="text" id="bno" name="bno"  class="form-control" value="${boardupdate.bno}" readonly="readonly">
+						<input type="text" id="bno" name="bno" value="${bno}" readonly="readonly">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -227,7 +230,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<input type="text" id="sub_input" name="title"  class="form-control1" value="${boardupdate.title}">
+						<input type="text" id="sub_input" name="title" value="${title}" >
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -264,7 +267,7 @@
 					</td>
 					<td id="file_td">
 						<label for="file_upload">
-						<span><input type="text" class="upload_text" readonly="readonly"></span>
+						<span><input type="text" class="upload_text" ></span>
 						</label>
 						<div class="upload-btn_wrap">
 							<button type="button" id="filebtn"><i class="fa fa-file"></i></button>
@@ -287,7 +290,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<input type="text" id="con_input" name="content"  class="form-control1" value="${boardupdate.content}" >
+						<input type="text" id="con_input" name="content" value="${content}">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -306,7 +309,7 @@
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_freesuccess">문의사항 작성완료</button>
+							<button id="btn_freeup">수정완료</button>
 						</div>
 					</td>
 					<td class="empty">
@@ -315,7 +318,6 @@
 				</tr>
 			</tbody>
 		</table>
-			</form>
 	</div>
 	
 </body>

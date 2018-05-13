@@ -288,7 +288,7 @@
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_freesuccess">문의사항 작성완료</button>
+							<button id="btn_freesuccess">작성완료</button>
 						</div>
 					</td>
 					<td class="empty">

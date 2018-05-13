@@ -20,6 +20,7 @@ import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
 import com.dandy.action.FreeBoardSearchAction;
+import com.dandy.action.FreeBoardUpdateSaveAction;
 import com.dandy.action.FreeBoardUpdateViewAction;
 import com.dandy.action.FreeBoardWriteAction;
 import com.dandy.action.QuestionBoardListAction;
@@ -208,7 +209,10 @@ public class DandyFrontController extends HttpServlet {
 			action = new MywordInsertAction();
 			forward = action.excute(request, response);
 		}
-		
+		else if (command.equals("/freeBoardUpdateSaveAction.dandy")) {
+			action = new FreeBoardUpdateSaveAction();
+			forward = action.excute(request, response);
+		}
 		
 		
 		

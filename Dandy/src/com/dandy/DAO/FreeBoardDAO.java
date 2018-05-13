@@ -92,27 +92,55 @@ public class FreeBoardDAO {
 		// 게시글 상세 뷰 
 		public FreeBoardDTO boardDetailView(Integer bno) {
 			
-			FreeBoardDTO bDto = null;
+			FreeBoardDTO fDto = null;
 			sqlSession = sqlSessionFactory.openSession();
 			
 			try {
 				// 여러건 출력 : selectList = LIST Type
 				// 단건 출력 : selectOne = DTO Type
-				bDto = sqlSession.selectOne("boarddetailview", bno);
+				fDto = sqlSession.selectOne("boarddetailview", bno);
 				
-				System.out.print(bDto.getBno() + ", ");
-				System.out.print(bDto.getTitle() + ", ");
-				System.out.print(bDto.getContent() + ", ");
-				System.out.print(bDto.getWriter() + ", ");
-				System.out.print(bDto.getRegdate() + ", ");
-				System.out.print(bDto.getViewcnt());
+				System.out.print(fDto.getBno() + ", ");
+				System.out.print(fDto.getTitle() + ", ");
+				System.out.print(fDto.getContent() + ", ");
+				System.out.print(fDto.getWriter() + ", ");
+				System.out.print(fDto.getRegdate() + ", ");
+				System.out.print(fDto.getViewcnt());
 				System.out.println();
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
 				sqlSession.close();
 			}
-			return bDto;
+			return fDto;
+		}
+		
+		// 게시글 수정 뷰
+		public FreeBoardDTO boardUpdateView(Integer bno) {
+			
+			//FreeBoardDTO fDto = null;
+			FreeBoardDTO fDto = new FreeBoardDTO();
+			sqlSession = sqlSessionFactory.openSession();
+			System.out.println("게시글 수정 DAO");
+			
+			try {
+				fDto = sqlSession.selectOne("boardupdateview", bno);
+				
+				System.out.print(fDto.getBno() + ", ");
+				System.out.print(fDto.getTitle() + ", ");
+				System.out.print(fDto.getContent() + ", ");
+				System.out.print(fDto.getWriter() + ", ");
+				System.out.print(fDto.getRegdate() + ", ");
+				System.out.print(fDto.getViewcnt());
+				System.out.println();
+				
+				System.out.println("게시글 수정 mapper 다녀온 후");
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			return fDto;
 		}
 		
 		// 게시글 수정

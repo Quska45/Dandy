@@ -206,7 +206,7 @@
 	#file_upload{
 		font-size: 16px;
 		color: #0daa62;
-		background-color: white;
+		background-color: #f7f7f7;
 		text-align: center;
 		font-weight: bold;
 	}
@@ -328,9 +328,7 @@
 			<!-- 작성 정보 -->
 					<tr>
 						<td class="no">
-					<form method="post" id="frm1">
 							<input type="text" name="bno" id="bno" value="${boardview.bno}" >
-					</form>
 						</td>
 						<td class="contents">
 							<span>${boardview.title}</span>
