@@ -23,6 +23,7 @@ public class FreeReplyAction implements Action {
 		Integer bno = Integer.parseInt(request.getParameter("re_bno"));
 		System.out.println(content + ", " + writer + ", " + bno);
 		System.out.println();
+		System.out.println();
 		ReplyDTO rDto = new ReplyDTO(content, writer, bno);
 		ReplyDAO rDao = ReplyDAO.getInstance();
 		int result = rDao.freeReplyInsert(rDto);
