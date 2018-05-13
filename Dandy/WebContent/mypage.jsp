@@ -117,6 +117,8 @@
 	$(document).on("click", "#myPageClose", function(){
 		$("#mypage_wrap").css("display", "none");
 	});
+	
+	
 </script>
 </head>
 <body>
@@ -145,7 +147,19 @@
 						<div class="mycontent_contents">
 							<c:forEach items="${movieList}" var="mDto">
 								<div id="movieImgWrap">
-									<img src="${mDto.img}" style="width: 100px; height: 110px;">
+									<c:choose>
+									<c:when test="${empty mDto.img}">
+										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
+											<img src="image/img_ready.gif"  style="width: 100px; height: 110px;" alt="${mDto.title}">
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
+											<img src="${mDto.img}" style="width: 100px; height: 110px;" alt="${mDto.title}">
+										</a>
+									</c:otherwise>
+								</c:choose>	
+
 								</div>
 							</c:forEach>
 						</div>

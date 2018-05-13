@@ -964,6 +964,15 @@
 		myPageAll();
 	});
 	
+	//마이페이지에서 영화누르면 상세페이지 띄워주는 스크립트
+	$(document).on("click", ".mypageImg", function() {
+		var mno = $(this).attr("data_mno");
+		var img = $(this).attr("data_img");
+		var title = $(this).attr("data_title");
+		alert(mno + ", " + img + ", " + title);
+	});
+	
+	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
 	function movie_list() {
 		//alert("onclick");

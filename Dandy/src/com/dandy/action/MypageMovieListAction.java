@@ -21,7 +21,7 @@ public class MypageMovieListAction implements Action{
 		// TODO Auto-generated method stub
 		String url="mypage.jsp";
 		String mid = request.getParameter("mid");
-		System.out.println("mid");
+		System.out.println("mid : " + mid);
 		
 /*		MemberDTO mDto = new MemberDTO();
 		MemberDAO mDao = MemberDAO.getInstance();
@@ -34,6 +34,7 @@ public class MypageMovieListAction implements Action{
 			mDto = mDao.getMyPageMovieList(mid, i);
 			System.out.println(mDto.getTitle());
 			System.out.println(mDto.getImg());
+			System.out.println("mno:" + mDto.getMno());
 			list.add(mDto);
 		}
 		
