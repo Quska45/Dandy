@@ -3,23 +3,6 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	
-	$(document).ready(function() {
-	
-		$("#btn_success").on("click", function(){
-				form.submit();
-		});
-	});
-	$(document).ready(function(){
-		$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
-		$('.input_file').change(function(){
-			var i = $(this).val();
-			$('.upload_text').val(i).css("color","black");
-			$("#filebtn").css("color","#FFDF24");
-			
-		});
-	});
-	
 </script>
 <!DOCTYPE html>
 <html>
@@ -36,7 +19,7 @@
 		border-left: none;
 		border-right: none;
 		border-top: 2px solid white;
-		border-bottom : 2px solid #FFDF24; 
+		border-bottom : 2px solid #0daa62; 
  		border-collapse: collapse;
  		width: 1000px;
 	}
@@ -50,11 +33,11 @@
 		padding: 15px;
 	}
 	#title_tr{
-		border-bottom : 2px solid #FFDF24;
+		border-bottom : 2px solid #0daa62;
 	}
 	#contents {
-		width: 1200px;
-		margin: 10px 460px;
+		width: 1100px;
+		margin-left: 100px;
 		margin-top: 30px;
 	}
 	.tx_cen {
@@ -70,6 +53,7 @@
 		border: none;
 		font-family: 'Hanna', serif;
 		font-size: 16px;
+		background-color: #f7f7f7;
 	}
 	#con_input {
 		width: 700px;
@@ -97,7 +81,7 @@
 		width: 200px;
 		
 	}
-	#btn_success { 
+	#free_answer_wr_btn { 
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 16px;
@@ -107,10 +91,10 @@
 		border: 1px solid white;
 		font-family: 'Hanna', serif;
 	}
-	#btn_success:hover {
+	#free_answer_wr_btn:hover {
 		border: 1px solid #ffdf24;
 		background-color: white;
-		color: #ffdf24;
+		color: #0daa62;
 	}
 	#page_footer {
 		height: 200px;
@@ -173,8 +157,8 @@
 </style>
 </head>
 <body>
+<input type="hidden" id="free_answer_bno" value="${boardview.bno}">
 	<div id="contents">
-			<form role="form" action="answerinsertsave.bizpoll" method="post" enctype="multipart/form-data">
 				<input type="hidden" id="bno" name="bno" value="${boardview.bno}">
 		<table>
 			<tbody>
@@ -233,7 +217,7 @@
 						<span>&nbsp;</span>
 					</td>
 				</tr>
-	<!-- 첨부파일 -->
+	 <!-- 첨부파일
 				<tr>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -256,7 +240,7 @@
 					<td class="empty">
 						<span>&nbsp;</span>
 					</td>
-				</tr>
+				</tr> --> 
 	<!-- 문의내용 -->
 				<tr>
 					<td class="empty">
@@ -288,7 +272,7 @@
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_success">답변 작성완료</button>
+							<button id="free_answer_wr_btn">답변 작성완료</button>
 						</div>
 					</td>
 					<td class="empty">
@@ -297,7 +281,6 @@
 				</tr>
 			</tbody>
 		</table>
-			</form>
 	</div>
 </body>
 </html>

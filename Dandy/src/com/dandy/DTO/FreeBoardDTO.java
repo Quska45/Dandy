@@ -52,6 +52,17 @@ public class FreeBoardDTO {
 		this.filesize = filesize;
 	}
 
+	public FreeBoardDTO(String title, String content, String writer, int ref, int re_step, int re_level) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.ref = ref;
+		this.re_step = re_step;
+		this.re_level = re_level;
+	}
+
+
 	public String getFilename() {
 		return filename;
 	}

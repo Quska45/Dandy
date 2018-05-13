@@ -123,7 +123,7 @@
 	#page_footer {
 		height: 200px;
 	}
-	#re_btn {
+	#freere_btn {
 		border-radius: 5px;
 		background-color: #0daa62;
 		border: none;
@@ -303,9 +303,169 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+/* 게시판 삭제 확인 모달 */
+	$(document).ready(function(){
+		  var mo_board_del = $("#mo_board_del");
+		  var del_link = $(".del_link");
+		  var modalCont = $(".modal_del");
+		  var marginLeft = modalCont.outerWidth()/2;
+		  var marginTop = modalCont.outerHeight()/2; 
+		 
+		  del_link.click(function(){
+		    mo_board_del.fadeIn("slow");
+		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
+		    $(this).blur();
+		    $(".modal_del > a").focus(); 
+		    return false;
+		  });
+		  
+		  $("#cancel_btn").click(function(){
+		    mo_board_del.fadeOut("slow");
+		    del_link.focus();
+		  });
+		  
+		  $("#okay_btn").click(function(){
+			mo_board_del.fadeOut("slow");
+			del_link.focus();
+		  });        
+		});
+		
+	function comment_list() {
+		var bno = ${boardview.bno};
+		$.ajax({
+			type: "post",
+			url: "questionCommentList.dandy",
+			data: "bno=" + bno,
+			success: function(result) {
+				$("#commentList").html(result);
+			}
+		});
+	}
+	
+	$(document).ready(function() {
+		var formObj = $("#frm1");
+		
+		comment_list();
+		
+		// 수정버튼 클릭
+		$("#modify_btn").on("click", function(){
+			formObj.attr("action", "boardupdateview.bizpoll");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+				
+		var code = $("#code").val();
+		
+		/* $("#wr_btn").on("click", function(){
+			location.href="boardloginck.bizpoll";
+			alert(code);
+		}); */
+	
+			if(code == 1){
+				alert("모달창 나와랏");
+				$("#id01").css("display","block");
+			} else if(code != 1){
+				$("#id01").css("display","none");
+			}		
+			var replyinsert = $("#replyinsert");
+	});
+		
+	$(document).ready(function(){
+		  var mo_board_del = $("#mo_board_del");
+		  var del_link = $(".del_link");
+		  var modalCont = $(".modal_del");
+		  var marginLeft = modalCont.outerWidth()/2;
+		  var marginTop = modalCont.outerHeight()/2; 
+		 
+		  del_link.click(function(){
+		    mo_board_del.fadeIn("slow");
+		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
+		    $(this).blur();
+		    $(".modal_del > a").focus(); 
+		    return false;
+		  });
+		 
+		  $(".modal_del > button").click(function(){
+		    mo_board_del.fadeOut("slow");
+		    del_link.focus();
+		  });        
+		});
+	
+		
+	// 댓글 등록 AJAX
+	$(document).on("click", "#freere_btn", function(){
+		alert("리플등록 클릭");
+		// 댓글 내용
+		var re_input = $("#re_input").val();
+		// 댓글 작성자
+		var rn_input = $("#rn_input").val();
+		// 댓글 번호
+		var re_bno = $("#re_bno").val();
+		alert(re_input, rn_input, re_bno);
+		$.ajax({
+			url: "freeReply.dandy",
+			type: "POST",
+			dataType: "json",
+			data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
+			success: function(data) {
+				comment_list();
+			},
+			error: function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
+	// 댓글 삭제 AJAX
+	$(document).on("click", ".reply_del", function(){
+		var rno = $(this).attr("data_num");
+		alert(rno);
+		$.ajax({
+	 		 url: "questionReplyDelete.dandy",
+	 		 type: "POST",	
+	 		 dataType: "json",
+	 		 data: "rno=" + rno,
+	 		 success: function(data) {
+	 			comment_list();
+	 		 },
+	 		 error: function() {
+	 			 alert("System Error!!!");
+	 		 }
+	 	 });
+	});
+		
+		 $(document).on("click", "#good_fafa", function(){
+			alert("좋아요 클릭!");
+			
+			var gpoint = $("#gpoint").val();
+			var bno = ${boardview.bno};
+			$.ajax({
+				url: "goodpoint.bizpoll",
+				type: "POST",
+				dataType: "json",
+				data: "bno=" + bno,
+				success: function(data) {
+							alert(data.gpoint);
+						if(data.gpoint >= "0"){
+							alert("좋아요 포인트 증가 성공");
+							location.reload();
+							$("#good_fafa").attr('class', 'fa fa-heart');
+						} else{
+							 alert("좋아요 포인트 증가 실패");
+							 return false; 
+						 }
+				},
+				error: function() {
+					alert("System Error!!!");
+				}
+			});
+			
+		});  
+		
 </script>
 </head>
 <body>
+<input type="hidden" id="free_answer_bno" value="${boardview.bno}">
 <div id="board">
 	<div id="table">
 		<div>
@@ -414,7 +574,7 @@
 									<span>&nbsp;</span>
 								</c:when>
 								<c:otherwise>
-									<input type="button" class="board_btn" id="rewrite_btn" value="답변">
+									<input type="button" class="board_btn" id="free_rewrite_btn" value="답변">
 								</c:otherwise>
 							</c:choose>
 						</td>
@@ -466,7 +626,6 @@
 							<td class="no" >
 								<span>&nbsp;</span>
 							</td>
-					<!-- <form id="replyinsert" name="replyinsert" action="reply.bizpoll" method="post"> -->
 					<input type="hidden" name="re_bno" id="re_bno" value="${boardview.bno}" >
 							<td id="re_con">
 								<input type="text" id="re_input" name="re_input" placeholder="댓글 작성하기" >
@@ -475,9 +634,8 @@
 								<input type="text" id="rn_input" name="rn_input" value="${sessionScope.loginUser.mid}">
 							</td>
 							<td class="date">
-								<input type="button" id="re_btn" name="re_btn" value="댓글달기">
+								<input type="button" id="freere_btn" name="freere_btn" value="댓글달기">
 							</td>
-					<!-- </form> -->
 							<td class="view">
 								<span>&nbsp;</span>
 							</td>

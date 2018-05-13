@@ -91,4 +91,63 @@ public class ReplyDAO {
 		
 	}
 	
+	//자유게시판 리플 출력 
+	public List<ReplyDTO> freeReplyList(Integer bno){
+		sqlSession = sqlSessionFactory.openSession();
+		List<ReplyDTO> list = new ArrayList<>();
+		try {
+			list = sqlSession.selectList("freeReplyList", bno);
+			for(ReplyDTO rDto : list){
+				System.out.print(rDto.getBno());
+				System.out.print(rDto.getContent());
+				System.out.print(rDto.getRno());
+				System.out.print(rDto.getWriter());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return list;
+	}
+	//자유게시판 리플 등록
+		public int freeReplyInsert(ReplyDTO rDto) {
+			
+			sqlSession = sqlSessionFactory.openSession();
+			int result = 0;
+			
+			try {
+				result = sqlSession.insert("freeReplyInsert", rDto);
+				
+				sqlSession.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			
+			return result;
+		}
+		//자유게시판 리플 삭제
+		public void freeReplyDelete(Integer rno) {
+			sqlSession = sqlSessionFactory.openSession();
+			int result = 0;
+			try {
+				result = sqlSession.delete("freeReplydelete", rno);
+				sqlSession.commit();
+				
+				if(result > 0) {
+					System.out.println("댓글 삭제 성공");
+				} else {
+					System.out.println("댓글 삭제 실패");
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			
+		}
 }

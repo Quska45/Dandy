@@ -726,7 +726,7 @@
 		var content = $("#con_input").val();
 		$.ajax({
 			type : "post",
-			url : "freeBoardUpdateSaveAction.dandy",
+			url : "freeBoardUpdateSave.dandy",
 			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
 			success : function(result) {
 				$("#boardList").html(result);
@@ -944,7 +944,36 @@
 		}); */
 	});
 	
+	//자유게시판 답변 페이지 
+	$(document).on("click", "#free_rewrite_btn", function(){
+		var bno = $("#free_answer_bno").val();
+		alert(bno);
+			 $.ajax({
+				type : "post",
+				url : "freeAnswer.dandy",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			}); 
+	});
 	
+	//자유게시판 답변등록
+	$(document).on("click", "#free_answer_wr_btn", function(){
+		var title = $("#sub_input").val();
+		var bno = $("#free_answer_bno").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		alert(title + ", " + bno  + ", " + writer  + ", " + content);
+		$.ajax({
+			type : "post",
+			url : "freeAnswerInsert.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
 	
 	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
 	$(document).on("click", "#qustion_rewrite_btn", function(){
@@ -958,6 +987,8 @@
 				}
 			});
 	});
+	
+	
 	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
 	$(document).on("click", "#question_answer_wr_btn", function(){
 		var title = $("#sub_input").val();

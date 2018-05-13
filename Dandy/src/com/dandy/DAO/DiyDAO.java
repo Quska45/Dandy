@@ -2,8 +2,6 @@ package com.dandy.DAO;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.rosuda.REngine.REXP;
-import org.rosuda.REngine.Rserve.RConnection;
 
 import com.dandy.mybatis.SqlMapConfig;
 

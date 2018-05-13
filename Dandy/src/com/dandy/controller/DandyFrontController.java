@@ -15,6 +15,8 @@ import com.dandy.action.BoardListAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
 import com.dandy.action.DiyPageAction;
+import com.dandy.action.FreeAnswerAction;
+import com.dandy.action.FreeAnswerInsertAction;
 import com.dandy.action.FreeBoardDeleteAction;
 import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
@@ -23,6 +25,7 @@ import com.dandy.action.FreeBoardSearchAction;
 import com.dandy.action.FreeBoardUpdateSaveAction;
 import com.dandy.action.FreeBoardUpdateViewAction;
 import com.dandy.action.FreeBoardWriteAction;
+import com.dandy.action.FreeReplyAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
 import com.dandy.action.QuestionBoardSortAction;
@@ -209,12 +212,22 @@ public class DandyFrontController extends HttpServlet {
 			action = new MywordInsertAction();
 			forward = action.excute(request, response);
 		}
-		else if (command.equals("/freeBoardUpdateSaveAction.dandy")) {
+		else if (command.equals("/freeBoardUpdateSave.dandy")) {
 			action = new FreeBoardUpdateSaveAction();
 			forward = action.excute(request, response);
 		}
-		
-		
+		else if (command.equals("/freeAnswer.dandy")) {
+			action = new FreeAnswerAction();
+			forward = action.excute(request, response);
+		}
+		else if (command.equals("/freeAnswerInsert.dandy")) {
+			action = new FreeAnswerInsertAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeReply.dandy")) {
+			action = new FreeReplyAction(); 
+			forward = action.excute(request, response); 
+		}
 		
 		
 		// ======= 공통분기 작업 ======= //
