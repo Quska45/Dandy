@@ -969,7 +969,7 @@
 		//alert("onclick");
 		$.ajax({
 			type : "post",
-			url : "movieList.dandy",
+			url : "movieList.dandy?index=empty",
 			success : function(result) {
 				$("#movieList").html(result);
 			}
@@ -1002,7 +1002,7 @@
 	$(document).on("click", ".active_index", function() {
 		var index = $(this).attr("index_num");
 			$.ajax({
-				url : "movieIndexList.dandy",
+				url : "movieList.dandy",
 				type : "POST",
 				data : "index=" + index,
 				success : function(result) {

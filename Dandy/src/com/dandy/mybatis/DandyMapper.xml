@@ -318,32 +318,15 @@
 				a.*
 				FROM (
 					SELECT * 
-					FROM movieindex 
-					WHERE mno > 0 
-					ORDER BY mno
-				) a
-			)
-			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
-		]]>
-	</select>
-	
-<!-- =================================================================index movie================================================================= -->
-<!-- Index Page Movie List -->
-	<select id="movieIndexListCriteria" resultType="movieDTO">
-		<![CDATA[
-			SELECT *
-			FROM (
-				SELECT rownum rnum,
-				a.*
-				FROM (
-					SELECT * 
 					FROM movieindex ]]>
-					<if test='index != null'>
-						<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
-					</if>
-					<if test='index == null'>
-						<![CDATA[WHERE mno > 0 ]]>
-					</if>
+					<choose>
+						<when test='index == "empty"'>
+							<![CDATA[WHERE mno > 0 ]]>
+						</when>
+						<otherwise>
+							<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+						</otherwise>
+					</choose>	
 					<![CDATA[
 					ORDER BY mno
 				) a
@@ -351,25 +334,24 @@
 			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 		]]>
 	</select>
+	
 <!-- Index Page Movie List page count -->
 	<select id="movieCountPaging"  resultType="int">
 		<![CDATA[
 			SELECT count(mno)
 			FROM movieindex]]>
-			<if test='index != null'>
-				<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
-			</if>
-			<if test='index == null'>
-				<![CDATA[WHERE mno > 0 ]]>
-			</if>
+			<choose>
+				<when test='index == "empty"'>
+					<![CDATA[WHERE mno > 0 ]]>
+				</when>
+				<otherwise>
+					<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+				</otherwise>
+			</choose>
+			
+			
 	</select>
-<!-- Movie List page count -->
-	<select id="smovieCountPaging"  resultType="int">
-		<![CDATA[
-			SELECT count(mno)
-			FROM movieindex
-			WHERE mno > 0 ]]>
-	</select>
+
 	
 <!-- 영화 개별 단어장  -->
 	<select id="movieEach" resultType="eachDTO" parameterType="eachDTO">

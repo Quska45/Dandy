@@ -33,6 +33,7 @@ public class MovieDAO {
 	
 	int result = 0;
 	
+	
 	public int totalCount(MovieCriteriaDTO criDto) {
 		
 		sqlSession = sqlSessionFactory.openSession();
@@ -40,25 +41,6 @@ public class MovieDAO {
 		try {
 			
 			result = sqlSession.selectOne("movieCountPaging", criDto);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if(sqlSession != null) sqlSession.close();
-		}
-		
-		return result;
-		
-	}
-	
-	
-	public int stotalCount(MovieCriteriaDTO criDto) {
-		
-		sqlSession = sqlSessionFactory.openSession();
-		
-		try {
-			
-			result = sqlSession.selectOne("smovieCountPaging", criDto);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -47,10 +47,9 @@ public class MovieListAction implements Action {
 		//페이지 메이커
 		MoviePageMakerDTO moviePageMaker = new MoviePageMakerDTO();
 		moviePageMaker.setCriDto(CriDto);
-		moviePageMaker.setTotalCount(mDao.stotalCount(CriDto));
+		moviePageMaker.setTotalCount(mDao.totalCount(CriDto));
 		
 		request.setAttribute("pageMaker", moviePageMaker);
-		
 		request.setAttribute("index", CriDto.getIndex());
 		
 		ActionForward forward = new ActionForward();
