@@ -119,11 +119,13 @@
 	});
 	
 	
+	
 </script>
 </head>
 <body>
 	<!-- My Page : 전체 감싸는 div -->
 	<div id="mypage_wrap">
+		<div id="mypageMoviedetail"></div>
 		<div id="myPageClose">X</div>
 		<!-- My Page : contents 영역 wrap div -->
 		<div id="mycontent_wrap">

@@ -372,7 +372,7 @@
 </select>
 
 <select id="getMyPageMovieList" parameterType="movieDTO" resultType="movieDTO">
-	select title, img
+	select title, img, mno
 	FROM MOVIEINDEX
 	WHERE mno = (select mno${i}
     		    from dandy_member

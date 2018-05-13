@@ -23,10 +23,7 @@ public class MypageMovieListAction implements Action{
 		String mid = request.getParameter("mid");
 		System.out.println("mid : " + mid);
 		
-/*		MemberDTO mDto = new MemberDTO();
-		MemberDAO mDao = MemberDAO.getInstance();
-		mDto = mDao.getMno(mid);
-*/		MovieDTO mDto = new MovieDTO();
+		MovieDTO mDto = new MovieDTO();
 		MovieDAO mDao = MovieDAO.getInstance();
 		List<MovieDTO> list = new ArrayList<>();
 		

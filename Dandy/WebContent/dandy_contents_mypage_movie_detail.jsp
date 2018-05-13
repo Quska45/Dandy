@@ -24,6 +24,10 @@
 		background-color: #f7f7f7;
 		border-radius: 10px;
 		margin: 100px 200px;
+		position: absolute;
+    	top: 14px;
+	    left: 135px;
+	    z-index: 55;
 	}
  /*- modal창 내부 contents : 영화 포스터, 영화 제목, 해당 단어장의 단어 개수 */
  	#detail_modal_movie {
@@ -252,6 +256,20 @@
 	.list_search li {
 		float: left;
 	}
+	#mypageMovieDetailBlock {
+		width: 1903px;
+		height: 3000px;
+		background-color: black;
+		opacity: 0.5;
+		position: absolute;
+	}
+	#mypageMovieDetailBlockClose{
+		position: absolute;
+   		top: 92px;
+   		right: 100px;
+   		z-index: 60;
+   		cursor: pointer;
+	}
 	
 	
 	
@@ -288,15 +306,21 @@
 		
 		
 	});
-
-
+	
+	$(document).on("click", "#mypageMovieDetailBlockClose", function(){
+		$("#mypageMovieDetailBlock").css("display", "none");
+		$("#wrap_contents").css("display", "none");
+	});
 </script>
 
 </head>
 <body>
 	<!-- Contents : 영화별 단어장 -->
+		<div id="mypageMovieDetailBlock">
+			<div id="mypageMovieDetailBlockClose">Xsdfasdf</div>
+		</div>
 		<div id="wrap_contents">
-			<input id="hiddenMno" type="hidden" value="${mno}">
+				
 				<div id="detail_modal_movie">
 				
 					<div id="detail_modal_poster">
@@ -318,7 +342,7 @@
 							</div>
 						</div>
 						<div class="myword">
-							<a href="#" id="mywordBtn">내 단어장에 추가</a>
+							내 단어장에 추가
 						</div>
 					</div>
 					

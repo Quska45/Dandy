@@ -142,5 +142,8 @@ public class MemberDAO {
 		return mDto;
 	}
 	
+	public void mywordInsert(){
+		
+	}
 	
 }

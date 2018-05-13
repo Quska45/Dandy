@@ -11,13 +11,13 @@ import com.dandy.DAO.MovieDAO;
 import com.dandy.DTO.MovieEachDTO;
 import com.dandy.DTO.MovieIndexDTO;
 
-public class ContentsDetailAction implements Action {
+public class MypageContentsDetailAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String url = "contents_detail.jsp";
+		String url = "dandy_contents_mypage_movie_detail.jsp";
 		
 		String mno = request.getParameter("mno");
 		String tablename = "movie" + mno;
@@ -72,7 +72,6 @@ public class ContentsDetailAction implements Action {
 		request.setAttribute("view_30", view_30);
 		request.setAttribute("view_40", view_40);
 		request.setAttribute("view_50", view_50);
-		request.setAttribute("mno", mno);
 		
 		request.setAttribute("title", title);
 		request.setAttribute("img", img);

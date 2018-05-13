@@ -970,6 +970,20 @@
 		var img = $(this).attr("data_img");
 		var title = $(this).attr("data_title");
 		alert(mno + ", " + img + ", " + title);
+		$.ajax({
+			url : "mypageContentsDetail.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&img=" + img + "&title=" + title,
+			success : function(result) {
+				$("#mypageMoviedetail").html(result);
+				alert("왜 안뜨지?");
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
 	});
 	
 	
@@ -985,6 +999,29 @@
 		});
 		
 	}
+	
+	//단어장 디테일에서 내 단어장 추가 누르면 추가 되게 하는 스크립트
+	$(document).on("click", "#mywordBtn", function(){
+		var mno = $("#hiddenMno").val();
+		var mid = $("#sessionMid_id").val();
+		alert(mno +","+ mid);
+		if(mid==""){
+			alert("로그인 해야합니다.");
+		} else{
+			$.ajax({
+				url : "mywordInsert.dandy",
+				type : "POST",
+				data : "mno=" + mno + "&mid=" + mid,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+			});
+		}
+
+	})
 
 	
 	// 영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
@@ -1357,7 +1394,8 @@
 
 </head>
 <body>
-	<div id="myPageAll"></div>
+	<div id="myPageAll">
+	</div>
 	<input type="hidden" id="sessionMid" value="${sessionScope.loginUser}">
 	<input type="hidden" id="sessionMid_id" value="${sessionScope.loginUser.mid}">
 	<!-- body전체를 감싸는 div -->

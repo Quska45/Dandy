@@ -37,7 +37,9 @@ import com.dandy.action.MemberConstractAction;
 import com.dandy.action.MemberInsertAction;
 import com.dandy.action.MemberRegisterAction;
 import com.dandy.action.MovieListAction;
+import com.dandy.action.MypageContentsDetailAction;
 import com.dandy.action.MypageMovieListAction;
+import com.dandy.action.MywordInsertAction;
 import com.dandy.action.QuestionAnswerAction;
 import com.dandy.action.QuestionAnswerInsertAction;
 import com.dandy.action.QuestionBoardDetailAction;
@@ -196,6 +198,14 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/freeBoardUpdateView.dandy")) {
 			action = new FreeBoardUpdateViewAction();
+			forward = action.excute(request, response);
+		}
+		else if (command.equals("/mypageContentsDetail.dandy")) {
+			action = new MypageContentsDetailAction();
+			forward = action.excute(request, response);
+		}
+		else if (command.equals("/mywordInsert.dandy")) {
+			action = new MywordInsertAction();
 			forward = action.excute(request, response);
 		}
 		
