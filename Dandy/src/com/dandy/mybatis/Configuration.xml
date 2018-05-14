@@ -40,5 +40,7 @@
 	<!-- 매퍼를 여러개 사용할 수도 있다. -->
 	<mappers>
 		<mapper resource="com/dandy/mybatis/DandyMapper.xml"/>
+		<mapper resource="com/dandy/mybatis/DiyMapper.xml"/>
 	</mappers>
+	
 </configuration>

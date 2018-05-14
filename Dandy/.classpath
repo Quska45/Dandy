@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="G:/Developer/dandy/REngine.jar"/>
 	<classpathentry kind="lib" path="G:/Developer/dandy/Rserve.jar"/>
 	<classpathentry kind="lib" path="G:/Developer/dandy/servlet-api.jar"/>
+	<classpathentry kind="lib" path="G:/Developer/dandy/jsoup-1.11.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

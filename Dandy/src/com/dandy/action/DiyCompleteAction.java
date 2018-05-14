@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.dandy.DAO.DiyDAO;
+import com.dandy.DTO.MovieEachDTO;
 
 public class DiyCompleteAction implements Action {
 
@@ -16,26 +17,29 @@ public class DiyCompleteAction implements Action {
 			throws ServletException, IOException {
 		
 		String url = "diy_complete.jsp";
-		String title2 = request.getParameter("title");
+		String title3 = request.getParameter("title");
 		String text2 = request.getParameter("text");
 		
-		String title1 = title2.replaceAll("\"", "");
-		String title = title1.replaceAll("'", "");
+		String title2 = title3.replaceAll("\"", "");
+		String title1 = title2.replaceAll("'", "");
+		String title = title1.replaceAll(" ", "_");
 		
 		String text1 = text2.replaceAll("\"", "");
 		String text = text1.replaceAll("'", "");
 		
-		
 		System.out.println(title + ", " + text);
 		
-		
+		MovieEachDTO mDto = new MovieEachDTO();
 		DiyDAO mDao = DiyDAO.getInstance();
 		mDao.textMining(title, text);
 		
-		
-		
-		
-		
+		mDto.setTitle(title);
+		mDao.alterTable(mDto);
+		mDao.selectWord(mDto);
+		mDao.nullDelete(mDto);
+		mDao.updateNull(mDto);
+		//mDao.delete(title);
+		mDao.selectWno(mDto);
 		
 		
 		
