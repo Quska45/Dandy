@@ -25,7 +25,9 @@ import com.dandy.action.FreeBoardSearchAction;
 import com.dandy.action.FreeBoardUpdateSaveAction;
 import com.dandy.action.FreeBoardUpdateViewAction;
 import com.dandy.action.FreeBoardWriteAction;
+import com.dandy.action.FreeCommentListAction;
 import com.dandy.action.FreeReplyAction;
+import com.dandy.action.FreeReplyDeleteAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
 import com.dandy.action.QuestionBoardSortAction;
@@ -228,6 +230,17 @@ public class DandyFrontController extends HttpServlet {
 			action = new FreeReplyAction(); 
 			forward = action.excute(request, response); 
 		}
+		else if (command.equals("/freeCommentList.dandy")) {
+			action = new FreeCommentListAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeReplyDelete.dandy")) {
+			action = new FreeReplyDeleteAction(); 
+			forward = action.excute(request, response); 
+		}
+		
+		
+		
 		
 		
 		// ======= 공통분기 작업 ======= //

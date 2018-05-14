@@ -334,7 +334,7 @@
 		var bno = ${boardview.bno};
 		$.ajax({
 			type: "post",
-			url: "questionCommentList.dandy",
+			url: "freeCommentList.dandy",
 			data: "bno=" + bno,
 			success: function(result) {
 				$("#commentList").html(result);
@@ -421,7 +421,7 @@
 		var rno = $(this).attr("data_num");
 		alert(rno);
 		$.ajax({
-	 		 url: "questionReplyDelete.dandy",
+	 		 url: "freeReplyDelete.dandy",
 	 		 type: "POST",	
 	 		 dataType: "json",
 	 		 data: "rno=" + rno,
@@ -584,7 +584,7 @@
 									<input type="button" class="board_btn" id="freemodify_btn"  value="수정">
 								</td>
 								<td class="date">
-									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="freeremove_btn"  value="삭제"></a>
+									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="freeremove_btn1"  value="삭제"></a>
 									<input type="hidden" name="pcode" id="pcode" value="${pcode}">
 								</td>
 							</c:when>
@@ -659,7 +659,7 @@
 							<br>
 							<%-- <a href="boarddelete.bizpoll?bno=${boardview.bno}"> --%>
 							<a href="#">
-								<button class="bbtn" id="remove_btn2">삭제</button>
+								<button class="bbtn" id="freeremove_btn">삭제</button>
 							</a>
 							<button class="bbtn" id="cancel_btn">취소</button>
 					</div>
