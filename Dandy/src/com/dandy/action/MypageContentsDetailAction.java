@@ -64,7 +64,7 @@ public class MypageContentsDetailAction implements Action {
 		double view_40 = view_401/(view_101 + view_201 + view_301 + view_401 + view_501);
 		double view_50 = view_501/(view_101 + view_201 + view_301 + view_401 + view_501);
 
-		
+		request.setAttribute("mno", mno);
 		request.setAttribute("manview", manview);
 		request.setAttribute("womanview", womanview);
 		request.setAttribute("view_10", view_10);

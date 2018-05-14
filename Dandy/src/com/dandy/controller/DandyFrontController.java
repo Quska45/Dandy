@@ -48,6 +48,7 @@ import com.dandy.action.MovieListAction;
 import com.dandy.action.MypageContentsDetailAction;
 import com.dandy.action.MypageMovieListAction;
 import com.dandy.action.MywordInsertAction;
+import com.dandy.action.MywordeleteAction;
 import com.dandy.action.QuestionAnswerAction;
 import com.dandy.action.QuestionAnswerInsertAction;
 import com.dandy.action.QuestionBoardDetailAction;
@@ -246,6 +247,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/freeboardgoodpoint.dandy")) {
 			action = new FreeboardGoodPointAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/mywordDelete.dandy")) {
+			action = new MywordeleteAction(); 
 			forward = action.excute(request, response); 
 		}
 		

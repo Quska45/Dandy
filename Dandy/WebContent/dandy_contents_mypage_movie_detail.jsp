@@ -320,7 +320,7 @@
 			<div id="mypageMovieDetailBlockClose">Xsdfasdf</div>
 		</div>
 		<div id="wrap_contents">
-				
+				<input id="hiddenMno" type="hidden" value="${mno}">
 				<div id="detail_modal_movie">
 				
 					<div id="detail_modal_poster">
@@ -342,7 +342,7 @@
 							</div>
 						</div>
 						<div class="myword">
-							내 단어장에 추가
+							<a href="#" id="mywordDelete">내 단어장에서 삭제</a>
 						</div>
 					</div>
 					

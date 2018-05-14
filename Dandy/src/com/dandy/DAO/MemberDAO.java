@@ -142,12 +142,13 @@ sqlSession.commit();
         return mDto;
     }
     
+    //내 단어장을 추가하는 메소드
     public int mywordUpdate(MemberDTO mDto){
         sqlSession = sqlSessionFactory.openSession();
         int result = 0;
         try {
             result = sqlSession.update("mywordUpdate", mDto);
-sqlSession.commit();
+            sqlSession.commit();
             if(result > 0){
                 System.out.println("추가하기  성공했습니다.");
             } else {
@@ -163,4 +164,18 @@ sqlSession.commit();
         return result;
     }
     
+    //내 단어장에서 단어를 삭제하는 메소드
+    public void mywordDelete(MemberDTO mDto){
+    	sqlSession = sqlSessionFactory.openSession();
+    	int result = 0;
+    	try {
+			sqlSession.update("mywordDelete", mDto);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+    }
 }

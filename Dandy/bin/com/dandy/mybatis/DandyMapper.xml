@@ -406,4 +406,13 @@
       WHERE mid=#{mid}
      
 </update>
+
+<update id="mywordDelete">
+      UPDATE dandy_member
+      SET mno${i}=null
+      WHERE mid=#{mid}
+     
+</update>
+
+
 </mapper>
