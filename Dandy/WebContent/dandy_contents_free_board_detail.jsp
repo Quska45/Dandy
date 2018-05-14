@@ -211,7 +211,7 @@
 		font-weight: bold;
 	}
 	#goodcnt {
-		background-color: white;
+		background-color: #f7f7f7;
 		width:70px;
 		height: 25px;
 		margin-bottom: 10px;
@@ -435,32 +435,25 @@
 	});
 		
 		 $(document).on("click", "#good_fafa", function(){
-			alert("좋아요 클릭!");
+			//alert("좋아요 클릭!");
 			
 			var gpoint = $("#gpoint").val();
 			var bno = ${boardview.bno};
+			//alert(bno);
 			$.ajax({
-				url: "goodpoint.bizpoll",
+				url: "freeboardgoodpoint.dandy",
 				type: "POST",
 				dataType: "json",
 				data: "bno=" + bno,
 				success: function(data) {
 							alert(data.gpoint);
-						if(data.gpoint >= "0"){
-							alert("좋아요 포인트 증가 성공");
-							location.reload();
-							$("#good_fafa").attr('class', 'fa fa-heart');
-						} else{
-							 alert("좋아요 포인트 증가 실패");
-							 return false; 
-						 }
 				},
 				error: function() {
 					alert("System Error!!!");
 				}
 			});
 			
-		});  
+		}); 
 		
 </script>
 </head>

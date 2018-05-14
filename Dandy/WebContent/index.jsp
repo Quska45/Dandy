@@ -912,24 +912,7 @@
 		});
 	});
 	
-	
-	/* 
-	$(function(){
-	     $("#btn_freesuccess").click(function(){
-	         var form = $('form')[0];
-	         var formData = new FormData(form);
-	             $.ajax({
-	                url: '/fileupload',
-	                processData: false,
-	                    contentType: false,
-	                data: formData,
-	                type: 'POST',
-	                success: function(result){
-	                    alert("업로드 성공!!");
-	                }
-	            });
-	         });
-	}) */
+	/* 자유게시판 파일 다운로드 */
 	$(document).on("click", "#freeboard_filedown", function(){
 		var bno = $("#bno").val();
 		//alert("다운 버튼 클릭");
@@ -937,6 +920,7 @@
 		$.ajax({
 			type : "post",
 			url : "freeboardfiledownload.dandy",
+			data : "bno=" + bno,
 			success : function(result) {
 				$("#boardList").html(result);
 			},
@@ -956,6 +940,9 @@
 				data : "bno=" + bno,
 				success : function(result) {
 					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
 				}
 			}); 
 	});

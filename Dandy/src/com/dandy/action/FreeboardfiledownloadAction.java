@@ -8,6 +8,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import com.dandy.DAO.FreeBoardDAO;
 import com.dandy.common.Constants;
 
@@ -74,6 +76,10 @@ public class FreeboardfiledownloadAction implements Action {
 		//							<===	파일
 		//									InputStream(파일 읽기)
 		//									OutputStream(파일 쓰기)
+		
+		/*JSONObject jobj = new JSONObject();
+		response.setContentType("application/x-json; charset=UTF-8");
+		response.getWriter().println(jobj);*/
 		
 		return null;
 		
