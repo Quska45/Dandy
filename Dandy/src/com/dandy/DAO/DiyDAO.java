@@ -2,8 +2,6 @@ package com.dandy.DAO;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.rosuda.REngine.REXP;
-import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 
 import com.dandy.mybatis.SqlMapConfig;
@@ -29,14 +27,20 @@ public class DiyDAO {
 		
 		
 		public void textMining(String title, String text)  {
-
+			RConnection c = null;
 			try {
-				RConnection c = new RConnection();
+				c = new RConnection();
 				
 				c.eval("title <- '" + title + "'");
 				c.eval("text <- '" + text + "'");
-				c.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver', 'C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar')");
-				c.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@//127.0.0.1:1521/xe', 'java', '1234')");
+				c.eval("library(DBI)");
+				c.eval("Sys.setenv(JAVA_HOME='C:\\\\Program Files\\\\Java\\\\jre1.8.0_151')");
+				c.eval("library(rJava)");
+				c.eval("library(RJDBC)");
+				c.eval("OracleDriver <- 'oracle.jdbc.driver.OracleDriver'");
+				c.eval("ojdbc6 <- 'C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar'");
+				c.eval("drv <- JDBC(OracleDriver, ojdbc6)");
+				c.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@//jsDandyHome.iptime.org:1521/xe', 'java', '1234')");
 				c.eval("library(RPostgreSQL)");
 				c.eval("library(tm)");
 				c.eval("library(SnowballC)");
@@ -63,6 +67,8 @@ public class DiyDAO {
 				
 			} catch (Exception e) {
 				e.printStackTrace();
+			} finally {
+				c.close();
 			}
 			
 			
