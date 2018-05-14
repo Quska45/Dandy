@@ -221,7 +221,7 @@
 		line-height: 25px;
 		border: none;
 	}
-	#down {
+	#freeboard_filedown {
 		text-decoration: none;
 	}
 	#download {
@@ -514,7 +514,7 @@
 							<span><i class="fa fa-file"></i></span>
 						</td>
 						<td class="contents">
-							<a href="#" id="down">
+							<a href="#" id="freeboard_filedown">
 								<span id ="download">${boardview.filename}</span>
 								<span id="downcnt">
 									<i class="fa fa-arrow-circle-o-down"></i>

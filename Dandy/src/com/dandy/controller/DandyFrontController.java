@@ -28,6 +28,7 @@ import com.dandy.action.FreeBoardWriteAction;
 import com.dandy.action.FreeCommentListAction;
 import com.dandy.action.FreeReplyAction;
 import com.dandy.action.FreeReplyDeleteAction;
+import com.dandy.action.FreeboardfiledownloadAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
 import com.dandy.action.QuestionBoardSortAction;
@@ -236,6 +237,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/freeReplyDelete.dandy")) {
 			action = new FreeReplyDeleteAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/freeboardfiledownload.dandy")) {
+			action = new FreeboardfiledownloadAction(); 
 			forward = action.excute(request, response); 
 		}
 		

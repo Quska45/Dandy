@@ -930,18 +930,20 @@
 	            });
 	         });
 	}) */
-	$(document).on("click", "#down", function(){
-		alert("다운 버튼 클릭");
-		/* $.ajax({
+	$(document).on("click", "#freeboard_filedown", function(){
+		var bno = $("#bno").val();
+		//alert("다운 버튼 클릭");
+		//alert(bno);
+		$.ajax({
 			type : "post",
-			url : "download.bizpoll?bno=" + bno,
+			url : "freeboardfiledownload.dandy",
 			success : function(result) {
 				$("#boardList").html(result);
 			},
 			error : function() {
 				alert("System Error!!!");
 			}
-		}); */
+		}); 
 	});
 	
 	//자유게시판 답변 페이지 
