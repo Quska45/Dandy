@@ -400,5 +400,10 @@
     )
 </select>
 	
-	
+<update id="mywordUpdate">
+      UPDATE dandy_member
+      SET mno${i}=#{mno}
+      WHERE mid=#{mid}
+     
+</update>
 </mapper>

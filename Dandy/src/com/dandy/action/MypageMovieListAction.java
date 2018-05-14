@@ -29,10 +29,16 @@ public class MypageMovieListAction implements Action{
 		
 		for(int i=1; i<11; i++){
 			mDto = mDao.getMyPageMovieList(mid, i);
-			System.out.println(mDto.getTitle());
-			System.out.println(mDto.getImg());
-			System.out.println("mno:" + mDto.getMno());
-			list.add(mDto);
+			if(mDto==null){
+          	  System.out.println("이 사용자의 " + i + "번째단어장은 비어 있습니다.");
+            } else {
+            	System.out.println(mDto.getTitle());
+            	System.out.println(mDto.getImg());
+            	System.out.println("mno:" + mDto.getMno());
+            	list.add(mDto);
+          
+          	  
+            }
 		}
 		
 		request.setAttribute("memlist", mDto);
