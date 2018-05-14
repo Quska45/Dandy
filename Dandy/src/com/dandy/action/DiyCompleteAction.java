@@ -16,8 +16,15 @@ public class DiyCompleteAction implements Action {
 			throws ServletException, IOException {
 		
 		String url = "diy_complete.jsp";
-		String title = request.getParameter("title");
-		String text = request.getParameter("text");
+		String title2 = request.getParameter("title");
+		String text2 = request.getParameter("text");
+		
+		String title1 = title2.replaceAll("\"", "");
+		String title = title1.replaceAll("'", "");
+		
+		String text1 = text2.replaceAll("\"", "");
+		String text = text1.replaceAll("'", "");
+		
 		
 		System.out.println(title + ", " + text);
 		
