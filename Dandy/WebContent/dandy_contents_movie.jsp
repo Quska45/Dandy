@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="icon" type="image/png" href="image/cupfavi.png">
@@ -19,6 +21,7 @@
 	#wrap_contents {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
+		height: 1700px;
 		border: 2px solid white;
 		background-color: #EEE9DD;
 		border-radius: 10px;
@@ -50,7 +53,7 @@
  		border: 1px solid #EEE9DD;
  		background-color: #EEE9DD;
  		border-radius: 5px;
- 		font-size: 15px;
+ 		font-size: 20px;
  		font-weight: bold;
  		color: #FA6C00;
  	}
@@ -190,7 +193,8 @@
 	<!-- 영화 검색 -->
 			<div id="search_box">
 				<input id="search_keyword" class="search" name="search_keyword" type="text" placeholder="영화를 검색해주세요.">
-				<input id="search_btn" class="search" type="submit" value="◎">
+				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
+				<input id="search_btn" class="search" type="submit" value="">
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
