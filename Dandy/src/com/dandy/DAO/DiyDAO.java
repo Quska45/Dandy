@@ -161,7 +161,7 @@ public class DiyDAO {
 			System.out.println("형태소 : " + morpheme);
 			System.out.println("크롤링 단어 : " + word);
 			System.out.println("크롤링 뜻 : " + meaning);
-			if(meaning == null) {
+			if(meaning == null || meaning.equals("")) {
 				meaning = "null";
 				word = "null";
 			}
