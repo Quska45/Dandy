@@ -85,14 +85,13 @@
  		border: 1px solid #FA6C00;
  		border-radius: 5px;
  	}
- 	.poster_frame span {
- 		height: 42px;
- 		line-height: 42px;
- 	}
  	.posterTitle {
- 		display: block;
+ 		display: table-cell;
  		width: 100%;
  		height: 42px;
+ 		vertical-align: middle;
+ 	}
+ 	.posterTitle span{
  	}
  	#movieposter {
  		width: 240px;
@@ -243,7 +242,7 @@
 									</c:otherwise>
 								</c:choose>	
 							</div>
-							<div class="posterTitle"><span>${ml.title}</span></div>
+							<div class="posterTitle">${ml.title}</div>
 						</a>
 					</div>
 				</c:forEach>

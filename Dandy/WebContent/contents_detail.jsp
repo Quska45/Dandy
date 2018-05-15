@@ -64,13 +64,9 @@
  		/* border: 1px solid green; */
  		height: 100px;
  		text-align: center;
- 		line-height: 100px;
- 	}
- 	#detail_title > span {
- 	 	font-family: 'Noto Sans KR', sans-serif;
+ 		font-family: 'Noto Sans KR', sans-serif;
  		font-size: 22px;
  		font-weight: bold;
- 		
  	}
  /*- 상세페이지 해당영화 추출단어 수 */
 	#detail_frequency {
@@ -93,7 +89,7 @@
 	#frequency_count {
 		font-weight: bold;
 		text-decoration: underline;
-		color: #00AE93;
+		color: #0daa62;
 		font-size: 22px;
 	}
 	
@@ -376,7 +372,7 @@
 					</div>
 					<div id="detail_modal_info">
 						<div id="detail_title">
-							<span>${title}</span>
+							${title}
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
