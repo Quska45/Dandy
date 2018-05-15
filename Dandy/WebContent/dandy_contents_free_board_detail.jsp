@@ -273,7 +273,6 @@
 		float: right;
 	}
 	.bbtn{
-		font-family: 'Hanna', serif;
 		margin: 50px 15px 0 15px;
 		color: #555555;
 		padding: 7px 14px;
