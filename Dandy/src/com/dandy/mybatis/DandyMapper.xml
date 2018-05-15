@@ -329,61 +329,7 @@
 		VALUES(#{mid}, #{mpw}, #{mname}, #{msex}, #{mbirth}, #{memail}, #{mphone})
 	</insert>
 	
-<!-- =================================================================MovieLIst================================================================= -->
-	<select id="movieListCriteria" resultType="movieDTO">
-		<![CDATA[
-			SELECT *
-			FROM (
-				SELECT rownum rnum,
-				a.*
-				FROM (
-					SELECT * 
-					FROM movieindex ]]>
-					<choose>
-						<when test='index == "empty"'>
-							<![CDATA[WHERE mno > 0 ]]>
-						</when>
-						<otherwise>
-							<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
-						</otherwise>
-					</choose>	
-					<![CDATA[
-					ORDER BY mno
-				) a
-			)
-			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
-		]]>
-	</select>
-	
-<!-- Index Page Movie List page count -->
-	<select id="movieCountPaging"  resultType="int">
-		<![CDATA[
-			SELECT count(mno)
-			FROM movieindex]]>
-			<choose>
-				<when test='index == "empty"'>
-					<![CDATA[WHERE mno > 0 ]]>
-				</when>
-				<otherwise>
-					<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
-				</otherwise>
-			</choose>
-			
-			
-	</select>
 
-	
-<!-- 영화 개별 단어장  -->
-	<select id="movieEach" resultType="eachDTO" parameterType="eachDTO">
-	  	SELECT * FROM ${tablename}
-	  	ORDER BY freq desc
-	</select>
-	
-	<select id="movieIndex" resultType="miDTO" parameterType="Integer">
-		SELECT * FROM movieindex
-		WHERE mno = #{mno2}
-	</select>
-	
 <!-- =================================================================mypage.jsp에서 쓰는 쿼리================================================================= -->
 <select id="selectMno" parameterType="String" resultType="memDTO">
 	SELECT *
