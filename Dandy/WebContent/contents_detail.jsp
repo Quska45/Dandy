@@ -16,7 +16,15 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 	
  /** contents page body */
-	
+	#wrap_contents {
+		font-family: 'Noto Sans KR', sans-serif;
+		width: 1200px;
+		height: 12050px!important;
+		border: 2px solid white;
+		background-color: #f7f7f7;
+		border-radius: 10px;
+		margin: 100px 200px;
+	}
  /*- modal창 내부 contents : 영화 포스터, 영화 제목, 해당 단어장의 단어 개수 */
  	#detail_modal_movie {
  		text-align: center;
@@ -269,8 +277,15 @@
 			$.ajax({
 				url : "mywordInsert.dandy",
 				type : "POST",
+				dataType :  "JSON",
 				data : "mno=" + mno + "&mid=" + mid,
 				success : function(result) {
+					if(result.flag==10){
+						alert("내 단어장에 10개의 영화가 추가되어 있습니다. : ");
+						
+					} else if(result.flag==0){
+						alert("내 단어장에 영화가 추가됐습니다.");
+					}
 					$(document).on("click", ".modalLink", function() {
 						var mno = $(this).attr("data_mno");
 						var img = $(this).attr("data_img");
@@ -283,7 +298,7 @@
 								$("#movieList").html(result);
 							},
 							error : function() {
-								alert("System Error!!!");
+								alert("1번 System Error!!!");
 							}
 
 						});
@@ -291,32 +306,12 @@
 					});
 				},
 				error : function() {
-					alert("System Error!!!");
+					alert("2번 System Error!!!");
 				}
 			});
 		}
 	
 	})
-	
-	//내 단어장 디테일에서 내 단어장에서 삭제 누르면 삭제되게 하는 스크립트
-	$(document).on("click", "#mywordDelete", function(){
-		var mno = $("#hiddenMno").val();
-		var mid = $("#sessionMid_id").val();
-		alert(mno +","+ mid);
-		$.ajax({
-			url : "mywordDelete.dandy",
-			type : "POST",
-			data : "mno=" + mno + "&mid=" + mid,
-			success : function(result) {
-				alert("단어장을 삭제했습니다.");
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-
-
 
 	$(document).ready(function(){
 		var manview = $("#manview").val();

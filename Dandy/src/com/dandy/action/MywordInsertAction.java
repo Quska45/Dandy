@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+
 import com.dandy.DAO.MemberDAO;
 import com.dandy.DAO.MovieDAO;
 import com.dandy.DTO.MemberDTO;
@@ -22,36 +25,39 @@ public class MywordInsertAction implements Action{
             MovieDTO movieDto = new MovieDTO();
             MovieDAO movieDao = MovieDAO.getInstance();
             List<MovieDTO> list = new ArrayList<>();
-            
+            MemberDAO mDao = MemberDAO.getInstance();
+            int listsize = 0;
             for(int i=1; i<11; i++){
                   movieDto = movieDao.getMyPageMovieList(mid, i);
                   if(movieDto==null){
                 	  System.out.println("이 사용자의 " + i + "번째단어장은 비어 있습니다.");
+                	  MemberDTO mDto = new MemberDTO(mid,mno,i);
+                	  mDao.mywordUpdate(mDto);
+                	  break;
                   } else {
                 	  System.out.println("mno:" + movieDto.getMno());
-                	  list.add(movieDto);
-                	  
+                	  System.out.println("이 사용자의 " + i + "번째단어장은 채워져 있습니다.");
+                	  if(i==10){
+                		  listsize=10;
+                	  }
                   }
             }
             
-            MemberDAO mDao = MemberDAO.getInstance();
-            int listsize = list.size();
-            int result=0;
+           
+            
+            int flag=0;
             System.out.println("listsize:" + listsize);
-            if(listsize<10){
-                  MemberDTO mDto = new MemberDTO(mid,mno,listsize+1);
-                  System.out.println(listsize+"영화를 추가할 수 있습니다.");
-                  result = mDao.mywordUpdate(mDto);
-            } else if(listsize>=10){
-                  System.out.println(listsize+"영화를 추가할 수 없습니다.");
-            }
             
-            ActionForward forward = new ActionForward();
             
-            forward.setPath(url);
-            forward.setRedirect(false);
+            JSONObject jObj = new JSONObject();
+    		jObj.put("flag", listsize);
+    		
+    		response.setContentType("application/x-json; charset=UTF-8");
+    		response.getWriter().println(jObj);
             
-            return forward;
+           
+            
+            return null;
       }
       
 }

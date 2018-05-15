@@ -484,7 +484,7 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-	#wrap_contents {
+	#wrap_contents1 {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
 		height: 1700px;
@@ -714,14 +714,12 @@
 		var img = $(this).attr("data_img");
 		var title = $(this).attr("data_title");
 		$("#cBody").css("height","12263px");
-		$("#wrap_contents").css("height","12050px!important");
 		$.ajax({
 			url : "contentsDetail.dandy",
 			type : "POST",
 			data : "mno=" + mno + "&img=" + img + "&title=" + title,
 			success : function(result) {
 				$("#movieList").html(result);
-				$("#wrap_contents").css("height","12050px!important");
 			},
 			error : function() {
 				alert("System Error!!!");
@@ -1075,7 +1073,7 @@
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
 					<a href="#" class="mainContentClose3">&times;</a>
-					<div id="wrap_contents">
+					<div id="wrap_contents1">
 						<div id="board_sel">
 							<div class="board_selbtn" id="qna_btn">
 								<a href="#"><span>Q & A</span></a>

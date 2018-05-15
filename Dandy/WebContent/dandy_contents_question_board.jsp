@@ -68,8 +68,14 @@
 	#re {
 		color: #990000;
 	}
-	#wrap_contents {
+	#wrap_contents1 {
+		font-family: 'Noto Sans KR', sans-serif;
+		width: 1200px;
 		height: 1700px;
+		border: 2px solid white;
+		background-color: #f7f7f7;
+		border-radius: 10px;
+		margin: 100px 200px;
 	}
 	#wr_btn {
 		background-color: #0daa62;
