@@ -152,6 +152,24 @@
 		color: #a7a7a7;
 	}
 </style>
+<script type="text/javascript">
+	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
+	$(document).on("click", "#question_answer_wr_btn", function(){
+		var title = $("#sub_input").val();
+		var bno = $("#question_answer_bno").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		alert(title + ", " + bno  + ", " + writer  + ", " + content);
+		$.ajax({
+			type : "post",
+			url : "questionAnswerInsert.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <input type="hidden" id="question_answer_bno" value="${boardview.bno}">

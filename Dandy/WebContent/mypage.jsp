@@ -117,7 +117,27 @@
 	$(document).on("click", "#myPageClose", function(){
 		$("#mypage_wrap").css("display", "none");
 	});
-	
+	//마이페이지에서 영화누르면 상세페이지 띄워주는 스크립트
+	$(document).on("click", ".mypageImg", function() {
+		var mno = $(this).attr("data_mno");
+		var img = $(this).attr("data_img");
+		var title = $(this).attr("data_title");
+		alert(mno + ", " + img + ", " + title);
+		$.ajax({
+			url : "mypageContentsDetail.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&img=" + img + "&title=" + title,
+			success : function(result) {
+				$("#mypageMoviedetail").html(result);
+				alert("왜 안뜨지?");
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
 	
 	
 </script>

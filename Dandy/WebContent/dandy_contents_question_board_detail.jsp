@@ -457,6 +457,31 @@
 			});
 			
 		});  
+		 
+		// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
+		$(document).on("click", "#list_btn",function(){
+			$.ajax({
+				type : "post",
+				url : "questionBoardList.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		});
+		
+		
+		//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
+		$(document).on("click", "#qustion_rewrite_btn", function(){
+			var bno = $("#question_detail_bno").val();
+				$.ajax({
+					type : "post",
+					url : "question_answer.dandy",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					}
+				});
+		});
 		
 </script>
 </head>

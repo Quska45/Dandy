@@ -646,24 +646,7 @@
 		
 	};
 	
-	//게시판 상세 페이지를 띄우는 쿼리 : QnA
-	$(document).on("click", "#boardDetailBtn", function(){
-		var bno = $(this).attr("data_num");
-		alert("bno" + bno);
-		$.ajax({
-			url : "questionBoardDetail.dandy",
-			type : "POST",
-			data : "bno=" + bno,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
+	
 	
 	//게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
 	$(document).on("click", "#freeboardDetailBtn", function(){
@@ -738,25 +721,6 @@
 	});
 	
 	
-	//QnA 게시판검색기능
-	$(document).on("click", "#question_search_btn", function(){
-		var keyword = $("#question_search_keyword").val();
-		var type = $("#question_selsearch").val();
-		$.ajax({
-			url : "questionBoardSearch.dandy",
-			type : "POST",
-			data : "keyword=" + keyword + "&type=" + type,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	
 	// 자유게시판 검색
 	$(document).on("click", "#free_search_btn", function(){
 		var keyword = $("#free_search_keyword").val();
@@ -776,51 +740,7 @@
 		
 	});
 	
-	// QnA 게시판 정렬 해준다.
-	$(document).on("click", "#l_no", function(){
-		var sort = $("#l_no_input").val();
-		var keyword = $("#l_no_input_keyword").val();
-		alert(sort);
-		alert0(keyword);
-		$.ajax({
-			url : "questionBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-	});
-	$(document).on("click", "#l_contents", function(){
-		
-	});
-	$(document).on("click", "#l_name", function(){
-		
-	});
-	$(document).on("click", "#l_date", function(){
-		
-	});
-	$(document).on("click", "#l_view", function(){
-		
-	});
-	$(document).on("click", "#l_good", function(){
-		
-	});
 	
-	// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
-	$(document).on("click", "#list_btn",function(){
-		$.ajax({
-			type : "post",
-			url : "questionBoardList.dandy",
-			success : function(result) {
-				$("#boardList").html(result);
-			}
-		});
-	});
 	
 	// 자유게시판 목록버튼 클릭 리스트 출력
 	$(document).on("click", "#freelist_btn",function(){
@@ -837,21 +757,7 @@
 		}); 
 	});
 	
-	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
-	$(document).on("click", "#wr_btn", function(){
-		var sessionLogin = $("#sessionMid").val();
-		if(sessionLogin==""){
-			$(".modal").css("display", "block");
-		} else {
-			$.ajax({
-				type : "post",
-				url : "questionBoardWrite.dandy",
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-		}
-	});
+
 	
 	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#freewr_btn", function(){
@@ -870,27 +776,10 @@
 	});
 	
 	
-	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
-	$(document).on("click", "#btn_success", function(){
-		var title = $("#sub_input").val();
-		var writer = $("#name_input").val();
-		var flag = $("#secret_input_flag").val();
-		var content = $("#con_input").val();
-		var select = $("#qna_select").val();
-		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
-		
-		$.ajax({
-			type : "post",
-			url : "boardQuestionInsertsave.dandy",
-			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
-			success : function(result) {
-				$("#boardList").html(result);
-			}
-		});
-	});
 	$(document).on("click", "#question_board_detail_login", function(){
 		$(".modal").css("display", "block");
 	});
+
 	
 	//자유게시판 글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
 	$(document).on("click", "#btn_freesuccess", function(){
@@ -964,36 +853,10 @@
 		});
 	});
 	
-	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
-	$(document).on("click", "#qustion_rewrite_btn", function(){
-		var bno = $("#question_detail_bno").val();
-			$.ajax({
-				type : "post",
-				url : "question_answer.dandy",
-				data : "bno=" + bno,
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-	});
 	
 	
-	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
-	$(document).on("click", "#question_answer_wr_btn", function(){
-		var title = $("#sub_input").val();
-		var bno = $("#question_answer_bno").val();
-		var writer = $("#name_input").val();
-		var content = $("#con_input").val();
-		alert(title + ", " + bno  + ", " + writer  + ", " + content);
-		$.ajax({
-			type : "post",
-			url : "questionAnswerInsert.dandy",
-			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
-			success : function(result) {
-				$("#boardList").html(result);
-			}
-		});
-	});
+	
+
 	
 	//mypage를 띄우기 위해 필요한 함수
 	function myPageAll(){
@@ -1015,27 +878,6 @@
 		myPageAll();
 	});
 	
-	//마이페이지에서 영화누르면 상세페이지 띄워주는 스크립트
-	$(document).on("click", ".mypageImg", function() {
-		var mno = $(this).attr("data_mno");
-		var img = $(this).attr("data_img");
-		var title = $(this).attr("data_title");
-		alert(mno + ", " + img + ", " + title);
-		$.ajax({
-			url : "mypageContentsDetail.dandy",
-			type : "POST",
-			data : "mno=" + mno + "&img=" + img + "&title=" + title,
-			success : function(result) {
-				$("#mypageMoviedetail").html(result);
-				alert("왜 안뜨지?");
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
 	
 	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
@@ -1050,10 +892,6 @@
 		});
 		
 	}
-	
-	
-	
-	
 	
 	
 	// diy 버튼 눌렀을때 입력창 띄워주는 스크립트
