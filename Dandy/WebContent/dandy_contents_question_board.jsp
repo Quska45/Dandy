@@ -204,33 +204,6 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
-	
-	
-	
-
-	$(document).ready(function() {
-		
-		var code = $("#code").val();
-		
-		/* $("#wr_btn").on("click", function(){
-			location.href="boardloginck.bizpoll";
-		}); */
-	
-			if(code == 1){
-				$("#id01").css("display","block");
-				
-				code != 1;
-				
-			} else if(code != 1){
-				$("#id01").css("display","none");
-			}
-				
-			// 댓글 수 표시
-			var bnoform = $("#bnoform");
-			bnoform.submit();
-		
-	});
-	
 	//게시판 상세 페이지를 띄우는 쿼리 : QnA
 	$(document).on("click", "#boardDetailBtn", function(){
 		var bno = $(this).attr("data_num");
@@ -319,8 +292,20 @@
 			});
 		}
 	});
-
-</script>
+	
+	//페이지 이동하기
+	$(document).on("click", ".pageMove", function(){
+		var page=$(this).attr("page_num");
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			data: "page=" + page,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	</script>
 </head>
 <body>
 
@@ -500,8 +485,8 @@
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
-									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>></a>
-									<a href="questionBoardList.dandy?page=${idx}">${idx}</a>
+									<a class="pageMove" href="#" page_num="${idx}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+									
 								</td>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">
