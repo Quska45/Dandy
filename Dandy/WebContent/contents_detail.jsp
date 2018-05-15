@@ -265,6 +265,49 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+//단어장 디테일에서 내 단어장 추가 누르면 추가 되게 하는 스크립트
+	$(document).on("click", "#mywordBtn", function(){
+		var mno = $("#hiddenMno").val();
+		var mid = $("#sessionMid_id").val();
+		alert(mno +","+ mid);
+		if(mid==""){
+			alert("로그인 해야합니다.");
+		} else{
+			$.ajax({
+				url : "mywordInsert.dandy",
+				type : "POST",
+				data : "mno=" + mno + "&mid=" + mid,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+			});
+		}
+	
+	})
+	
+	//내 단어장 디테일에서 내 단어장에서 삭제 누르면 삭제되게 하는 스크립트
+	$(document).on("click", "#mywordDelete", function(){
+		var mno = $("#hiddenMno").val();
+		var mid = $("#sessionMid_id").val();
+		alert(mno +","+ mid);
+		$.ajax({
+			url : "mywordDelete.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&mid=" + mid,
+			success : function(result) {
+				alert("단어장을 삭제했습니다.");
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+
+
+
 	$(document).ready(function(){
 		var manview = $("#manview").val();
 		var womanview = $("#womanview").val();

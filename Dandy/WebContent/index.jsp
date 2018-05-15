@@ -1051,84 +1051,9 @@
 		
 	}
 	
-	//단어장 디테일에서 내 단어장 추가 누르면 추가 되게 하는 스크립트
-	$(document).on("click", "#mywordBtn", function(){
-		var mno = $("#hiddenMno").val();
-		var mid = $("#sessionMid_id").val();
-		alert(mno +","+ mid);
-		if(mid==""){
-			alert("로그인 해야합니다.");
-		} else{
-			$.ajax({
-				url : "mywordInsert.dandy",
-				type : "POST",
-				data : "mno=" + mno + "&mid=" + mid,
-				success : function(result) {
-					$("#movieList").html(result);
-				},
-				error : function() {
-					alert("System Error!!!");
-				}
-			});
-		}
-
-	})
-
-	//내 단어장 디테일에서 내 단어장에서 삭제 누르면 삭제되게 하는 스크립트
-	$(document).on("click", "#mywordDelete", function(){
-		var mno = $("#hiddenMno").val();
-		var mid = $("#sessionMid_id").val();
-		alert(mno +","+ mid);
-		$.ajax({
-			url : "mywordDelete.dandy",
-			type : "POST",
-			data : "mno=" + mno + "&mid=" + mid,
-			success : function(result) {
-				alert("단어장을 삭제했습니다.");
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	
-	// 영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
-	$(document).on("click", ".active_page", function() {
-		var page = $(this).attr("page_num");
-		var index = $("#index_number").val();
-			$.ajax({
-				url : "movieList.dandy",
-				type : "POST",
-				data : "page=" + page + "&index=" + index,
-				success : function(result) {
-					$("#movieList").html(result);
-				},
-				error : function() {
-					alert("System Error!!!");
-				}
-
-			});
-
-	});
 	
 	
-	// 영화 목록에서 위에 알파벳 눌렀을때 띄워주는 페이지 스크립트
-	$(document).on("click", ".active_index", function() {
-		var index = $(this).attr("index_num");
-			$.ajax({
-				url : "movieList.dandy",
-				type : "POST",
-				data : "index=" + index,
-				success : function(result) {
-					$("#movieList").html(result);
-				},
-				error : function() {
-					alert("System Error!!!");
-				}
-
-			});
-
-	});
+	
 	
 	
 	// diy 버튼 눌렀을때 입력창 띄워주는 스크립트
@@ -1144,26 +1069,6 @@
 			}
 		});
 	}
-	
-	
-	// 단어장 만들기 버튼 클릭했을때 단어장 띄워주는 페이지
-	$(document).on("click", "#diy_btn", function() {
-		var title = $("#diy_title").val();
-		var text = $("#diy_text").val();
-		$.ajax({
-			url : "diyComplete.dandy",
-			type : "POST",
-			data : "title=" + title + "&text=" + text,
-			success : function(result) {
-				$("#diyPage").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-
-	});
 	
 	
 	$(document).on("click", ".modalLink", function() {
