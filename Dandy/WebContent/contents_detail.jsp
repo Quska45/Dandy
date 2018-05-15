@@ -98,15 +98,16 @@
 	}
 	
 	.myword {
-		border: 1px solid #00AE93;
-		color: white;
-		background: #00AE93;
+		border: 1px solid #0daa62;
+		background: #0daa62;
 		height: 36px;
 		line-height: 36px;
 		border-radius: 5px;
 		margin-top: 10px;
 	}
-	
+	.myword a {
+		color: white;
+	}
 	
 	/* 통계  */
 	.statistics {
@@ -225,7 +226,7 @@
  	
  	}
  	#word-table-top {
- 		background-color: #00AE93;
+ 		background-color: #0daa62;
  		border-radius: 5px;
  		color: white;
  		font-size: 16px;
@@ -278,7 +279,24 @@
 				type : "POST",
 				data : "mno=" + mno + "&mid=" + mid,
 				success : function(result) {
-					$("#movieList").html(result);
+					$(document).on("click", ".modalLink", function() {
+						var mno = $(this).attr("data_mno");
+						var img = $(this).attr("data_img");
+						var title = $(this).attr("data_title");
+						$.ajax({
+							url : "contentsDetail.dandy",
+							type : "POST",
+							data : "mno=" + mno + "&img=" + img + "&title=" + title,
+							success : function(result) {
+								$("#movieList").html(result);
+							},
+							error : function() {
+								alert("System Error!!!");
+							}
+
+						});
+
+					});
 				},
 				error : function() {
 					alert("System Error!!!");

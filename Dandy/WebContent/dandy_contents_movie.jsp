@@ -78,12 +78,21 @@
  	}
  	.poster_frame {
  		width: 250px;
- 		height: 375px;
+ 		height: 392px;
  		background-color: #FA6C00;
  		float: left;
  		margin: 0 40px 50px 40px;
  		border: 1px solid #FA6C00;
  		border-radius: 5px;
+ 	}
+ 	.poster_frame span {
+ 		height: 42px;
+ 		line-height: 42px;
+ 	}
+ 	.posterTitle {
+ 		display: block;
+ 		width: 100%;
+ 		height: 42px;
  	}
  	#movieposter {
  		width: 240px;
@@ -113,7 +122,7 @@
  /** 숫자 페이지 */
  	#num_page {
  		text-align: center;
- 		margin-top: 1350px;
+ 		margin-top: 1390px;
  		width :1200px;
  		height: 50px;
  	}
@@ -234,7 +243,7 @@
 									</c:otherwise>
 								</c:choose>	
 							</div>
-							<span>${ml.title}</span>
+							<div class="posterTitle"><span>${ml.title}</span></div>
 						</a>
 					</div>
 				</c:forEach>
