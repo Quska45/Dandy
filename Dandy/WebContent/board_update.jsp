@@ -21,10 +21,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
 	body {
-		font-family: 'Hanna', serif;
 	}
 	table {
 		border-left: none;
@@ -52,26 +50,22 @@
 	}
 	#sub_input {
 		width: 500px;
-		font-family: 'Hanna', serif;
 		font-size: 16px;
 	}
 	#name_input {
 		width: 150px;
 	}
 	#writer, #bno {
-		font-family: 'Hanna', serif;
 		font-size: 16px;
 	}
 	#con_input {
 		width: 700px;
 		height: 200px;
-		font-family: 'Hanna', serif;
 		font-size: 16px;
 	}
 	#qna_select {
 		width: 150px;
 		height: 25px;
-		font-family: 'Hanna', serif;
 	}
 	.empty {
 		width: 25px;
@@ -95,7 +89,6 @@
 			background-color: #ededed;
 			border-radius: 5px;
 			border: 1px solid white;
-			font-family: 'Hanna', serif;
 	}
 	#btn_success:hover {
 		border: 1px solid #ffdf24;

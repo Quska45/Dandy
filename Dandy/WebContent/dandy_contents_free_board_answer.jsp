@@ -10,10 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
 	body {
-		font-family: 'Hanna', serif;
 	}
 	table {
 		border-left: none;
@@ -45,26 +43,22 @@
 	}
 	#sub_input {
 		width: 500px;
-		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
 	#name_input {
 		width: 150px;
 		border: none;
-		font-family: 'Hanna', serif;
 		font-size: 16px;
 		background-color: #f7f7f7;
 	}
 	#con_input {
 		width: 700px;
 		height: 200px;
-		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
 	#qna_select {
 		width: 150px;
 		height: 26px;
-		font-family: 'Hanna', serif;
 		font-size: 15px;
 	}
 	.empty {
@@ -89,7 +83,6 @@
 		background-color: #ededed;
 		border-radius: 5px;
 		border: 1px solid white;
-		font-family: 'Hanna', serif;
 	}
 	#free_answer_wr_btn:hover {
 		border: 1px solid #ffdf24;
@@ -103,7 +96,6 @@
 	/*	파일첨부  */
 	#file_td {
 		font-size: 16px;
-		font-family: 'Hanna', serif;
 	}
 	
 	input.upload_text {
@@ -114,7 +106,6 @@
 		padding:0 3px;
 		border:1px solid #bbb;
 		font-size: 15px;
-		font-family: 'Hanna', serif;
 		color: #a7a7a7;
 	}
 	
@@ -125,7 +116,6 @@
 		cursor:pointer;
 		opacity:0;
 		font-size: 16px;
-		font-family: 'Hanna', serif;
 	}
 	div.upload-btn_wrap {
 		overflow:hidden;
@@ -151,7 +141,6 @@
 		line-height:19px;
 		padding:0 3px;
 		font-size: 15px;
-		font-family: 'Hanna', serif;
 		color: #a7a7a7;
 	}
 </style>

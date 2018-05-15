@@ -11,11 +11,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
 	
 	body{
-		font-family: 'Hanna', serif;
 	}
 	#table {
 		width: 1100px;
@@ -106,7 +104,6 @@
 	#re_input {
 		width: 550px;
 		height: 145px;
-		font-family: 'Hanna', serif;
 		font-size: 18px;
 		color: #ddd;
 		border: 1px solid #ededed;
@@ -116,7 +113,6 @@
 		height: 145px;
 		border: none;
 		text-align: center;
-		font-family: 'Hanna', serif;
 		font-size: 16px;
 	}
 	#page_footer {
@@ -132,7 +128,6 @@
 		color: white;
 		font-size: 15px;
 		cursor:pointer;	
-		font-family: 'Hanna', serif;
 	}
 	.board_btn {
 		border-radius: 5px;
@@ -145,12 +140,10 @@
 		font-size: 15px;
 		cursor:pointer;	
 		border: 0 15px;
-		font-family: 'Hanna', serif;
 		}
 	#bno {
 		border: 1px solid white;
 		text-align: center;
-		font-family: 'Hanna', serif;
 		width: 100px !important;
 		font-size: 15px;
 	}
@@ -167,7 +160,6 @@
 		font-size: 17px;
 	}
 	form {
-		font-family: 'Hanna', serif !important;	
 	}
 	#wr_btn {
 		background-color: #0daa62;
@@ -179,7 +171,6 @@
 		color: white;
 		font-size: 15px;	
 		cursor:pointer;
-		font-family: 'Hanna', serif !important;	
 	}
 	#recount {
 		font-size: 18px;
@@ -195,7 +186,6 @@
 		font-size: 15px;
 		cursor:pointer;	
 		border: none;
-		font-family: 'Hanna', serif !important;	
 	}
 	#noreply {
 		text-align: center;
@@ -254,7 +244,6 @@
  	#mo_board_del {
  		display:none;
  		position:relative;
- 		font-family: 'Hanna', serif;
  	}
  	#mo_board_del .modal_del {
  		width: 180px;
@@ -282,7 +271,6 @@
 		float: right;
 	}
 	.bbtn{
-		font-family: 'Hanna', serif;
 		margin: 50px 15px 0 15px;
 		color: #555555;
 		padding: 7px 14px;

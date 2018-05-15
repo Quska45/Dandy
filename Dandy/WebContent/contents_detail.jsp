@@ -16,15 +16,7 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 	
  /** contents page body */
-	#wrap_contents {
-		font-family: 'Noto Sans KR', sans-serif;
-		width: 1200px;
-		height: 1700px;
-		border: 2px solid white;
-		background-color: #f7f7f7;
-		border-radius: 10px;
-		margin: 100px 200px;
-	}
+	
  /*- modal창 내부 contents : 영화 포스터, 영화 제목, 해당 단어장의 단어 개수 */
  	#detail_modal_movie {
  		text-align: center;

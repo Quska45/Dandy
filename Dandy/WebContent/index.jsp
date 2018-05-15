@@ -9,6 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/* font-family: 'Nanum Gothic', serif; */
+/* font-family: 'Hanna', serif; */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 	/* 공통사항, 태그에 직접 속성주기들 시작 */
 	* {
 		margin: 0;
@@ -17,6 +21,7 @@
 	}
 	body {
 		background: #363636;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 	a{
 		text-decoration: none;
@@ -59,6 +64,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+			cursor: pointer;
 		}
 		div#header .login img {
 			width: 70px;
@@ -70,6 +76,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+			cursor: pointer;
 		}
 		div#header .login_in img {
 			width: 70px;
@@ -116,6 +123,7 @@
 			position: absolute;
 			top: 0;
 			right: 20px;
+			color: white;
 		}
 		div#content2 {
 			position: absolute;
@@ -133,6 +141,7 @@
 			position: absolute;
 			top: 0;
 			right: 20px;
+			color: white;
 		}
 		div#content3 {
 			position: absolute;
@@ -150,6 +159,7 @@
 			position: absolute;
 			top: 0;
 			right: 20px;
+			color: white;
 		}
 		/* 단어장 등을 누르면 시작되는 컨텐츠를 띄워주는 페이지 끝 */
 	
@@ -169,10 +179,9 @@
 			left: 0;
 			width: 100%;
 			height:85.4%;
-			z-index: 30;
+			z-index: 19;
 			background-color: black;
 			transition: 0.7s;
-			display: none;
 			opacity: 0.4;
 		}
 		div.background {
@@ -195,9 +204,9 @@
 			height: 400px;
 			box-sizing: border-box;
 			text-align: left;
-			color: black;
 			font-size: 50px;
-			color: #00AE93;
+			color: white;
+			z-index: 21;
 		}	
 		/* 단어장 끝 */
 	
@@ -217,10 +226,9 @@
 			left: 0;
 			width: 100%;
 			height: 85.4%;
-			z-index: 30;
+			z-index: 19;
 			background-color: black;
 			transition: 0.7s;
-			display: none;
 			opacity: 0.4;
 		}
 		div.con2 {
@@ -243,10 +251,9 @@
 			left: 0;
 			width: 100%;
 			height: 85.4%;
-			z-index: 30;
+			z-index: 19;
 			background-color: black;
 			transition: 0.7s;
-			display: none;
 			opacity: 0.4;
 		}
 		a.openButton3 {
@@ -520,7 +527,8 @@
 	.board_selbtn > a > span {
 		line-height: 40px;
 		padding: 0 auto;
-	} 	
+	}
+
 	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -705,12 +713,15 @@
 		var mno = $(this).attr("data_mno");
 		var img = $(this).attr("data_img");
 		var title = $(this).attr("data_title");
+		$("#cBody").css("height","12263px");
+		$("#wrap_contents").css("height","12050px!important");
 		$.ajax({
 			url : "contentsDetail.dandy",
 			type : "POST",
 			data : "mno=" + mno + "&img=" + img + "&title=" + title,
 			success : function(result) {
 				$("#movieList").html(result);
+				$("#wrap_contents").css("height","12050px!important");
 			},
 			error : function() {
 				alert("System Error!!!");
@@ -917,65 +928,38 @@
 		/* 호버하면 다른 contents의 색깔이 변함 시작 */		
 		$(".openButton1").hover(function(){
 			$("#block2").css("display", "block");
+			$("#block2").css("opacity", "0.6");
 			$("#block3").css("display", "block");
-		},
-		function(){
-			$("#block2").css("display", "none");
-			$("#block3").css("display", "none");
+			$("#block3").css("opacity", "0.6");
+		},function(){
+			$("#block2").css("opacity", "0.3");
+			$("#block3").css("opacity", "0.3");
 		});
 		
 		$(".openButton2").hover(function(){
 			$("#block1").css("display", "block");
+			$("#block1").css("opacity", "0.6");
 			$("#block3").css("display", "block");
-		},
-		function(){
-			$("#block1").css("display", "none");
-			$("#block3").css("display", "none");
+			$("#block3").css("opacity", "0.6");
+		},function(){
+			$("#block1").css("opacity", "0.3");
+			$("#block3").css("opacity", "0.3");
 		});
 		
 		$(".openButton3").hover(function(){
 			$("#block1").css("display", "block");
+			$("#block1").css("opacity", "0.6");
 			$("#block2").css("display", "block");
+			$("#block2").css("opacity", "0.6");
 		},
 		function(){
-			$("#block1").css("display", "none");
-			$("#block2").css("display", "none");
+			$("#block1").css("opacity", "0.3");
+			$("#block2").css("opacity", "0.3");
 		});
 		/* 클릭하면 다른 contents의 색깔이 변함 끝 */
-		//스크롤을 내렸을 때 햄버거와 딕테이션등의 크기가 변함 시작
-		var didScroll;
-		var lastScollTop = 0; //스크롤이 움지이고 난 후 마지막 위치
-		var delta = 600; //동작의 구현이 시작되는 위치
-		var navbarHeight = $("#nav").outerHeight(); //영향을 받는 요소
-		
-		/* //일단 스크롤이 되면 dijdScroll의 값을 트루로 바꿔서 스크롤 이벤트가 작동되도록 한다.
-		$(window).scroll(function(event){
-			didScroll = true; 
-			alert("didScroll: " + didScroll + " lastScollTop: " + lastScollTop + " delta : " + delta + " navbarHeight : " + navbarHeight);
-		});
 		
 		
-		setInterval(function(){
-			if (didScroll){ 
-			//alert("setInterval탄다.");
-				hasScrolled(); 
-				didScroll = false; 
-				} 
-		});
-
-		function hasScrolled() {
-			var st = $(this).scrollTop(); //현재 스크롤의 위치를 저장한다.
-			alert("hasScrolled탄다        " + st);
-			if(Math.abs(lastScollTop - st) <= delta){
-				//alert("그냥 끝나버림");					
-				return;
-			}
-			
-			//alert("계속됨");
-			lastScrollTop = st;	
-		}
 		
-		//스크롤을 내렸을 때 햄버거와 딕테이션등의 크기가 변함 끝 */
 		
 		
 	});

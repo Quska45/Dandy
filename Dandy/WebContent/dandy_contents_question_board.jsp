@@ -14,10 +14,8 @@
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* font-family: 'Nanum Gothic', serif; */
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
 	body {
-		font-family: 'Hanna', serif;
 
 	}
 	a {
@@ -70,6 +68,9 @@
 	#re {
 		color: #990000;
 	}
+	#wrap_contents {
+		height: 1700px;
+	}
 	#wr_btn {
 		background-color: #0daa62;
 		border: none;
@@ -80,7 +81,6 @@
 		color: white;
 		font-size: 15px;	
 		cursor:pointer;	
-		font-family: 'Hanna', serif;
 	}
 	#table_top {
 		border-top: 2px solid #0daa62;
@@ -103,7 +103,6 @@
 		padding-left: 5px;
 		margin-left: 15px;
 		font-style: oblique;
-		font-family: 'Hanna', serif;
 	}
 	#question_search_btn {
 		width: 50px;
@@ -112,7 +111,6 @@
 		color: #FFFFFF;
 		display: block;
 		border: 0px;
-		font-family: 'Hanna', serif;
 	}
 	#page_num {
 		text-align: center;
@@ -156,6 +154,7 @@
 	 }
 	 #pagetable td {
 	 	width: 40px;
+	 	padding: 0 15px;
 	 }
 	 #pagetable td > a{
 	 	color: #0daa62;
@@ -172,7 +171,6 @@
 	 #question_selsearch {
 		width: 80px;
 		height: 26px;
-		font-family: 'Hanna', serif;
 	}
 	.searchkey_ms {
 		text-align: center;
