@@ -4,11 +4,6 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-		/* $(document).ready(function() {
-			$("#sub_input").val("");
-			$("#con_input").val("");
-		}); */
-		
 		$(document).ready(function(){
 			$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
 			$('.input_file').change(function(){
@@ -16,6 +11,25 @@
 				$('.upload_text').val(i).css("color","black");
 				$("#filebtn").css("color","#0daa62");
 				
+			});
+		});
+		
+		//자유게시판 글 수정 등록
+		$(document).on("click", "#btn_freeup", function(){
+			var bno = $("bno").val();
+			var title = $("#sub_input").val();
+			var writer = $("#name_input").val();
+			var content = $("#con_input").val();
+			$.ajax({
+				type : "post",
+				url : "freeBoardUpdateSave.dandy",
+				data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+				success : function(result) {
+					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
 			});
 		});
 		

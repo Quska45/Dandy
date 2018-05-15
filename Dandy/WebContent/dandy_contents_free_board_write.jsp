@@ -19,6 +19,25 @@
 			});
 		});
 		
+		//자유게시판 글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+		$(document).on("click", "#btn_freesuccess", function(){
+			var title = $("#sub_input").val();
+			var writer = $("#name_input").val();
+			var content = $("#con_input").val();
+			var form = $('form')[0];
+	        var formData = new FormData(form);
+	        
+			$.ajax({
+				type : "post",
+				processData: false,
+	            contentType: false,
+				url : "freeBoardInsertSave.dandy",
+				data : "title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		});
 </script>
 <!DOCTYPE html>
 <html>

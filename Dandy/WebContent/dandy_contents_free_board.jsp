@@ -220,13 +220,47 @@
 			// 댓글 수 표시
 			var bnoform = $("#bnoform");
 			bnoform.submit();
-		
+			
+			//게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
+			$(document).on("click", "#freeboardDetailBtn", function(){
+				var bno = $(this).attr("data_num");
+				$.ajax({
+					url : "freeBoardDetail.dandy",
+					type : "POST",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+
+				});
+				
+			});
+			
 	});
 	
 	$(document).on("click","#qnasearch_btn",function(){
 		
 		$("#frm_search").submit();
 		
+	});
+	
+	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	$(document).on("click", "#freewr_btn", function(){
+		var sessionLogin = $("#sessionMid").val();
+		if(sessionLogin==""){
+			$(".modal").css("display", "block");
+		} else {
+			$.ajax({
+				type : "post",
+				url : "freeBoardWrite.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		}
 	});
 	
 	/* // 게시판 정렬

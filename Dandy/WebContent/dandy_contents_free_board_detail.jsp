@@ -455,6 +455,76 @@
 			
 		}); 
 		
+		// 자유게시판 목록버튼 클릭 리스트 출력
+			$(document).on("click", "#freelist_btn",function(){
+				//alert("목록 버튼 클릭");
+				 $.ajax({
+					type : "post",
+					url : "freeBoardList.dandy",
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				}); 
+			});
+		
+			// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+			$(document).on("click", "#freewr_btn", function(){
+				var sessionLogin = $("#sessionMid").val();
+				if(sessionLogin==""){
+					$(".modal").css("display", "block");
+				} else {
+					$.ajax({
+						type : "post",
+						url : "freeBoardWrite.dandy",
+						success : function(result) {
+							$("#boardList").html(result);
+						}
+					});
+				}
+			});
+		
+			//  댓글 등록을 위한 로그인을 유도하는 쿼리
+			$(document).on("click", "#free_board_detail_login", function(){
+				$(".modal").css("display", "block");
+			});
+			
+			/* 자유게시판 파일 다운로드 */
+			$(document).on("click", "#freeboard_filedown", function(){
+				var bno = $("#bno").val();
+				//alert("다운 버튼 클릭");
+				//alert(bno);
+				$.ajax({
+					type : "post",
+					url : "freeboardfiledownload.dandy",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				}); 
+			});
+			
+			//자유게시판 답변 페이지 
+			$(document).on("click", "#free_rewrite_btn", function(){
+				var bno = $("#free_answer_bno").val();
+				alert(bno);
+					 $.ajax({
+						type : "post",
+						url : "freeAnswer.dandy",
+						data : "bno=" + bno,
+						success : function(result) {
+							$("#boardList").html(result);
+						},
+						error : function() {
+							alert("System Error!!!");
+						}
+					}); 
+			});
 </script>
 </head>
 <body>
@@ -612,7 +682,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.loginUser}">
 							<td colspan="5" id="re_login">
-								<span id="re_idch"><a href="#" id="login">로그인</a>을 하시면 댓글과 답변을 등록하실 수 있습니다.</span>
+								<span id="re_idch"><a href="#" id="free_board_detail_login">로그인</a>을 하시면 댓글과 답변을 등록하실 수 있습니다.</span>
 							</td>
 					</c:when>
 					<c:otherwise>
