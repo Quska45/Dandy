@@ -28,7 +28,7 @@
 
 	<delete id="deleteNull" parameterType="eachDTO">
 		DELETE FROM ${title} 
-		WHERE meaning = 'null'
+		WHERE meaning = 'null' or word = 'null'
 	</delete>
 	
 	<select id="sortWord" resultType="eachDTO" parameterType="eachDTO">

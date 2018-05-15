@@ -1,6 +1,7 @@
 package com.dandy.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,12 +37,16 @@ public class DiyCompleteAction implements Action {
 		mDto.setTitle(title);
 		mDao.alterTable(mDto);
 		mDao.selectWord(mDto);
-		mDao.nullDelete(mDto);
-		mDao.updateNull(mDto);
-		//mDao.delete(title);
+		//mDao.nullDelete(mDto);
+		//mDao.updateNull(mDto);
+		mDao.delete(title);
 		mDao.selectWno(mDto);
+		List<MovieEachDTO>list = mDao.resultWord(mDto);
+		int size = list.size();
 		
-		
+		request.setAttribute("list", list);
+		request.setAttribute("title", title3);
+		request.setAttribute("size", size);
 		
 		
 		

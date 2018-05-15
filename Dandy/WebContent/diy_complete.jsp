@@ -125,6 +125,16 @@
 		width: 100px;
 		height: 30px;
 	}
+	
+	/* 단어 뜻  */
+	.list_search {
+		list-style: none;
+	}
+	.list_search li {
+		float: left;
+	}
+	
+	
 </style>
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -142,14 +152,14 @@
 					
 					<div id="detail_modal_info">
 						<div id="detail_title">
-							<span>〈Avengers: Infinity War, 2018〉</span>
+							<span>${title}</span>
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
 								<span>단어:</span>
 							</div>
 							<div class="frequency" id="frequency_count">
-								<span>123</span>
+								<span>${size}</span>
 							</div>
 							<div class="frequency">
 								<span>개</span>
@@ -161,20 +171,22 @@
 							<tbody>
 								<tr>
 									<td class="table_no"><span>No.</span></td>
-									<td class="table_word"><span>abc</span></td>
-									<td class="table_mean"><span>가나다</span></td>
-									<td class="table_fre"><span>10</span></td>
+									<td class="table_word"><span>단어</span></td>
+									<td class="table_mean"><span>뜻</span></td>
+									<td class="table_fre"><span>빈도</span></td>
 								</tr>
 							</tbody>
 						</table>
 						<table>
 							<tbody>
-								<tr>
-									<td class="table_no"><span>No.</span></td>
-									<td class="table_word"><span>abc</span></td>
-									<td class="table_mean"><span>가나다</span></td>
-									<td class="table_fre"><span>10</span></td>
-								</tr>
+								<c:forEach items="${list}" var="list">
+									<tr>
+										<td class="table_no"><span>${list.wno}</span></td>
+										<td class="table_word"><span>${list.word}</span></td>
+										<td class="table_mean"><span>${list.meaning}</span></td>
+										<td class="table_fre"><span>${list.freq}</span></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

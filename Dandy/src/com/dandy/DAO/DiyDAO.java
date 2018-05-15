@@ -163,7 +163,6 @@ public class DiyDAO {
 			System.out.println("크롤링 뜻 : " + meaning);
 			if(meaning == null) {
 				meaning = "null";
-			} else if(word == null) {
 				word = "null";
 			}
 			MovieEachDTO mDto = new MovieEachDTO(morpheme, word, meaning, title);
@@ -205,7 +204,7 @@ public class DiyDAO {
 		}
 		
 		
-		public void delete(String morpheme, String title) {
+		public void delete(String title) {
 			sqlSession = sqlSessionFactory.openSession();
 			MovieEachDTO mDto = new MovieEachDTO(title);
 			
@@ -245,6 +244,28 @@ public class DiyDAO {
 			} finally {
 				if(sqlSession != null) sqlSession.close();
 			}
+			
+			
+		}
+		
+		
+		public List<MovieEachDTO> resultWord(MovieEachDTO mDto) {
+			sqlSession = sqlSessionFactory.openSession();
+			List<MovieEachDTO> list = null;
+			
+			try {
+				
+				list = sqlSession.selectList("sortWord", mDto);
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();			
+			} finally {
+				if(sqlSession != null) sqlSession.close();
+			}
+			
+			return list;
+			
 		}
 		
 		
@@ -2572,7 +2593,7 @@ public class DiyDAO {
 								morpheme = "counselor";
 								crawling2(morpheme, title, morpheme2);
 							} else {
-								delete(morpheme, title);
+								//delete(morpheme, title);
 							}
 					} 
 				}

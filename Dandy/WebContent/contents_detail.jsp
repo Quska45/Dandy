@@ -246,6 +246,10 @@
 		width: 100px;
 		height: 30px;
 	}
+	
+	
+	/* 단어 뜻   */
+	
 	.list_search {
 		list-style: none;
 	}
