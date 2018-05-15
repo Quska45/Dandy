@@ -44,6 +44,7 @@
 		<mapper resource="com/dandy/mybatis/MovieListMapper.xml"/>
 		<mapper resource="com/dandy/mybatis/QuestionMapper.xml"/>
 		<mapper resource="com/dandy/mybatis/MypageWordMapper.xml"/>
+		<mapper resource="com/dandy/mybatis/FreeBoardMapper.xml"/>
 	</mappers>
 	
 </configuration>

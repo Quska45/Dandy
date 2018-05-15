@@ -4,11 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/cos.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/jsoup-1.11.2.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/jsp-api.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/REngine.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/Rserve.jar"/>
-	<classpathentry kind="lib" path="D:/developer/JAVA_Library/dandy/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/JUNG JI SUN/Desktop/b_class/team_project_dandy/REngine.jar"/>
+	<classpathentry kind="lib" path="C:/Users/JUNG JI SUN/Desktop/b_class/team_project_dandy/Rserve.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
