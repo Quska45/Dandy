@@ -255,7 +255,11 @@
 		list-style: none;
 	}
 	.list_search li {
+		padding-right: 15px;
 		float: left;
+	}
+	.word-table-bottom tr {
+		height: 50px;
 	}
 	
 	
@@ -352,6 +356,9 @@
 		$("#view_50_span").attr("data-before", view_50)
 		
 		
+		$('.word-table-bottom tr:odd').css("backgroundColor","#fff");         // odd 홀수
+  		$('.word-table-bottom tr:even').css("backgroundColor","#f5f5fc");   // even 짝수
+		
 	});
 
 
@@ -430,7 +437,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table>
+						<table class="word-table-bottom">
 							<tbody>
 								<c:forEach items="${movieEach}" var="each">
 									<tr>
