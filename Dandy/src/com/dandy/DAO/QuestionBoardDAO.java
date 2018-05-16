@@ -252,4 +252,25 @@ public class QuestionBoardDAO {
 		
 		return list;
 	}
+	
+	//게시판글을 삭제하는 메소드
+	public void questionDelete(Integer bno) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.delete("questionDelete", bno);
+			if(result > 0) {
+				System.out.println("삭제성공");
+			} else {
+				System.out.println("삭제실패");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
 }

@@ -289,6 +289,34 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
+//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 메소드
+$(document).on("click", "#remove_btn2", function(){
+	var bno = ${boardview.bno};
+	alert(bno);
+	$.ajax({
+		url: "questionBoardDelete.dandy",
+		type: "post",
+		data: "bno=" + bno,
+		success: function(result) {
+			var bno = $(this).attr("data_num");
+			alert("bno" + bno);
+			$.ajax({
+				url : "questionBoardDetail.dandy",
+				type : "POST",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+		}
+	});
+});
+
+
 /* 게시판 삭제 확인 모달 */
 	$(document).ready(function(){
 		  var mo_board_del = $("#mo_board_del");
@@ -407,7 +435,6 @@
 		$.ajax({
 	 		 url: "questionReplyDelete.dandy",
 	 		 type: "POST",	
-	 		 dataType: "json",
 	 		 data: "rno=" + rno,
 	 		 success: function(data) {
 	 			comment_list();
