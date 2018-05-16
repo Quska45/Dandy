@@ -289,35 +289,51 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 메소드
-$(document).on("click", "#remove_btn2", function(){
-	var bno = ${boardview.bno};
-	alert(bno);
-	$.ajax({
-		url: "questionBoardDelete.dandy",
-		type: "post",
-		data: "bno=" + bno,
-		success: function(result) {
-			var bno = $(this).attr("data_num");
-			alert("bno" + bno);
-			$.ajax({
-				url : "questionBoardDetail.dandy",
-				type : "POST",
-				data : "bno=" + bno,
-				success : function(result) {
-					$("#boardList").html(result);
-				},
-				error : function() {
-					alert("System Error!!!");
-				}
-
-			});
-		}
+	//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 쿼리
+	$(document).on("click", "#remove_btn2", function(){
+		var bno = ${boardview.bno};
+		alert(bno);
+		$.ajax({
+			url: "questionBoardDelete.dandy",
+			type: "post",
+			data: "bno=" + bno,
+			success: function(result) {
+				var bno = $(this).attr("data_num");
+				alert("bno" + bno);
+				$.ajax({
+					url : "questionBoardDetail.dandy",
+					type : "POST",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+	
+				});
+			}
+		});
 	});
-});
-
-
-/* 게시판 삭제 확인 모달 */
+	
+	//게시글 상세 페이지에서 수정을 누르면 수정페이지로 가는 메소드
+	$(document).on("click", "#modify_btn", function(){
+		var bno = ${boardview.bno};
+		alert(bno);
+		$.ajax({
+			url: "questionBoardUpdate.dandy",
+			type: "post",
+			data: "bno=" + bno,
+			success: function(result) {
+				
+			}
+		});
+	}
+	
+	
+	
+	
+	//게시판 삭제 클릭 시 확인 모달이 뜨게 하는 스크립트
 	$(document).ready(function(){
 		  var mo_board_del = $("#mo_board_del");
 		  var del_link = $(".del_link");
@@ -344,6 +360,7 @@ $(document).on("click", "#remove_btn2", function(){
 		  });        
 		});
 		
+	//댓글창을 띄우는 콜백함수
 	function comment_list() {
 		var bno = ${boardview.bno};
 		$.ajax({
@@ -356,34 +373,8 @@ $(document).on("click", "#remove_btn2", function(){
 		});
 	}
 	
-	$(document).ready(function() {
-		var formObj = $("#frm1");
-		
-		comment_list();
-		
-		// 수정버튼 클릭
-		$("#modify_btn").on("click", function(){
-			formObj.attr("action", "boardupdateview.bizpoll");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-				
-		var code = $("#code").val();
-		
-		/* $("#wr_btn").on("click", function(){
-			location.href="boardloginck.bizpoll";
-			alert(code);
-		}); */
 	
-			if(code == 1){
-				alert("모달창 나와랏");
-				$("#id01").css("display","block");
-			} else if(code != 1){
-				$("#id01").css("display","none");
-			}		
-			var replyinsert = $("#replyinsert");
-	});
-		
+	
 	$(document).ready(function(){
 		  var mo_board_del = $("#mo_board_del");
 		  var del_link = $(".del_link");
@@ -445,58 +436,58 @@ $(document).on("click", "#remove_btn2", function(){
 	 	 });
 	});
 		
-		 $(document).on("click", "#good_fafa", function(){
-			alert("좋아요 클릭!");
-			
-			var gpoint = $("#gpoint").val();
-			var bno = ${boardview.bno};
-			$.ajax({
-				url: "goodpoint.bizpoll",
-				type: "POST",
-				dataType: "json",
-				data: "bno=" + bno,
-				success: function(data) {
-							alert(data.gpoint);
-						if(data.gpoint >= "0"){
-							alert("좋아요 포인트 증가 성공");
-							location.reload();
-							$("#good_fafa").attr('class', 'fa fa-heart');
-						} else{
-							 alert("좋아요 포인트 증가 실패");
-							 return false; 
-						 }
-				},
-				error: function() {
-					alert("System Error!!!");
-				}
-			});
-			
-		});  
+	$(document).on("click", "#good_fafa", function(){
+		alert("좋아요 클릭!");
+		
+		var gpoint = $("#gpoint").val();
+		var bno = ${boardview.bno};
+		$.ajax({
+			url: "goodpoint.bizpoll",
+			type: "POST",
+			dataType: "json",
+			data: "bno=" + bno,
+			success: function(data) {
+						alert(data.gpoint);
+					if(data.gpoint >= "0"){
+						alert("좋아요 포인트 증가 성공");
+						location.reload();
+						$("#good_fafa").attr('class', 'fa fa-heart');
+					} else{
+						 alert("좋아요 포인트 증가 실패");
+						 return false; 
+					 }
+			},
+			error: function() {
+				alert("System Error!!!");
+			}
+		});
+		
+	});  
 		 
-		// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
-		$(document).on("click", "#list_btn",function(){
+	// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
+	$(document).on("click", "#list_btn",function(){
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	
+	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
+	$(document).on("click", "#qustion_rewrite_btn", function(){
+		var bno = $("#question_detail_bno").val();
 			$.ajax({
 				type : "post",
-				url : "questionBoardList.dandy",
+				url : "question_answer.dandy",
+				data : "bno=" + bno,
 				success : function(result) {
 					$("#boardList").html(result);
 				}
 			});
-		});
-		
-		
-		//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
-		$(document).on("click", "#qustion_rewrite_btn", function(){
-			var bno = $("#question_detail_bno").val();
-				$.ajax({
-					type : "post",
-					url : "question_answer.dandy",
-					data : "bno=" + bno,
-					success : function(result) {
-						$("#boardList").html(result);
-					}
-				});
-		});
+	});
 		
 </script>
 </head>
