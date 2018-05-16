@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.MemberDAO;
 
-public class MemberUpdateAction implements Action{
+public class MemberUpdateViewAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
@@ -20,7 +20,7 @@ public class MemberUpdateAction implements Action{
 		System.out.println(mid);
 		
 		MemberDAO mDao = MemberDAO.getInstance();
-		mDao.memberUpdate(mid);
+		//mDao.memberUpdate(mid);
 		
 		
 		return null;
