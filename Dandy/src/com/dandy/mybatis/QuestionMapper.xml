@@ -66,6 +66,14 @@
 		FROM question_reply
 		WHERE bno = #{bno}
 	</select>
+	
+<!-- 게시글을 삭제하는 쿼리 -->
+	<delete id="questionDelete">
+		DELETE FROM question_board
+		WHERE bno=#{bno}		
+	</delete>
+	
+	
 <!--  -->
 	<update id="questionBoardViewCnt">
 	  	UPDATE question_board
