@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/dandy/mybatis/DandyMapper.xml">
+
+	<select id="sessionlogin" resultType="memDTO" parameterType="memDTO">
+		SELECT * 
+		FROM dandy_member 
+		WHERE mid=#{mid} AND mpw=#{mpw} 
+	</select>
+
+
+<!-- =================================================================login check================================================================= -->
+	<select id="memIdCheck" resultType="memDTO" parameterType="String">
+	  	SELECT mid FROM dandy_member 
+	  	WHERE mid = #{mid}
+	</select>
+	
+<!-- ================================================================= 회원가입 ================================================================= -->	
+	<insert id="registerMember" parameterType="memDTO">
+	  	INSERT INTO dandy_member(mid, mpw, mname, msex, mbirth, memail, mphone)
+		VALUES(#{mid}, #{mpw}, #{mname}, #{msex}, #{mbirth}, #{memail}, #{mphone})
+	</insert>
+	
+
+</mapper>
