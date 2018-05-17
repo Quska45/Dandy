@@ -260,6 +260,7 @@ public class DandyFrontController extends HttpServlet {
 			forward = action.excute(request, response); 
 		}
 		else if (command.equals("/questionBoardDelete.dandy")) {
+			System.out.println("이걸 안타는거야?");
 			action = new QuestionBoardDeleteAction(); 
 			forward = action.excute(request, response); 
 		}

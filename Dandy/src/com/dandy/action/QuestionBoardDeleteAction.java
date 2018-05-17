@@ -14,7 +14,8 @@ public class QuestionBoardDeleteAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "";
+		String url = "dandy_contents_question_board.jsp";
+		System.out.println("왜 안타는 거야?");
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		System.out.println("bno" + bno);
 		

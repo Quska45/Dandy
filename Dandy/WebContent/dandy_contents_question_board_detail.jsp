@@ -298,19 +298,12 @@
 			type: "post",
 			data: "bno=" + bno,
 			success: function(result) {
-				var bno = $(this).attr("data_num");
-				alert("bno" + bno);
 				$.ajax({
-					url : "questionBoardDetail.dandy",
-					type : "POST",
-					data : "bno=" + bno,
+					type : "post",
+					url : "questionBoardList.dandy",
 					success : function(result) {
 						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
 					}
-	
 				});
 			}
 		});
@@ -668,7 +661,7 @@
 						<span id="text">글을 삭제하시겠습니까?</span>
 					<div id="sel_bbtn">
 							<br>
-							<a href="boarddelete.bizpoll?bno=${boardview.bno}">
+							<a href="#">
 								<button class="bbtn" id="remove_btn2">삭제</button>
 							</a>
 							<button class="bbtn" id="cancel_btn">취소</button>
