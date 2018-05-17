@@ -35,6 +35,7 @@ public class DiyCompleteAction implements Action {
 		mDao.textMining(title, text);
 		
 		mDto.setTitle(title);
+		System.out.println("DTO title : " + mDto.getTitle());
 		mDao.alterTable(mDto);
 		mDao.selectWord(mDto);
 		//mDao.nullDelete(mDto);
