@@ -298,42 +298,18 @@
 			type: "post",
 			data: "bno=" + bno,
 			success: function(result) {
-				var bno = $(this).attr("data_num");
-				alert("bno" + bno);
 				$.ajax({
-					url : "questionBoardDetail.dandy",
-					type : "POST",
-					data : "bno=" + bno,
+					type : "post",
+					url : "questionBoardList.dandy",
 					success : function(result) {
 						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
 					}
-	
 				});
 			}
 		});
 	});
 	
-	//게시글 상세 페이지에서 수정을 누르면 수정페이지로 가는 메소드
-	$(document).on("click", "#modify_btn", function(){
-		var bno = ${boardview.bno};
-		alert(bno);
-		$.ajax({
-			url: "questionBoardUpdate.dandy",
-			type: "post",
-			data: "bno=" + bno,
-			success: function(result) {
-				
-			}
-		});
-	}
-	
-	
-	
-	
-	//게시판 삭제 클릭 시 확인 모달이 뜨게 하는 스크립트
+	/* 게시판 삭제 확인 모달 */
 	$(document).ready(function(){
 		  var mo_board_del = $("#mo_board_del");
 		  var del_link = $(".del_link");
@@ -359,6 +335,21 @@
 			del_link.focus();
 		  });        
 		});
+	
+	//게시글 상세 페이지에서 수정을 누르면 수정페이지로 가는 메소드
+	$(document).on("click", "#modify_btn", function(){
+		var bno = ${boardview.bno};
+		alert(bno);
+		$.ajax({
+			url: "questionBoardUpdate.dandy",
+			type: "post",
+			data: "bno=" + bno,
+			success: function(result) {
+				
+			}
+		});
+	});
+	
 		
 	//댓글창을 띄우는 콜백함수
 	function comment_list() {
@@ -670,7 +661,7 @@
 						<span id="text">글을 삭제하시겠습니까?</span>
 					<div id="sel_bbtn">
 							<br>
-							<a href="boarddelete.bizpoll?bno=${boardview.bno}">
+							<a href="#">
 								<button class="bbtn" id="remove_btn2">삭제</button>
 							</a>
 							<button class="bbtn" id="cancel_btn">취소</button>

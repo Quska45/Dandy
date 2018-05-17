@@ -14,6 +14,7 @@ import com.dandy.action.ActionForward;
 import com.dandy.action.BoardListAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
+import com.dandy.action.DiyLoadingAction;
 import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeAnswerAction;
 import com.dandy.action.FreeAnswerInsertAction;
@@ -52,6 +53,7 @@ import com.dandy.action.MywordInsertAction;
 import com.dandy.action.MywordeleteAction;
 import com.dandy.action.QuestionAnswerAction;
 import com.dandy.action.QuestionAnswerInsertAction;
+import com.dandy.action.QuestionBoardDeleteAction;
 import com.dandy.action.QuestionBoardDetailAction;
 
 /**
@@ -258,6 +260,15 @@ public class DandyFrontController extends HttpServlet {
 			action = new MemberUpdateViewAction(); 
 			forward = action.excute(request, response); 
 		}
+		else if (command.equals("/questionBoardDelete.dandy")) {
+			System.out.println("이걸 안타는거야?");
+			action = new QuestionBoardDeleteAction(); 
+			forward = action.excute(request, response); 
+		} else if (command.equals("/diyLoading.dandy")) {
+			action = new DiyLoadingAction(); 
+			forward = action.excute(request, response); 
+		}
+		
 		
 		
 		
