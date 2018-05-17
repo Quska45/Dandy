@@ -58,7 +58,7 @@ public class MemberUpdateAction implements Action{
 		}
 		
 		
-		System.out.println("git version reset commit!!!");
+		System.out.println("git version reset commit");
 		
 		JSONObject jObj = new JSONObject();
 		jObj.put("result", result);
