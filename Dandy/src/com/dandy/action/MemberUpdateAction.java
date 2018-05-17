@@ -19,6 +19,7 @@ public class MemberUpdateAction implements Action{
 			throws ServletException, IOException {
 		
 		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
 		String mname = request.getParameter("mname");
 		String msex = request.getParameter("mgender");
 		String mbirth = request.getParameter("mbirth");
@@ -44,7 +45,7 @@ public class MemberUpdateAction implements Action{
 		MemberDAO mDao = MemberDAO.getInstance();
 		
 		// Update 성공하면 -> SESSION 수정하려고 VIEW단에서 가지고 온 데이터를 그대로 넣어주면 된다.
-		MemberDTO mDto = new MemberDTO(mid, mname, msex, mbirth, memail, mphone); // 수정하려고 가져온 데이터
+		MemberDTO mDto = new MemberDTO(mid, mpw, mname, msex, mbirth, memail, mphone); // 수정하려고 가져온 데이터
 
 		int result = mDao.memberUpdate(mDto);
 		

@@ -16,5 +16,14 @@
 	WHERE mid = #{mid}
 	</update>
 	
+	<update id="memberpwchange" parameterType="memDTO">
+	UPDATE dandy_member
+	SET mpw = #{mpw}
+	WHERE mid = #{mid}
+	</update>
 	
+	<select id="pwchangememberinfo" parameterType="String" resultType="memDTO">
+	SELECT * FROM dandy_member
+	WHERE mid = #{mid}
+	</select>
 </mapper>

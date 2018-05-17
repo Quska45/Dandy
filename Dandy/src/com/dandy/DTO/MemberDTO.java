@@ -24,10 +24,10 @@ public class MemberDTO {
       private int i;
       private Integer mno;
      
-     
-      public MemberDTO(String mid, String mname, String msex, String mbirth, String memail, String mphone) {
+    public MemberDTO(String mid, String mpw, String mname, String msex, String mbirth, String memail, String mphone) {
 		super();
 		this.mid = mid;
+		this.mpw = mpw;
 		this.mname = mname;
 		this.msex = msex;
 		this.mbirth = mbirth;
@@ -136,16 +136,7 @@ public class MemberDTO {
             this.filesize = filesize;
             this.regdate = regdate;
       }
-      public MemberDTO(String mid, String mpw, String mname, String msex, String mbirth, String memail, String mphone) {
-            super();
-            this.mid = mid;
-            this.mpw = mpw;
-            this.mname = mname;
-            this.msex = msex;
-            this.mbirth = mbirth;
-            this.memail = memail;
-            this.mphone = mphone;
-      }
+     
       public String getMid() {
             return mid;
       }
