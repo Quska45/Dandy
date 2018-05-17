@@ -480,7 +480,7 @@
 		font-family: 'Noto Sans KR', sans-serif;
 		border: none;
 	}
-	#btn_submit{
+	#btn_update{
 		margin: 0;
 	}
 	#id {
@@ -597,10 +597,10 @@
 		var mmonth = mbirth_value.substr(4,2);
 		var mday = mbirth_value.substr(6,2);
 		
-		var memail = $("#member_email").val();
-		var midx = memail.indexOf("@");
-		var memail1 = memail.substring(0, midx);
-		var memail2 = memail.substring(midx+1);
+		var memail_value = $("#member_email").val();
+		var midx = memail_value.indexOf("@");
+		var memail1 = memail_value.substring(0, midx);
+		var memail2 = memail_value.substring(midx+1);
 		var mailAddress = $("#mailAddress").val();
 		
 		var member_phone = $("#member_phone").val();
@@ -642,10 +642,13 @@
 					} else if(memail2 == "google.com"){
 						$("#mailAddress").val("4").prop("selected", true);
 						$("#email2").val("google.com");
-					} 
-					$("#phone").attr("value", mphone1 + "-" + mphone2 + "-" + mphone3);
+					}
+				$("#phone").attr("value", member_phone);
+					
 				
-				alert(mpw +"===> 비밀번호확인");
+				
+				
+				//alert(mpw +"===> 비밀번호확인");
 			} else if(meminfo_code == 2){
 				
 			} else if(meminfo_code == 3){
@@ -653,6 +656,41 @@
 			}
 		}
 		
+	});
+	
+	$(document).on("click", "#btn_update", function(){
+		var mid = $("#member_id").val();
+		var mname = $("#name").val();
+		var mgender = $("#modal_gendervalue").val();
+		var yy = $("#yy").val();
+		var mm = $("#month_select").val();
+		var dd = $("#dd").val(); 
+		var mbirth = yy + mm + dd;
+		var email1 = $("#email1").val();
+		var email2 = $("#email2").val();
+		var memail = email1 + "@" + email2;
+		var mphone = $("#phone").val(); 
+		alert("mid : " + mid + ", mname : " + mname + ", mgender : " + mgender + ", mbirth : " + mbirth + ", memail : " + memail + "mphone : " + mphone);
+		  $.ajax({
+			url : "memberupdate.dandy",
+			type : "POST",
+			dataType: "JSON",
+			data : "mid=" + mid + "&mname=" + mname + "&mgender=" + mgender + "&mbirth=" + mbirth + "&memail=" + memail + "&mphone=" + mphone,
+			success : function(data) {
+				 if(data.result == "1"){
+					 alert("수정 성공");
+						location.reload();
+				 } else if(data.result == "0"){
+					 alert("수정 실패");
+				 }
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});  
+		 
+		 
 	});
 	
 </script>
@@ -795,11 +833,11 @@
 									<span class="sex">
 										<input type="hidden" id="modal_gendervalue" value="${sessionScope.loginUser.msex}">
 										<span class="gender">
-											<input type="radio" id="man" name="sex" value="1">
+											<input type="radio" id="man" name="gender" value="1">
 											<label id="manlabel" for="man">남자</label>
 										</span>
 										<span class="gender">
-											<input type="radio" id="woman" name="sex" value="2">
+											<input type="radio" id="woman" name="gender" value="2">
 											<label id="womanlabel" for="woman">여자</label>
 										</span>
 									</span>	
@@ -877,7 +915,7 @@
 							</div>
 							
 							<span class="btn_join">
-								<input type="submit" id="btn_submit" alt="회원가입" class="mo_member_btn" value="수정완료">
+								<input type="submit" id="btn_update" class="mo_member_btn" value="수정완료">
 								<input type="hidden" id="idCheck" name="idCheck" value="Y"/>
 							</span>
 					</div>

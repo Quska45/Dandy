@@ -178,4 +178,28 @@ sqlSession.commit();
 			sqlSession.close();
 		}
     }
+    
+    public int memberUpdate(MemberDTO mDto) {
+    	sqlSession = sqlSessionFactory.openSession();
+    	int result = 0;
+    	
+    	System.out.println(mDto.getMid());
+    	System.out.println(mDto.getMname());
+    	System.out.println(mDto.getMbirth());
+    	System.out.println(mDto.getMemail());
+    	System.out.println(mDto.getMphone());
+    	System.out.println(mDto.getMsex());
+    	try {
+    		result = sqlSession.update("memberupdate", mDto);
+    		sqlSession.commit();
+    		
+    	} catch(Exception e) {
+    		
+    		e.printStackTrace();
+    		
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return result;
+    }
 }

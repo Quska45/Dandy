@@ -45,6 +45,7 @@
 		<mapper resource="com/dandy/mybatis/QuestionMapper.xml"/>
 		<mapper resource="com/dandy/mybatis/MypageWordMapper.xml"/>
 		<mapper resource="com/dandy/mybatis/FreeBoardMapper.xml"/>
+		<mapper resource="com/dandy/mybatis/MypagememberMapper.xml"/>
 	</mappers>
 	
 </configuration>

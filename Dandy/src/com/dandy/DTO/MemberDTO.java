@@ -25,7 +25,16 @@ public class MemberDTO {
       private Integer mno;
      
      
-      public Integer getMno() {
+      public MemberDTO(String mid, String mname, String msex, String mbirth, String memail, String mphone) {
+		super();
+		this.mid = mid;
+		this.mname = mname;
+		this.msex = msex;
+		this.mbirth = mbirth;
+		this.memail = memail;
+		this.mphone = mphone;
+	}
+	public Integer getMno() {
             return mno;
       }
       public void setMno(Integer mno) {

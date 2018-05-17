@@ -45,7 +45,7 @@ import com.dandy.action.MemberCheckAjaxAction;
 import com.dandy.action.MemberConstractAction;
 import com.dandy.action.MemberInsertAction;
 import com.dandy.action.MemberRegisterAction;
-import com.dandy.action.MemberUpdateViewAction;
+import com.dandy.action.MemberUpdateAction;
 import com.dandy.action.MovieListAction;
 import com.dandy.action.MypageContentsDetailAction;
 import com.dandy.action.MypageMovieListAction;
@@ -256,8 +256,8 @@ public class DandyFrontController extends HttpServlet {
 			action = new MywordeleteAction(); 
 			forward = action.excute(request, response); 
 		}
-		else if (command.equals("/memberupdateview.dandy")) {
-			action = new MemberUpdateViewAction(); 
+		else if (command.equals("/memberupdate.dandy")) {
+			action = new MemberUpdateAction(); 
 			forward = action.excute(request, response); 
 		}
 		else if (command.equals("/questionBoardDelete.dandy")) {
