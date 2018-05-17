@@ -145,7 +145,7 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-	//영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
+	/* //영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
 	$(document).on("click", ".active_page", function() {
 		var page = $(this).attr("page_num");
 		var index = $("#index_number").val();
@@ -187,7 +187,7 @@
 		alert("클릭");
 		var keyword = $("#search_keyword").val();
 		alert("search_keyword: " + keyword);
-	});
+	}); */
 	
 
 
