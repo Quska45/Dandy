@@ -91,7 +91,7 @@
 	#frequency_count {
 		font-weight: bold;
 		text-decoration: underline;
-		color: #00AE93;
+		color: #0daa62;
 		font-size: 22px;
 	}
  /** 단어장 table */
@@ -104,7 +104,7 @@
  	
  	}
  	#word-table-top {
- 		background-color: #00AE93;
+ 		background-color: #0daa62;
  		border-radius: 5px;
  		color: white;
  		font-size: 16px;
@@ -131,7 +131,11 @@
 		list-style: none;
 	}
 	.list_search li {
+		padding-right: 15px;
 		float: left;
+	}
+	.word-table-bottom tr {
+		height: 50px;
 	}
 	
 	
@@ -139,6 +143,12 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+
+	$(document).ready(function(){
+		$('.word-table-bottom tr:odd').css("backgroundColor","#fff");         // odd 홀수
+  		$('.word-table-bottom tr:even').css("backgroundColor","#f5f5fc");   // even 짝수
+	});
+
 
 </script>
 
@@ -177,7 +187,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table>
+						<table class="word-table-bottom">
 							<tbody>
 								<c:forEach items="${list}" var="list">
 									<tr>

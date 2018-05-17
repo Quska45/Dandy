@@ -56,6 +56,7 @@
  		font-size: 20px;
  		font-weight: bold;
  		color: #FA6C00;
+ 		cursor: pointer;
  	}
 
  /** 알파벳 페이지 */
@@ -181,6 +182,13 @@
 			});
 	
 	});
+	
+	$(document).on("click", "#search_btn", function() {
+		alert("클릭");
+		var keyword = $("#search_keyword").val();
+		alert("search_keyword: " + keyword);
+	});
+	
 
 
 </script>
@@ -194,7 +202,6 @@
 			<div id="search_box">
 				<input id="search_keyword" class="search" name="search_keyword" type="text" placeholder="영화를 검색해주세요.">
 				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
-				<input id="search_btn" class="search" type="submit" value="">
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
