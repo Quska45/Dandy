@@ -93,7 +93,7 @@
 			<div class="diy_text_wrap">
 				<textarea rows="50" cols="100" id="diy_text" name="diy_text" placeholder="스크립트를 입력해 주세요." style="resize: none;"></textarea>
 			</div>
-			<div id="diy_btn">단어장 만들기</div>
+			<a href="#"><div id="diy_btn">단어장 만들기</div></a>
 	</div>
 </body>
 </html>

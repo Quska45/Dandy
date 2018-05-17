@@ -272,5 +272,42 @@ public class QuestionBoardDAO {
 		}
 	}
 	
+	//게시글을 수정하는 수정 페이지로 이동하는 메소드
+	public QuestionBoardDTO questionSelectOne(Integer bno){
+		sqlSession = sqlSessionFactory.openSession();
+		QuestionBoardDTO qDto = new QuestionBoardDTO();
+		try {
+			qDto = sqlSession.selectOne("questionBoardUpdate", bno);
+			System.out.print(qDto.getBno() + ", " + qDto.getContent() + ", " + qDto.getTitle() + ", " + qDto.getWriter());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return qDto;
+	}
+	
+	//게시글을 수정하는 메소드
+	public void questionUpdate(QuestionBoardDTO qDto){
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.update("questionBoardReUpdate", qDto);
+			sqlSession.commit();
+			if(result > 0) {
+				System.out.println("수정 성공");
+			} else {
+				System.out.println("수정 실패");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+	}
 	
 }

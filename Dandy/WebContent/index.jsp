@@ -694,6 +694,52 @@
 	}
 	
 	
+	//영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
+	$(document).on("click", ".active_page", function() {
+		var page = $(this).attr("page_num");
+		var index = $("#index_number").val();
+			$.ajax({
+				url : "movieList.dandy",
+				type : "POST",
+				data : "page=" + page + "&index=" + index,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+	
+			});
+	
+	});
+	
+	
+	// 영화 목록에서 위에 알파벳 눌렀을때 띄워주는 페이지 스크립트
+	$(document).on("click", ".active_index", function() {
+		var index = $(this).attr("index_num");
+			$.ajax({
+				url : "movieList.dandy",
+				type : "POST",
+				data : "index=" + index,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+	
+			});
+	
+	});
+	
+	$(document).on("click", "#search_btn", function() {
+		alert("클릭");
+		var keyword = $("#search_keyword").val();
+		alert("search_keyword: " + keyword);
+	});
+	
+	
+	
 	// diy 버튼 눌렀을때 입력창 띄워주는 스크립트
 	function diy_page() {
 		$.ajax({

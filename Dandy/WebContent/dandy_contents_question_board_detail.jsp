@@ -345,7 +345,7 @@
 			type: "post",
 			data: "bno=" + bno,
 			success: function(result) {
-				
+				$("#boardList").html(result);
 			}
 		});
 	});

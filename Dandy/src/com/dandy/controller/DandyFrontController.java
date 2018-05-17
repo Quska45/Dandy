@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dandy.action.Action;
 import com.dandy.action.ActionForward;
 import com.dandy.action.BoardListAction;
+import com.dandy.action.BoardQuestionUpdatesaveAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
 import com.dandy.action.DiyLoadingAction;
@@ -34,6 +35,7 @@ import com.dandy.action.FreeboardfiledownloadAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
 import com.dandy.action.QuestionBoardSortAction;
+import com.dandy.action.QuestionBoardUpdateAction;
 import com.dandy.action.QuestionBoardWriteAction;
 import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
@@ -267,7 +269,16 @@ public class DandyFrontController extends HttpServlet {
 		} else if (command.equals("/diyLoading.dandy")) {
 			action = new DiyLoadingAction(); 
 			forward = action.excute(request, response); 
+		} 
+		else if (command.equals("/questionBoardUpdate.dandy")) {
+			action = new QuestionBoardUpdateAction(); 
+			forward = action.excute(request, response); 
 		}
+		else if (command.equals("/boardQuestionUpdatesave.dandy")) {
+			action = new BoardQuestionUpdatesaveAction(); 
+			forward = action.excute(request, response); 
+		}
+		
 		
 		
 		

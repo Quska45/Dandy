@@ -8,27 +8,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.QuestionBoardDAO;
 import com.dandy.DTO.QuestionBoardDTO;
-import com.dandy.action.ActionForward;
 
-public class QuestionBoardInsertsaveAction implements Action {
+public class BoardQuestionUpdatesaveAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String url = "questionBoardList.dandy";
 		
-		
+		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
 		String flag = request.getParameter("flag");
 		String question_type = request.getParameter("select");
 		
-		System.out.println(title+ "," + writer+ "," + content+ "," + flag+ "," + question_type);
-		QuestionBoardDTO qDto = new QuestionBoardDTO(title, content, writer ,question_type, flag);
+		System.out.println(bno + "," + title+ "," + writer+ "," + content+ "," + flag+ "," + question_type);
+		QuestionBoardDTO qDto = new QuestionBoardDTO(bno, title, content, writer ,question_type, flag);
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
-		qDao.questionInsert(qDto);
+		qDao.questionUpdate(qDto);
 		
 		ActionForward forward = new ActionForward();
 		
