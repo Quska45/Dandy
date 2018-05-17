@@ -26,7 +26,6 @@ public class QuestionBoardInsertsaveAction implements Action {
 		String question_type = request.getParameter("select");
 		
 		System.out.println(title+ "," + writer+ "," + content+ "," + flag+ "," + question_type);
-		writer = "123";
 		QuestionBoardDTO qDto = new QuestionBoardDTO(title, content, writer ,question_type, flag);
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
 		qDao.questionInsert(qDto);

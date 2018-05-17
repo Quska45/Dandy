@@ -34,6 +34,7 @@ import com.dandy.action.FreeboardfiledownloadAction;
 import com.dandy.action.QuestionBoardListAction;
 import com.dandy.action.QuestionBoardSearchAction;
 import com.dandy.action.QuestionBoardSortAction;
+import com.dandy.action.QuestionBoardUpdateAction;
 import com.dandy.action.QuestionBoardWriteAction;
 import com.dandy.action.QuestionCommentListAction;
 import com.dandy.action.QuestionReplyAction;
@@ -267,7 +268,12 @@ public class DandyFrontController extends HttpServlet {
 		} else if (command.equals("/diyLoading.dandy")) {
 			action = new DiyLoadingAction(); 
 			forward = action.excute(request, response); 
+		} 
+		else if (command.equals("/questionBoardUpdate.dandy")) {
+			action = new QuestionBoardUpdateAction(); 
+			forward = action.excute(request, response); 
 		}
+		
 		
 		
 		
