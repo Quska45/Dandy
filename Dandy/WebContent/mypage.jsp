@@ -480,7 +480,7 @@
 		font-family: 'Noto Sans KR', sans-serif;
 		border: none;
 	}
-	#btn_submit{
+	#btn_update{
 		margin: 0;
 	}
 	#id {
@@ -597,10 +597,10 @@
 		var mmonth = mbirth_value.substr(4,2);
 		var mday = mbirth_value.substr(6,2);
 		
-		var memail = $("#member_email").val();
-		var midx = memail.indexOf("@");
-		var memail1 = memail.substring(0, midx);
-		var memail2 = memail.substring(midx+1);
+		var memail_value = $("#member_email").val();
+		var midx = memail_value.indexOf("@");
+		var memail1 = memail_value.substring(0, midx);
+		var memail2 = memail_value.substring(midx+1);
 		var mailAddress = $("#mailAddress").val();
 		
 		var member_phone = $("#member_phone").val();
@@ -642,10 +642,13 @@
 					} else if(memail2 == "google.com"){
 						$("#mailAddress").val("4").prop("selected", true);
 						$("#email2").val("google.com");
-					} 
-					$("#phone").attr("value", mphone1 + "-" + mphone2 + "-" + mphone3);
+					}
+				$("#phone").attr("value", member_phone);
+					
 				
-				alert(mpw +"===> 비밀번호확인");
+				
+				
+				//alert(mpw +"===> 비밀번호확인");
 			} else if(meminfo_code == 2){
 				
 			} else if(meminfo_code == 3){
@@ -653,6 +656,43 @@
 			}
 		}
 		
+	});
+	
+	$(document).on("click", "#btn_update", function(){
+		//alert("수정하기");
+		var mid = $("#member_id").val();
+		//alert(mid);
+		var mname = $("#name").val();
+		//alert(mname);
+		var gender = $("input[type=radio][name=sex]:checked").val();
+		alert(gender);
+		var yy = $("#yy");
+		var mm = $("#mm");
+		var dd = $("#dd"); 
+		var mbirth = yy + mm + dd;
+		var email1 = $("#email1");
+		var email2 = $("#email2");
+		var memail = memail1 + "@" + memail2;
+		var mphone = $("#phone"); 
+		
+		alert("mid : " + mid + ", mname : " + mname + ", gender : " + gender + ", mbirth : " + mbirth + ", memail : " + memail + "mphone : " + mphone);
+		
+		 /* $.ajax({
+			url : "memberupdate.dandy",
+			type : "POST",
+			data : "mid=" + mid + "&mname=" + mname + "&gender=" + gender + "&mbirth=" + mbirth + "&memail=" + memail + "&member_phone=" + member_phone,
+			success : function(result) {
+				$("#myinfo").html(result);
+				location.reload();
+			
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});  */
+		 
+		 
 	});
 	
 </script>
@@ -877,7 +917,7 @@
 							</div>
 							
 							<span class="btn_join">
-								<input type="submit" id="btn_submit" alt="회원가입" class="mo_member_btn" value="수정완료">
+								<input type="submit" id="btn_update" class="mo_member_btn" value="수정완료">
 								<input type="hidden" id="idCheck" name="idCheck" value="Y"/>
 							</span>
 					</div>
