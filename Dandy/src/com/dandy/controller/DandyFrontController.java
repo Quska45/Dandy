@@ -52,6 +52,7 @@ import com.dandy.action.MywordInsertAction;
 import com.dandy.action.MywordeleteAction;
 import com.dandy.action.QuestionAnswerAction;
 import com.dandy.action.QuestionAnswerInsertAction;
+import com.dandy.action.QuestionBoardDeleteAction;
 import com.dandy.action.QuestionBoardDetailAction;
 
 /**
@@ -258,6 +259,11 @@ public class DandyFrontController extends HttpServlet {
 			action = new MemberUpdateViewAction(); 
 			forward = action.excute(request, response); 
 		}
+		else if (command.equals("/questionBoardDelete.dandy")) {
+			action = new QuestionBoardDeleteAction(); 
+			forward = action.excute(request, response); 
+		}
+		
 		
 		
 		
