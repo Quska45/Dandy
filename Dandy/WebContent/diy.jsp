@@ -28,7 +28,7 @@
 	#diy_title {
 		width: 100%;
 		border: none;
-		height: 30px;
+		height: 50px;
 	}
 	#diy_text {
 		width: 100%;
@@ -47,11 +47,14 @@
 		cursor: pointer;
 	}
 	.diy_title_wrap {
+		width: 900px;
 		padding: 20px;
 		margin: 20px auto;
 	}
 	.diy_text_wrap {
+		width: 900px;
 		padding: 20px;
+		margin: 20px auto;
 	}
  
 </style>
@@ -64,7 +67,7 @@
 		var title = $("#diy_title").val();
 		var text = $("#diy_text").val();
 		$.ajax({
-			url : "diyComplete.dandy",
+			url : "diyLoading.dandy",
 			type : "POST",
 			data : "title=" + title + "&text=" + text,
 			success : function(result) {

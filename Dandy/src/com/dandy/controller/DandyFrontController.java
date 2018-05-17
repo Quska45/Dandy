@@ -14,6 +14,7 @@ import com.dandy.action.ActionForward;
 import com.dandy.action.BoardListAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
+import com.dandy.action.DiyLoadingAction;
 import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeAnswerAction;
 import com.dandy.action.FreeAnswerInsertAction;
@@ -262,6 +263,9 @@ public class DandyFrontController extends HttpServlet {
 		else if (command.equals("/questionBoardDelete.dandy")) {
 			System.out.println("이걸 안타는거야?");
 			action = new QuestionBoardDeleteAction(); 
+			forward = action.excute(request, response); 
+		} else if (command.equals("/diyLoading.dandy")) {
+			action = new DiyLoadingAction(); 
 			forward = action.excute(request, response); 
 		}
 		
