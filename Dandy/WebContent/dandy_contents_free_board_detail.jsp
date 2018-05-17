@@ -336,11 +336,11 @@
 		comment_list();
 		
 		// 수정버튼 클릭
-		/* $("#modify_btn").on("click", function(){
+		$("#modify_btn").on("click", function(){
 			formObj.attr("action", "boardupdateview.bizpoll");
 			formObj.attr("method", "get");
 			formObj.submit();
-		}); */
+		});
 				
 		var code = $("#code").val();
 		

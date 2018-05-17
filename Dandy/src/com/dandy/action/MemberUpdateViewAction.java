@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dandy.DAO.MemberDAO;
 
-public class MemberUpdateAction implements Action{
+public class MemberUpdateViewAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
