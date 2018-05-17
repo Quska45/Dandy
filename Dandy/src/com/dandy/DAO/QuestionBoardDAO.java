@@ -272,5 +272,21 @@ public class QuestionBoardDAO {
 		}
 	}
 	
+	//게시글을 수정하는 메소드
+	public QuestionBoardDTO questionSelectOne(Integer bno){
+		sqlSession = sqlSessionFactory.openSession();
+		QuestionBoardDTO qDto = new QuestionBoardDTO();
+		try {
+			qDto = sqlSession.selectOne("questionBoardUpdate", bno);
+			System.out.print(qDto.getBno() + ", " + qDto.getContent() + ", " + qDto.getTitle() + ", " + qDto.getWriter());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return qDto;
+	}
 	
 }

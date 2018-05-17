@@ -146,5 +146,27 @@
 		ORDER BY ${keyword} ${sort}
 	</select>
 
+<!-- 게시글을 수정하기 위해 수정하려는 글의 정보를 가져오는 쿼리 -->
+	<select id="questionBoardUpdate" resultType="qDTO">
+		SELECT *
+		FROM question_board
+		WHERE bno=#{bno}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>
