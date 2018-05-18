@@ -27,4 +27,9 @@
 	WHERE mid = #{mid}
 	</select>
 	
+	<delete id="memberdelete" parameterType="String" >
+      DELETE FROM dandy_member
+      WHERE mid = #{mid}
+   </delete>
+	
 </mapper>
