@@ -335,19 +335,9 @@
 		
 		comment_list();
 		
-		// 수정버튼 클릭
-		$("#modify_btn").on("click", function(){
-			formObj.attr("action", "boardupdateview.bizpoll");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
 				
 		var code = $("#code").val();
 		
-		/* $("#wr_btn").on("click", function(){
-			location.href="boardloginck.bizpoll";
-			alert(code);
-		}); */
 	
 			if(code == 1){
 				alert("모달창 나와랏");
@@ -512,6 +502,44 @@
 							alert("System Error!!!");
 						}
 					}); 
+			});
+			
+			// 자유게시판 : 게시글 수정
+			$(document).on("click", "#freemodify_btn", function(){
+				//alert("게시글 수정");
+				var bno = $("#bno").val();
+				$.ajax({
+					url : "freeBoardUpdateView.dandy",
+					type : "POST",
+					//dataType:"JSON",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!");
+					}
+				});
+				
+			});
+			//자유게시판 글 수정 등록
+			$(document).on("click", "#btn_freeup", function(){
+				var bno = $("#bno").val();
+				var title = $("#sub_input").val();
+				var writer = $("#name_input").val();
+				var content = $("#con_input").val();
+				alert(bno + title + writer + content);
+				$.ajax({
+					type : "post",
+					url : "freeBoardUpdateSave.dandy",
+					data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				});
 			});
 </script>
 </head>
@@ -708,7 +736,6 @@
 						<span id="text">글을 삭제하시겠습니까?</span>
 					<div id="sel_bbtn">
 							<br>
-							<%-- <a href="boarddelete.bizpoll?bno=${boardview.bno}"> --%>
 							<a href="#">
 								<button class="bbtn" id="freeremove_btn">삭제</button>
 							</a>
