@@ -181,15 +181,26 @@
 	
 			});
 	
-	});
-	
-	$(document).on("click", "#search_btn", function() {
-		alert("클릭");
-		var keyword = $("#search_keyword").val();
-		alert("search_keyword: " + keyword);
-	}); */
+	});*/
 	
 
+	$(document).on("click", "#search_btn", function(){
+		alert("클릭");
+		var keyword = $("#search_keyword").val();
+		alert(keyword);
+		$.ajax({
+			url : "movieList.dandy",
+			type : "POST",
+			data : "index=" + index + "&keyword=" + keyword,
+			success : function(result) {
+				$("#movieList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
 
 </script>
 

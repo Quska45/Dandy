@@ -685,7 +685,7 @@
 		//alert("onclick");
 		$.ajax({
 			type : "post",
-			url : "movieList.dandy?index=empty",
+			url : "movieList.dandy?index=empty?keyword=empty",
 			success : function(result) {
 				$("#movieList").html(result);
 			}
