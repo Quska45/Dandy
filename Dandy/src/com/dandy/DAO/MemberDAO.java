@@ -235,8 +235,22 @@ sqlSession.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
+			sqlSession.close();
 		}
     	return mDto;
+    }
+    public int memberDelete(String mid) {
+    	int result = 0;
+    	sqlSession = sqlSessionFactory.openSession();
+    	try {
+			result = sqlSession.delete("memberdelete", mid);
+			sqlSession.commit();
+			
+		} catch (Exception e) {
+			
+		} finally {
+			sqlSession.close();
+		}
+    	return result;
     }
 }

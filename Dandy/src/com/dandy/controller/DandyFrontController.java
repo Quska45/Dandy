@@ -45,6 +45,7 @@ import com.dandy.action.LogOutAction;
 import com.dandy.action.LoginAjaxAction;
 import com.dandy.action.MemberCheckAjaxAction;
 import com.dandy.action.MemberConstractAction;
+import com.dandy.action.MemberDeleteAction;
 import com.dandy.action.MemberInsertAction;
 import com.dandy.action.MemberPWChangeAction;
 import com.dandy.action.MemberRegisterAction;
@@ -286,6 +287,10 @@ public class DandyFrontController extends HttpServlet {
 		} else if (command.equals("/memberpwchange.dandy")) {
 			action = new MemberPWChangeAction(); 
 			forward = action.excute(request, response); 
+		}
+		 else if (command.equals("/memberdelete.dandy")) {
+				action = new MemberDeleteAction(); 
+				forward = action.excute(request, response); 
 		}
 		
 		

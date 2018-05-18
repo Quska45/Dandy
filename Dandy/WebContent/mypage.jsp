@@ -567,18 +567,32 @@
 	
 	/* 회원탈퇴 */
 	
-	#memberdelete {
+	#memberdelete{
 		display: none;
-		width: 400px;
- 		height: 150px;
+		width: 500px;
+ 		height: 200px;
  		padding: 35px;
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
- 		left:40%;
- 		top:40%; 
- 		z-index:11;
+ 		left:35%;
+ 		top:35%; 
+ 		z-index: 100;
  		background:#fff;
+ 		text-align: center;
+	}
+	#memberdelete_complete {
+	 	display: none;
+	 	background-color: #f7f7f7;
+	 	width: 500px;
+ 		height: 200px;
+ 		padding: 35px;
+ 		border:1px solid #ccc;
+ 		border-radius: 15px;
+ 		position:fixed;
+ 		left:35%;
+ 		top:35%; 
+ 		z-index:110;
  		text-align: center;
 	}
 	#memberdelete_header {
@@ -588,7 +602,7 @@
 		font-size: 20px;
 	}
 	#mo_delete_header {
-	width: 300px;
+		width: 300px;
 		height: 35px;		 
 		border: 1px solid #0daa62;
 		background-color: #0daa62;
@@ -598,6 +612,25 @@
 	.dandi_green {
 		color: #0daa62;
 		font-weight: bold;
+	}
+	#delete_message {
+		margin-top: 20px;
+	}
+	#memberdelete_btn_area {
+		margin-top: 10px;
+	}
+	#main_bold {
+		font-weight: bold;
+	}
+	#loading_img {
+		width: 100px;
+		height: 100px;
+	}
+	#loading_img_area {
+		margin-top: 25px;
+	}
+	#del_complete_message {
+		font-size: 17px;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -730,7 +763,7 @@
 				$("#passwordupdate").css("display","block");
 				
 			} else if(meminfo_code == 3){
-				
+				$("#memberdelete").css("display", "block");
 			}
 		}
 		
@@ -819,6 +852,35 @@
 
 			});
 		}
+		
+	});
+	
+	$(document).on("click", "#memberdelete_btn", function(){
+		var mid = $("#member_id").val();
+		//alert(mid);
+		 $.ajax({
+				url : "memberdelete.dandy",
+				type : "POST",
+				dataType: "JSON",
+				data : "mid=" + mid,
+				success : function(data) {
+					 if(data.result == "1"){
+						 alert("회원 탈퇴 성공");
+							if(data.flag == "1"){
+								$("#memberdelete_complete").css("display", "block");
+								setTimeout(function() {
+									location.reload();
+								}, 5000);
+							}
+					 } else if(data.result == "0"){
+						 alert("회원 탈퇴 실패");
+					 }
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
 		
 	});
 </script>
@@ -1072,10 +1134,31 @@
 		</div>
 		
 	<!-- 회원탈퇴 모달창 -->
-		<div id="memberdelete">
+		<div id="memberdelete" class="memeberdelete_modal">
 			<div id="mo_delete_header"><span id="memberdelete_header">회원탈퇴</span></div>
-			<div id="delete_message"><span class="dandi_green">DANDI</span><span>를 탈퇴하시면 회원정보와 내단어장리스트가 초기화되며 복구하실 수 없습니다.<br>정말로 탈퇴를 원하신다면 아래의 탈퇴버튼을 눌러주세요.</span><span class="dandi_green">DANDI</span><span>를 탈퇴하시겠습니까?</span></div>
+			<div id="delete_message">
+				<span class="dandi_green">DANDI</span><span>를 탈퇴하시면 회원정보와 내단어장리스트가
+				<br>초기화되며 복구하실 수 없습니다.
+				<br>정말로 탈퇴를 원하신다면 아래의 탈퇴버튼을 눌러주세요.</span>
+				<br><span class="dandi_green">DANDI</span><span>를 탈퇴하시겠습니까?</span>
+			</div>
+			<div id="memberdelete_btn_area">
+				<input type="button" id="memberdelete_btn" class="mo_member_btn" value="회원탈퇴">
+			</div>
 		</div>
+		
+	<!-- 회원탈퇴 완료 모달창 -->
+		<div id="memberdelete_complete" class="memeberdelete_modal">
+			<div id="del_complete_message">
+				<span>회원탈퇴가 정상적으로 처리되었습니다.</span>
+				<br><span class="dandi_green">DANDI</span><span>를 이용해주셔서 감사합니다.
+				<br>5초 후 <span id="main_bold">main</span>으로 돌아갑니다.</span>
+			</div>
+			<div id="loading_img_area">
+				<img src="image/diy/loading.gif" id="loading_img">
+			</div>
+		</div>
+		
 		
 		
 	</div>
