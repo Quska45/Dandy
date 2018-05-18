@@ -51,6 +51,25 @@ public class MovieDAO {
 		return result;
 		
 	}
+
+	
+	public int totalSearchCount(MovieCriteriaDTO criDto) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			
+			result = sqlSession.selectOne("movieSearchCountPaging", criDto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return result;
+		
+	}
 	
 	
 	public List<MovieDTO> movieList(MovieCriteriaDTO movieCriDto) {
@@ -61,6 +80,25 @@ public class MovieDAO {
 		try {
 			list = sqlSession.selectList("movieListCriteria", movieCriDto);
 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return list;
+	}
+
+	
+	public List<MovieDTO> movieSearchList(MovieCriteriaDTO movieCriDto) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		List<MovieDTO> list = new ArrayList<>();
+		
+		try {
+			list = sqlSession.selectList("movieSearchListCriteria", movieCriDto);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

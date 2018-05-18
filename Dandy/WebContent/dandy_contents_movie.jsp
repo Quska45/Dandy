@@ -184,24 +184,6 @@
 	});*/
 	
 
-	$(document).on("click", "#search_btn", function(){
-		alert("클릭");
-		var keyword = $("#search_keyword").val();
-		alert(keyword);
-		$.ajax({
-			url : "movieList.dandy",
-			type : "POST",
-			data : "index=" + index + "&keyword=" + keyword,
-			success : function(result) {
-				$("#movieList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-	});
-
 </script>
 
 </head>
@@ -212,6 +194,7 @@
 	<!-- 영화 검색 -->
 			<div id="search_box">
 				<input id="search_keyword" class="search" name="search_keyword" type="text" placeholder="영화를 검색해주세요.">
+				<input id="search_keyword_empty" name="search_keyword" type="hidden" value="${keyword}">
 				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
 			</div>
 	<!-- 알파벳 페이지 -->

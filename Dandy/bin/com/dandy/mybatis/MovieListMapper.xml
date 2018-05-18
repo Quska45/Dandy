@@ -6,7 +6,7 @@
 
 <mapper namespace="com/dandy/mybatis/MovieListMapper.xml">
 
-	<!-- =================================================================MovieLIst================================================================= -->
+<!-- =================================================================MovieLIst================================================================= -->
 	<select id="movieListCriteria" resultType="movieDTO">
 		<![CDATA[
 			SELECT *
@@ -17,11 +17,17 @@
 					SELECT * 
 					FROM movieindex ]]>
 					<choose>
-						<when test='index == "empty"'>
+						<when test='index == "empty" and keyword == "empty"'>
 							<![CDATA[WHERE mno > 0 ]]>
 						</when>
-						<otherwise>
+						<when test='index != "empty" and keyword == "empty"'>
 							<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+						</when>
+						<when test='index == "empty" and keyword != "empty"'>
+							<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+						</when>
+						<otherwise>
+							<![CDATA[WHERE mno > 0 AND indexchar = #{index} AND title LIKE '%'||#{keyword}||'%']]>
 						</otherwise>
 					</choose>	
 					<![CDATA[
@@ -38,11 +44,58 @@
 			SELECT count(mno)
 			FROM movieindex]]>
 			<choose>
-				<when test='index == "empty"'>
+				<when test='index == "empty" and keyword == "empty"'>
+					<![CDATA[WHERE mno > 0 ]]>
+				</when>
+				<when test='index != "empty" and keyword == "empty"'>
+					<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+				</when>
+				<when test='index == "empty" and keyword != "empty"'>
+					<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+				</when>
+				<otherwise>
+					<![CDATA[WHERE mno > 0 AND indexchar = #{index} AND title LIKE '%'||#{keyword}||'%']]>
+				</otherwise>
+			</choose>	
+	</select>
+
+<!-- =================================================================MovieSearchLIst================================================================= -->
+	<select id="movieSearchListCriteria" resultType="movieDTO">
+		<![CDATA[
+			SELECT *
+			FROM (
+				SELECT rownum rnum,
+				a.*
+				FROM (
+					SELECT * 
+					FROM movieindex ]]>
+					<choose>
+						<when test='keyword == "empty"'>
+							<![CDATA[WHERE mno > 0 ]]>
+						</when>
+						<otherwise>
+							<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
+						</otherwise>
+					</choose>	
+					<![CDATA[
+					ORDER BY mno
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+	
+<!-- Index Page Movie Search List page count -->
+	<select id="movieSearchCountPaging"  resultType="int">
+		<![CDATA[
+			SELECT count(mno)
+			FROM movieindex]]>
+			<choose>
+				<when test='keyword == "empty"'>
 					<![CDATA[WHERE mno > 0 ]]>
 				</when>
 				<otherwise>
-					<![CDATA[WHERE mno > 0 AND indexchar = #{index}]]>
+					<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
 				</otherwise>
 			</choose>
 	</select>

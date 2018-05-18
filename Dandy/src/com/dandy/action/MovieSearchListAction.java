@@ -16,18 +16,16 @@ import com.dandy.DTO.MoviePageMakerDTO;
 import com.dandy.DTO.PageMakerDTO;
 
 
-public class MovieListAction implements Action {
+public class MovieSearchListAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String url = "dandy_contents_movie.jsp";
-		String index = request.getParameter("index");
 		String keyword = request.getParameter("keyword");
-		System.out.println("index : " +  index);
 		System.out.println("keyword : " + keyword);
-
+		String index = "empty";
 		
 		MovieCriteriaDTO CriDto = new MovieCriteriaDTO();
 		int page = 1;
@@ -36,12 +34,11 @@ public class MovieListAction implements Action {
 		}
 		System.out.println("페이지 번호 : " + page);
 		CriDto.setPage(page);
-		CriDto.setIndex(index);
 		CriDto.setKeyword(keyword);
 		
 		
 		MovieDAO mDao = MovieDAO.getInstance();
-		List<MovieDTO> list = mDao.movieList(CriDto); // = 게시글 목록
+		List<MovieDTO> list = mDao.movieSearchList(CriDto); // = 게시글 목록
 		request.setAttribute("movieList", list);
 		
 		
@@ -50,11 +47,11 @@ public class MovieListAction implements Action {
 		//페이지 메이커
 		MoviePageMakerDTO moviePageMaker = new MoviePageMakerDTO();
 		moviePageMaker.setCriDto(CriDto);
-		moviePageMaker.setTotalCount(mDao.totalCount(CriDto));
+		moviePageMaker.setTotalCount(mDao.totalSearchCount(CriDto));
 		
 		request.setAttribute("pageMaker", moviePageMaker);
-		request.setAttribute("index", CriDto.getIndex());
-		request.setAttribute("keyword", keyword);
+		request.setAttribute("index", index);
+		request.setAttribute("keyword", CriDto.getKeyword());
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

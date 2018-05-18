@@ -685,7 +685,7 @@
 		//alert("onclick");
 		$.ajax({
 			type : "post",
-			url : "movieList.dandy?index=empty?keyword=empty",
+			url : "movieList.dandy?index=empty&keyword=empty",
 			success : function(result) {
 				$("#movieList").html(result);
 			}
@@ -696,12 +696,17 @@
 	
 	//영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
 	$(document).on("click", ".active_page", function() {
+		var keyword = $("#search_keyword_empty");
+		if(keyword.val() == "") {
+			keyword.val("empty");
+		}
+		var keyword_result = keyword.val();
 		var page = $(this).attr("page_num");
 		var index = $("#index_number").val();
 			$.ajax({
 				url : "movieList.dandy",
 				type : "POST",
-				data : "page=" + page + "&index=" + index,
+				data : "page=" + page + "&index=" + index + "&keyword=" + keyword_result,
 				success : function(result) {
 					$("#movieList").html(result);
 				},
@@ -720,7 +725,7 @@
 			$.ajax({
 				url : "movieList.dandy",
 				type : "POST",
-				data : "index=" + index,
+				data : "index=" + index + "&keyword=empty",
 				success : function(result) {
 					$("#movieList").html(result);
 				},
@@ -732,10 +737,25 @@
 	
 	});
 	
-	$(document).on("click", "#search_btn", function() {
-		alert("클릭");
-		var keyword = $("#search_keyword").val();
-		alert("search_keyword: " + keyword);
+	$(document).on("click", "#search_btn", function(){
+		var keyword = $("#search_keyword");
+		if(keyword.val() == "") {
+			keyword.val("empty");
+		}
+		var keyword_result = keyword.val();
+		var index = $("#index_number").val();
+		$.ajax({
+			url : "movieSearchList.dandy",
+			type : "POST",
+			data : "index=" + index + "&keyword=" + keyword_result,
+			success : function(result) {
+				$("#movieList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
 	});
 	
 	

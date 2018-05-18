@@ -50,6 +50,7 @@ import com.dandy.action.MemberPWChangeAction;
 import com.dandy.action.MemberRegisterAction;
 import com.dandy.action.MemberUpdateAction;
 import com.dandy.action.MovieListAction;
+import com.dandy.action.MovieSearchListAction;
 import com.dandy.action.MypageContentsDetailAction;
 import com.dandy.action.MypageMovieListAction;
 import com.dandy.action.MywordInsertAction;
@@ -165,6 +166,10 @@ public class DandyFrontController extends HttpServlet {
 		}
 		else if (command.equals("/movieList.dandy")) {
 			action = new MovieListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
+			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
+		}
+		else if (command.equals("/movieSearchList.dandy")) {
+			action = new MovieSearchListAction(); // action은 인터페이스: 다형성을 이용해서 해당 액션기능을 action에 넣는다
 			forward = action.excute(request, response); // 공통 분기작업에 보낼 forward
 		}
 		else if (command.equals("/questionCommentList.dandy")) {
