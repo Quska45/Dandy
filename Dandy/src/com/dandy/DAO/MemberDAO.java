@@ -202,4 +202,41 @@ sqlSession.commit();
     	}
     	return result;
     }
+    public int memberPWChange(MemberDTO mDto) {
+    	sqlSession = sqlSessionFactory.openSession();
+    	int result = 0;
+    	String mid = mDto.getMid();
+    	try {
+    		result = sqlSession.update("memberpwchange", mDto);
+    		sqlSession.commit();
+    		
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		sqlSession.close();
+    	}
+    	
+    	return result;
+    }
+    public MemberDTO memberpwchangeselect(String mid) {
+    	sqlSession = sqlSessionFactory.openSession();
+    	MemberDTO mDto = new MemberDTO();
+    	
+    	try {
+    		mDto = sqlSession.selectOne("pwchangememberinfo", mid); 
+    		System.out.print(mDto.getMid());
+    		System.out.print(mDto.getMname());
+    		System.out.print(mDto.getMbirth());
+    		System.out.print(mDto.getMemail());
+    		System.out.print(mDto.getMphone());
+    		System.out.print(mDto.getMsex());
+    		System.out.print(mDto.getMpw());
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+    	return mDto;
+    }
 }

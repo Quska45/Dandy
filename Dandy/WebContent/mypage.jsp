@@ -508,6 +508,97 @@
 	#phone {
 		text-align: center;
 	}
+	
+	
+	
+	/* 비밀번호 변경 모달창 */
+	
+	#passwordupdate {
+		display: none;
+		width: 400px;
+ 		height: 200px;
+ 		padding: 35px;
+ 		border:1px solid #ccc;
+ 		border-radius: 15px;
+ 		position:fixed;
+ 		left:40%;
+ 		top:35%; 
+ 		z-index:11;
+ 		background:#fff;
+ 		text-align: center;
+ 		z-index: 70;
+	}
+	#mo_pw_header {
+		width: 300px;
+		height: 35px;		 
+		border: 1px solid #0daa62;
+		background-color: #0daa62;
+		border-radius: 5px;
+		margin: 0 auto;
+	}
+	
+	#passwordupdate_header {
+		line-height:35px;
+		text-align: center;
+		color: white;
+		font-size: 20px;
+	}
+	
+	.password_input {
+		width: 192px;
+		height: 20px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		text-align: center;
+		font-size: 15px;
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	#pw1 {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#pw2 {
+		margin-left: -5px;
+		margin-bottom: 15px;
+	}
+	#pwmessage {
+		color: white;
+	}
+	
+	/* 회원탈퇴 */
+	
+	#memberdelete {
+		display: none;
+		width: 400px;
+ 		height: 150px;
+ 		padding: 35px;
+ 		border:1px solid #ccc;
+ 		border-radius: 15px;
+ 		position:fixed;
+ 		left:40%;
+ 		top:40%; 
+ 		z-index:11;
+ 		background:#fff;
+ 		text-align: center;
+	}
+	#memberdelete_header {
+		line-height:35px;
+		text-align: center;
+		color: white; 
+		font-size: 20px;
+	}
+	#mo_delete_header {
+	width: 300px;
+		height: 35px;		 
+		border: 1px solid #0daa62;
+		background-color: #0daa62;
+		border-radius: 5px;
+		margin: 0 auto;
+	}
+	.dandi_green {
+		color: #0daa62;
+		font-weight: bold;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -547,30 +638,25 @@
 		var info_myear = $("#info_myear").val();
 		var info_mmonth = $("#info_mmonth").val();
 		var info_mday = $("#info_mday").val();
-		//alert(myear);
-		//alert(mmonth);
-		//alert(mday);
 		
-		//alert(meminfo_code);
+		
+		
 		$("#info_myear").attr("value", myear);
 		$("#info_mmonth").attr("value", mmonth);
 		$("#info_mday").attr("value", mday);
 		
 		$(document).on("click", "#member_infoupdate", function() {
-			//alert("회원정보수정버튼 클릭");
-			//meminfo_code.val("code1").change;
 			$("#meminfo_code").attr("value", "1");
 			$("#mo_info").css("display", "block");
 		});
 		
 		$("#member_pwchange").click(function() {
-			//alert("비밀번호변경버튼 클릭")
+			$("#modal_info_pw").val("");
 			$("#meminfo_code").attr("value", "2");
 			$("#mo_info").css("display", "block");
 		})
 		
 		$("#member_delete").click(function() {
-			//alert("회원탈퇴버튼 클릭")
 			$("#meminfo_code").attr("value", "3");
 			$("#mo_info").css("display", "block");
 		})
@@ -609,10 +695,6 @@
 		var mphone3 = member_phone.substring(7,11);
 		
 		var mphone = $("#phone").val();
-		//alert(member_phone);
-		//alert(mphone1);
-		//alert(mphone2);
-		//alert(mphone3);
 		if (mpw != modal_mpw){
 			$("#mo_me").text("비밀번호가 일치하지 않습니다.").css("color", "red");
 		} else {
@@ -644,12 +726,8 @@
 						$("#email2").val("google.com");
 					}
 				$("#phone").attr("value", member_phone);
-					
-				
-				
-				
-				//alert(mpw +"===> 비밀번호확인");
 			} else if(meminfo_code == 2){
+				$("#passwordupdate").css("display","block");
 				
 			} else if(meminfo_code == 3){
 				
@@ -660,6 +738,7 @@
 	
 	$(document).on("click", "#btn_update", function(){
 		var mid = $("#member_id").val();
+		var mpw = $("#member_pw").val();
 		var mname = $("#name").val();
 		var mgender = $("#modal_gendervalue").val();
 		var yy = $("#yy").val();
@@ -675,7 +754,7 @@
 			url : "memberupdate.dandy",
 			type : "POST",
 			dataType: "JSON",
-			data : "mid=" + mid + "&mname=" + mname + "&mgender=" + mgender + "&mbirth=" + mbirth + "&memail=" + memail + "&mphone=" + mphone,
+			data : "mid=" + mid + "&mpw=" + mpw + "&mname=" + mname + "&mgender=" + mgender + "&mbirth=" + mbirth + "&memail=" + memail + "&mphone=" + mphone,
 			success : function(data) {
 				 if(data.result == "1"){
 					 alert("수정 성공");
@@ -693,6 +772,55 @@
 		 
 	});
 	
+	$(document).on("click", "#modal_password_close", function(){
+		$("#mo_info").css("display","none");
+		$("#passwordupdate").css("display","none");
+		$("#pwmessage").text(".").css("color","white");
+		$("#pw1").val(""); 
+		$("#pw2").val("");
+	});
+	$(document).on("click", "#modal_password_btn", function(){
+		var mid = $("#member_id").val();
+		
+		var pw1 = $("#pw1").val();
+		var pw2 = $("#pw2").val(); 
+		
+		/* var mpw1 = $.trim(pw1.val());
+		var mpw2 = $.trim(pw2.val()); */
+		var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		
+		if(pw1 == ""){
+			$("#pwmessage").text("변경할 비밀번호를 입력해주세요.").css("color","red");
+		} else if(!regPass.test(pw1)) {
+			$("#pwmessage").text("6~20자 이내 숫자 + 영문만 사용하세요.").css("color", "red"); 
+		}  else if(pw2 == ""){
+			$("#pwmessage").text("비밀번호확인을 입력해주세요.").css("color","red");
+		}  else if(pw1 != pw2){
+			$("#pwmessage").text("비밀번호가 일치하지 않습니다.").css("color","red");
+		}  else if(pw1 == pw2){
+			$("#pwmessage").text(".").css("color","white");
+			alert("action가야지 왜 안가");
+			$.ajax({
+				url : "memberpwchange.dandy",
+				type : "POST",
+				dataType: "JSON",
+				data : "mid=" + mid + "&pw1=" + pw1,
+				success : function(data) {
+					 if(data.result == "1"){
+						 alert("비밀번호변경 성공");
+							location.reload();
+					 } else if(data.result == "0"){
+						 alert("비밀번호변경 실패");
+					 }
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+		}
+		
+	});
 </script>
 </head>
 <body>
@@ -714,8 +842,8 @@
 						<div class="mycontent_contents">
 							<!-- <span>회원정보, 회원정보 수정, 탈퇴 추가예정</span> -->
 							<div id ="member_id_line">
-								<input type="text" id="member_id" value="${sessionScope.loginUser.mid}" readonly="readonly">
-								<input type="hidden" id="member_pw" value="${sessionScope.loginUser.mpw}">
+								<input type="text" id="member_id" name="mid" value="${sessionScope.loginUser.mid}" readonly="readonly">
+								<input type="hidden" id="member_pw" name="mpw" value="${sessionScope.loginUser.mpw}">
 							</div>
 							<div id ="member_ngb_line">
 								<input type="hidden" id="mbirth_value" value="${sessionScope.loginUser.mbirth}">
@@ -806,7 +934,7 @@
 	<!-- 회원정보 수정 모달창 -->
 		<div id="member_update_modal">
 			<div id="wrap">
-				<div id="modal_header"><h1><a href="#" class="header_logo">회원정보수정</a></h1></div>
+				<div id="modal_header"><h1><span class="header_logo">회원정보수정</span></h1></div>
 				<div id="container">
 					<div id="content">
 						<div class="join_content">
@@ -926,6 +1054,28 @@
 		</div>
 		</div>
 		
+	<!-- 비밀번호 변경 모달창 -->
+		<div id="passwordupdate">
+			<div id="mo_pw_header"><span id="passwordupdate_header">비밀번호변경</span></div>
+			<div id="password_input_area">
+				<input type="password"  id ="pw1" name="pw1" class="password_input" value="" placeholder="새비밀번호">
+				<br>
+				<input type="password" id="pw2" name="pw2" class="password_input" value=""placeholder="비밀번호확인">
+			</div>
+			<div id="password_message">
+				<span id="pwmessage">.</span>
+			</div>
+			<div id="password_btn_area">
+				<input type="button" id="modal_password_btn" class="mo_member_btn" value="확인">
+				<input type="button" id="modal_password_close" class="mo_member_btn" value="취소">
+			</div>
+		</div>
+		
+	<!-- 회원탈퇴 모달창 -->
+		<div id="memberdelete">
+			<div id="mo_delete_header"><span id="memberdelete_header">회원탈퇴</span></div>
+			<div id="delete_message"><span class="dandi_green">DANDI</span><span>를 탈퇴하시면 회원정보와 내단어장리스트가 초기화되며 복구하실 수 없습니다.<br>정말로 탈퇴를 원하신다면 아래의 탈퇴버튼을 눌러주세요.</span><span class="dandi_green">DANDI</span><span>를 탈퇴하시겠습니까?</span></div>
+		</div>
 		
 		
 	</div>
