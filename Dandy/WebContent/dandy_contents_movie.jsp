@@ -232,7 +232,7 @@
 				<a href="#" class="active_index" index_num="X">X</a>
 				<a href="#" class="active_index" index_num="Y">Y</a>
 				<a href="#" class="active_index" index_num="Z">Z</a>
-			</div> 
+			</div>  
 			<input type="hidden" id="index_number" value="${index}">
 	<!-- 영화 포스터 -->
 			<div id="poster">
