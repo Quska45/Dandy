@@ -843,6 +843,40 @@
 	});
 	
 	
+	// 단어장 상세 페이지 띄워주는 ajax
+	$(document).on("click", ".modalLink", function() {
+		var mno = $(this).attr("data_mno");
+		var img = $(this).attr("data_img");
+		var title = $(this).attr("data_title");
+		
+		var keyword = $("#search_keyword_empty");
+			if(keyword.val() == "") {
+				keyword.val("empty");
+			}
+		var keyword_result = keyword.val();
+		var page = $("#save_page").val();
+		var index = $("#index_number").val();
+		var selector = "sel01";
+		var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
+		document.location.hash = "#" + str_hash;
+		
+		
+		$("#cBody").css("height","12263px");
+		$.ajax({
+			url : "contentsDetail.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&img=" + img + "&title=" + title,
+			success : function(result) {
+				$("#movieList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+
+	});
+	
 	
 	// diy 버튼 눌렀을때 입력창 띄워주는 스크립트
 	function diy_page() {
@@ -859,25 +893,6 @@
 	}
 	
 	
-	$(document).on("click", ".modalLink", function() {
-		var mno = $(this).attr("data_mno");
-		var img = $(this).attr("data_img");
-		var title = $(this).attr("data_title");
-		$("#cBody").css("height","12263px");
-		$.ajax({
-			url : "contentsDetail.dandy",
-			type : "POST",
-			data : "mno=" + mno + "&img=" + img + "&title=" + title,
-			success : function(result) {
-				$("#movieList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-
-	});
 	
 	
 

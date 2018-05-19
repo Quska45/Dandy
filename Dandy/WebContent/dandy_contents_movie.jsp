@@ -215,7 +215,7 @@
 			</div>
 	<!-- 숫자 페이지 -->
 			<div id="num_page">
-			
+				<input type="hidden" id="save_page" name="save_page" value="${page}">
 				<c:if test="${pageMaker.prev}">
 					<a href="#" class="active_page" page_num="${pageMaker.startPage-1}">◀</a>
 				</c:if>

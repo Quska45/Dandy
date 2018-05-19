@@ -55,6 +55,7 @@ public class MovieListAction implements Action {
 		request.setAttribute("pageMaker", moviePageMaker);
 		request.setAttribute("index", CriDto.getIndex());
 		request.setAttribute("keyword", keyword);
+		request.setAttribute("page", page);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
