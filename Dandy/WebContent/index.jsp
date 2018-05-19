@@ -42,6 +42,7 @@
 	/* 로고가 있는 헤더의 시작 */
 	#dandy_logo {
 		color: #FA6C00;
+		
 	}
 	div#header {
 		position: fixed;
@@ -93,10 +94,7 @@
 		min-height: 505px;
 		overflow: hidden;
 		height: 1000px;
-<<<<<<< HEAD
 		background: #363636;
-=======
->>>>>>> branch 'master' of http://github.com/Quska45/Dandy.git
 	}
 	div.mainCon {
 		position: absolute;
@@ -534,7 +532,6 @@
 		margin-right: 5px;
 		margin-top: 20px;
 	}
-	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
