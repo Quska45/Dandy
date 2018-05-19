@@ -770,8 +770,6 @@
 		var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
 		document.location.hash = "#" + str_hash;
 		
-		alert("str_hash : " + strhash);
-		
 			$.ajax({
 				url : "movieList.dandy",
 				type : "POST",
@@ -800,7 +798,6 @@
 		var selector = "sel01";
 		var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
 		document.location.hash = "#" + str_hash;
-		alert("index hash" + str_hash);
 			
 			$.ajax({
 				url : "movieList.dandy",
@@ -824,17 +821,17 @@
 				keyword.val("empty");
 			}
 		var keyword_result = keyword.val();
-		var index = $("#index_number").val();
+		var index = "empty";
 		var page = "1";
 		var selector = "sel01";
 		var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
 		document.location.hash = "#" + str_hash;
 		
-		
 		$.ajax({
 			url : "movieSearchList.dandy",
 			type : "POST",
 			data : "index=" + index + "&keyword=" + keyword_result,
+			async: false,
 			success : function(result) {
 				$("#movieList").html(result);
 			},
@@ -1360,7 +1357,7 @@
 				</c:when>
 				
 				<c:otherwise>
-					<a href="javascript:;" onclick="func()" class="login_in" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
+					<a href="#" class="login_in" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
 					<img src="image/btn/btn_logout3.png" id="index_logout">
 				
@@ -1376,7 +1373,7 @@
 			<!-- 메인콘텐츠 시작 -->
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
-					<a href="javascript:;" onclick="func()" class="mainContentClose1">&times;</a>
+					<a href="#" class="mainContentClose1">&times;</a>
 					<!-- 메인콘텐트 입니다. -->
 					<div id="movieList"></div>
 				</div>
@@ -1386,7 +1383,7 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="javascript:;" onclick="movie_list();" class="openButton1"></a>
+					<a href="#" onclick="movie_list();" class="openButton1"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">
@@ -1404,7 +1401,7 @@
 				
 				<!-- 딕테이션 페이지 시작 -->
 				<div id="content2">
-					<a href="javascript:;" onclick="func()" class="mainContentClose2">&times;</a>
+					<a href="#" class="mainContentClose2">&times;</a>
 					
 					<div id="diyPage"></div>
 					
@@ -1412,7 +1409,7 @@
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="javascript:;" class="openButton2" onclick="diy_page();"></a>
+					<a href="#" class="openButton2" onclick="diy_page();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background2">
@@ -1430,11 +1427,11 @@
 				
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
-					<a href="javascript:;" onclick="func()" class="mainContentClose3">&times;</a>
+					<a href="#" class="mainContentClose3">&times;</a>
 					<div id="wrap_contents1">
 						<div id="board_sel">
 							<div class="board_selbtn" id="qna_btn">
-								<a href="javascript:;" onclick="func()"><span>Q & A</span></a>
+								<a href="#"><span>Q & A</span></a>
 							</div>
 							<div class="board_selbtn" id="free_btn">
 								<a href="#freeboard"><span>자유게시판</span></a>
@@ -1448,7 +1445,7 @@
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="javascript:;" class="openButton3" onclick="board_list();"></a>
+					<a href="#" class="openButton3" onclick="board_list();"></a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
@@ -1471,9 +1468,9 @@
 				<!-- 텍스트가 들어가는 부분 시작 -->
 				<div class="left">
 					<div class="link">
-						<a href="javascript:;" onclick="func()" class="type2"><strong>개인정보처리방침</strong></a>
+						<a href="#" class="type2"><strong>개인정보처리방침</strong></a>
 						<span class="divide">|</span>
-						<a href="javascript:;" onclick="func()">사이트맵</a>
+						<a href="#">사이트맵</a>
 					</div>
 					<div class="address">
 						<span>광주 한국정보원</span>
@@ -1527,11 +1524,11 @@
 						<div id="login_help">
 							<a href="memberConstract.dandy">회원가입</a>
 							<div class="right">
-								<a href="javascript:;" onclick="func()">
+								<a href="#">
 									계정 찾기
 								</a> 
 								<span class="right_bar"></span> 
-								<a href="javascript:;" onclick="func()">비밀번호 재설정</a>
+								<a href="#">비밀번호 재설정</a>
 							</div>
 						</div>
 					</div>
