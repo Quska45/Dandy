@@ -194,25 +194,161 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	/* // 게시판 정렬
-	var lineup_code = $("#lineup_code").val();
-	$(document).on("click", "#l_no", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_no";
+	// 자유게시판 : 검색
+	$(document).on("click", "#free_search_btn", function(){
+		var keyword = $("#free_search_keyword").val();
+		var type = $("#free_selsearch").val();
+		$.ajax({
+			url : "freeBoardSearch.dandy",
+			type : "POST",
+			data : "keyword=" + keyword + "&type=" + type,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
 	});
-	$(document).on("click", "#l_contents", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_contents";
+	
+	
+	// 자유게시판 : 정렬
+	$(document).on("click", "#fl_no", function(){
+		$("#lineup_code").val("fl_no");
+		var lineup_code = $("#lineup_code").val();
+		var sort = $("#freeboardsort").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				 $("#boardList").html(result); 
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
 	});
-	$(document).on("click", "#l_name", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_name";
+	//boardlist, sort
+	/* if(result.sort = "asc"){
+		$("#fl_no_span").text("NO▲");	// 오름차순
+		$("#freeboardsort").val("desc");
+		alert("sort : asc -> desc");
+	} else if(result.sort = "desc"){
+		$("#fl_no_span").text("NO▼");	// 내림차순
+		$("#freeboardsort").val("asc");
+		alert("sort : desc -> asc");
+	} */
+	$(document).on("click", "#fl_contents", function(){
+		$("#lineup_code").val("fl_contents");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+				$("#fl_contents_span").text("CONTENTS▲");	// 오름차순
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
 	});
-	$(document).on("click", "#l_date", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_date";
+	$(document).on("click", "#fl_name", function(){
+		$("#lineup_code").val("fl_name");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+				$("#fl_name_span").text("NAME▲");	// 오름차순
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
 	});
-	$(document).on("click", "#l_view", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_view";
+	$(document).on("click", "#fl_date", function(){
+		$("#lineup_code").val("fl_date");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+				$("#fl_date_span").text("DATE▲");	// 오름차순
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
 	});
-	$(document).on("click", "#l_good", function(){
-		location.href="qna.bizpoll?lineup_code=" + "l_good";
+	$(document).on("click", "#fl_view", function(){
+		$("#lineup_code").val("fl_view");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+				$("#fl_view_span").text("▲");	// 오름차순
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	$(document).on("click", "#ffl_good", function(){
+		$("#lineup_code").val("ffl_good");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result);
+				$("#ffl_good_span").text("▲");	// 오름차순 ASC
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	// 자유게시판 : 정렬
+	/* $(document).on("click", "#fl_no", function(){
+		var sort = $("#fl_no_input").val();
+		var keyword = $("#fl_no_input_keyword").val();
+		alert(sort);
+		$.ajax({
+			url : "FreeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
 	}); */
 </script>
 </head>
@@ -225,7 +361,7 @@
 					<span>
 						<a href="#"><input type="button" id="freewr_btn" value="글쓰기"></a>
 					</span>
-					<input id="free_search_btn" class="qnasearch" type="submit" value="검색">
+					<input id="free_search_btn" class="qnasearch" type="button" value="검색">
 					<input id="free_search_keyword" class="qnasearch" name="search_keyword" type="text" placeholder="검색어">
 					<select id="free_selsearch" name="free_selsearch" class="qnasearch" >
 							<option value="1">전체</option>
@@ -252,38 +388,39 @@
 				</tr>
 				<tr>
 					<td id="table_top">
-						<input type="hidden" name="lineup_code" value="">
+						<input type="hidden" id="lineup_code" name="lineup_code" value="">
+						<input type="hidden" id="freeboardsort" name="freeboardsort" value="asc" alt="click시 asc로 정렬">
 						<table>
 							<tbody>
 								<tr>
 									<td class="no">
-										<a href="#" id="l_no" class="lineup">
-											<span>NO</span>
+										<a href="#" id="fl_no" class="lineup">
+											<span id="fl_no_span">NO</span>
 										</a>
 									</td>
 									<td class="point"></td>
 									<td class="upload"></td>
 									<td class="contents" id="contents">
-										<a href="#"  id="l_contents"  class="lineup">
-											<span>CONTENTS</span>
+										<a href="#"  id="fl_contents"  class="lineup">
+											<span id="fl_contents_span">CONTENTS</span>
 										</a>
 									</td>
 									<td class="name" id="name">
-										<a href="#"  id="l_name" class="lineup">
-											<span>NAME</span></a>
+										<a href="#"  id="fl_name" class="lineup">
+											<span id="fl_name_span">NAME</span></a>
 										</td>
 									<td class="date" id="date">
-										<a href="#"  id="l_date" class="lineup">
-											<span>DATE</span>
+										<a href="#"  id="fl_date" class="lineup">
+											<span id="fl_date_span">DATE</span>
 										</a>
 									</td>
 									<td class="view" id="view">
-										<a href="#"  id="l_view" class="lineup">
-											<span><i class="fa fa-eye"></i></span>
+										<a href="#"  id="fl_view" class="lineup">
+											<i class="fa fa-eye"></i><span id="fl_view_span"></span>
 										</a>
 										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										<a href="#" id="l_good"  class="lineup">
-											<span><i class="fa fa-heart"></i></span>
+										<a href="#" id="ffl_good"  class="lineup">
+											<i class="fa fa-heart"></i><span id="fl_good_span"></span>
 										</a>
 									</td>
 								</tr>

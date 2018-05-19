@@ -379,4 +379,38 @@ public class FreeBoardDAO {
 			return result;
 		}
 		
+		// 게시판 정렬
+		public List<FreeBoardDTO> freeboardlineup(CriteriaDTO criDto){
+			sqlSession = sqlSessionFactory.openSession();
+			List<FreeBoardDTO> list = null;
+			
+			String lineup_code = criDto.getLineup_code();
+			String sort = criDto.getSort();
+			System.out.println("정렬 코드 ===>" + lineup_code);
+			System.out.println("정렬 방식 ===>" + sort);
+			
+			try {
+				if(sort.equals("asc")) {
+					list = sqlSession.selectList("boardlineup_asc", criDto);
+					System.out.println("asc로 정렬한 게시판 리스트 : "+ list.size());
+				} else if(sort.equals("desc")) {
+					list = sqlSession.selectList("boardlineup_desc", criDto);
+					System.out.println("desc로 정렬한 게시판 리스트 : "+ list.size());
+				}
+				for (FreeBoardDTO boardDTO : list) {
+					System.out.print(boardDTO.getBno() + ", ");
+					System.out.print(boardDTO.getTitle() + ", ");
+					System.out.print(boardDTO.getContent() + ", ");
+					System.out.print(boardDTO.getWriter() + ", ");
+					System.out.print(boardDTO.getRegdate() + ", ");
+					System.out.print(boardDTO.getViewcnt() + ", ");
+					System.out.println();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			return list;
+		}
 	} 

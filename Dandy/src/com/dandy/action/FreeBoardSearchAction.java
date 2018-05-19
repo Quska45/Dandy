@@ -50,7 +50,6 @@ public class FreeBoardSearchAction implements Action{
 		Date date = new Date();
 		request.setAttribute("today", date);
 		
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

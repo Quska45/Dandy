@@ -24,6 +24,7 @@ import com.dandy.action.FreeBoardDetailAction;
 import com.dandy.action.FreeBoardInsertSaveAction;
 import com.dandy.action.FreeBoardListAction;
 import com.dandy.action.FreeBoardSearchAction;
+import com.dandy.action.FreeBoardLineUpAction;
 import com.dandy.action.FreeBoardUpdateSaveAction;
 import com.dandy.action.FreeBoardUpdateViewAction;
 import com.dandy.action.FreeBoardWriteAction;
@@ -292,6 +293,15 @@ public class DandyFrontController extends HttpServlet {
 				action = new MemberDeleteAction(); 
 				forward = action.excute(request, response); 
 		}
+		 else if (command.equals("/freeBoardSearch.dandy")) {
+				action = new FreeBoardSearchAction(); 
+				forward = action.excute(request, response); 
+		}
+		 else if (command.equals("/freeBoardLineUp.dandy")) {
+				action = new FreeBoardLineUpAction(); 
+				forward = action.excute(request, response); 
+		}
+		
 		
 		
 		

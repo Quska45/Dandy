@@ -251,11 +251,11 @@
 		var sort = $("#l_no_input").val();
 		var keyword = $("#l_no_input_keyword").val();
 		alert(sort);
-		alert0(keyword);
+		alert(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
-			data : "sort=" + sort,
+			data : "sort=" + sort + "&keyword=" + keyword,
 			success : function(result) {
 				$("#boardList").html(result);
 			},

@@ -9,7 +9,7 @@
 <!-- =================================================================자유게시판================================================================= -->
 		<!-- 자유게시판 리스트 출력 (정렬 추가) -->
 			  <select id="fblistCriteria" resultType="fDTO">
-			  		<![CDATA[
+			  	<![CDATA[
 			  			SELECT *
 			  			FROM (
 			  				SELECT rownum rnum,
@@ -19,10 +19,25 @@
 			  								FROM fbreply d
 			  								WHERE b.bno = d.bno) replycnt 
 			  					FROM board b
-			  					WHERE bno > 0]]>
-			  					<if test='lineup_code == null'>
-									<![CDATA[ORDER BY ref DESC, re_step ASC]]>
-								</if>
+			  					WHERE bno > 0
+			  					ORDER BY ref DESC, re_step ASC
+			  				) a
+			  			)
+			  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			  		]]>
+			  	</select>
+		<!-- 자유게시판 정렬 -->
+				<select id="boardlineup_desc" resultType="fDTO" >
+					<![CDATA[
+			  			SELECT *
+			  			FROM (
+			  				SELECT rownum rnum,
+			  				a.*
+			  				FROM (
+			  					SELECT b.*, (SELECT COUNT(*) 
+			  								FROM fbreply d
+			  								WHERE b.bno = d.bno) replycnt 
+			  					FROM board b]]>
 								<if test='lineup_code == "l_no"'>
 									<![CDATA[ORDER BY bno desc]]>
 								</if>
@@ -41,12 +56,49 @@
 								<if test='lineup_code == "l_good"'>
 									<![CDATA[ORDER BY goodcnt desc]]>
 								</if>
+								
 								<![CDATA[
 			  				) a
 			  			)
 			  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 			  		]]>
-			  	</select>
+				</select>
+				<select id="boardlineup_asc" resultType="fDTO" >
+					<![CDATA[
+			  			SELECT *
+			  			FROM (
+			  				SELECT rownum rnum,
+			  				a.*
+			  				FROM (
+			  					SELECT b.*, (SELECT COUNT(*) 
+			  								FROM fbreply d
+			  								WHERE b.bno = d.bno) replycnt 
+			  					FROM board b]]>
+								<if test='lineup_code == "l_no"'>
+									<![CDATA[ORDER BY bno asc]]>
+								</if>
+								<if test='lineup_code == "l_contents"'>
+									<![CDATA[ORDER BY title asc]]>
+								</if>
+								<if test='lineup_code == "l_name"'>
+									<![CDATA[ORDER BY writer asc]]>
+								</if>
+								<if test='lineup_code == "l_date"'>
+									<![CDATA[ORDER BY regdate asc]]>
+								</if>
+								<if test='lineup_code == "l_view"'>
+									<![CDATA[ORDER BY viewcnt asc]]>
+								</if>
+								<if test='lineup_code == "l_good"'>
+									<![CDATA[ORDER BY goodcnt asc]]>
+								</if>
+								
+								<![CDATA[
+			  				) a
+			  			)
+			  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			  		]]>
+				</select>
 		<!-- 자유게시판 게시글 등록 -->
 				<insert id="boardinsert">
 				  	INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
