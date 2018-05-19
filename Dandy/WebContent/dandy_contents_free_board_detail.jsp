@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,7 +100,7 @@
 		height: 200px;
 	}
 	#re_input {
-		width: 550px;
+		width: 500px;
 		height: 145px;
 		font-size: 18px;
 		color: #ddd;
@@ -141,6 +139,7 @@
 		font-size: 15px;
 		cursor:pointer;	
 		border: 0 15px;
+		cursor: pointer;
 		}
 	#bno {
 		border: none;
@@ -245,7 +244,15 @@
  	}
  	#mo_board_del {
  		display:none;
- 		position:relative;
+		position: fixed; 
+		z-index: 100!important; 
+		left: 0;
+		top: 0;
+		width: 100%; 
+		height: 100%; 
+		overflow: auto; 
+		background-color: rgb(0, 0, 0);
+		background-color: rgba(0, 0, 0, 0.4);
  	}
  	#mo_board_del .modal_del {
  		width: 180px;
@@ -254,8 +261,8 @@
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
- 		left:50%;
- 		top:50%; 
+ 		left:45%;
+ 		top:45%; 
  		z-index:11;
  		background:#fff;
  		text-align: center;
@@ -287,270 +294,105 @@
 		background-color: white;
 		color: #0daa62;
 	}
+	#freeremove_btn {
+		margin-left: 0!important;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-/* 게시판 삭제 확인 모달 */
+	
 	$(document).ready(function(){
-		  var mo_board_del = $("#mo_board_del");
-		  var del_link = $(".del_link");
-		  var modalCont = $(".modal_del");
-		  var marginLeft = modalCont.outerWidth()/2;
-		  var marginTop = modalCont.outerHeight()/2; 
-		 
-		  del_link.click(function(){
-		    mo_board_del.fadeIn("slow");
-		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
-		    $(this).blur();
-		    $(".modal_del > a").focus(); 
-		    return false;
-		  });
-		  
-		  $("#cancel_btn").click(function(){
-		    mo_board_del.fadeOut("slow");
-		    del_link.focus();
-		  });
-		  
-		  $("#okay_btn").click(function(){
-			mo_board_del.fadeOut("slow");
-			del_link.focus();
-		  });        
+		
+		//자유게시판 : 리플리스트
+		function comment_list() {
+			var bno = ${boardview.bno};
+
+			$.ajax({
+				type: "post",
+				url: "freeCommentList.dandy",
+				data: "bno=" + bno,
+				success: function(result) {
+					$("#commentList").html(result);
+				}, error: function() {
+					alert("System Error!!!");
+				}
+			});
+		}
+		
+		//자유게시판 : 댓글 등록 AJAX
+		$(document).on("click", "#freere_btn", function(){
+			var re_input = $("#re_input").val();	// 댓글 내용
+			var rn_input = $("#rn_input").val();	// 댓글 작성자
+			var re_bno = $("#re_bno").val();	// 댓글 번호
+		
+			$.ajax({
+				url: "freeReply.dandy",
+				type: "POST",
+				dataType: "json",
+				data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
+				success: function(data) {
+					comment_list();
+				}
+			});
 		});
 		
-	function comment_list() {
+		// 자유게시판 : 댓글 삭제 AJAX
+		$(document).on("click", ".reply_del", function(){
+			var rno = $(this).attr("data_num");
+			
+			$.ajax({
+		 		 url: "freeReplyDelete.dandy",
+		 		 type: "POST",	
+		 		 dataType: "json",
+		 		 data: "rno=" + rno,
+		 		 success: function(data) {
+		 			comment_list();
+		 		 }, error: function() {
+		 			 alert("System Error!!!");
+		 		 }
+		 	 });
+		});
+		
+	});
+	
+	
+	
+	
+	// 자유게시판 : 좋아요♥
+	$(document).on("click", "#good_fafa", function(){
+		var gpoint = $("#gpoint").val();
 		var bno = ${boardview.bno};
 		$.ajax({
-			type: "post",
-			url: "freeCommentList.dandy",
-			data: "bno=" + bno,
-			success: function(result) {
-				$("#commentList").html(result);
-			}
-		});
-	}
-	
-	$(document).ready(function() {
-		var formObj = $("#frm1");
-		
-		comment_list();
-		
-				
-		var code = $("#code").val();
-		
-	
-			if(code == 1){
-				alert("모달창 나와랏");
-				$("#id01").css("display","block");
-			} else if(code != 1){
-				$("#id01").css("display","none");
-			}		
-			var replyinsert = $("#replyinsert");
-	});
-		
-	$(document).ready(function(){
-		  var mo_board_del = $("#mo_board_del");
-		  var del_link = $(".del_link");
-		  var modalCont = $(".modal_del");
-		  var marginLeft = modalCont.outerWidth()/2;
-		  var marginTop = modalCont.outerHeight()/2; 
-		 
-		  del_link.click(function(){
-		    mo_board_del.fadeIn("slow");
-		    modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
-		    $(this).blur();
-		    $(".modal_del > a").focus(); 
-		    return false;
-		  });
-		 
-		  $(".modal_del > button").click(function(){
-		    mo_board_del.fadeOut("slow");
-		    del_link.focus();
-		  });        
-		});
-	
-		
-	// 댓글 등록 AJAX
-	$(document).on("click", "#freere_btn", function(){
-		alert("리플등록 클릭");
-		// 댓글 내용
-		var re_input = $("#re_input").val();
-		// 댓글 작성자
-		var rn_input = $("#rn_input").val();
-		// 댓글 번호
-		var re_bno = $("#re_bno").val();
-		alert(re_input, rn_input, re_bno);
-		$.ajax({
-			url: "freeReply.dandy",
+			url: "freeboardgoodpoint.dandy",
 			type: "POST",
 			dataType: "json",
-			data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
+			data: "bno=" + bno,
 			success: function(data) {
-				comment_list();
-			},
-			error: function() {
+				//alert(data.gpoint);
+			}, error: function() {
 				alert("System Error!!!");
 			}
 		});
 	});
 	
-	// 댓글 삭제 AJAX
-	$(document).on("click", ".reply_del", function(){
-		var rno = $(this).attr("data_num");
-		alert(rno);
-		$.ajax({
-	 		 url: "freeReplyDelete.dandy",
-	 		 type: "POST",	
-	 		 dataType: "json",
-	 		 data: "rno=" + rno,
-	 		 success: function(data) {
-	 			comment_list();
-	 		 },
-	 		 error: function() {
-	 			 alert("System Error!!!");
-	 		 }
-	 	 });
+	// 자유게시판 : 삭제 확인 모달
+	$(document).on("click", "#freeremove_btn1", function(){
+		$("#mo_board_del").css("display", "block");
 	});
-		
-		 $(document).on("click", "#good_fafa", function(){
-			//alert("좋아요 클릭!");
-			
-			var gpoint = $("#gpoint").val();
-			var bno = ${boardview.bno};
-			//alert(bno);
-			$.ajax({
-				url: "freeboardgoodpoint.dandy",
-				type: "POST",
-				dataType: "json",
-				data: "bno=" + bno,
-				success: function(data) {
-							alert(data.gpoint);
-				},
-				error: function() {
-					alert("System Error!!!");
-				}
-			});
-			
-		}); 
-		
-		// 자유게시판 목록버튼 클릭 리스트 출력
-			$(document).on("click", "#freelist_btn",function(){
-				//alert("목록 버튼 클릭");
-				 $.ajax({
-					type : "post",
-					url : "freeBoardList.dandy",
-					success : function(result) {
-						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-				}); 
-			});
-		
-			// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
-			$(document).on("click", "#freewr_btn", function(){
-				var sessionLogin = $("#sessionMid").val();
-				if(sessionLogin==""){
-					$(".modal").css("display", "block");
-				} else {
-					$.ajax({
-						type : "post",
-						url : "freeBoardWrite.dandy",
-						success : function(result) {
-							$("#boardList").html(result);
-						}
-					});
-				}
-			});
-		
-			//  댓글 등록을 위한 로그인을 유도하는 쿼리
-			$(document).on("click", "#free_board_detail_login", function(){
-				$(".modal").css("display", "block");
-			});
-			
-			/* 자유게시판 파일 다운로드 */
-			$(document).on("click", "#freeboard_filedown", function(){
-				var bno = $("#bno").val();
-				//alert("다운 버튼 클릭");
-				//alert(bno);
-				$.ajax({
-					type : "post",
-					url : "freeboardfiledownload.dandy",
-					data : "bno=" + bno,
-					success : function(result) {
-						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-				}); 
-			});
-			
-			//자유게시판 답변 페이지 
-			$(document).on("click", "#free_rewrite_btn", function(){
-				var bno = $("#free_answer_bno").val();
-				alert(bno);
-					 $.ajax({
-						type : "post",
-						url : "freeAnswer.dandy",
-						data : "bno=" + bno,
-						success : function(result) {
-							$("#boardList").html(result);
-						},
-						error : function() {
-							alert("System Error!!!");
-						}
-					}); 
-			});
-			
-			// 자유게시판 : 게시글 수정
-			$(document).on("click", "#freemodify_btn", function(){
-				//alert("게시글 수정");
-				var bno = $("#bno").val();
-				$.ajax({
-					url : "freeBoardUpdateView.dandy",
-					type : "POST",
-					//dataType:"JSON",
-					data : "bno=" + bno,
-					success : function(result) {
-						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!");
-					}
-				});
-				
-			});
-			//자유게시판 글 수정 등록
-			$(document).on("click", "#btn_freeup", function(){
-				var bno = $("#bno").val();
-				var title = $("#sub_input").val();
-				var writer = $("#name_input").val();
-				var content = $("#con_input").val();
-				alert(bno + title + writer + content);
-				$.ajax({
-					type : "post",
-					url : "freeBoardUpdateSave.dandy",
-					data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
-					success : function(result) {
-						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-				});
-			});
+	
+	$(document).on("click", "#cancel_btn", function(){
+		$("#mo_board_del").css("display", "none");
+	});
+	
+	
+	
 </script>
 </head>
 <body>
 <input type="hidden" id="free_answer_bno" value="${boardview.bno}">
 <div id="board">
 	<div id="table">
-		<div>
-			<input type="hidden" name="code" id="code" value="${code}">
-			<span width="100">&nbsp;</span>
-		</div>
 			<table id="table_top">
 				<tbody>
 					<tr>
@@ -663,7 +505,7 @@
 									<input type="button" class="board_btn" id="freemodify_btn"  value="수정">
 								</td>
 								<td class="date">
-									<a href="#mo_board_del" class="del_link"><input type="button" class="board_btn" id="freeremove_btn1"  value="삭제"></a>
+									<input type="button" class="board_btn" id="freeremove_btn1"  value="삭제">
 									<input type="hidden" name="pcode" id="pcode" value="${pcode}">
 								</td>
 							</c:when>

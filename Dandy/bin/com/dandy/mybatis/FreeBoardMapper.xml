@@ -180,5 +180,9 @@
 				DELETE FROM fbreply
 				WHERE rno = #{rno}
 			</delete>	
-
+		<!-- 게시글이 삭제되면서 리플이 같이 삭제되는 쿼리문 -->
+			 <delete id="bnoreplydelete" parameterType="Integer">
+			  	DELETE FROM fbreply
+			  	WHERE bno = #{bno}
+			 </delete>
 </mapper>

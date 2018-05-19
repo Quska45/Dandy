@@ -1041,6 +1041,211 @@
 		$(".modal").css("display", "none");
 	});
 	
+	
+	
+	/**********************************************자유게시판**************************************************/
+	//***** dandy_contents_free_board.jsp
+	// 자유게시판 : 게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
+	$(document).on("click", "#freeboardDetailBtn", function(){
+		var bno = $(this).attr("data_num");
+		
+		$.ajax({
+				url : "freeBoardDetail.dandy",
+				type : "POST",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+					}, error : function() {
+					alert("System Error!!!");
+					}
+				});
+			});
+	
+	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	$(document).on("click", "#freewr_btn", function(){
+		var sessionLogin = $("#sessionMid").val();
+		
+		if(sessionLogin==""){
+			$(".modal").css("display", "block");
+		} else {
+			$.ajax({
+				type : "post",
+				url : "freeBoardWrite.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}, error : function() {
+					alert("System Error!!!");
+				}
+			});
+		}
+	});	
+	
+	//***** dandy_contents_free_board_write.jsp
+	// 자유게시판 : 게시글 작성페이지 default 빈칸
+	$(document).ready(function() {
+			$("#sub_input").val("");
+			$("#con_input").val("");
+		});
+	
+	
+	//자유게시판 : 게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+	$(document).on("click", "#btn_freesuccess", function(){
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		var form = $('form')[0];
+        var formData = new FormData(form);
+        
+		$.ajax({
+			type : "post",
+			processData: false,
+            contentType: false,
+			url : "freeBoardInsertSave.dandy",
+			data : "title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	//***** dandy_contents_free_board_update.jsp
+	//자유게시판 : 게시글 수정 등록
+	$(document).on("click", "#btn_freeup", function(){
+		var bno = $("bno").val();
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		
+		$.ajax({
+			type : "post",
+			url : "freeBoardUpdateSave.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});	
+	
+	//***** dandy_contents_free_board_detail.jsp
+	
+	// 자유게시판 : 목록버튼 클릭 리스트 출력
+	$(document).on("click", "#freelist_btn",function(){
+		 $.ajax({
+			type : "post",
+			url : "freeBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}, error : function() {
+				alert("System Error!!!");
+			}
+		}); 
+	});
+	// 자유게시판 :  댓글 등록을 위한 로그인을 유도하는 쿼리
+	$(document).on("click", "#free_board_detail_login", function(){
+		$(".modal").css("display", "block");
+	});
+	
+	// 자유게시판 : 파일 다운로드 
+	$(document).on("click", "#freeboard_filedown", function(){
+		var bno = $("#bno").val();
+		
+		$.ajax({
+			type : "post",
+			url : "freeboardfiledownload.dandy",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			}, error : function() {
+				alert("System Error!!!");
+			}
+		}); 
+	});
+	
+	//자유게시판 : 답변 페이지 
+	$(document).on("click", "#free_rewrite_btn", function(){
+		var bno = $("#free_answer_bno").val();
+		
+		$.ajax({
+			type : "post",
+			url : "freeAnswer.dandy",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			}, error : function() {
+				alert("System Error!!!");
+			}
+		}); 
+	});
+	
+	// 자유게시판 : 게시글 수정
+	$(document).on("click", "#freemodify_btn", function(){
+		var bno = $("#bno").val();
+		
+		$.ajax({
+			url : "freeBoardUpdateView.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			}, error : function() {
+				alert("System Error!");
+			}
+		});
+	});
+	
+	// 자유게시판 : 게시글 수정 등록
+	$(document).on("click", "#btn_freeup", function(){
+		var bno = $("#bno").val();
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		
+		$.ajax({
+			type : "post",
+			url : "freeBoardUpdateSave.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}, error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
+	// 자유게시판 : 게시글 삭제
+	$(document).on("click", "#freeremove_btn", function(){
+		var bno = $("#bno").val();
+		$.ajax({
+			url : "freeBoardDelete.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!");
+			}
+		});
+		
+	});
+	//***** dandy_contents_free_board_answer.jsp
+	//자유게시판 : 답변등록
+	$(document).on("click", "#free_answer_wr_btn", function(){
+		var title = $("#sub_input").val();
+		var bno = $("#free_answer_bno").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		
+		$.ajax({
+			type : "post",
+			url : "freeAnswerInsert.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
 </script>
 
 </head>

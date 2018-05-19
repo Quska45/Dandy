@@ -1,44 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-
-		$(document).ready(function() {
-			$("#sub_input").val("");
-			$("#con_input").val("");
-		});
-		
-		$(document).ready(function(){
-			$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
-			$('.input_file').change(function(){
-				var i = $(this).val();
-				$('.upload_text').val(i).css("color","black");
-				$("#filebtn").css("color","#0daa62");
-				
-			});
-		});
-		
-		//자유게시판 글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
-		$(document).on("click", "#btn_freesuccess", function(){
-			var title = $("#sub_input").val();
-			var writer = $("#name_input").val();
-			var content = $("#con_input").val();
-			var form = $('form')[0];
-	        var formData = new FormData(form);
-	        
-			$.ajax({
-				type : "post",
-				processData: false,
-	            contentType: false,
-				url : "freeBoardInsertSave.dandy",
-				data : "title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-		});
-</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,6 +142,19 @@
 		color: #a7a7a7;
 	}
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+//자유게시판 : 게시글 작성페이지 첨부파일 input css
+$(document).ready(function(){
+	$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
+	$('.input_file').change(function(){
+		var i = $(this).val();
+		$('.upload_text').val(i).css("color","black");
+		$("#filebtn").css("color","#0daa62");
+		
+	});
+});
+</script>
 </head>
 <body>
 	<div id="contents">

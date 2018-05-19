@@ -1,6 +1,7 @@
 package com.dandy.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dandy.DAO.FreeBoardDAO;
+import com.dandy.DAO.ReplyDAO;
 import com.dandy.DTO.FreeBoardDTO;
+import com.dandy.DTO.ReplyDTO;
 
 public class FreeBoardDetailAction implements Action{
 
@@ -31,8 +34,19 @@ public class FreeBoardDetailAction implements Action{
 		
 		
 		// 상세 게시글 출력
-		FreeBoardDTO bDto = bDao.boardDetailView(bno);
+		FreeBoardDTO bDto = new FreeBoardDTO();
+		bDto = bDao.boardDetailView(bno);
+		ReplyDAO rDao = ReplyDAO.getInstance();
 		request.setAttribute("boardview", bDto);
+
+		if (bDto != null) {
+			List<ReplyDTO> replylist = rDao.freeReplyList(bno);
+			int listCount = replylist.size();
+			System.out.println("*********replycount : " +listCount);	
+			request.setAttribute("replyview", replylist);
+			request.setAttribute("re_count", listCount);
+		}
+		
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

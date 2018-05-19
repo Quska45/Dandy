@@ -194,69 +194,6 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		
-		var code = $("#code").val();
-		
-		/* $("#freewr_btn").on("click", function(){
-			location.href="boardloginck.bizpoll";
-		}); */
-	
-			if(code == 1){
-				$("#id01").css("display","block");
-				
-				code != 1;
-				
-			} else if(code != 1){
-				$("#id01").css("display","none");
-			}
-				
-			// 댓글 수 표시
-			var bnoform = $("#bnoform");
-			bnoform.submit();
-			
-			//게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
-			$(document).on("click", "#freeboardDetailBtn", function(){
-				var bno = $(this).attr("data_num");
-				$.ajax({
-					url : "freeBoardDetail.dandy",
-					type : "POST",
-					data : "bno=" + bno,
-					success : function(result) {
-						$("#boardList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-
-				});
-				
-			});
-			
-	});
-	
-	$(document).on("click","#qnasearch_btn",function(){
-		
-		$("#frm_search").submit();
-		
-	});
-	
-	// 자유게시판 : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
-	$(document).on("click", "#freewr_btn", function(){
-		var sessionLogin = $("#sessionMid").val();
-		if(sessionLogin==""){
-			$(".modal").css("display", "block");
-		} else {
-			$.ajax({
-				type : "post",
-				url : "freeBoardWrite.dandy",
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-		}
-	});
-	
 	/* // 게시판 정렬
 	var lineup_code = $("#lineup_code").val();
 	$(document).on("click", "#l_no", function(){

@@ -150,4 +150,27 @@ public class ReplyDAO {
 			}
 			
 		}
+		// 자유게시판의 글이 삭제되면 댓글도 함께 삭제
+		public int replyDeleteWithBoard(Integer bno) {
+			int rd_result = 0;
+			
+			sqlSession = sqlSessionFactory.openSession();
+			
+			try {
+				rd_result = sqlSession.delete("bnoreplydelete", bno);
+				sqlSession.commit();
+				
+				if(rd_result > 0) {
+					System.out.println(bno + "번의 게시글 삭제와 동시에 리플도 함께 삭제 성공");
+				} else {
+					System.out.println(bno + "번의 게시글이 삭제되면서 실행한 리플 삭제 실패");
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(sqlSession != null) sqlSession.close();
+			}
+			return rd_result;
+		}
 }
