@@ -535,6 +535,60 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+	
+	// 해쉬값에 주소 저장해서 뒤로가기 구현
+	$(window).on('hashchange', function () {
+		var str_hash = document.location.hash;
+			str_hash = str_hash.replace("#","");
+			arr_curpage = str_hash.split("^");
+			selector = arr_curpage[0];
+			page = arr_curpage[1];
+			index = arr_curpage[2];
+			keyword = arr_curpage[3];
+			
+			if(selector == "sel01"){
+				movieHash();	
+			} else if(selector == "sel02") {
+				
+			} else if(selector == "sel03") {
+				
+			}
+	     
+	     
+	     function movieHash() {		
+			if(document.location.hash) {
+				//hash 가 있다면 ^ 를 구분자로 하나씩 string을 추출하여 각각 페이지정보를 가져옵니다.
+				var str_hash = document.location.hash;
+				str_hash = str_hash.replace("#","");
+				arr_curpage = str_hash.split("^");
+				selector = arr_curpage[0];
+				page = arr_curpage[1];
+				index = arr_curpage[2];
+				keyword = arr_curpage[3];
+			
+				// 뒤로가기 처리.. 각각 현재페이지를 가지고 다시 ajax를 실행해줍니다.
+				$.ajax({
+					url : "movieList.dandy",
+					type : "POST",
+					data : "page=" + page + "&index=" + index + "&keyword=" + keyword,
+					success : function(result) {
+						$("#movieList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				});
+				
+			} else {
+				//nothing..
+			}
+	
+		}
+	     
+	 });
+
+
+
 
 
 
@@ -683,6 +737,15 @@
 	
 	// 단어장 눌렀을때 영화 목록 띄워주는 스크립트
 	function movie_list() {
+		var keyword = "empty";
+		var page = "1";
+		var index = "empty";
+		var selector = "sel01";
+		
+		var str_hash = selector + "^" + page + "^" + index + "^" + keyword;
+		document.location.hash = "#" + str_hash;
+		
+		//alert("str_hash : " + str_hash);
 		//alert("onclick");
 		$.ajax({
 			type : "post",
@@ -698,12 +761,16 @@
 	//영화 목록에서 페이지네이션의 숫자 눌렀을때 페이지 이동하게 해주는 스크립트
 	$(document).on("click", ".active_page", function() {
 		var keyword = $("#search_keyword_empty");
-		if(keyword.val() == "") {
-			keyword.val("empty");
-		}
+			if(keyword.val() == "") {
+				keyword.val("empty");
+			}
 		var keyword_result = keyword.val();
 		var page = $(this).attr("page_num");
 		var index = $("#index_number").val();
+		var selector = "sel01";
+		var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
+		document.location.hash = "#" + str_hash;
+		
 			$.ajax({
 				url : "movieList.dandy",
 				type : "POST",
@@ -716,7 +783,7 @@
 				}
 	
 			});
-	
+			
 	});
 	
 	
