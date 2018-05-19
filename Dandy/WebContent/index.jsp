@@ -528,7 +528,12 @@
 		line-height: 40px;
 		padding: 0 auto;
 	}
-
+	#index_logout {
+		width: 50px;
+		float: right;
+		margin-right: 5px;
+		margin-top: 20px;
+	}
 	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -591,7 +596,6 @@
 				dataType :  "JSON",
 				success: function(data){
 					if(data.flag=="1"){
-						//index.bizpoll을 띄우라는 것이다.
 						location.reload();
 					} else if(data.flag!="0"){
 						alert("data.flag" + data.flag);
@@ -1275,7 +1279,7 @@
 				<c:otherwise>
 					<a href="#" class="login_in" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
-					<a href="#" id="index_logout">로그아웃</a>
+					<img src="image/btn/btn_logout3.png" id="index_logout">
 				
 				</c:otherwise>
 				
