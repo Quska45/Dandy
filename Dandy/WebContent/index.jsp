@@ -116,12 +116,13 @@
 			padding-bottom: 120px;
 			background: #00AE93;
 		}
-		a.mainContentClose1 {
-			font-size: 70px;
+		img.mainContentClose1 {
 			position: absolute;
 			top: 0;
 			right: 20px;
-			color: white;
+			width: 50px;
+			padding-top: 15px;
+			cursor: pointer;
 		}
 		div#content2 {
 			position: absolute;
@@ -134,12 +135,13 @@
 			padding-bottom: 120px;
 			background: #00AE93;
 		}
-		a.mainContentClose2 {
-			font-size: 70px;
+		img.mainContentClose2 {
 			position: absolute;
 			top: 0;
 			right: 20px;
-			color: white;
+			width: 50px;
+			padding-top: 15px; 
+			cursor: pointer;
 		}
 		div#content3 {
 			position: absolute;
@@ -152,12 +154,13 @@
 			padding-bottom: 120px;
 			background: #00AE93;
 		}
-		a.mainContentClose3 {
-			font-size: 70px;
+		img.mainContentClose3 {
 			position: absolute;
 			top: 0;
 			right: 20px;
-			color: white;
+			width: 50px;
+			padding-top: 15px;
+			cursor: pointer;
 		}
 		/* 단어장 등을 누르면 시작되는 컨텐츠를 띄워주는 페이지 끝 */
 	
@@ -1568,7 +1571,7 @@
 			<!-- 메인콘텐츠 시작 -->
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
-					<a href="#" class="mainContentClose1">&times;</a>
+					<img src="image/btn/btn_error_white.png" class="mainContentClose1">
 					<!-- 메인콘텐트 입니다. -->
 					<div id="movieList"></div>
 				</div>
@@ -1596,7 +1599,7 @@
 				
 				<!-- 딕테이션 페이지 시작 -->
 				<div id="content2">
-					<a href="#" class="mainContentClose2">&times;</a>
+					<img src="image/btn/btn_error_white.png" class="mainContentClose2">
 					
 					<div id="diyPage"></div>
 					
@@ -1622,7 +1625,7 @@
 				
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
-					<a href="#" class="mainContentClose3">&times;</a>
+					<img src="image/btn/btn_error_white.png" class="mainContentClose3">
 					<div id="wrap_contents1">
 						<div id="board_sel">
 							<div class="board_selbtn" id="qna_btn">
