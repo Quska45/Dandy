@@ -30,6 +30,7 @@ public class FreeBoardListAction implements Action {
 		}
 		System.out.println("페이지 번호" + page);
 		criDto.setPage(page);
+		request.setAttribute("page", page);
 		
 		/*criDto.setLineup_code(lineup_code);*/
 		

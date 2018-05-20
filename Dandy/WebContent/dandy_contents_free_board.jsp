@@ -366,6 +366,7 @@
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
 									<a class="freepageMove" href="#" page_num="${idx}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+									<input type="hidden"  id="activepage" value="${page}">
 								</td>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">

@@ -23,6 +23,8 @@ public class FreeBoardDetailAction implements Action{
 		
 		Integer bno = Integer.parseInt(request.getParameter("bno"));
 		System.out.println("게시글 번호 = " + bno);
+		Integer page = Integer.parseInt(request.getParameter("page"));
+		System.out.println("리스트 페이지 : " + page);
 		
 		FreeBoardDAO bDao = FreeBoardDAO.getInstance();
 		
@@ -45,6 +47,7 @@ public class FreeBoardDetailAction implements Action{
 			System.out.println("*********replycount : " +listCount);	
 			request.setAttribute("replyview", replylist);
 			request.setAttribute("re_count", listCount);
+			request.setAttribute("page", page);
 		}
 		
 		

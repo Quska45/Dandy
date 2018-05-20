@@ -394,6 +394,7 @@
 </head>
 <body>
 <input type="hidden" id="free_answer_bno" value="${boardview.bno}">
+<input type="hidden" id="page" value="${page}">
 <div id="board">
 	<div id="table">
 			<table id="table_top">

@@ -1343,11 +1343,12 @@
 	// 자유게시판 : 게시판 상세 페이지를 띄우는 쿼리 : 자유게시판
 	$(document).on("click", "#freeboardDetailBtn", function(){
 		var bno = $(this).attr("data_num");
-		
+		var page = $("#activepage").val();
+		//alert(page);
 		$.ajax({
 				url : "freeBoardDetail.dandy",
 				type : "POST",
-				data : "bno=" + bno,
+				data : "bno=" + bno + "&page=" + page,
 				success : function(result) {
 					$("#boardList").html(result);
 					}, error : function() {
@@ -1425,9 +1426,11 @@
 	
 	// 자유게시판 : 목록버튼 클릭 리스트 출력
 	$(document).on("click", "#freelist_btn",function(){
+		var page = $("#page").val();
+		//alert(page);
 		 $.ajax({
 			type : "post",
-			url : "freeBoardList.dandy",
+			url : "freeBoardList.dandy?page=" + page,
 			success : function(result) {
 				$("#boardList").html(result);
 			}, error : function() {
