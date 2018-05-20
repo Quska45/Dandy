@@ -540,6 +540,9 @@
 		width: 50px;
 		
 	}
+	#index_logout {
+		cursor: pointer;
+	}
 	
 	.main_logo {
 		height: 125px;
