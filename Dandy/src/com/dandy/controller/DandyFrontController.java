@@ -15,6 +15,7 @@ import com.dandy.action.BoardListAction;
 import com.dandy.action.BoardQuestionUpdatesaveAction;
 import com.dandy.action.ContentsDetailAction;
 import com.dandy.action.DiyCompleteAction;
+import com.dandy.action.DiyDownloadAction;
 import com.dandy.action.DiyLoadingAction;
 import com.dandy.action.DiyPageAction;
 import com.dandy.action.FreeAnswerAction;
@@ -300,6 +301,10 @@ public class DandyFrontController extends HttpServlet {
 		 else if (command.equals("/freeBoardLineUp.dandy")) {
 				action = new FreeBoardLineUpAction(); 
 				forward = action.excute(request, response); 
+		}
+		else if (command.equals("/diyDownload.dandy")) {
+			action = new DiyDownloadAction(); 
+			forward = action.excute(request, response); 
 		}
 		
 		

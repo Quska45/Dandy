@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 import org.rosuda.REngine.Rserve.RConnection;
 
 import com.dandy.DTO.MovieEachDTO;
+import com.dandy.common.Constants;
 import com.dandy.mybatis.SqlMapConfig;
 
 public class DiyDAO {
@@ -2708,7 +2709,7 @@ public class DiyDAO {
 	        }
 	        
 	        // 입력된 내용 파일로 쓰기
-	        File file = new File("G:\\Dandy\\" + title + ".xls");
+	        File file = new File(Constants.UPLOAD_PATH + title + ".xls");
 	        FileOutputStream fos = null;
 	        
 	        try {

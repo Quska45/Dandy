@@ -166,11 +166,20 @@
 	});
 	
 	
-	$(document).on("click", ".diy_download", function(){
+	/* $(document).on("click", ".diy_download", function(){
 		var title = $("#diy_title").val();
 		alert(title);
 		
-	});
+		$.ajax({
+			type : "post",
+			url : "diyDownload.dandy",
+			data: "title=" + title,
+			success : function(result) {
+				$("#diyPage").html(result);
+			}
+		});
+		
+	}); */
 
 
 </script>
@@ -186,7 +195,6 @@
 					<div id="detail_modal_info">
 						<div id="detail_title">
 							<span>${title}</span>
-							<input type="hidden" id="diy_title" name="diy_title" value="${title}">
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
@@ -199,7 +207,7 @@
 								<span>개</span>
 							</div>
 						</div>
-						<div class="diy_download">다운로드</div>
+						<a href="diyDownload.dandy?title=${title}"><div class="diy_download">다운로드</div></a>
 					</div>
 					<div id="word_table">
 						<table id="word-table-top">
