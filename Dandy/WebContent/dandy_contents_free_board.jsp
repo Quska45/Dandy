@@ -143,7 +143,7 @@
 	 	color: #0daa62;
 	}
 	#pagetable tr, #pagetable td {
-		border: 1px solid #0daa62;
+		border: 1px solid #0daa62; 
 	 }
 	 #pagetable tr {
 	 	height: 40px;
@@ -153,7 +153,7 @@
 	 	padding-right: 15px;
 	 }
 	 #pagetable td > a{
-	 	color: #0daa62;
+	 	color: #d7d7d7;
 	 } 
 	 #big_table {
 	 	margin-bottom: 30px;
@@ -191,6 +191,9 @@
 	.lineup {
 		color: white;
 		cursor: pointer;
+	}
+	.active {
+		color: #0daa62!important;
 	}
 </style>
 </head>
@@ -365,7 +368,7 @@
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
-									<a class="freepageMove" href="#" page_num="${idx}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="freepageMove" page_num="${idx}">${idx}</a>
 									<input type="hidden"  id="activepage" value="${page}">
 								</td>
 							</c:forEach>
