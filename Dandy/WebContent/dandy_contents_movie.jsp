@@ -38,8 +38,8 @@
 	.search_error {
 		position: absolute;
 		top: 35px;
-		left: 430px;
-		width: 312px;
+		left: 435px;
+		color: #FA6C00
 	}
 	
  /*- 검색창 키워드 박스  */
@@ -207,8 +207,10 @@
 				<input id="search_keyword" class="search" name="search_keyword" type="text" placeholder="영화를 검색해주세요.">
 				<input id="search_keyword_empty" name="search_keyword" type="hidden" value="${keyword}">
 				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
-				<div class="search_error"><span>검색 결과가 총 ${search_list} 건 있습니다.</span></div>
-				<input type="hidden" id="search_size" name="search_size" value="${search_list}">
+				<c:if test="${!empty search_size}">
+					<span class="search_error">"${keyword}"로 검색한 결과가 총 ${search_size} 건 있습니다.</span>
+				</c:if>
+				<input type="hidden" id="search_size" name="search_size" value="${search_size}">
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">

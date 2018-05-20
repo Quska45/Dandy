@@ -59,32 +59,7 @@
 			</choose>	
 	</select>
 
-<!-- =================================================================MovieSearchLIst================================================================= -->
-	<select id="movieSearchListCriteria" resultType="movieDTO">
-		<![CDATA[
-			SELECT *
-			FROM (
-				SELECT rownum rnum,
-				a.*
-				FROM (
-					SELECT * 
-					FROM movieindex ]]>
-					<choose>
-						<when test='keyword == "empty"'>
-							<![CDATA[WHERE mno > 0 ]]>
-						</when>
-						<otherwise>
-							<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
-						</otherwise>
-					</choose>	
-					<![CDATA[
-					ORDER BY mno
-				) a
-			)
-			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
-		]]>
-	</select>
-	
+		
 <!-- Index Page Movie Search List page count -->
 	<select id="movieSearchCountPaging"  resultType="int">
 		<![CDATA[
