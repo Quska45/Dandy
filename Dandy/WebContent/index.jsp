@@ -549,7 +549,100 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
-	// 해쉬값에 주소 저장해서 뒤로가기 구현
+	$(document).ready(function(){
+		// 단어장 검색에서 enter쳤을때 작동
+		/* $("#search_keyword").keydown(function(e) {
+			alert("?");
+		    if (e.keyCode == 13){
+		    	alert("enter");
+		    	var keyword = $("#search_keyword");
+					if(keyword.val() == "") {
+						keyword.val("empty");
+					}
+				var keyword_result = keyword.val();
+				var index = "empty";
+				var page = "1";
+				var selector = "sel01";
+				var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
+				document.location.hash = "#" + str_hash;
+				
+				$.ajax({
+					url : "movieSearchList.dandy",
+					type : "POST",
+					data : "index=" + index + "&keyword=" + keyword_result,
+					async: false,
+					success : function(result) {
+						$("#movieList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				});
+				
+		    }   
+		}); */
+		
+		
+		// 로그인 할 때 enter키 작동
+		$("#login_pw").keydown(function(e){
+			if(e.keyCode == 13) {
+				var mid = $("#sessionMid").val();
+				
+				if(mid == "") {
+					var id = $("#login_id");
+					var pw = $("#login_pw");
+					
+					var lid = id.val();
+					
+					if(lid == "") {
+						$("#ErrCk").text("ID값을 입력하시오").css("display", "block").css("color", "red");
+						id.focus();
+						return false;
+					}
+					
+					var lpw = pw.val();
+					
+					if(lpw == "") {
+						$("#ErrCk").text("PW값을 입력하시오").css("display", "block").css("color", "red");
+						pw.focus();
+						return false;
+					}
+					
+					$.ajax({
+						url: "loginajax.dandy",
+						type: "POST",
+						dataType :  "JSON",
+						data: "id=" + lid + "&pw=" + lpw,
+						success: (function(data){
+							if(data.id != null && data.pw != null) {
+								alert("로그인 성공");
+								//index 페이지로 이동
+								location.reload();
+							} else {
+								$("#login_id").select();
+								$("#ErrCk").text("ID, PW값을 정확히 입력하시오.").css("display", "block").css("color", "red");
+							}
+						}),
+						error: function(){
+							alert("system error");
+						}
+					});
+				}
+				
+				
+			}
+		});
+		
+		
+		
+		
+		
+		
+	});
+	
+	
+	
+	// 해쉬에 주소 저장해서 뒤로가기 구현
 	$(window).on('hashchange', function () {
 		var str_hash = document.location.hash;
 			str_hash = str_hash.replace("#","");
@@ -841,7 +934,7 @@
 		document.location.hash = "#" + str_hash;
 		
 		$.ajax({
-			url : "movieSearchList.dandy",
+			url : "movieList.dandy",
 			type : "POST",
 			data : "index=" + index + "&keyword=" + keyword_result,
 			async: false,
@@ -853,6 +946,8 @@
 			}
 
 		});
+		
+		
 	});
 	
 	
@@ -1146,6 +1241,7 @@
 	/* 모달창 열기   */
 	$(document).on("click", ".login", function(){
 		$(".modal").css("display", "block");
+		$("#login_id").focus();
 		
 	});
 	
@@ -1721,7 +1817,7 @@
 				<div id="login_content">
 					<div id="login_area2">
 						<div id="subtitle">
-							<a href="index.bizpoll"> 
+							<a href="index.dandy"> 
 								<img src="image/logo.png">
 							</a>
 						</div>
