@@ -552,6 +552,31 @@
 		height: auto!important;
 	}
 	
+	#constract_modal {
+		display: none; 
+		position: fixed; 
+		z-index: 100;
+		left: 0;
+		top: 0;
+		width: 100%; 
+		height: 100%; 
+		overflow: auto; 
+		background-color: rgb(0, 0, 0);
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+	#constract_wrap {
+		width: 600px;
+ 		height: 760px;
+ 		padding: 35px;
+ 		border:1px solid #ccc;
+ 		border-radius: 15px;
+ 		position:fixed;
+ 		left:33%;
+ 		top:10%; 
+ 		z-index:11;
+ 		background:#fff;
+ 		z-index: 70;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -1007,6 +1032,25 @@
 		});
 	}
 	
+	$(document).on("click", "#contract_open", function(){
+		$("#constract_modal").css("display","block");
+		$(".modal").css("display", "none");
+		$()
+	});
+	
+	// 모달 : 회원가입을 누르면 열리는 약관동의 페이지
+	function constract() {
+		$.ajax({
+			type : "post",
+			url : "memberConstract.dandy",
+			success : function(result) {
+				$("#constract").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	}
 	
 	
 	
@@ -1648,6 +1692,9 @@
 		});
 	});
 	
+	
+	
+	
 </script>
 
 </head>
@@ -1848,7 +1895,7 @@
 						</div>
 						
 						<div id="login_help">
-							<a href="memberConstract.dandy">회원가입</a>
+							<a href="#" id="contract_open"onclick="constract();">회원가입</a>
 							<div class="right">
 								<a href="#">
 									계정 찾기
@@ -1863,8 +1910,11 @@
 		</div>
 	</div>
 	<!-- 모달창 끝   -->
-	
-	
+	<div id="constract_modal">
+		<div id="constract_wrap">
+			<div id="constract"></div>
+		</div>
+	</div>
 	
 	
 </body>

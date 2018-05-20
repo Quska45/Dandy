@@ -16,60 +16,16 @@
 		background-color: #f5f6f7;
 		font-family: 'Noto Sans KR', sans-serif;
 	}
-	h1#naver_logo {
-		font-size: 2em;
-	}
-	div#header, div#container, div#footer {
+	
+	div#container {
 		width: 768px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-	div#header {
-		height: 169px;
-		padding-top: 62px;
-		position: relative;
-	}
 	div#container {
 		position: relative;
-	}
-	div#footer {
-		height: 81px;
-		text-align: center;
-		padding: 30px 0 15px 0;
-	}
-	.n_logo {
-		display: block;
-		width: 240px;
-		height: 70px;
-		background: url('image/logo.png') 0 -105px;
-		margin: 0 auto;
-		box-sizing: border-box;
-		border: 1px solid black;
-	}
-	div.lang {
-		position: absolute;
-		top: 14px;
-		right: 0px;
-	}
-	.lang > select {
-		background: url('image/constract/sel_arr.gif') 100% 50% no-repeat;
-		-webkit-appearance:none;
-		width: 98px;
-		height: 30px;
-		background-color: white;
-	}
-	select#langselect {
-		font-size: 12px;
-		font-weight: 400;
-		height: 30px;
-		padding: 6px 8px 5px 7px;
-		min-width: 98px;
-		color: #333;
-		border: 1px solid #ccc;
-	}
-	option {
-		padding: 0 2px 1px;
-		display: block;
+		width: 600px;
+		height: 760px;
 	}
 	
 	
@@ -146,7 +102,7 @@
 		width: 100%;
 	}
 	.span_only {
-		color: #0d9900;
+		color: #0daa62;
 		font-size: 12px;
 		font-weight: 400;
 	}
@@ -229,87 +185,17 @@
 		font-family: 'Noto Sans KR', sans-serif;
 	}
 	.btn_agree {
-		color: #fff;
-		border: 1px solid #ABD0CE;
-		background-color: #ABD0CE;
+		color: #0daa62;
+		border: 1px solid #e7e7e7;
+		background-color: #fff;
 		font-family: 'Noto Sans KR', sans-serif;
 	}
 	a {
 		text-decoration: none;
 		color: inherit;	
 	}
-	.group_join {
-		margin: 20px 0 65px;
-		text-align: center;
-		color: #666;
-		font-size: 12px;
-	}
-	.group_join > a {
-		text-decoration: underline;
-		color: #333;
-	}
 	
 	
-	/* footer  */
-	#footer {
-		position: relative;
-		width: 768px;
-		min-width: 460px;
-		margin: 0 auto;
-		padding: 30px 0 15px 0;
-		text-align: center;
-	}
-	#footer ul {
-		margin: 0 0 9px 0;
-	}
-	#footer ul li {
-		display: inline-block;
-		padding: 0 4px 0 6px;
-	}
-	#footer ul li:hover a{
-		color: #0d9900;
-		text-decoration: underline;
-	}
-	
-	#footer ul li:first-child:after {
-		width: 0;
-	}
-	#footer ul li:after {
-		position: relative;
-		left: -7px;
-		top: 50%;
-		display: block;
-		width: 1px;
-		height: 10px;
-		margin-top: -12px;
-		content: '';
-		background-color: #ccc;
-	}
-	#footer * {
-		font-size: 11px;
-		font-style: normal;
-		line-height: normal;
-		color: #333;
-		list-style: none;
-	}
-	#sp1 {
-		margin: 0;
-		padding: 0;
-		width: 63px;
-		height: 11px;
-		display: inline-block;
-	}
-	#sp1 img {
-		width: 100%;
-		height: 100%;
-	}
-	.sp {
-		padding-left: 2px;
-	}
-	#corp:hover a{
-		color: #0d9900;
-		text-decoration: underline;
-	}
 	
 	#warning {
 		display: none;
@@ -318,7 +204,29 @@
 		font-size: 12px;
 		color: red;
 	}
-
+	#constract_top{
+		margin: 0 auto;
+		width: 458px;
+		height: 50px;
+		border: 1px solid #0daa62;
+		background: #0daa62;
+		border-radius: 5px;
+		left: -5px!important;
+		text-align: center;
+	}
+	#constract_top_logo {
+		margin: 0;
+		border: 1px solid #0daa62;
+		border-radius: 5px;
+		text-align: center;
+		color: white;
+		background-color: #0daa62;
+		text-decoration: none;
+		margin-top: 25px;
+		line-height: 50px;
+		font-size: 25px;
+		font-weight: 600;
+	}
 
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -368,21 +276,10 @@
 
 </head>
 <body>
-	<div id="header">
-		<h1 id="naver_logo"><a href="#" class="n_logo"></a></h1>
-		<div class="lang">
-			<select id="langselect">
-				<option>한국어</option>
-				<option>English</option>
-				<option>中文(简体)</option>
-				<option>中文(台灣)</option>
-			</select>
-		</div>
-	</div>
-
 
 	<div id="container">
 		<form id="join_content" action="memberInsert.dandy">
+		<div id="constract_top"><span id="constract_top_logo">이용약관 동의</span></div>
 			<div id="terms">
 				<p class="terms_p">
 					<span class="terms_span">
@@ -491,43 +388,7 @@
 			
 		</form>
 		
-		<div class="group_join">
-			회사, 동아리 등 단체에서 사용할 ID가 필요하세요? <a href="#">단체 회원 가입</a>
-		</div>
-		
-		
 	</div>
 	
-	
-	<div id="footer">
-		<ul>
-			<li>
-				<a href="#">이용약관</a>
-			</li>
-			<li>
-				<strong><a href="#">개인정보처리방침</a></strong>
-			</li>
-			<li>
-				<a href="#">책임의 한계와 법적고지</a>
-			</li>
-			<li>
-				<a href="#">회원정보 고객센터</a>
-			</li>
-		</ul>
-		<div id="fotter_bottom">
-			<div id="sp1"><a href="http://www.navercorp.com/ko/index.nhn" target="_blank"><img src="image/naver_logo.png"></a></div>
-			<span class="sp">Copyright</span>
-			<span class="sp">©</span>
-			<span class="sp" id="corp"><strong><a href="http://www.navercorp.com/ko/index.nhn" target="_blank">NAVER Corp.</a></strong></span>
-			<span class="sp">All Rights Reserved.</span>
-		</div>
-	</div>
-
-
-
-
-
-
-
 </body>
 </html>

@@ -461,13 +461,13 @@ $(document).ready(function(){
 <body>
 
 	<div id="wrap">
-		<div id="header">
+		<!-- <div id="header">
 			<h1>
 				<a href="#" class="header_logo">
 					<img src="">
 				</a>
 			</h1>
-		</div>
+		</div> -->
 		
 		
 		<div id="container">
