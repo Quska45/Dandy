@@ -322,7 +322,7 @@
 		width: 90%;
 		height: 100%;
 		padding: 0 25px;
-		border: 1px solid #ddd;
+		/* border: 1px solid #ddd; */
 		text-align: left;
 		display: inline-block;
 		border-top: 4px solid #0daa62;
@@ -1908,10 +1908,10 @@
 								<div id="ErrCk" style="display: none">
 									
 								</div>
-								<div id="remember">
+								<!-- <div id="remember">
 									<input type="checkbox" name="remember" id="remember2">
 									<label for="remember2">계정 저장</label>
-								</div>
+								</div> -->
 								<div id="btn_login">로그인</div>
 							</form>
 						</div>
