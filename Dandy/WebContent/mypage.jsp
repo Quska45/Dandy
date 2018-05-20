@@ -191,8 +191,8 @@
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
- 		left:40%;
- 		top:40%; 
+ 		left:38%;
+ 		top:37%; 
  		z-index:11;
  		background:#fff;
  		text-align: center;
@@ -201,7 +201,7 @@
 	#mo_info {
 		display: none;
 		position: fixed; 
-		z-index: 60; 
+		z-index: 11; 
 		left: 0;
 		top: 0;
 		width: 100%; 
@@ -231,13 +231,13 @@
 		display: none;
 		width: 500px;
  		height: 500px;
- 		padding: 35px;
+ 		padding: 5px 35px 35px 35px;
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
  		left:35%;
  		top:25%; 
- 		z-index:11;
+ 		z-index:110;
  		background:#fff;
  		text-align: center;
  		z-index: 70; 
@@ -275,6 +275,8 @@
 		color: white;
 		background-color: #0daa62;
 		text-decoration: none;
+		position: fixed;
+		margin-top: 25px;
 	}
 	
 	
@@ -287,6 +289,7 @@
 		margin: 0;
 		width: 768px;
 		min-width: 460px;
+		margin-top: 60px;
 	}
 	.join_content {
 		width: 460px;
@@ -335,10 +338,10 @@
 		display: block;
 		color: #8e8e8e;
 	}
-	.error {
+	#errorms {
 		font-size: 12px;
 		margin: 5px 0 3px 0;
-		color: red;
+		color: white;
 	}
 	.join_sex {
 		overflow: hidden;
@@ -430,7 +433,7 @@
 		border: none;
 		border-radius: 0;
 	}
-	.error_ch {
+	#error_ch {
 		padding: 10px 0 0;
 		text-align: center;
 	}
@@ -521,8 +524,8 @@
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
- 		left:40%;
- 		top:35%; 
+ 		left:38%;
+ 		top:33%; 
  		z-index:11;
  		background:#fff;
  		text-align: center;
@@ -571,7 +574,7 @@
 		display: none;
 		width: 500px;
  		height: 200px;
- 		padding: 35px;
+ 		padding: 5px 35px 35px 35px;
  		border:1px solid #ccc;
  		border-radius: 15px;
  		position:fixed;
@@ -608,16 +611,19 @@
 		background-color: #0daa62;
 		border-radius: 5px;
 		margin: 0 auto;
+		position: fixed;
+		margin-left: 99px;
+		margin-top: 20px;
 	}
 	.dandi_green {
 		color: #0daa62;
 		font-weight: bold;
 	}
 	#delete_message {
-		margin-top: 20px;
+		margin-top: 65px;
 	}
 	#memberdelete_btn_area {
-		margin-top: 10px;
+		margin-top: 0;
 	}
 	#main_bold {
 		font-weight: bold;
@@ -631,6 +637,17 @@
 	}
 	#del_complete_message {
 		font-size: 17px;
+	}
+	#updateclose {
+		float: left;
+		margin-left: 500px;
+	}
+	#close_btn {
+		width: 30px;
+	}
+	#deleteclose {
+		float: left;
+		margin-left: 500px;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -681,6 +698,7 @@
 		$(document).on("click", "#member_infoupdate", function() {
 			$("#meminfo_code").attr("value", "1");
 			$("#mo_info").css("display", "block");
+			$("#header").css("position", "inherit");
 		});
 		
 		$("#member_pwchange").click(function() {
@@ -702,7 +720,14 @@
 		$("#modal_info_pw").val("");
 		$("#mo_me").text(".").css("color", "white");
 	});
-	
+	/* 회원정보수정 모달창 닫기 */
+	$(document).on("click", "#close_btn", function(){
+		$("#mo_info").css("display", "none");
+		$("#modal_info_pw").val("");
+		$("#mo_me").text(".").css("color", "white");
+		$("#member_update_modal").css("display", "none");	
+		$("#memberdelete").css("display","none");
+	});
 	
 	$(document).on("click", "#modal_info_btn", function(){
 		var meminfo_code = $("#meminfo_code").val();
@@ -751,14 +776,15 @@
 					if(memail2 == "naver.com"){
 						$("#mailAddress").val("2").prop("selected", true);
 						$("#email2").val("naver.com");
-					} else if(memail2 == "daum.net"){
+					} else if(memail2 == "hanmail.net"){
 						$("#mailAddress").val("3").prop("selected", true);
-						$("#email2").val("daum.net");
+						$("#email2").val("hanmail.net");
 					} else if(memail2 == "google.com"){
 						$("#mailAddress").val("4").prop("selected", true);
 						$("#email2").val("google.com");
 					}
 				$("#phone").attr("value", member_phone);
+				
 			} else if(meminfo_code == 2){
 				$("#passwordupdate").css("display","block");
 				
@@ -769,10 +795,46 @@
 		
 	});
 	
+	// 성별 버튼 색상 및 값 변경
+	$("#manlabel").click(function(){
+		$("#manlabel").css("color", "#0daa62");
+		$("#womanlabel").css("color", "#8e8e8e");
+		$("#modal_gendervalue").val("남자");
+	});
+	
+	$("#womanlabel").click(function(){
+		$("#womanlabel").css("color", "#0daa62");
+		$("#manlabel").css("color", "#8e8e8e");
+		$("#modal_gendervalue").val("여자");
+	});
+	
+	// 이메일 셀렉트 박스 변경 적용
+	$(document).on("change", "#mailAddress", function(){
+		var mailAddress = $("#mailAddress").val();
+		var email2 = $("#email2").val();
+		if(mailAddress == "1") {
+			$("#email2").attr("readonly", false);
+			$("#email2").val("");
+			$("#email2").focus();
+			email2 = "";
+		} else if (mailAddress == "2"){
+			$("#email2").val("naver.com");
+			$("#email2").attr("readonly",true);
+		} else if (mailAddress == "3"){
+			$("#email2").val("hanmail.net");
+			$("#email2").attr("readonly",true);
+		} else if (mailAddress == "4"){
+			$("#email2").val("google.com");
+			$("#email2").attr("readonly",true);
+		}
+	});
+	
 	$(document).on("click", "#btn_update", function(){
 		var mid = $("#member_id").val();
 		var mpw = $("#member_pw").val();
-		var mname = $("#name").val();
+ 		/* var mname = $("#name").val(); */
+		var name = $("#name").val();
+		var mname = $.trim(name);
 		var mgender = $("#modal_gendervalue").val();
 		var yy = $("#yy").val();
 		var mm = $("#month_select").val();
@@ -782,6 +844,38 @@
 		var email2 = $("#email2").val();
 		var memail = email1 + "@" + email2;
 		var mphone = $("#phone").val(); 
+		
+		// 이름 유효성검사
+		if(mname == ""){
+			$("#name").focus();
+			$("#errorms").text("이름은 필수 사항입니다. 정확히 입력해주세요.").css("color", "red");
+			return false;
+		}
+		
+		// 생년월일 유효성검사
+		if(yy == ""){
+			$("#yy").focus();
+			$("#errorms").text("생년월일은 필수 사항입니다. 정확히 입력해주세요.").css("color", "red");
+			return false;
+		}
+		if(mm == ""){
+			$("#month_select").focus();
+			$("#errorms").text("생년월일은 필수 사항입니다. 정확히 입력해주세요.").css("color", "red");
+			return false;
+		}
+		if(dd == ""){
+			$("#dd").focus();
+			$("#errorms").text("생년월일은 필수 사항입니다. 정확히 입력해주세요.").css("color", "red");
+			return false;
+		}
+		
+		// 이메일 처리 (필수사항 아님)
+		if(email1 == ""){
+			memail = "";
+		}
+			
+		// 전화번호 처리 (필수사항 아님)
+		
 		alert("mid : " + mid + ", mname : " + mname + ", mgender : " + mgender + ", mbirth : " + mbirth + ", memail : " + memail + "mphone : " + mphone);
 		  $.ajax({
 			url : "memberupdate.dandy",
@@ -889,7 +983,9 @@
 	<!-- My Page : 전체 감싸는 div -->
 	<div id="mypage_wrap">
 		<div id="mypageMoviedetail"></div>
-		<div id="myPageClose">X</div>
+		<div id="myPageClose">
+			<img src="image/btn/btn_error_gray2.png" id="close_btn">
+		</div>
 		<!-- My Page : contents 영역 wrap div -->
 		<div id="mycontent_wrap">
 			<!-- My Page : content 영역 상하분할 -->
@@ -995,6 +1091,9 @@
 	
 	<!-- 회원정보 수정 모달창 -->
 		<div id="member_update_modal">
+				<div id="updateclose">
+					<img src="image/btn/btn_error_gray2.png" id="close_btn">
+				</div>
 			<div id="wrap">
 				<div id="modal_header"><h1><span class="header_logo">회원정보수정</span></h1></div>
 				<div id="container">
@@ -1016,7 +1115,6 @@
 										<input type="text" id="name" name="name" class="input" maxlength="4" value="${sessionScope.loginUser.mname}">
 										<label id="namelb" for="name" class="label">이름</label>
 									</span>	
-									<div id="nameMsg" class="error" style="display: none">필수 정보입니다.</div>						
 								</div>
 	<!----------------------------성별--------->													
 								<div class="join_row" id="sexDiv">
@@ -1031,7 +1129,6 @@
 											<label id="womanlabel" for="woman">여자</label>
 										</span>
 									</span>	
-									<div id="sexMsg" class="error" style="display: none">필수 정보입니다.</div>						
 								</div>
 	<!----------------------------생일--------->										
 								<div class="join_row join_birthday" id="birthDiv">
@@ -1069,7 +1166,6 @@
 											</span>
 										</div>
 									</div>				
-									<div id="birthMsg" class="error" style="display: none">필수 정보입니다.</div>
 								</div>	
 	<!----------------------------이메일--------->			
 								<div class="join_row" id="emailDiv">
@@ -1082,12 +1178,11 @@
 										<select id="mailAddress" name="mailAddress">
 											<option value="1">직접입력</option>
 											<option value="2">naver.com</option>
-											<option value="3">daum.net</option>
+											<option value="3">hanmail.net</option>
 											<option value="4">google.com</option>
 										</select>
 									</span>	
 								</div>						
-								<div id="emailMsg" class="error" style="display: none">필수 정보입니다.</div>						
 							</div>
 	<!----------------------------휴대전화--------->
 							<div class="row_group">
@@ -1095,13 +1190,11 @@
 									<span>
 										<input type="text" id="phone" name="phone" class="input" maxlength="11">
 										<label id="phonelb" for="phone" class="label">휴대전화번호</label>
-										
 									</span>	
-								<div id="phoneMsg" class="error" style="display: none">필수 정보입니다.</div>						
 								</div>
 							</div>
-							<div class="error_ch">
-								<span id="joinMsg" class="error" style="display: none">입력하신 정보를 다시 확인해주세요.</span>
+							<div id="error_ch">
+								<span id="errorms">.</span>
 							</div>
 							
 							<span class="btn_join">
@@ -1135,6 +1228,9 @@
 		
 	<!-- 회원탈퇴 모달창 -->
 		<div id="memberdelete" class="memeberdelete_modal">
+			<div id="deleteclose">
+					<img src="image/btn/btn_error_gray2.png" id="close_btn">
+			</div>
 			<div id="mo_delete_header"><span id="memberdelete_header">회원탈퇴</span></div>
 			<div id="delete_message">
 				<span class="dandi_green">DANDI</span><span>를 탈퇴하시면 회원정보와 내단어장리스트가
