@@ -1434,7 +1434,7 @@
 	});
 	
 	// 자유게시판 : 파일 다운로드 
-	$(document).on("click", "#freeboard_filedown", function(){
+	/* $(document).on("click", "#freeboard_filedown", function(){
 		var bno = $("#bno").val();
 		
 		$.ajax({
@@ -1447,7 +1447,7 @@
 				alert("System Error!!!");
 			}
 		}); 
-	});
+	}); */
 	
 	//자유게시판 : 답변 페이지 
 	$(document).on("click", "#free_rewrite_btn", function(){

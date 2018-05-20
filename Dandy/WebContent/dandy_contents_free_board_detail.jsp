@@ -438,7 +438,7 @@
 							<span><i class="fa fa-file"></i></span>
 						</td>
 						<td class="contents">
-							<a href="#" id="freeboard_filedown">
+							<a href="freeboardfiledownload.dandy?bno=${boardview.bno}" id="freeboard_filedown">
 								<span id ="download">${boardview.filename}</span>
 								<span id="downcnt">
 									<i class="fa fa-arrow-circle-o-down"></i>
