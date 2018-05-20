@@ -39,7 +39,7 @@ public class DiyDownloadAction implements Action {
 		
 		
 		// http header
-		response.setHeader("content-Disposition", "attachment;filename=" + filename);
+		response.setHeader("content-Disposition", "attachment;filename=" + filename + ".xls");
 		
 		// http body
 		// OutputStream 생성(서버에서 클라이언트에 쓰기)

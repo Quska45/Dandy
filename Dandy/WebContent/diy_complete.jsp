@@ -19,7 +19,6 @@
 	#wrap_contents {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
-		height: 1700px;
 		border: 2px solid white;
 		background-color: #f7f7f7;
 		border-radius: 10px;
@@ -29,7 +28,6 @@
  	#detail_modal_movie {
  		text-align: center;
  		width: 700px;
- 		height: 225px;
  		margin: 50px 246px;
  		border: 2px solid white;
  		padding: 3px;
@@ -61,7 +59,7 @@
  	#detail_title {
  		width: 360px;
  		/* border: 1px solid green; */
- 		height: 100px;
+ 		height: 75px;
  		text-align: center;
  		line-height: 100px;
  	}
@@ -76,7 +74,6 @@
 		/* border: 1px solid red; */
 		width: 360px;
 		height: 80px;
-		margin: 0 80px;
 	}
 	.frequency {
 		/* border: 1px solid gray;  */
@@ -98,11 +95,9 @@
  /** 단어장 table */
  	#word_table {
  		font-family: 'Noto Sans KR', sans-serif;
- 		margin-top: 250px;
+ 		margin-top: 180px;
  		/* border: 1px solid red; */
  		width: 700px;
- 		height: 300px;
- 	
  	}
  	#word-table-top {
  		background-color: #0daa62;
@@ -148,10 +143,10 @@
 		color: white;
 		border: 1px solid #0daa62;
 		border-radius: 5px;
-		position: absolute;
-		left: 120px;
 		line-height: 30px;
 		cursor: pointer;
+	    display: inline-block;
+    	margin-top: 23px;
 	}
 	
 	
@@ -165,21 +160,15 @@
   		$('.word-table-bottom tr:even').css("backgroundColor","#f5f5fc");   // even 짝수
 	});
 	
-	
-	/* $(document).on("click", ".diy_download", function(){
-		var title = $("#diy_title").val();
-		alert(title);
-		
-		$.ajax({
-			type : "post",
-			url : "diyDownload.dandy",
-			data: "title=" + title,
-			success : function(result) {
-				$("#diyPage").html(result);
-			}
-		});
-		
+	/* $(window).on("beforeunload", function(){
+		alert("떠날꼬야?");
+		return 'Dialog text here.';
 	}); */
+	
+	var checkUnload = true;
+    $(window).on("beforeunload", function(){
+        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+    });
 
 
 </script>
@@ -194,7 +183,7 @@
 					
 					<div id="detail_modal_info">
 						<div id="detail_title">
-							<span>${title}</span>
+							<span>${title}aaa</span>
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
@@ -206,8 +195,11 @@
 							<div class="frequency">
 								<span>개</span>
 							</div>
+							<a href="diyDownload.dandy?title=${title}">
+								<div class="diy_download">다운로드</div>
+							</a>
 						</div>
-						<a href="diyDownload.dandy?title=${title}"><div class="diy_download">다운로드</div></a>
+						
 					</div>
 					<div id="word_table">
 						<table id="word-table-top">

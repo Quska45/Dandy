@@ -64,6 +64,7 @@
 
 	//단어장 만들기 버튼 클릭했을때 단어장 띄워주는 페이지
 	$(document).on("click", "#diy_btn", function() {
+		var session = $("#diy_session").val();
 		var title = $("#diy_title").val();
 		var text = $("#diy_text").val();
 		$.ajax({
@@ -85,6 +86,7 @@
 
 </head>
 <body>
+	<input type="hidden" id="diy_session" name="diy_session" value="${sessionScope.loginUser.mid}">
 	<!-- Contents : 영화별 단어장 -->
 	<div id="wrap_contents1">
 			<div class="diy_title_wrap">
