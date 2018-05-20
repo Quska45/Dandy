@@ -200,7 +200,7 @@
 		}
 		div.txtArea {
 			position: absolute;
-			top: 60%;
+			top: 55%;
 			width: 600px;
 			height: 400px;
 			box-sizing: border-box;
@@ -534,6 +534,16 @@
 		float: right;
 		margin-right: 5px;
 		margin-top: 20px;
+	}
+	.main_logo {
+		height: 125px;
+		bottom: 10px;
+	}
+	.logo_class {
+		display: none;
+		margin-top: 300px;
+		margin-left: 40px;
+		width: 40px;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -936,7 +946,7 @@
 			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
-			
+			$(".logo_class").css("display", "block");
 		}
 		
 		$(".openButton1").click(function(){
@@ -967,6 +977,7 @@
 			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+			$(".logo_class").css("display", "block");
 		}
 		
 		$(".openButton2").click(function(){
@@ -998,6 +1009,7 @@
 			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
+			$(".logo_class").css("display", "block");
 		}
 		
 		$(".openButton3").click(function(){
@@ -1027,7 +1039,7 @@
 			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
-			
+			$(".logo_class").css("display", "none");
 		}
 		
 		$(".mainContentClose1").click(function(){
@@ -1054,7 +1066,7 @@
 			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
-			
+			$(".logo_class").css("display", "none");
 		}
 		
 		
@@ -1082,7 +1094,7 @@
 			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
-			
+			$(".logo_class").css("display", "none");
 		}
 		
 		$(".mainContentClose3").click(function(){
@@ -1581,7 +1593,9 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" onclick="movie_list();" class="openButton1"></a>
+					<a href="#" onclick="movie_list();" class="openButton1">
+					<img src="image/index_logo/logo_voca_1.png" id="voca_logo" class="logo_class">
+					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">
@@ -1590,7 +1604,8 @@
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
 					<div class="txtArea tal1" style="left:140px;">
-						<p class="tit spon" style="width: 295px;">단어장</p>
+						<!-- <p class="main_logo" style="width: 295px;">단어장</p> -->
+						<img src="image/index_logo/logo_voca_2.png" class="main_logo">
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
@@ -1607,7 +1622,9 @@
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton2" onclick="diy_page();"></a>
+					<a href="#" class="openButton2" onclick="diy_page();">
+					<img src="image/index_logo/logo_diy_1.png" id="diy_logo" class="logo_class">
+					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background2">
@@ -1616,7 +1633,8 @@
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
 					<div class="txtArea tal2" style="left:140px;">
-						<p class="tit spon" style="width: 295px;">딕테이션</p>
+						<!-- <p class="main_logo" style="width: 295px;">딕테이션</p> -->
+						<img src="image/index_logo/logo_diy_2.png" class="main_logo">
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
@@ -1643,7 +1661,9 @@
 				<div class="con3">
 					<div id="block3"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" class="openButton3" onclick="board_list();"></a>
+					<a href="#" class="openButton3" onclick="board_list();">
+					<img src="image/index_logo/logo_board_1.png" id="board_logo" class="logo_class">
+					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
@@ -1652,7 +1672,8 @@
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
 					<div class="txtArea tal3" style="left:140px;">
-						<p class="tit spon" style="width: 295px;">쉐도잉</p>
+						<!-- <p class="main_logo" style="width: 295px;">쉐도잉</p> -->
+						<img src="image/index_logo/logo_board_2.png" class="main_logo">
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
