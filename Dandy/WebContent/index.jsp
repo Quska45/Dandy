@@ -190,7 +190,7 @@
 			top: 0;
 		}
 		div.con1 {
-			background: url('image/bk1.jpg') 100% 50% no-repeat;
+			background: url('image/background/bk_o12.jpg') 100% 50% no-repeat;
 			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
@@ -233,7 +233,7 @@
 			opacity: 0.4;
 		}
 		div.con2 {
-			background: url('image/bk2.jpg') 100% 50% no-repeat;
+			background: url('image/background/bk_o11.jpg') 100% 50% no-repeat;
 			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
@@ -266,7 +266,7 @@
 			z-index: 20;
 		}
 		div.con3 {
-			background: url('image/bk6.jpg') 100% 50% no-repeat;
+			background: url('image/background/bk_o15.jpg') 100% 50% no-repeat;
 			background-position: 30% -12.8%;
 			position: absolute;
 			right:0;
@@ -1105,21 +1105,21 @@
 			$(".main_logo").css("display", "none");
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
-			$("#content1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
+			$("#content1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","80px");
-			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
+			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
 			$(".con3").css("top","80px");
-			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
+			$(".con3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
@@ -1137,21 +1137,21 @@
 			$(".main_logo").css("display", "none");
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
-			$("#content2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
+			$("#content2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.7%");
 			$(".con1").css("right", "93.3%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
+			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
 			$(".con3").css("height", "97%");
 			$(".con3").css("position", "fixed");
 			$(".con3").css("top","80px");
-			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
+			$(".con3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% 12%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
@@ -1168,7 +1168,7 @@
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
 			$("#content3").css("width", "86.9%");	
-			$("#content3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
+			$("#content3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
 			$(".con1").css("right", "93.4%");
@@ -1176,14 +1176,14 @@
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
+			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "86.8%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","81px");
-			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
+			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
@@ -1205,7 +1205,7 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -1214,7 +1214,7 @@
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
 			$(".con3").css({"background":"none"});
-			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
@@ -1234,7 +1234,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -1242,7 +1242,7 @@
 			$(".con3").css("height", "100%");
 			$(".con3").css("position", "absolute");
 			$(".con3").css("top","0");
-			$(".con3").css({"background":"url(image/bk6.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
@@ -1263,7 +1263,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con2").css("width", "33.3%");
@@ -1271,7 +1271,7 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
