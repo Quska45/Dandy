@@ -1,10 +1,17 @@
 package com.dandy.DAO;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -293,7 +300,7 @@ public class DiyDAO {
 		
 		
 		
-		public void nullDelete(MovieEachDTO mDto) {
+		/*public void nullDelete(MovieEachDTO mDto) {
 			sqlSession = sqlSessionFactory.openSession();
 			List<MovieEachDTO> list = null;
 			String title = mDto.getTitle();
@@ -2605,10 +2612,10 @@ public class DiyDAO {
 				if(sqlSession != null) sqlSession.close();
 			}
 			
-		}
+		}*/
 		
 		
-		public void crawling2(String morpheme, String title, String morpheme2) throws IOException {
+		/*public void crawling2(String morpheme, String title, String morpheme2) throws IOException {
 			
 			String base_url = "http://alldic.daum.net/search.do?q=";
 			String complete_url = base_url + morpheme;
@@ -2651,7 +2658,79 @@ public class DiyDAO {
 			MovieEachDTO mDto = new MovieEachDTO(morpheme, word, meaning, title);
 			completeTable(mDto);
 			
-		}
+		}*/
+		
+		
+		// diy 단어장을 엑셀파일로 생성
+		public void xlsWiter(List<MovieEachDTO> list, String title) {
+	        // 워크북 생성
+	        HSSFWorkbook workbook = new HSSFWorkbook();
+	        // 워크시트 생성
+	        HSSFSheet sheet = workbook.createSheet();
+	        // 행 생성
+	        HSSFRow row = sheet.createRow(0);
+	        // 쎌 생성
+	        HSSFCell cell;
+	        
+	        // 헤더 정보 구성
+	        cell = row.createCell(0);
+	        cell.setCellValue("NO");
+	        
+	        cell = row.createCell(1);
+	        cell.setCellValue("단어");
+	        
+	        cell = row.createCell(2);
+	        cell.setCellValue("뜻");
+	        
+	        cell = row.createCell(3);
+	        cell.setCellValue("빈도");
+	        
+	        // 리스트의 size 만큼 row를 생성
+	        MovieEachDTO mDto = null;
+	        for(int rowIdx=0; rowIdx < list.size(); rowIdx++) {
+	            mDto = list.get(rowIdx);
+	            
+	            // 행 생성
+	            row = sheet.createRow(rowIdx+1);
+	            
+	            cell = row.createCell(0);
+	            cell.setCellValue(mDto.getWno());
+	            
+	            cell = row.createCell(1);
+	            cell.setCellValue(mDto.getWord());
+	            
+	            cell = row.createCell(2);
+	            cell.setCellValue(mDto.getMeaning());
+	            
+	            cell = row.createCell(3);
+	            cell.setCellValue(mDto.getFreq());
+	            
+	        }
+	        
+	        // 입력된 내용 파일로 쓰기
+	        File file = new File("G:\\Dandy\\" + title + ".xls");
+	        FileOutputStream fos = null;
+	        
+	        try {
+	            fos = new FileOutputStream(file);
+	            workbook.write(fos);
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if(workbook!=null) workbook.close();
+	                if(fos!=null) fos.close();
+	                
+	            } catch (IOException e) {
+	                // TODO Auto-generated catch block
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    
+	    
 		
 		
 

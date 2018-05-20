@@ -45,9 +45,15 @@ public class DiyCompleteAction implements Action {
 		List<MovieEachDTO>list = mDao.resultWord(mDto);
 		int size = list.size();
 		
+		mDao.xlsWiter(list, title3);
+		
+		
 		request.setAttribute("list", list);
 		request.setAttribute("title", title3);
 		request.setAttribute("size", size);
+		
+		
+		
 		
 		
 		
