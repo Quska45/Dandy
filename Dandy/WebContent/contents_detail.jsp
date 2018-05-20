@@ -19,7 +19,6 @@
 	#wrap_contents {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
-		height: 12050px!important;
 		border: 2px solid white;
 		background-color: #f7f7f7;
 		border-radius: 10px;
@@ -29,7 +28,6 @@
  	#detail_modal_movie {
  		text-align: center;
  		width: 700px;
- 		height: 400px;
  		margin: 50px 246px;
  		border: 2px solid white;
  		padding: 3px;
@@ -218,8 +216,6 @@
  		font-family: 'Noto Sans KR', sans-serif;
  		/* border: 1px solid red; */
  		width: 700px;
- 		height: 300px;
- 	
  	}
  	#word-table-top {
  		background-color: #0daa62;

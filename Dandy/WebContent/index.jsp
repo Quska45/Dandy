@@ -488,7 +488,7 @@
 	#wrap_contents1 {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
-		height: 1700px;
+		/* height: 1700px; */
 		border: 2px solid white;
 		background-color: #f7f7f7;
 		border-radius: 10px;
@@ -545,6 +545,12 @@
 		margin-left: 40px;
 		width: 40px;
 	}
+	
+	
+	#movieList {
+		height: auto!important;
+	}
+	
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -969,7 +975,7 @@
 		document.location.hash = "#" + str_hash;
 		
 		
-		$("#cBody").css("height","12263px");
+		$("#cBody").css("height","20000px");
 		$.ajax({
 			url : "contentsDetail.dandy",
 			type : "POST",
@@ -1021,7 +1027,8 @@
 		
 		function openButton1(){
 			$("#cBody").css("height","1938px");
-			$("#content1").css("height", "3153px");	
+			$("#content1").css("height", "auto");
+			$(".main_logo").css("display", "none");
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
 			$("#content1").css({"background":"url(image/bk1.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
@@ -1053,6 +1060,7 @@
 		function openButton2() {
 			$("#cBody").css("height","1938px");
 			$("#content2").css("height", "3153px");	
+			$(".main_logo").css("display", "none");
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
 			$("#content2").css({"background":"url(image/bk2.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
@@ -1116,6 +1124,7 @@
 		function mainContentClose1(){
 			$("#content1").css("display", "none");
 			$("#cBody").css("height","1000px");
+			$(".main_logo").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con2").css("width", "33.3%");
 			$(".con2").css("right", "33.3%");
@@ -1144,6 +1153,7 @@
 		function mainContentClose2() {
 			$("#content2").css("display", "none");
 			$("#cBody").css("height","1000px");
+			$(".main_logo").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");
@@ -1172,6 +1182,7 @@
 		function mainContentClose3() {
 			$("#content3").css("display", "none");
 			$("#cBody").css("height","1000px");
+			$(".main_logo").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");

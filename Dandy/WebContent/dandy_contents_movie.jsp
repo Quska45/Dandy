@@ -140,10 +140,17 @@
  		text-decoration: none;
  		font-size: 18px;
  		background-color: #EEE9DD;
- 		color: #FA6C00;
+ 		color: black;
  		padding: 5px 10px;
- 		border: 1px solid #FA6C00;
+ 		/* border: 1px solid black; */
  		border-radius: 5px;
+ 	}
+ 	.active {
+ 		color: #FA6C00!important;
+ 		/* border: 1px solid #fa6c00!important; */
+ 	}
+ 	.active_cahr {
+ 		color: #fa6c00!important;
  	}
  	
  	
@@ -179,16 +186,11 @@
 					}
 				});
 				
-				
 		    }   
+		    
 		});
 		
 	
-		
-		
-		
-		
-		
 		
 	});
 
@@ -207,37 +209,36 @@
 				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
 				<div class="search_error"><span>검색 결과가 총 ${search_list} 건 있습니다.</span></div>
 				<input type="hidden" id="search_size" name="search_size" value="${search_list}">
-				
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a href="#" class="active_index" index_num="0">0</a>
-				<a href="#" class="active_index" index_num="A">A</a>
-				<a href="#" class="active_index" index_num="B">B</a>
-				<a href="#" class="active_index" index_num="C">C</a>
-				<a href="#" class="active_index" index_num="D">D</a>
-				<a href="#" class="active_index" index_num="E">E</a>
-				<a href="#" class="active_index" index_num="F">F</a>
-				<a href="#" class="active_index" index_num="G">G</a>
-				<a href="#" class="active_index" index_num="H">H</a>
-				<a href="#" class="active_index" index_num="I">I</a>
-				<a href="#" class="active_index" index_num="J">J</a>
-				<a href="#" class="active_index" index_num="K">K</a>
-				<a href="#" class="active_index" index_num="L">L</a>
-				<a href="#" class="active_index" index_num="M">M</a>
-				<a href="#" class="active_index" index_num="N">N</a>
-				<a href="#" class="active_index" index_num="O">O</a>
-				<a href="#" class="active_index" index_num="P">P</a>
-				<a href="#" class="active_index" index_num="Q">Q</a>
-				<a href="#" class="active_index" index_num="R">R</a>
-				<a href="#" class="active_index" index_num="S">S</a>
-				<a href="#" class="active_index" index_num="T">T</a>
-				<a href="#" class="active_index" index_num="U">U</a>
-				<a href="#" class="active_index" index_num="V">V</a>
-				<a href="#" class="active_index" index_num="W">W</a>
-				<a href="#" class="active_index" index_num="X">X</a>
-				<a href="#" class="active_index" index_num="Y">Y</a>
-				<a href="#" class="active_index" index_num="Z">Z</a>
+				<a <c:out value="${index == '0'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="0">0</a>
+				<a <c:out value="${index == 'A'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="A">A</a>
+				<a <c:out value="${index == 'B'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="B">B</a>
+				<a <c:out value="${index == 'C'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="C">C</a>
+				<a <c:out value="${index == 'D'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="D">D</a>
+				<a <c:out value="${index == 'E'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="E">E</a>
+				<a <c:out value="${index == 'F'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="F">F</a>
+				<a <c:out value="${index == 'G'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="G">G</a>
+				<a <c:out value="${index == 'H'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="H">H</a>
+				<a <c:out value="${index == 'I'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="I">I</a>
+				<a <c:out value="${index == 'J'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="J">J</a>
+				<a <c:out value="${index == 'K'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="K">K</a>
+				<a <c:out value="${index == 'L'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="L">L</a>
+				<a <c:out value="${index == 'M'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="M">M</a>
+				<a <c:out value="${index == 'N'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="N">N</a>
+				<a <c:out value="${index == 'O'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="O">O</a>
+				<a <c:out value="${index == 'P'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="P">P</a>
+				<a <c:out value="${index == 'Q'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Q">Q</a>
+				<a <c:out value="${index == 'R'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="R">R</a>
+				<a <c:out value="${index == 'S'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="S">S</a>
+				<a <c:out value="${index == 'T'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="T">T</a>
+				<a <c:out value="${index == 'U'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="U">U</a>
+				<a <c:out value="${index == 'V'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="V">V</a>
+				<a <c:out value="${index == 'W'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="W">W</a>
+				<a <c:out value="${index == 'X'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="X">X</a>
+				<a <c:out value="${index == 'Y'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Y">Y</a>
+				<a <c:out value="${index == 'Z'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Z">Z</a>
 			</div>
 			<input type="hidden" id="index_number" value="${index}">
 	<!-- 영화 포스터 -->
