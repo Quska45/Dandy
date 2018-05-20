@@ -33,6 +33,13 @@
 	#search_box {
 		text-align: center;
 		margin-top: 100px;
+		position: relative;
+	}
+	.search_error {
+		position: absolute;
+		top: 35px;
+		left: 430px;
+		width: 312px;
 	}
 	
  /*- 검색창 키워드 박스  */
@@ -144,7 +151,46 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		// 단어장 검색에서 enter쳤을때 작동
+		$("#search_keyword").keydown(function(e) {
+		    if (e.keyCode == 13){
+		    	var keyword = $("#search_keyword");
+					if(keyword.val() == "") {
+						keyword.val("empty");
+					}
+				var keyword_result = keyword.val();
+				var index = "empty";
+				var page = "1";
+				var selector = "sel01";
+				var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
+				document.location.hash = "#" + str_hash;
+				
+				$.ajax({
+					url : "movieList.dandy",
+					type : "POST",
+					data : "index=" + index + "&keyword=" + keyword_result,
+					async: false,
+					success : function(result) {
+						$("#movieList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+				});
+				
+				
+		    }   
+		});
+		
+	
+		
+		
+		
+		
+		
+		
+	});
 
 
 </script>
@@ -159,6 +205,9 @@
 				<input id="search_keyword" class="search" name="search_keyword" type="text" placeholder="영화를 검색해주세요.">
 				<input id="search_keyword_empty" name="search_keyword" type="hidden" value="${keyword}">
 				<span id="search_btn" class="search"><i class="fa fa-search"></i></span>
+				<div class="search_error"><span>검색 결과가 총 ${search_list} 건 있습니다.</span></div>
+				<input type="hidden" id="search_size" name="search_size" value="${search_list}">
+				
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">

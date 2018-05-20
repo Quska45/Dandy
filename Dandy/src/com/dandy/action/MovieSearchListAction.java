@@ -39,9 +39,9 @@ public class MovieSearchListAction implements Action {
 		
 		MovieDAO mDao = MovieDAO.getInstance();
 		List<MovieDTO> list = mDao.movieSearchList(CriDto); // = 게시글 목록
+		int search_size = list.size();
 		request.setAttribute("movieList", list);
-		
-		
+		request.setAttribute("search_size", search_size);
 		
 		
 		//페이지 메이커

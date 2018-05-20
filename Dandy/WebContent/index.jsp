@@ -551,8 +551,10 @@
 	
 	$(document).ready(function(){
 		// 단어장 검색에서 enter쳤을때 작동
-		$("#search_keyword").keydown(function(e) {
+		/* $("#search_keyword").keydown(function(e) {
+			alert("?");
 		    if (e.keyCode == 13){
+		    	alert("enter");
 		    	var keyword = $("#search_keyword");
 					if(keyword.val() == "") {
 						keyword.val("empty");
@@ -576,8 +578,9 @@
 						alert("System Error!!!");
 					}
 				});
+				
 		    }   
-		});
+		}); */
 		
 		
 		// 로그인 할 때 enter키 작동
@@ -639,7 +642,7 @@
 	
 	
 	
-	// 해쉬값에 주소 저장해서 뒤로가기 구현
+	// 해쉬에 주소 저장해서 뒤로가기 구현
 	$(window).on('hashchange', function () {
 		var str_hash = document.location.hash;
 			str_hash = str_hash.replace("#","");
@@ -931,7 +934,7 @@
 		document.location.hash = "#" + str_hash;
 		
 		$.ajax({
-			url : "movieSearchList.dandy",
+			url : "movieList.dandy",
 			type : "POST",
 			data : "index=" + index + "&keyword=" + keyword_result,
 			async: false,
@@ -943,6 +946,8 @@
 			}
 
 		});
+		
+		
 	});
 	
 	
@@ -1236,6 +1241,7 @@
 	/* 모달창 열기   */
 	$(document).on("click", ".login", function(){
 		$(".modal").css("display", "block");
+		$("#login_id").focus();
 		
 	});
 	
@@ -1811,7 +1817,7 @@
 				<div id="login_content">
 					<div id="login_area2">
 						<div id="subtitle">
-							<a href="index.bizpoll"> 
+							<a href="index.dandy"> 
 								<img src="image/logo.png">
 							</a>
 						</div>

@@ -25,6 +25,7 @@ public class MovieListAction implements Action {
 		String url = "dandy_contents_movie.jsp";
 		String index = request.getParameter("index");
 		String keyword = request.getParameter("keyword");
+		String search_size = request.getParameter("search_size");
 		System.out.println("index : " +  index);
 		System.out.println("keyword : " + keyword);
 
@@ -56,6 +57,7 @@ public class MovieListAction implements Action {
 		request.setAttribute("index", CriDto.getIndex());
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("page", page);
+		request.setAttribute("search_size", search_size);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
