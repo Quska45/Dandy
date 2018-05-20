@@ -468,6 +468,7 @@
 		position: absolute;
 	    top: -60px;
     	left: 700px;
+    	border-radius: 15px;
 	}
 	/* 모달 닫기 버튼   */
 	.close {
@@ -1038,7 +1039,7 @@
 		$()
 	});
 	
-	// 모달 : 회원가입을 누르면 열리는 약관동의 페이지
+	// 모달 : 회원가입을 누르면 열리는 이용약관동의 페이지
 	function constract() {
 		$.ajax({
 			type : "post",
@@ -1052,6 +1053,27 @@
 		});
 	}
 	
+	// 모달 : 이용약관동의 동의 클릭시 회원가입페이지로 이동
+	function btn_agree() {
+		var necessary1 = $("#li1box").is(":checked");
+		var necessary2 = $("#li2box").is(":checked");
+		if (necessary1 == false || necessary2 == false) {
+			$("#warning").css("display", "block");
+			return false;
+		} else {
+			$.ajax({
+				type : "post",
+				url : "memberInsert.dandy",
+				success : function(result) {
+					$("#constract").html(result);
+					$("#constract_wrap").css("height", "650px");
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+			});
+		}
+	}
 	
 	
 
@@ -1910,11 +1932,13 @@
 		</div>
 	</div>
 	<!-- 모달창 끝   -->
+	<!-- 이용약관동의 모달페이지 -->
 	<div id="constract_modal">
 		<div id="constract_wrap">
 			<div id="constract"></div>
 		</div>
 	</div>
+	
 	
 	
 </body>

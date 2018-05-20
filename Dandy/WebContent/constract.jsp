@@ -35,9 +35,12 @@
 		margin: 0 auto!important;
 	}
 	#terms {
+		margin-top: 30px;
 		margin-bottom: 20px;
 		background-color: white;
 		border: 1px solid #dadada;
+		width: 432px;
+		margin-left: 83px;
 	}
 	.terms_span > input {
 		position: absolute;
@@ -158,8 +161,9 @@
 	}
 	
 	.btn_double_area {
-		margin: 30px -5px 0px;
+		margin: 30px 83px 0px;
 		overflow: hidden;
+		width: 432px;
 	}
 	.btn_double_area > span {
 		display: block;
@@ -254,8 +258,8 @@
 		});
 		
 		
-		/* 동의 눌렀을 때 유효성 체크 */
-		$(".btn_agree").click(function(){
+		 /* 동의 눌렀을 때 유효성 체크 */
+		/* $(".btn_agree").click(function(){
 			var necessary1 = $("#li1box").is(":checked");
 			var necessary2 = $("#li2box").is(":checked");
 			if (necessary1 == false || necessary2 == false) {
@@ -264,12 +268,15 @@
 			} else {
 				$("#join_content").submit();
 			}
-		});
+		});  */
 		
 		
 	});
 	
-	
+	$(document).on("click", "#btn_disagree", function(){
+		//alert("비동의 클릭!");
+		location.reload();
+	});
 	
 
 </script>
@@ -278,7 +285,7 @@
 <body>
 
 	<div id="container">
-		<form id="join_content" action="memberInsert.dandy">
+		<!-- <form id="join_content" action="memberInsert.dandy"> -->
 		<div id="constract_top"><span id="constract_top_logo">이용약관 동의</span></div>
 			<div id="terms">
 				<p class="terms_p">
@@ -381,12 +388,12 @@
 				
 			</div>
 			
-			<div class="btn_double_area">
-				<span><a href="#" class="btn_type btn_default">비동의</a></span>
-				<span><a href="#" class="btn_type btn_agree">동의</a></span>
-			</div>
+			 <div class="btn_double_area">
+				<span><a href="#" class="btn_type btn_default" id="btn_disagree">비동의</a></span>
+				<span><a href="#" class="btn_type btn_agree" id="btn_agree" onclick="btn_agree();">동의</a></span>
+			</div> 
 			
-		</form>
+		<!-- </form> -->
 		
 	</div>
 	

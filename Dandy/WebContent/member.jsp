@@ -10,46 +10,25 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 	
 	body {
-		background: #f5f6f7;
 		font-family: 'Noto Sans KR', sans-serif;
 	}
-	body, div, h1 {
+	/* body, div, h1 {
 		margin: 0;
 		padding: 0;
-	}
+	} */
 	a {
 		text-decoration: none;
 	}
 	
-	/* header */
-	#header {
-		position: relative;
-		width: 768px;
-		min-width: 460px;
-		margin: 0 auto;
-	}
-	#header h1 {
-		padding: 62px;
-	}
-	.header_logo {
-		display: block;
-		width: 240px;
-		height: 44px;
-		margin: 0 auto;
-		border: 1px solid black;
-	}
-	
-	
-	
 	/* container */
 	#content {
 		margin: 0 auto;
-		width: 768px;
+		width: 600px;
 		min-width: 460px;
 	}
 	.join_content {
 		width: 460px;
-		margin: 0 auto;
+		margin: 30px 70px 50px 70px;;
 	}
 	.row_group {
 		zoom: 1;
@@ -63,6 +42,7 @@
 		padding: 11px 11px 11px 13px;
 		background: #fff;
 		box-sizing: border-box;
+		margin: 0!important;
 	}
 	.join_row+.join_row {
 		border-top: 1px solid #f0f0f0;
@@ -93,6 +73,7 @@
 		left: 0;
 		display: block;
 		color: #8e8e8e;
+		margin: 0;
 	}
 	.error {
 		font-size: 12px;
@@ -122,7 +103,7 @@
 		border-right: none;
 	}
 	.gender input {
-		position: absolute;
+		/* position: absolute; */
 		z-index: 9;
 		top: -3px;
 		left: 0;
@@ -190,24 +171,27 @@
 		border-radius: 0;
 	}
 	.error_ch {
-		padding: 10px 0 0;
+		padding: 0;
 		text-align: center;
 	}
 	.btn_join {
 		display: block;
 		height: 61px;
-		margin: 33px 0 19px;
+		margin: 30px 0 20px;
 		background: #1fbc02;
 	}
 	.btn_join input {
 		font-family: 'Noto Sans KR', sans-serif;
-		background: #ABD0CE;
+		background: #fff;
 		width: 100%;
 		height: 61px;
-		border: 1px solid #ABD0CE;
+		border: 1px solid #0daa62;
 		text-indent: 0;
 		font-size: 24px;
-		
+		color: #0daa62;
+		font-weight: 600;
+		font-size: 20px;
+		cursor: pointer;
 	}
 	
 	/* 우편번호  */
@@ -240,7 +224,37 @@
 		width: 100px;
 	}
 	
-
+	#join_top {
+		margin: 0 auto;
+		width: 458px;
+		height: 50px;
+		border: 1px solid #0daa62;
+		background: #0daa62;
+		border-radius: 5px;
+		left: -5px!important;
+		text-align: center;
+	}
+	#join_top_logo {
+		margin: 0;
+		border: 1px solid #0daa62;
+		border-radius: 5px;
+		text-align: center;
+		color: white;
+		background-color: #0daa62;
+		text-decoration: none;
+		margin-top: 25px;
+		line-height: 50px;
+		font-size: 25px;
+		font-weight: 600;
+	}
+	#join_close {
+		width: 30px;
+		float: right;
+		margin-top: -45px;
+		padding-right: -5px;
+		cursor: pointer;
+	}
+	
 </style>
 
 
@@ -310,8 +324,10 @@ $(document).ready(function(){
 		
 		if(sex == 1){
 			$("#manlabel").css("color", "green");
+			$("#sexMsg").css("display", "none");
 		} else if(sex == 2){
 			$("#womanlabel").css("color", "green");
+			$("#sexMsg").css("display", "none");
 		} else {
 			$("#sexMsg").css("display", "block");
 			return false;
@@ -454,6 +470,9 @@ $(document).ready(function(){
 		
 	});
 	
+	$(document).on("click","#join_close", function(){
+		location.reload();
+	});
 	
 	
 </script>
@@ -461,17 +480,11 @@ $(document).ready(function(){
 <body>
 
 	<div id="wrap">
-		<!-- <div id="header">
-			<h1>
-				<a href="#" class="header_logo">
-					<img src="">
-				</a>
-			</h1>
-		</div> -->
-		
 		
 		<div id="container">
 			<div id="content">
+				<div id="join_top"><span id="join_top_logo">단디 회원가입</span></div>
+				<div><img src="image/btn/btn_error_gray3.png" id="join_close"></div>
 				<div class="join_content">
 					<form id="join_form" name="frm_member" action="memberRegister.dandy">
 						<div class="row_group">
