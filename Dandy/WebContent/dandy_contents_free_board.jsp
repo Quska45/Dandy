@@ -190,167 +190,9 @@
 	}
 	.lineup {
 		color: white;
+		cursor: pointer;
 	}
 </style>
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-	// 자유게시판 : 검색
-	$(document).on("click", "#free_search_btn", function(){
-		var keyword = $("#free_search_keyword").val();
-		var type = $("#free_selsearch").val();
-		$.ajax({
-			url : "freeBoardSearch.dandy",
-			type : "POST",
-			data : "keyword=" + keyword + "&type=" + type,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	
-	
-	// 자유게시판 : 정렬
-	$(document).on("click", "#fl_no", function(){
-		$("#lineup_code").val("fl_no");
-		var lineup_code = $("#lineup_code").val();
-		var sort = $("#freeboardsort").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				 $("#boardList").html(result); 
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	//boardlist, sort
-	/* if(result.sort = "asc"){
-		$("#fl_no_span").text("NO▲");	// 오름차순
-		$("#freeboardsort").val("desc");
-		alert("sort : asc -> desc");
-	} else if(result.sort = "desc"){
-		$("#fl_no_span").text("NO▼");	// 내림차순
-		$("#freeboardsort").val("asc");
-		alert("sort : desc -> asc");
-	} */
-	$(document).on("click", "#fl_contents", function(){
-		$("#lineup_code").val("fl_contents");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-				$("#fl_contents_span").text("CONTENTS▲");	// 오름차순
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	$(document).on("click", "#fl_name", function(){
-		$("#lineup_code").val("fl_name");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-				$("#fl_name_span").text("NAME▲");	// 오름차순
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	$(document).on("click", "#fl_date", function(){
-		$("#lineup_code").val("fl_date");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-				$("#fl_date_span").text("DATE▲");	// 오름차순
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	$(document).on("click", "#fl_view", function(){
-		$("#lineup_code").val("fl_view");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-				$("#fl_view_span").text("▲");	// 오름차순
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	$(document).on("click", "#ffl_good", function(){
-		$("#lineup_code").val("ffl_good");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result);
-				$("#ffl_good_span").text("▲");	// 오름차순 ASC
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
-	
-	// 자유게시판 : 정렬
-	/* $(document).on("click", "#fl_no", function(){
-		var sort = $("#fl_no_input").val();
-		var keyword = $("#fl_no_input_keyword").val();
-		alert(sort);
-		$.ajax({
-			url : "FreeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-	}); */
-</script>
 </head>
 <body>
 <div id="board">
@@ -394,34 +236,35 @@
 							<tbody>
 								<tr>
 									<td class="no">
-										<a href="#" id="fl_no" class="lineup">
+										<span id="fl_no" class="lineup">
 											<span id="fl_no_span">NO</span>
-										</a>
+										</span>
 									</td>
 									<td class="point"></td>
 									<td class="upload"></td>
 									<td class="contents" id="contents">
-										<a href="#"  id="fl_contents"  class="lineup">
+										<span id="fl_contents"  class="lineup">
 											<span id="fl_contents_span">CONTENTS</span>
-										</a>
+										</span>
 									</td>
 									<td class="name" id="name">
-										<a href="#"  id="fl_name" class="lineup">
-											<span id="fl_name_span">NAME</span></a>
-										</td>
+										<span id="fl_name" class="lineup">
+											<span id="fl_name_span">NAME</span>
+										</span>
+									</td>
 									<td class="date" id="date">
-										<a href="#"  id="fl_date" class="lineup">
+										<span  id="fl_date" class="lineup">
 											<span id="fl_date_span">DATE</span>
-										</a>
+										</span>
 									</td>
 									<td class="view" id="view">
-										<a href="#"  id="fl_view" class="lineup">
+										<span  id="fl_view" class="lineup">
 											<i class="fa fa-eye"></i><span id="fl_view_span"></span>
-										</a>
+										</span>
 										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										<a href="#" id="ffl_good"  class="lineup">
+										<span id="fl_good"  class="lineup">
 											<i class="fa fa-heart"></i><span id="fl_good_span"></span>
-										</a>
+										</span>
 									</td>
 								</tr>
 							</tbody>
@@ -522,8 +365,7 @@
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
-									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>></a>
-									<a href="freeBoardList.dandy?page=${idx}">${idx}</a>
+									<a class="freepageMove" href="#" page_num="${idx}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
 								</td>
 							</c:forEach>
 							<c:if test="${pageMaker.next}">

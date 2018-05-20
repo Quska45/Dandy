@@ -1327,6 +1327,186 @@
 		});
 		
 	});
+	
+	// 자유게시판 : 검색
+	$(document).on("click", "#free_search_btn", function(){
+		var keyword = $("#free_search_keyword").val();
+		var type = $("#free_selsearch").val();
+		$.ajax({
+			url : "freeBoardSearch.dandy",
+			type : "POST",
+			data : "keyword=" + keyword + "&type=" + type,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	
+	// 자유게시판 : 정렬
+	$(document).on("click", "#fl_no", function(){
+		$("#lineup_code").val("fl_no");
+		var lineup_code = $("#lineup_code").val();
+		var sort = $("#freeboardsort").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				 $("#boardList").html(result); 
+					if(result.sort = "asc"){
+						$("#fl_no_span").text("NO▲");	
+						$("#freeboardsort").val("desc");
+						alert("sort : asc -> desc");
+					} else if(result.sort = "desc"){
+						$("#fl_no_span").text("NO▼");	
+						$("#freeboardsort").val("asc");
+						alert("sort : desc -> asc");
+					}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
+	$(document).on("click", "#fl_contents", function(){
+		$("#lineup_code").val("fl_contents");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result); 
+				if(result.sort = "asc"){
+					$("#fl_contents_span").text("CONTENTS▲");	
+					$("#freeboardsort").val("desc");
+					alert("sort : asc -> desc");
+				} else if(result.sort = "desc"){
+					$("#fl_contents_span").text("CONTENTS▼");	
+					$("#freeboardsort").val("asc");
+					alert("sort : desc -> asc");
+				}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_name", function(){
+		$("#lineup_code").val("fl_name");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result); 
+				if(result.sort = "asc"){
+					$("#fl_name_span").text("NAME▲");	
+					$("#freeboardsort").val("desc");
+					alert("sort : asc -> desc");
+				} else if(result.sort = "desc"){
+					$("#fl_name_span").text("NAME▼");	
+					$("#freeboardsort").val("asc");
+					alert("sort : desc -> asc");
+				}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_date", function(){
+		$("#lineup_code").val("fl_date");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result); 
+				if(result.sort = "asc"){
+					$("#fl_date_span").text("DATE▲");	
+					$("#freeboardsort").val("desc");
+					alert("sort : asc -> desc");
+				} else if(result.sort = "desc"){
+					$("#fl_date_span").text("DATE▼");	
+					$("#freeboardsort").val("asc");
+					alert("sort : desc -> asc");
+				}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_view", function(){
+		$("#lineup_code").val("fl_view");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result); 
+				if(result.sort = "asc"){
+					$("#fl_view_span").text("▲");
+					$("#freeboardsort").val("desc");
+					alert("sort : asc -> desc");
+				} else if(result.sort = "desc"){
+					$("#fl_view_span").text("▼");	
+					$("#freeboardsort").val("asc");
+					alert("sort : desc -> asc");
+				}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_good", function(){
+		$("#lineup_code").val("fl_good");
+		var lineup_code = $("#lineup_code").val();
+		$.ajax({
+			url : "freeBoardLineUp.dandy",
+			type : "POST",
+			data : "lineup_code=" + lineup_code + "&sort=" + sort,
+			success : function(result) {
+				$("#boardList").html(result); 
+				if(result.sort = "asc"){
+					$("#fl_good_span").text("▲");
+					$("#freeboardsort").val("desc");
+					alert("sort : asc -> desc");
+				} else if(result.sort = "desc"){
+					$("#fl_good_span").text("▼");	
+					$("#freeboardsort").val("asc");
+					alert("sort : desc -> asc");
+				}
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	//자유게시판 : 페이지 이동
+	$(document).on("click", ".freepageMove", function(){
+		var page=$(this).attr("page_num");
+		$.ajax({
+			type : "post",
+			url : "freeBoardList.dandy",
+			data: "page=" + page,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
 	//***** dandy_contents_free_board_answer.jsp
 	//자유게시판 : 답변등록
 	$(document).on("click", "#free_answer_wr_btn", function(){
