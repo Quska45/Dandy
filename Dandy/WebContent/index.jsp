@@ -531,12 +531,16 @@
 		line-height: 40px;
 		padding: 0 auto;
 	}
-	#index_logout {
-		width: 50px;
+	#logoutbtn_div {
 		float: right;
 		margin-right: 5px;
 		margin-top: 20px;
 	}
+	#index_logout, #index_logout_ {
+		width: 50px;
+		
+	}
+	
 	.main_logo {
 		height: 125px;
 		bottom: 10px;
@@ -762,7 +766,7 @@
 				data: "id=" + lid + "&pw=" + lpw,
 				success: (function(data){
 					if(data.id != null && data.pw != null) {
-						alert("로그인 성공");
+						//alert("로그인 성공");
 						//index 페이지로 이동
 						location.reload();
 					} else {
@@ -1740,12 +1744,13 @@
 				<c:when  test="${empty sessionScope.loginUser.mid}">
 					<a class="login" style="background: url('image/mypage_icon1.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
+				<div id="logoutbtn_div"><img src="image/btn/btn_logout3_.png" id="index_logout_"></div>
 				</c:when>
 				
 				<c:otherwise>
 					<a href="#" class="login_in" style="background: url('image/mypage_icon2.png') 40% 50% no-repeat;
 			background-size: 75px;"></a>
-					<img src="image/btn/btn_logout3.png" id="index_logout">
+					<div id="logoutbtn_div"><img src="image/btn/btn_logout3.png" id="index_logout"></div>
 				
 				</c:otherwise>
 				
