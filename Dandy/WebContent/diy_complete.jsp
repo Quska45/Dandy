@@ -183,7 +183,7 @@
 					
 					<div id="detail_modal_info">
 						<div id="detail_title">
-							<span>${title}aaa</span>
+							<span>${title}</span>
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
