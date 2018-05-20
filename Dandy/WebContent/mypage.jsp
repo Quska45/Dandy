@@ -699,6 +699,7 @@
 			$("#meminfo_code").attr("value", "1");
 			$("#mo_info").css("display", "block");
 			$("#header").css("position", "inherit");
+			$("#header").css("z-index", "50");
 		});
 		
 		$("#member_pwchange").click(function() {

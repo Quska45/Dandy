@@ -476,8 +476,9 @@
 		font-size: 28px;
 		font-weight: bold;
 		position: absolute;
-		top: -5px;
+		top: 5px;
 		right: 5px;
+		width: 20px;
 	}
 	
 	.close:hover, .close:focus {
@@ -1651,8 +1652,7 @@
 
 </head>
 <body>
-	<div id="myPageAll">
-	</div>
+	
 	<input type="hidden" id="sessionMid" value="${sessionScope.loginUser}">
 	<input type="hidden" id="sessionMid_id" value="${sessionScope.loginUser.mid}">
 	<!-- body전체를 감싸는 div -->
@@ -1684,7 +1684,7 @@
 			<!-- 로그인 버튼 끝 -->
 		</div>
 		<!-- 로고가 있는 헤더 부분 끝 -->
-		
+		<div id="myPageAll"></div>
 		<!-- 인덱스 메인 페이지전체를 감싸는 div 시작 -->
 		<div id="cBody" class="main pc" style="height: 1000px;">
 			<!-- 메인콘텐츠 시작 -->
@@ -1823,7 +1823,7 @@
 	<!-- 모달창  -->
 	<div id="myModal" class="modal">
 		<div class="modal-content">
-			<span class="close">&times;</span> 
+			<img src="image/btn/btn_error_gray3.png" class="close">
 			<div id="kakao_content">
 				<div id="login_content">
 					<div id="login_area2">
