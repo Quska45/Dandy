@@ -29,7 +29,7 @@
  	#detail_modal_movie {
  		text-align: center;
  		width: 700px;
- 		height: 200px;
+ 		height: 225px;
  		margin: 50px 246px;
  		border: 2px solid white;
  		padding: 3px;
@@ -55,6 +55,7 @@
  		height: 0;
  		/* border: 1px solid yellow; */
  		margin: 0 auto;
+ 		position: relative;
  	}
  /*- 상세페이지 영화제목 */
  	#detail_title {
@@ -97,7 +98,7 @@
  /** 단어장 table */
  	#word_table {
  		font-family: 'Noto Sans KR', sans-serif;
- 		margin-top: 240px;
+ 		margin-top: 250px;
  		/* border: 1px solid red; */
  		width: 700px;
  		height: 300px;
@@ -139,6 +140,21 @@
 	}
 	
 	
+	/* 다운로드 버튼  */
+	.diy_download {
+		width: 100px;
+		height: 30px;
+		background: #0daa62;
+		color: white;
+		border: 1px solid #0daa62;
+		border-radius: 5px;
+		position: absolute;
+		left: 120px;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	
+	
 </style>
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -147,6 +163,13 @@
 	$(document).ready(function(){
 		$('.word-table-bottom tr:odd').css("backgroundColor","#fff");         // odd 홀수
   		$('.word-table-bottom tr:even').css("backgroundColor","#f5f5fc");   // even 짝수
+	});
+	
+	
+	$(document).on("click", ".diy_download", function(){
+		var title = $("#diy_title").val();
+		alert(title);
+		
 	});
 
 
@@ -163,6 +186,7 @@
 					<div id="detail_modal_info">
 						<div id="detail_title">
 							<span>${title}</span>
+							<input type="hidden" id="diy_title" name="diy_title" value="${title}">
 						</div>
 						<div id="detail_frequency">
 							<div class="frequency">
@@ -175,6 +199,7 @@
 								<span>개</span>
 							</div>
 						</div>
+						<div class="diy_download">다운로드</div>
 					</div>
 					<div id="word_table">
 						<table id="word-table-top">
