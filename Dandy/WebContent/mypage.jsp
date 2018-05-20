@@ -698,6 +698,7 @@
 		$(document).on("click", "#member_infoupdate", function() {
 			$("#meminfo_code").attr("value", "1");
 			$("#mo_info").css("display", "block");
+			$("#modal_info_pw").focus();
 			$("#header").css("position", "inherit");
 			$("#header").css("z-index", "50");
 		});
@@ -706,11 +707,17 @@
 			$("#modal_info_pw").val("");
 			$("#meminfo_code").attr("value", "2");
 			$("#mo_info").css("display", "block");
+			$("#modal_info_pw").focus();
+			$("#header").css("position", "inherit");
+			$("#header").css("z-index", "50");
 		})
 		
 		$("#member_delete").click(function() {
 			$("#meminfo_code").attr("value", "3");
 			$("#mo_info").css("display", "block");
+			$("#modal_info_pw").focus();
+			$("#header").css("position", "inherit");
+			$("#header").css("z-index", "50");
 		})
 		
 	});
@@ -793,7 +800,75 @@
 				$("#memberdelete").css("display", "block");
 			}
 		}
-		
+	});
+	
+	// Enter key 작동으로 다음 모달 열기
+	$("#modal_info_pw").keydown(function(e){
+		if(e.keyCode == 13) {
+			var meminfo_code = $("#meminfo_code").val();
+			var mid = $("#member_id").val();
+			var mpw = $("#member_pw").val();
+			var modal_mpw = $("#modal_info_pw").val();
+			var modal_gendervalue = $("#modal_gendervalue").val();
+			
+			var mbirth_value = $("#mbirth_value").val();
+			var myear = mbirth_value.substr(0,4);
+			var mmonth = mbirth_value.substr(4,2);
+			var mday = mbirth_value.substr(6,2);
+			
+			var memail_value = $("#member_email").val();
+			var midx = memail_value.indexOf("@");
+			var memail1 = memail_value.substring(0, midx);
+			var memail2 = memail_value.substring(midx+1);
+			var mailAddress = $("#mailAddress").val();
+			
+			var member_phone = $("#member_phone").val();
+			var mphone1 = member_phone.substring(0,3);
+			var mphone2 = member_phone.substring(3,7);
+			var mphone3 = member_phone.substring(7,11);
+			
+			var mphone = $("#phone").val();
+			if (mpw != modal_mpw){
+				$("#mo_me").text("비밀번호가 일치하지 않습니다.").css("color", "red");
+			} else {
+				if(meminfo_code == 1){
+					$("#member_update_modal").css("display", "block");
+					
+						if(modal_gendervalue == "여자"){
+							$("#womanlabel").css("color", "#0daa62");
+						} else if(modal_gendervalue == "남자"){
+							$("#manlabel").css("color", "#0daa62");
+						} else {
+							$("#manlabel").css("color", "rgb(142, 142, 142)");
+						}
+						
+					$("#yy").attr("value", myear);
+					$("#month_select").val(mmonth).prop("selected", true);
+					$("#dd").attr("value", mday);
+				
+					$("#email1").attr("value", memail1);
+					
+						if(memail2 == "naver.com"){
+							$("#mailAddress").val("2").prop("selected", true);
+							$("#email2").val("naver.com");
+						} else if(memail2 == "hanmail.net"){
+							$("#mailAddress").val("3").prop("selected", true);
+							$("#email2").val("hanmail.net");
+						} else if(memail2 == "google.com"){
+							$("#mailAddress").val("4").prop("selected", true);
+							$("#email2").val("google.com");
+						}
+					$("#phone").attr("value", member_phone);
+					
+				} else if(meminfo_code == 2){
+					$("#passwordupdate").css("display","block");
+					$("#pw1").focus();
+					
+				} else if(meminfo_code == 3){
+					$("#memberdelete").css("display", "block");
+				}
+			}
+		}
 	});
 	
 	// 성별 버튼 색상 및 값 변경
@@ -911,28 +986,33 @@
 		var mid = $("#member_id").val();
 		
 		var pw1 = $("#pw1").val();
-		var pw2 = $("#pw2").val(); 
+		var mpw1 = $.trim(pw1);
+		var pw2 = $("#pw2").val();
+		var mpw2 = $.trim(pw2);
 		
-		/* var mpw1 = $.trim(pw1.val());
-		var mpw2 = $.trim(pw2.val()); */
 		var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 		
-		if(pw1 == ""){
+		if(mpw1 == ""){
 			$("#pwmessage").text("변경할 비밀번호를 입력해주세요.").css("color","red");
-		} else if(!regPass.test(pw1)) {
+			$("#pw1").focus();
+			return false;
+		} else if(!regPass.test(mpw1)) {
 			$("#pwmessage").text("6~20자 이내 숫자 + 영문만 사용하세요.").css("color", "red"); 
-		}  else if(pw2 == ""){
+			$("#pw1").focus();
+			return false;
+		}  else if(mpw2 == ""){
 			$("#pwmessage").text("비밀번호확인을 입력해주세요.").css("color","red");
-		}  else if(pw1 != pw2){
+			$("#pw2").focus();
+			return false;
+		}  else if(mpw1 != mpw2){
 			$("#pwmessage").text("비밀번호가 일치하지 않습니다.").css("color","red");
-		}  else if(pw1 == pw2){
+		}  else if(mpw1 == mpw2){
 			$("#pwmessage").text(".").css("color","white");
-			alert("action가야지 왜 안가");
 			$.ajax({
 				url : "memberpwchange.dandy",
 				type : "POST",
 				dataType: "JSON",
-				data : "mid=" + mid + "&pw1=" + pw1,
+				data : "mid=" + mid + "&pw1=" + mpw1,
 				success : function(data) {
 					 if(data.result == "1"){
 						 alert("비밀번호변경 성공");
@@ -948,6 +1028,50 @@
 			});
 		}
 		
+	});
+	
+	// EnterKey로 비밀번호 변경 적용
+	$("#pw2").keydown(function(e){
+		if(e.keyCode == 13) {
+			var mid = $("#member_id").val();
+			
+			var pw1 = $("#pw1").val();
+			var mpw1 = $.trim(pw1);
+			var pw2 = $("#pw2").val();
+			var mpw2 = $.trim(pw2);
+			
+			var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+			
+			if(mpw1 == ""){
+				$("#pwmessage").text("변경할 비밀번호를 입력해주세요.").css("color","red");
+			} else if(!regPass.test(mpw1)) {
+				$("#pwmessage").text("6~20자 이내 숫자 + 영문만 사용하세요.").css("color", "red"); 
+			}  else if(mpw2 == ""){
+				$("#pwmessage").text("비밀번호확인을 입력해주세요.").css("color","red");
+			}  else if(mpw1 != mpw2){
+				$("#pwmessage").text("비밀번호가 일치하지 않습니다.").css("color","red");
+			}  else if(mpw1 == mpw2){
+				$("#pwmessage").text(".").css("color","white");
+				$.ajax({
+					url : "memberpwchange.dandy",
+					type : "POST",
+					dataType: "JSON",
+					data : "mid=" + mid + "&pw1=" + mpw1,
+					success : function(data) {
+						 if(data.result == "1"){
+							 alert("비밀번호변경 성공");
+								location.reload();
+						 } else if(data.result == "0"){
+							 alert("비밀번호변경 실패");
+						 }
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+
+				});
+			}
+		}
 	});
 	
 	$(document).on("click", "#memberdelete_btn", function(){
