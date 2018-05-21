@@ -300,14 +300,11 @@
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-
 	
+	//자유게시판 : 리플리스트
 	$(document).ready(function(){
-		
-		//자유게시판 : 리플리스트
 		function comment_list() {
 			var bno = ${boardview.bno};
-
 			$.ajax({
 				type: "post",
 				url: "freeCommentList.dandy",
@@ -354,11 +351,7 @@
 		 		 }
 		 	 });
 		});
-		
 	});
-	
-	
-	
 	
 	// 자유게시판 : 좋아요♥
 	$(document).on("click", "#good_fafa", function(){
@@ -383,14 +376,16 @@
 	// 자유게시판 : 삭제 확인 모달
 	$(document).on("click", "#freeremove_btn1", function(){
 		$("#mo_board_del").css("display", "block");
+		$("#header").css("position", "inherit");
+		$("#header").css("z-index", "40");
 	});
 	
 	$(document).on("click", "#cancel_btn", function(){
 		$("#mo_board_del").css("display", "none");
+		$("#header").css("position", "fixed");
+		$("#header").css("z-index", "70");
+		
 	});
-	
-	
-	
 </script>
 </head>
 <body>
@@ -576,29 +571,29 @@
 	</div> 
 	
 <!-- 게시글 삭제 확인 모달창 -->
-	<div id="mo_board_del">
-	  <div class="modal_del">
-	  	<c:choose>
-			<c:when test="${bno != '0'}">
-						<span id="text">글을 삭제하시겠습니까?</span>
+		<div id="mo_board_del">
+		  <div class="modal_del">
+		  	<c:choose>
+				<c:when test="${boardview.bno != '0'}">
+							<span id="text">글을 삭제하시겠습니까?</span>
+						<div id="sel_bbtn">
+								<br>
+								<a href="#">
+									<button class="bbtn" id="freeremove_btn">삭제</button>
+								</a>
+								<button class="bbtn" id="cancel_btn">취소</button>
+						</div>
+				</c:when>
+				<c:when test="${re_count !='0'}">
+							<span id="text">해당 글은 댓글이 있어 삭제가 불가 합니다.</span>
 					<div id="sel_bbtn">
 							<br>
-							<a href="#">
-								<button class="bbtn" id="freeremove_btn">삭제</button>
-							</a>
-							<button class="bbtn" id="cancel_btn">취소</button>
+							<button class="bbtn" id="okay_btn">확인</button>
 					</div>
-			</c:when>
-			<c:when test="${re_count !='0'}">
-						<span id="text">해당 글은 댓글이 있어 삭제가 불가 합니다.</span>
-				<div id="sel_bbtn">
-						<br>
-						<button class="bbtn" id="okay_btn">확인</button>
-				</div>
-			</c:when>
-		</c:choose>
+				</c:when>
+			</c:choose>
+			</div>
 		</div>
-	</div>
 	
 </div>
 </body>

@@ -1375,7 +1375,109 @@
 			});
 		}
 	});	
-	
+	// 자유게시판 : 정렬
+	$(document).on("click", "#fl_no", function(){
+		var sort = $("#fl_no_input").val();
+		var keyword = $("#fl_no_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_contents", function(){
+		var sort = $("#fl_content_input").val();
+		var keyword = $("#fl_content_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_name", function(){
+		var sort = $("#lf_name_input").val();
+		var keyword = $("#fl_name_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_date", function(){
+		var sort = $("#fl_date_input").val();
+		var keyword = $("#fl_date_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_view", function(){
+		var sort = $("#fl_view_input").val();
+		var keyword = $("#fl_view_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_good", function(){
+		var sort = $("#fl_good_input").val();
+		var keyword = $("#fl_good_input_keyword").val();
+		//alert(sort);
+		//alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
 	//***** dandy_contents_free_board_write.jsp
 	// 자유게시판 : 게시글 작성페이지 default 빈칸
 	$(document).ready(function() {
@@ -1439,6 +1541,7 @@
 			}
 		}); 
 	});
+	
 	// 자유게시판 :  댓글 등록을 위한 로그인을 유도하는 쿼리
 	$(document).on("click", "#free_board_detail_login", function(){
 		$(".modal").css("display", "block");
@@ -1547,258 +1650,6 @@
 		
 	});
 	
-	
-	// 자유게시판 : 정렬
-	/* $(document).on("click", "#fl_no", function(){
-		$("#lineup_code").val("fl_no");
-		var lineup_code = $("#lineup_code").val();
-		var sort = $("#freeboardsort").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				 $("#boardList").html(result); 
-					if(result.sort = "asc"){
-						$("#fl_no_span").text("NO▲");	
-						$("#freeboardsort").val("desc");
-						alert("sort : asc -> desc");
-					} else if(result.sort = "desc"){
-						$("#fl_no_span").text("NO▼");	
-						$("#freeboardsort").val("asc");
-						alert("sort : desc -> asc");
-					}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	
-	$(document).on("click", "#fl_contents", function(){
-		$("#lineup_code").val("fl_contents");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result); 
-				if(result.sort = "asc"){
-					$("#fl_contents_span").text("CONTENTS▲");	
-					$("#freeboardsort").val("desc");
-					alert("sort : asc -> desc");
-				} else if(result.sort = "desc"){
-					$("#fl_contents_span").text("CONTENTS▼");	
-					$("#freeboardsort").val("asc");
-					alert("sort : desc -> asc");
-				}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_name", function(){
-		$("#lineup_code").val("fl_name");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result); 
-				if(result.sort = "asc"){
-					$("#fl_name_span").text("NAME▲");	
-					$("#freeboardsort").val("desc");
-					alert("sort : asc -> desc");
-				} else if(result.sort = "desc"){
-					$("#fl_name_span").text("NAME▼");	
-					$("#freeboardsort").val("asc");
-					alert("sort : desc -> asc");
-				}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_date", function(){
-		$("#lineup_code").val("fl_date");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result); 
-				if(result.sort = "asc"){
-					$("#fl_date_span").text("DATE▲");	
-					$("#freeboardsort").val("desc");
-					alert("sort : asc -> desc");
-				} else if(result.sort = "desc"){
-					$("#fl_date_span").text("DATE▼");	
-					$("#freeboardsort").val("asc");
-					alert("sort : desc -> asc");
-				}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_view", function(){
-		$("#lineup_code").val("fl_view");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result); 
-				if(result.sort = "asc"){
-					$("#fl_view_span").text("▲");
-					$("#freeboardsort").val("desc");
-					alert("sort : asc -> desc");
-				} else if(result.sort = "desc"){
-					$("#fl_view_span").text("▼");	
-					$("#freeboardsort").val("asc");
-					alert("sort : desc -> asc");
-				}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_good", function(){
-		$("#lineup_code").val("fl_good");
-		var lineup_code = $("#lineup_code").val();
-		$.ajax({
-			url : "freeBoardLineUp.dandy",
-			type : "POST",
-			data : "lineup_code=" + lineup_code + "&sort=" + sort,
-			success : function(result) {
-				$("#boardList").html(result); 
-				if(result.sort = "asc"){
-					$("#fl_good_span").text("▲");
-					$("#freeboardsort").val("desc");
-					alert("sort : asc -> desc");
-				} else if(result.sort = "desc"){
-					$("#fl_good_span").text("▼");	
-					$("#freeboardsort").val("asc");
-					alert("sort : desc -> asc");
-				}
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	}); */
-	
-	$(document).on("click", "#fl_no", function(){
-		var sort = $("#fl_no_input").val();
-		var keyword = $("#fl_no_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_contents", function(){
-		var sort = $("#fl_content_input").val();
-		var keyword = $("#fl_content_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_name", function(){
-		var sort = $("#lf_name_input").val();
-		var keyword = $("#fl_name_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_date", function(){
-		var sort = $("#fl_date_input").val();
-		var keyword = $("#fl_date_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_view", function(){
-		var sort = $("#fl_view_input").val();
-		var keyword = $("#fl_view_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	$(document).on("click", "#fl_good", function(){
-		var sort = $("#fl_good_input").val();
-		var keyword = $("#fl_good_input_keyword").val();
-		//alert(sort);
-		//alert(keyword);
-		$.ajax({
-			url : "freeBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
-	});
-	
 	//자유게시판 : 페이지 이동
 	$(document).on("click", ".freepageMove", function(){
 		var page=$(this).attr("page_num");
@@ -1811,6 +1662,7 @@
 			}
 		});
 	});
+	
 	//***** dandy_contents_free_board_answer.jsp
 	//자유게시판 : 답변등록
 	$(document).on("click", "#free_answer_wr_btn", function(){

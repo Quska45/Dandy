@@ -48,8 +48,8 @@ public class FreeBoardDetailAction implements Action{
 			request.setAttribute("replyview", replylist);
 			request.setAttribute("re_count", listCount);
 			request.setAttribute("page", page);
+			System.out.println("%%%%%%%%%%%" + listCount + "%%%%%%%%%%%");
 		}
-		
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

@@ -208,7 +208,7 @@
 		height: 100%; 
 		overflow: auto; 
 		background-color: rgb(0, 0, 0); 
-		background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+		background-color: rgba(0, 0, 0, 0.4);
 	}
 	#modal_info_pw_line {
 		margin-top: 40px;
