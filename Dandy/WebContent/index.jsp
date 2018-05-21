@@ -1137,6 +1137,7 @@
 			$("#cBody").css("height","1938px");
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
+			$(".main_logo").css("display", "none");
 			$("#content3").css("width", "86.9%");	
 			$("#content3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
