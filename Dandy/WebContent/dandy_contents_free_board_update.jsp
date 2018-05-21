@@ -54,7 +54,7 @@
 		border: none;
 		background-color: #f7f7f7;
 	}
-	#con_input {
+	#content {
 		width: 700px;
 		height: 200px;
 		font-size: 15px;
@@ -147,6 +147,7 @@
 		color: #a7a7a7;
 	}
 </style>
+<script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
 	<div id="contents">
@@ -260,7 +261,7 @@
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<input type="text" id="con_input" name="content" value="${content}">
+						<input type="text" id="content" name="content" value="${content}">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -289,6 +290,14 @@
 			</tbody>
 		</table>
 	</div>
-	
+	<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "content",
+			sSkinURI: "smarteditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	</script>
 </body>
 </html>

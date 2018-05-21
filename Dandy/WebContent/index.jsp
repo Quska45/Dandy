@@ -1490,10 +1490,10 @@
 	$(document).on("click", "#btn_freesuccess", function(){
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
-		var content = $("#con_input").val();
+		var content = $("#content").val();
 		var form = $('form')[0];
         var formData = new FormData(form);
-        
+        oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$.ajax({
 			type : "post",
 			processData: false,
@@ -1512,8 +1512,8 @@
 		var bno = $("bno").val();
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
-		var content = $("#con_input").val();
-		
+		var content = $("#content").val();
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$.ajax({
 			type : "post",
 			url : "freeBoardUpdateSave.dandy",
@@ -1566,7 +1566,6 @@
 	//자유게시판 : 답변 페이지 
 	$(document).on("click", "#free_rewrite_btn", function(){
 		var bno = $("#free_answer_bno").val();
-		
 		$.ajax({
 			type : "post",
 			url : "freeAnswer.dandy",
@@ -1591,25 +1590,6 @@
 				$("#boardList").html(result);
 			}, error : function() {
 				alert("System Error!");
-			}
-		});
-	});
-	
-	// 자유게시판 : 게시글 수정 등록
-	$(document).on("click", "#btn_freeup", function(){
-		var bno = $("#bno").val();
-		var title = $("#sub_input").val();
-		var writer = $("#name_input").val();
-		var content = $("#con_input").val();
-		
-		$.ajax({
-			type : "post",
-			url : "freeBoardUpdateSave.dandy",
-			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
-			success : function(result) {
-				$("#boardList").html(result);
-			}, error : function() {
-				alert("System Error!!!");
 			}
 		});
 	});
@@ -1669,8 +1649,8 @@
 		var title = $("#sub_input").val();
 		var bno = $("#free_answer_bno").val();
 		var writer = $("#name_input").val();
-		var content = $("#con_input").val();
-		
+		var content = $("#content").val();
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$.ajax({
 			type : "post",
 			url : "freeAnswerInsert.dandy",

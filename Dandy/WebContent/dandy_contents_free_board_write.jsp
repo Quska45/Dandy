@@ -49,7 +49,7 @@
 		border: none;
 		background-color: #f7f7f7;
 	}
-	#con_input {
+	#content {
 		width: 700px;
 		height: 200px;
 		font-size: 15px;
@@ -143,6 +143,7 @@
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript">
 //자유게시판 : 게시글 작성페이지 첨부파일 input css
 $(document).ready(function(){
@@ -251,7 +252,7 @@ $(document).ready(function(){
 						<span>&nbsp;</span>
 					</td>
 					<td>
-						<input type="text" id="con_input" name="content">
+						<input type="text" id="content" name="content">
 					</td>
 					<td class="empty">
 						<span>&nbsp;</span>
@@ -279,8 +280,17 @@ $(document).ready(function(){
 				</tr>
 			</tbody>
 		</table>
-			</form>
+		</form>
 	</div>
+	<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "content",
+			sSkinURI: "smarteditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	</script>
 	
 </body>
 </html>
