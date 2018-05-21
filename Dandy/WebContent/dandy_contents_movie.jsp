@@ -23,7 +23,7 @@
 		width: 1200px;
 		height: 1700px;
 		border: 2px solid white;
-		background-color: #EEE9DD;
+		background-color: #f7f7f7;
 		border-radius: 10px;
 		margin: 100px 200px;
 	}
@@ -39,7 +39,7 @@
 		position: absolute;
 		top: 35px;
 		left: 435px;
-		color: #FA6C00
+		color: #0daa62
 	}
 	
  /*- 검색창 키워드 박스  */
@@ -57,12 +57,12 @@
  	#search_btn {
  		width: 40px;
  		height: 30px;
- 		border: 1px solid #EEE9DD;
- 		background-color: #EEE9DD;
+ 		border: 1px solid #f7f7f7;
+ 		background-color: #f7f7f7;
  		border-radius: 5px;
  		font-size: 20px;
  		font-weight: bold;
- 		color: #FA6C00;
+ 		color: #0daa62;
  		cursor: pointer;
  	}
 
@@ -89,10 +89,10 @@
  	.poster_frame {
  		width: 250px;
  		height: 392px;
- 		background-color: #FA6C00;
+ 		background-color: #0daa62;
  		float: left;
  		margin: 0 40px 50px 40px;
- 		border: 1px solid #FA6C00;
+ 		border: 1px solid #0daa62;
  		border-radius: 5px;
  	}
  	.posterTitle {
@@ -123,7 +123,7 @@
  		/* border: 1px solid yellow; */
  		text-decoration: none;
  		font-size: 15px;
- 		background-color: #FA6C00;
+ 		background-color: #0daa62;
  		color: white;
  		font-weight: bold;
  		
@@ -139,14 +139,14 @@
  		font-family: 'Noto Sans KR', sans-serif;
  		text-decoration: none;
  		font-size: 18px;
- 		background-color: #EEE9DD;
+ 		background-color: #f7f7f7;
  		color: black;
  		padding: 5px 10px;
  		/* border: 1px solid black; */
  		border-radius: 5px;
  	}
  	.active {
- 		color: #FA6C00!important;
+ 		color: #0daa62!important;
  		/* border: 1px solid #fa6c00!important; */
  	}
  	.active_cahr {
