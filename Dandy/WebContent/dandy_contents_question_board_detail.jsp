@@ -293,6 +293,9 @@
 	
 	/* 게시판 삭제 확인 모달 */
 	$(document).ready(function(){
+		// 게시판이 레디 되었을때 댓글 띄워주는 function
+		comment_list();
+		
 		  var mo_board_del = $("#mo_board_del");
 		  var del_link = $(".del_link");
 		  var modalCont = $(".modal_del");

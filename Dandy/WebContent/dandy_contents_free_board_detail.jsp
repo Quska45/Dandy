@@ -301,21 +301,25 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
+	
+	function comment_list() {
+		var bno = ${boardview.bno};
+		$.ajax({
+			type: "post",
+			url: "freeCommentList.dandy",
+			data: "bno=" + bno,
+			success: function(result) {
+				$("#commentList").html(result);
+			}, error: function() {
+				alert("System Error!!!");
+			}
+		});
+	}
+	
+	
 	//자유게시판 : 리플리스트
 	$(document).ready(function(){
-		function comment_list() {
-			var bno = ${boardview.bno};
-			$.ajax({
-				type: "post",
-				url: "freeCommentList.dandy",
-				data: "bno=" + bno,
-				success: function(result) {
-					$("#commentList").html(result);
-				}, error: function() {
-					alert("System Error!!!");
-				}
-			});
-		}
+		comment_list();		
 		
 		//자유게시판 : 댓글 등록 AJAX
 		$(document).on("click", "#freere_btn", function(){
