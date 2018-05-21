@@ -292,7 +292,6 @@
 					<td id="board_table">
 						<table>
 							<tbody>
-							
 								<c:forEach items="${freeboardlist}" var="bDto">
 								<tr id="line">
 									<input type="hidden" id="free_hiddenBno" name="free_hiddenBno" value="${bDto.bno}">

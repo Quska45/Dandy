@@ -1699,8 +1699,8 @@
 	$(document).on("click", "#fl_no", function(){
 		var sort = $("#fl_no_input").val();
 		var keyword = $("#fl_no_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",
@@ -1716,8 +1716,8 @@
 	$(document).on("click", "#fl_contents", function(){
 		var sort = $("#fl_content_input").val();
 		var keyword = $("#fl_content_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",
@@ -1733,8 +1733,8 @@
 	$(document).on("click", "#fl_name", function(){
 		var sort = $("#lf_name_input").val();
 		var keyword = $("#fl_name_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",
@@ -1750,8 +1750,8 @@
 	$(document).on("click", "#fl_date", function(){
 		var sort = $("#fl_date_input").val();
 		var keyword = $("#fl_date_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",
@@ -1767,8 +1767,8 @@
 	$(document).on("click", "#fl_view", function(){
 		var sort = $("#fl_view_input").val();
 		var keyword = $("#fl_view_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",
@@ -1784,8 +1784,8 @@
 	$(document).on("click", "#fl_good", function(){
 		var sort = $("#fl_good_input").val();
 		var keyword = $("#fl_good_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "freeBoardSort.dandy",
 			type : "POST",

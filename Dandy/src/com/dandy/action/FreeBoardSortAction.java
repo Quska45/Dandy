@@ -48,7 +48,9 @@ public class FreeBoardSortAction implements Action{
 		FreeBoardDAO fDao = FreeBoardDAO.getInstance();	
 		List<FreeBoardDTO> list = fDao.freeboardSort(criDto);
 		request.setAttribute("freeboardlist", list);
-		request.setAttribute("sort", criDto.getSort());
+		request.setAttribute("sort", sort);
+		
+		System.out.println("2222222sort : " + sort);
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
 		pageMaker.setCriDto(criDto);

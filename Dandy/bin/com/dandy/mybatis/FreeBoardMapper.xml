@@ -240,26 +240,38 @@
 			 
 		<!-- 자유게시판 정렬 -->
 		<select id="freeSort" parameterType="criDTO" resultType="fDTO">
-		<![CDATA[SELECT *
-		FROM board
-		WHERE rownum BETWEEN #{pageStart} AND #{perPageNum}]]>
+		<![CDATA[
+			  			SELECT *
+			  			FROM (
+			  				SELECT rownum rnum,
+			  				a.*
+			  				FROM (
+			  					SELECT b.*, (SELECT COUNT(*) 
+			  								FROM fbreply d
+			  								WHERE b.bno = d.bno) replycnt 
+			  					FROM board b]]>
 			<if test='keyword == "NO"'>
-				<![CDATA[ ORDER BY bno ${sort}]]>
+				<![CDATA[ORDER BY bno ${sort}]]>
 			</if>
 			<if test='keyword == "CONTENTS"'>
-				<![CDATA[ ORDER BY title ${sort}]]>
+				<![CDATA[ORDER BY title ${sort}]]>
 			</if>
 			<if test='keyword == "NAME"'>
-				<![CDATA[ ORDER BY writer ${sort}]]>
+				<![CDATA[ORDER BY writer ${sort}]]>
 			</if>
 			<if test='keyword == "DATE"'>
-				<![CDATA[ ORDER BY regdate ${sort}]]>
+				<![CDATA[ORDER BY regdate ${sort}]]>
 			</if>
 			<if test='keyword == "VIEW"'>
-				<![CDATA[ ORDER BY viewcnt ${sort}]]>
+				<![CDATA[ORDER BY viewcnt ${sort}]]>
 			</if>
 			<if test='keyword == "GOOD"'>
-				<![CDATA[ ORDER BY goodcnt ${sort}]]>
+				<![CDATA[ORDER BY goodcnt ${sort}]]>
 			</if>
+			<![CDATA[
+			  				) a
+			  			)
+			  			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			  		]]>
 		</select>
 </mapper>
