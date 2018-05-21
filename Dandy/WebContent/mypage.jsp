@@ -27,7 +27,7 @@
 	
 	/* My Page : contents 영역 wrap div */
 	#mycontent_wrap {
-		margin: 100px 345px; 
+		margin: 100px 180px; 
 		/* border: 1px solid black; */
 		/* border: 2px solid #f7f7f7; */
 		border-radius: 10px;
@@ -42,32 +42,49 @@
 		margin: 0;
 		/* border: 1px solid red; */
 		width: 100%;
-		height: 50%;
+		height: 100%;
 	}
 	.mycontent_leftdivide {
 		margin: 0;
 		/* border: 1px solid green; */
-		width: 50%;
+		width: 300px;
 		height: 100%;
 		float: left;
 	}
 	.mycontent_rightdivide {
 		margin: 0;
 		/* border: 1px solid blue; */
-		width: 50%;
+		width: 900px;
 		height: 100%;
 		float: right;
 	}
 	
 	/* My Page : content 영역 내부 박스 */
-	.mycontent_box {
+	/* .mycontent_box {
+		margin: 20px auto;
+		border: 1px dashed #0daa62;
+		border-radius: 10px;
+		width: 90%;
+		height: 90%;
+	} */
+	
+	#myinfo {
 		margin: 20px auto;
 		border: 1px dashed #0daa62;
 		/* border-top-color: white; */
 		border-radius: 10px;
-		width: 90%;
-		height: 90%;
+		width: 240px;
+		height: 720px;
 	}
+	#myword {
+		margin: 20px auto;
+		border: 1px dashed #0daa62;
+		/* border-top-color: white; */
+		border-radius: 10px;
+		width: 1200px;
+		height: 720px;
+	}
+	
 	/* My Page : content title box */
 	.mycontent_boxtitle {
 		margin-top: -2px;
@@ -86,7 +103,19 @@
 	}
 	
 	/* My Page : content 내용 */
-	.mycontent_contents {
+	/* .mycontent_contents {
+		margin: 12px 12px 12px 24px;
+		width: 95%;
+		height: 95%;
+		text-align: center;
+	} */
+	#movielist_box {
+		margin: 12px 12px 12px 30px;
+		width: 95%;
+		height: 95%;
+		text-align: center;
+	}
+	#infocontents_box {
 		margin: 1%;
 		width: 95%;
 		height: 95%;
@@ -104,19 +133,24 @@
 	}
 	#movieImgWrap {
 		display: inline-block;
-		width: 95px;
-		height: 110px;
+		width: 195px;
+		height: 306px;
+		margin: 10px 13px;
+		border: 1px solid #0daa62;
+		background-color: #0daa62;
+		border-radius: 5px;
 	}
 	
 	
 	/* 회원정보 */
 	#member_id_line {
-		margin-top: 50px;
-		margin-bottom: 30px;
+		margin-top: 30px;
+		margin-bottom: 50px;
+		height: 70px;
 	}
 	#member_id {
-		height: 30px;
-		width: 260px;
+		height: 70px;
+		width: 200px;
 		border: none;
 		border-radius: 5px;
 		background-color: #f7f7f7;
@@ -125,32 +159,51 @@
 		font-family: 'Noto Sans KR', sans-serif;
 	}
 	
-	#member_ngb {
+	#member_ng {
 		border: none;
 		font-size: 16px;
 		text-align: center;
+		width: 200px;
+		font-style: oblique;
+	}
+	#member_birth_line {
+		margin-top: 10px;
+	}
+	#member_birth {
+		font-size: 16px;
+		text-align: center;
+		width: 200px;
+		font-style: oblique;
+	}
+	#member_phone_line {
+		margin-top: 40px;
 	}
 	#member_phone {
 		border: none;
 		font-size: 16px;
 		text-align: center;
+		font-style: oblique;
+	}
+	#member_email_line {
+		margin-top: 10px;
 	}
 	#member_email {
 		border: none;
 		font-size: 16px;
 		text-align: center;
-	}
-	#member_ngb {
-		width: 110px;
+		font-style: oblique;
 	}
 	.member_info {
-		margin-bottom: 15px;
+		/* margin-bottom: 15px; */
 		font-family: 'Noto Sans KR', sans-serif;
 		height: 25px;
-		width: 250px;
+		width: 200px;
+	}
+	#member_info_btn {
+		margin-top: 50px;
 	}
 	.member_btn {
-		margin: 10px;
+		margin: 10px 17px;
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 15px;
@@ -159,7 +212,11 @@
 		border-radius: 5px;
 		border: 1px solid white;
 		font-family: 'Noto Sans KR', sans-serif;
+		width: 200px;
+		height: 80px;
+		font-size: 17px;
 	}
+	
 	.member_btn:hover {
 		border: 1px solid #0daa62;
 		background-color: white;
@@ -494,12 +551,14 @@
 		border: none; 
 		font-size: 16px;
 		font-family: 'Noto Sans KR', sans-serif;
+		font-style: oblique;
 	}
 	#info_mmonth, #info_mday {
 		width: 20px;
 		border: none;
 		font-size: 16px;
 		font-family: 'Noto Sans KR', sans-serif;
+		font-style: oblique;
 	}
 	#yy {
 		text-align: center;
@@ -1136,18 +1195,22 @@
 						<!-- My Page : content title box -->
 						<div class="mycontent_boxtitle"><span>회원정보</span></div>
 						<!-- My Page : content 내용 -->
-						<div class="mycontent_contents">
+						<div class="mycontent_contents" id="infocontents_box">
 							<!-- <span>회원정보, 회원정보 수정, 탈퇴 추가예정</span> -->
 							<div id ="member_id_line">
 								<input type="text" id="member_id" name="mid" value="${sessionScope.loginUser.mid}" readonly="readonly">
 								<input type="hidden" id="member_pw" name="mpw" value="${sessionScope.loginUser.mpw}">
 							</div>
-							<div id ="member_ngb_line">
+							<div id ="member_ng_line">
+								<input type="text" id="member_ng" class="member_info" value="${sessionScope.loginUser.mname}&nbsp;(${sessionScope.loginUser.msex})" readonly="readonly">
+							</div>
+							<div id ="member_birth_line">
 								<input type="hidden" id="mbirth_value" value="${sessionScope.loginUser.mbirth}">
-								<input type="text" id="member_ngb" class="member_info" value="${sessionScope.loginUser.mname}&nbsp;(${sessionScope.loginUser.msex} ," readonly="readonly">
-								<input type="text" id="info_myear" value="" readonly="readonly">-
-								<input type="text" id="info_mmonth" value="" readonly="readonly">-
-								<input type="text" id="info_mday" value="" readonly="readonly">)
+								<span id="member_birth">
+									<input type="text" id="info_myear" value="" readonly="readonly">-
+									<input type="text" id="info_mmonth" value="" readonly="readonly">-
+									<input type="text" id="info_mday" value="" readonly="readonly">
+								</span>
 							</div>
 							<div id ="member_phone_line">
 								<input type="text" id="member_phone" class="member_info" value="${sessionScope.loginUser.mphone}" readonly="readonly">
@@ -1167,18 +1230,18 @@
 				<div id="myword_arr" class="mycontent_rightdivide">
 					<div id="myword" class="mycontent_box">
 						<div class="mycontent_boxtitle"><span>나의 단어장</span></div>
-						<div class="mycontent_contents">
+						<div class="mycontent_contents" id="movielist_box">
 							<c:forEach items="${movieList}" var="mDto">
 								<div id="movieImgWrap">
 									<c:choose>
 									<c:when test="${empty mDto.img}">
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="image/img_ready.gif"  style="width: 100px; height: 110px;" alt="${mDto.title}">
+											<img src="image/img_ready.gif"  style="width: 190px; height: 274px;" alt="${mDto.title}">
 										</a>
 									</c:when>
 									<c:otherwise>
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="${mDto.img}" style="width: 100px; height: 110px;" alt="${mDto.title}">
+											<img src="${mDto.img}" style="width: 190px; height: 274px;" alt="${mDto.title}">
 										</a>
 									</c:otherwise>
 								</c:choose>	
@@ -1189,7 +1252,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="mycontent_bottom" class="mycontent_topbottomdivide">
+			<!-- <div id="mycontent_bottom" class="mycontent_topbottomdivide">
 				<div id="myachieve_arr" class="mycontent_leftdivide">
 					<div id="myachieve" class="mycontent_box">
 						<div class="mycontent_boxtitle"><span>성취도</span></div>
@@ -1206,7 +1269,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		
 	<!-- 회원정보수정, 비밀번호변경, 탈퇴 클릭시 비밀번호 재확인 모달창 -->
