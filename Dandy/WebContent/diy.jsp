@@ -67,6 +67,14 @@
 		var session = $("#diy_session").val();
 		var title = $("#diy_title").val();
 		var text = $("#diy_text").val();
+		
+		if(title == "") {
+			alert("제목을 입력해 주세요.");
+			$("#diy_title").focus();
+			return false;
+		}
+		
+		
 		$.ajax({
 			url : "diyLoading.dandy",
 			type : "POST",
