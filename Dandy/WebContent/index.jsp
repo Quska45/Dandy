@@ -302,7 +302,7 @@
 			margin-left: 0;
 		}
 		a.type2 {
-			color: #57b74e;
+			color: #0daa62;
 			font-size: 18px;
 		}
 		/* 텍스트가 들어가는 끝 시작 */
@@ -2059,16 +2059,23 @@
 				<!-- 텍스트가 들어가는 부분 시작 -->
 				<div class="left">
 					<div class="link">
-						<a href="#" class="type2"><strong>개인정보처리방침</strong></a>
-						<span class="divide">|</span>
-						<a href="#">사이트맵</a>
+						<a href="#" class="type2"><strong>Dandi</strong></a>
+						<!-- <span class="divide">|</span>
+						<a href="#">사이트맵</a> -->
 					</div>
 					<div class="address">
-						<span>광주 한국정보원</span>
+						<span>프로젝트 기한 : 2018.03.15 ~ 2018.05.24</span>
+					</div>
+						<span>고재선</span>
 						<span class="divide">|</span>
-						<span>Tel.000-000-0000</span>
+						<span>변광진</span>
 						<span class="divide">|</span>
-						<span>email@naver.com</span>
+						<span>정지선</span>
+						<span class="divide">|</span>
+						<span>이시연</span>
+						<span class="divide">|</span>
+						<span>류영아</span>
+					<div class="address">
 					</div>
 					<p class="copy">
 					
