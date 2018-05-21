@@ -200,7 +200,7 @@
 		}
 		div.txtArea {
 			position: absolute;
-			top: 55%;
+			top: 48%;
 			width: 600px;
 			height: 400px;
 			box-sizing: border-box;
@@ -584,6 +584,11 @@
  		z-index:11;
  		background:#fff;
  		z-index: 70;
+	}
+	.tArea {
+		color: white;
+		font-size: 40px;
+		float: left;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -1975,9 +1980,10 @@
 					</div>
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
-					<div class="txtArea tal1" style="left:140px;">
+					<div class="txtArea tal1" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">단어장</p> -->
 						<img src="image/index_logo/logo_voca_2.png" class="main_logo">
+						<!-- <span class="tArea"><br>─</span> -->
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
@@ -2004,9 +2010,10 @@
 					</div>
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
-					<div class="txtArea tal2" style="left:140px;">
+					<div class="txtArea tal2" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">딕테이션</p> -->
 						<img src="image/index_logo/logo_diy_2.png" class="main_logo">
+						<!-- <span class="tArea"><br>─</span> -->
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
@@ -2043,9 +2050,10 @@
 					</div>
 					<!-- 백그라운드 이미지가 들어가는 페이지 끝 -->
 					<!-- 문구가 들어가는 div시작 -->
-					<div class="txtArea tal3" style="left:140px;">
+					<div class="txtArea tal3" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">쉐도잉</p> -->
 						<img src="image/index_logo/logo_board_2.png" class="main_logo">
+						<!-- <span class="tArea"><br>─</span> -->
 					</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
