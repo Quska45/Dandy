@@ -1484,11 +1484,14 @@
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
 		var content = $("#content").val();
+		/* var content = oEditors.getById["content"].getIR(); */
+		var form = $('form')[0];
+        var formData = new FormData(form);
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$.ajax({
 			type : "post",
 			url : "freeBoardUpdateSave.dandy",
-			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
 			success : function(result) {
 				$("#boardList").html(result);
 			}

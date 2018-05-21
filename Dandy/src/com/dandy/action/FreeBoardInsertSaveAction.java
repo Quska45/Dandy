@@ -20,7 +20,7 @@ public class FreeBoardInsertSaveAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "index.dandy#freeboard";
+		String url = "freeBoardList.dandy";
 		
 		//파일 업로드 처리
 				File uploadDir = new File(Constants.UPLOAD_PATH);

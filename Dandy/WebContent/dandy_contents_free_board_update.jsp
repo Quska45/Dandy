@@ -147,10 +147,24 @@
 		color: #a7a7a7;
 	}
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript">
+//자유게시판 : 게시글 작성페이지 첨부파일 input css
+$(document).ready(function(){
+	$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
+	$('.input_file').change(function(){
+		var i = $(this).val();
+		$('.upload_text').val(i).css("color","black");
+		$("#filebtn").css("color","#0daa62");
+		
+	});
+});
+</script>
 </head>
 <body>
 	<div id="contents">
+			<form role="form" action="freeBoardUpdateSave.dandy" method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 	<!-- Q & A : title -->
@@ -268,6 +282,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</form>
 	</div>
 	<script type="text/javascript">
 		var oEditors = [];
