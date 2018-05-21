@@ -11,6 +11,11 @@
 		INSERT INTO question_board(bno, title, content, writer, ref, re_step, re_level, question_type, flag)
 		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},#{flag})
 	</insert>
+<!-- Q & A 게시판 더미 데이터를 등록 -->
+	<insert id="questionInsert_dummy" parameterType="qDTO">
+		INSERT INTO question_board(bno, title, content, writer, ref, re_step, re_level, question_type, flag)
+		VALUES((SELECT nvl(max(bno)+1, 1) from question_board),#{title},#{content},#{writer}, (SELECT nvl(max(bno)+1, 1) from question_board), 1,0,#{question_type},0)
+	</insert>
 <!-- Q & A 게시판 리스트 출력 -->
 	<select id="listCriteria" resultType="qDTO" parameterType="criDTO">
 		<![CDATA[
