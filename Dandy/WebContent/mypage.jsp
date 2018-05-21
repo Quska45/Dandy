@@ -654,7 +654,8 @@
 <script type="text/javascript">
 	//mypage를 닫는 스크립트
 	$(document).on("click", "#myPageClose", function(){
-		$("#mypage_wrap").css("display", "none");
+		$("#mypageMoviedetail").css("display", "none");
+		$("#cBody").css("height", "20000px");
 	});
 	//마이페이지에서 영화누르면 상세페이지 띄워주는 스크립트
 	$(document).on("click", ".mypageImg", function() {
@@ -668,7 +669,9 @@
 			data : "mno=" + mno + "&img=" + img + "&title=" + title,
 			success : function(result) {
 				$("#mypageMoviedetail").html(result);
-				alert("왜 안뜨지?");
+				$("#cBody").css("height", "7500px");
+				$("#wrap_contents_mypage").css("height", "7235px");
+				$("#mypage_wrap").css("height", "7563px");
 			},
 			error : function() {
 				alert("System Error!!!");
@@ -1102,6 +1105,7 @@
 			});
 		
 	});
+	
 </script>
 </head>
 <body>

@@ -16,7 +16,7 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 	
  /** contents page body */
-	#wrap_contents {
+	#wrap_contents_mypage {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
 		height: 1700px;
@@ -258,7 +258,7 @@
 	}
 	#mypageMovieDetailBlock {
 		width: 1903px;
-		height: 3000px;
+		height: 7563px;
 		background-color: black;
 		opacity: 0.5;
 		position: absolute;
@@ -309,7 +309,7 @@
 	
 	$(document).on("click", "#mypageMovieDetailBlockClose", function(){
 		$("#mypageMovieDetailBlock").css("display", "none");
-		$("#wrap_contents").css("display", "none");
+		$("#wrap_contents_mypage").css("display", "none");
 	});
 	
 	
@@ -321,7 +321,7 @@
 		<div id="mypageMovieDetailBlock">
 			<div id="mypageMovieDetailBlockClose">Xsdfasdf</div>
 		</div>
-		<div id="wrap_contents">
+		<div id="wrap_contents_mypage">
 				<input id="hiddenMno" type="hidden" value="${mno}">
 				<div id="detail_modal_movie">
 				
