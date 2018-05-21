@@ -7,7 +7,7 @@
 <mapper namespace="com/dandy/mybatis/FreeBoardMapper.xml">
 
 <!-- =================================================================자유게시판================================================================= -->
-		<!-- 자유게시판 리스트 출력 (정렬 추가) -->
+		<!-- 자유게시판 리스트 출력 -->
 			  <select id="fblistCriteria" resultType="fDTO">
 			  	<![CDATA[
 			  			SELECT *
@@ -237,4 +237,41 @@
 			  	DELETE FROM fbreply
 			  	WHERE bno = #{bno}
 			 </delete>
+			 
+		<!-- 자유게시판 정렬 -->
+		<select id="freeSort" parameterType="criDTO" resultType="fDTO">
+			<![CDATA[
+				SELECT *
+				FROM (
+			  	SELECT rownum rnum, a.* 
+			  	FROM (
+			  	SELECT b.*, (
+			  	SELECT COUNT(*)
+			  	FROM fbreply d
+			  	WHERE b.bno = d.bno) replycnt 
+			  	FROM board b]]>
+			<if test='keyword == "NO"'>
+				<![CDATA[ORDER BY bno ${sort]]>
+			</if>
+			<if test='keyword == "CONTENTS"'>
+				<![CDATA[ORDER BY title ${sort}]]>
+			</if>
+			<if test='keyword == "NAME"'>
+				<![CDATA[ORDER BY writer ${sort}]]>
+			</if>
+			<if test='keyword == "DATE"'>
+				<![CDATA[ORDER BY regdate ${sort]]>
+			</if>
+			<if test='keyword == "VIEW"'>
+				<![CDATA[ORDER BY viewcnt ${sort]]>
+			</if>
+			<if test='keyword == "GOOD"'>
+				<![CDATA[ORDER BY goodcnt ${sort]]>
+			</if>
+			<![CDATA[
+			  	) a
+			  	)
+			  	WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			]]>
+		</select>
 </mapper>

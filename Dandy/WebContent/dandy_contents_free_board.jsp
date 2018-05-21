@@ -239,35 +239,47 @@
 							<tbody>
 								<tr>
 									<td class="no">
-										<span id="fl_no" class="lineup">
+										<a href="#" id="fl_no" class="lineup">
+										<input type="hidden" id="fl_no_input" value="${sort}">
+										<input type="hidden" id="fl_no_input_keyword" value="NO">
 											<span id="fl_no_span">NO</span>
-										</span>
+										</a>
 									</td>
 									<td class="point"></td>
 									<td class="upload"></td>
 									<td class="contents" id="contents">
-										<span id="fl_contents"  class="lineup">
+										<a href="#"  id="fl_contents"  class="lineup">
+										<input type="hidden" id="fl_content_input" value="${sort}">
+										<input type="hidden" id="fl_content_input_keyword" value="CONTENTS">
 											<span id="fl_contents_span">CONTENTS</span>
-										</span>
+										</a>
 									</td>
 									<td class="name" id="name">
-										<span id="fl_name" class="lineup">
+										<a href="#"  id="fl_name" class="lineup">
+										<input type="hidden" id="lf_name_input" value="${sort}">
+										<input type="hidden" id="fl_name_input_keyword" value="NAME">
 											<span id="fl_name_span">NAME</span>
-										</span>
+										</a>
 									</td>
 									<td class="date" id="date">
-										<span  id="fl_date" class="lineup">
+										<a href="#"  id="fl_date" class="lineup">
+										<input type="hidden" id="fl_date_input" value="${sort}">
+										<input type="hidden" id="fl_date_input_keyword" value="DATE">
 											<span id="fl_date_span">DATE</span>
-										</span>
+										</a>
 									</td>
 									<td class="view" id="view">
-										<span  id="fl_view" class="lineup">
+										<a href="#"  id="fl_view" class="lineup">
+										<input type="hidden" id="fl_view_input" value="${sort}">
+										<input type="hidden" id="fl_view_input_keyword" value="VIEW">
 											<i class="fa fa-eye"></i><span id="fl_view_span"></span>
-										</span>
+										</a>
 										<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-										<span id="fl_good"  class="lineup">
+										<a href="#" id="fl_good"  class="lineup">
+										<input type="hidden" id="fl_good_input" value="${sort}">
+										<input type="hidden" id="fl_good_input_keyword" value="GOOD">
 											<i class="fa fa-heart"></i><span id="fl_good_span"></span>
-										</span>
+										</a>
 									</td>
 								</tr>
 							</tbody>

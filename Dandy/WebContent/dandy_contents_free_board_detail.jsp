@@ -333,6 +333,7 @@
 				data: "re_input="+ re_input + "&rn_input=" + rn_input + "&re_bno=" + re_bno,
 				success: function(data) {
 					comment_list();
+					$("#re_input").val("");
 				}
 			});
 		});

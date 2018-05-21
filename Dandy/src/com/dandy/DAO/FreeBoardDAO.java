@@ -380,7 +380,7 @@ public class FreeBoardDAO {
 		}
 		
 		// 게시판 정렬
-		public List<FreeBoardDTO> freeboardlineup(CriteriaDTO criDto){
+		/*public List<FreeBoardDTO> freeboardlineup(CriteriaDTO criDto){
 			sqlSession = sqlSessionFactory.openSession();
 			List<FreeBoardDTO> list = null;
 			
@@ -412,5 +412,55 @@ public class FreeBoardDAO {
 				sqlSession.close();
 			}
 			return list;
+		}*/
+		
+		// 정렬
+		public List<FreeBoardDTO> freeboardSort(CriteriaDTO criDto){
+			sqlSession = sqlSessionFactory.openSession();
+			List<FreeBoardDTO> list = null;
+			System.out.println(criDto.getKeyword());
+			System.out.println(criDto.getSort());
+			try {
+				list = sqlSession.selectList("freeSort", criDto);
+				for(FreeBoardDTO fDto : list) {
+					System.out.print(fDto.getBno());
+					System.out.print(fDto.getContent());
+					System.out.print(fDto.getTitle());
+					System.out.print(fDto.getWriter());
+					System.out.print(fDto.getViewcnt());
+					System.out.print(fDto.getRegdate());
+					System.out.print(fDto.getGoodcnt());
+					System.out.println();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			return list;
 		}
 	} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1433,6 +1433,7 @@
 			url : "freeBoardList.dandy?page=" + page,
 			success : function(result) {
 				$("#boardList").html(result);
+				comment_list(result);
 			}, error : function() {
 				alert("System Error!!!");
 			}
@@ -1548,7 +1549,7 @@
 	
 	
 	// 자유게시판 : 정렬
-	$(document).on("click", "#fl_no", function(){
+	/* $(document).on("click", "#fl_no", function(){
 		$("#lineup_code").val("fl_no");
 		var lineup_code = $("#lineup_code").val();
 		var sort = $("#freeboardsort").val();
@@ -1693,7 +1694,111 @@
 				alert("System Error!!!");
 			}
 		});
+	}); */
+	
+	$(document).on("click", "#fl_no", function(){
+		var sort = $("#fl_no_input").val();
+		var keyword = $("#fl_no_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
 	});
+	$(document).on("click", "#fl_contents", function(){
+		var sort = $("#fl_content_input").val();
+		var keyword = $("#fl_content_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_name", function(){
+		var sort = $("#lf_name_input").val();
+		var keyword = $("#fl_name_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_date", function(){
+		var sort = $("#fl_date_input").val();
+		var keyword = $("#fl_date_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_view", function(){
+		var sort = $("#fl_view_input").val();
+		var keyword = $("#fl_view_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	$(document).on("click", "#fl_good", function(){
+		var sort = $("#fl_good_input").val();
+		var keyword = $("#fl_good_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "freeBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
 	//자유게시판 : 페이지 이동
 	$(document).on("click", ".freepageMove", function(){
 		var page=$(this).attr("page_num");
