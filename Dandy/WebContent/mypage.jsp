@@ -642,8 +642,9 @@
 		float: left;
 		margin-left: 500px;
 	}
-	#close_btn {
+	.close_btn {
 		width: 30px;
+		cursor: pointer;
 	}
 	#deleteclose {
 		float: left;
@@ -732,12 +733,21 @@
 		$("#mo_me").text(".").css("color", "white");
 	});
 	/* 회원정보수정 모달창 닫기 */
-	$(document).on("click", "#close_btn", function(){
+	$(document).on("click", "#updateclose_btn", function(){
+		$("#member_update_modal").css("display", "none");	
+	});
+	/* 회원탈퇴 모달창 닫기 */
+	$(document).on("click", "#deleteclose_btn", function(){
+		$("#memberdelete").css("display","none");
+	});
+	$(document).on("click", ".close_btn", function(){
 		$("#mo_info").css("display", "none");
 		$("#modal_info_pw").val("");
 		$("#mo_me").text(".").css("color", "white");
-		$("#member_update_modal").css("display", "none");	
-		$("#memberdelete").css("display","none");
+	});
+	/* 마이페이지 닫기 */
+	$(document).on("click", "#mypageclose_btn", function(){
+		location.reload();
 	});
 	
 	$(document).on("click", "#modal_info_btn", function(){
@@ -1113,7 +1123,7 @@
 	<div id="mypage_wrap">
 		<div id="mypageMoviedetail"></div>
 		<div id="myPageClose">
-			<img src="image/btn/btn_error_gray2.png" id="close_btn">
+			<img src="image/btn/btn_error_gray2.png" class="close_btn" id="mypageclose_btn">
 		</div>
 		<!-- My Page : contents 영역 wrap div -->
 		<div id="mycontent_wrap">
@@ -1221,7 +1231,7 @@
 	<!-- 회원정보 수정 모달창 -->
 		<div id="member_update_modal">
 				<div id="updateclose">
-					<img src="image/btn/btn_error_gray2.png" id="close_btn">
+					<img src="image/btn/btn_error_gray2.png" class="close_btn" id="updateclose_btn">
 				</div>
 			<div id="wrap">
 				<div id="modal_header"><h1><span class="header_logo">회원정보수정</span></h1></div>
@@ -1358,7 +1368,7 @@
 	<!-- 회원탈퇴 모달창 -->
 		<div id="memberdelete" class="memeberdelete_modal">
 			<div id="deleteclose">
-					<img src="image/btn/btn_error_gray2.png" id="close_btn">
+					<img src="image/btn/btn_error_gray2.png" class="close_btn" id="deleteclose_btn">
 			</div>
 			<div id="mo_delete_header"><span id="memberdelete_header">회원탈퇴</span></div>
 			<div id="delete_message">
@@ -1383,8 +1393,6 @@
 				<img src="image/diy/loading.gif" id="loading_img">
 			</div>
 		</div>
-		
-		
 		
 	</div>
 </body>
