@@ -141,9 +141,22 @@
 
 <!-- 정렬해주는 쿼리 -->	
 	<select id="questionSort" parameterType="criDTO" resultType="qDTO">
-		SELECT *
+		<![CDATA[SELECT *
 		FROM question_board
-		ORDER BY ${keyword} ${sort}
+		WHERE rownum BETWEEN #{pageStart} AND #{perPageNum}]]>
+		<if test='keyword == "NO"'>
+			<![CDATA[ORDER BY bno ${sort}]]>
+		</if>
+		<if test='keyword == "CONTENTS"'>
+			<![CDATA[ORDER BY content ${sort}]]>
+		</if>
+		<if test='keyword == "NAME"'>
+			<![CDATA[ORDER BY  ${sort}]]>
+		</if>
+		<if test='keyword == "DATE"'>
+			<![CDATA[ORDER BY bno ${sort}]]>
+		</if>
+		
 	</select>
 
 <!-- 게시글을 수정하기 위해 수정하려는 글의 정보를 가져오는 쿼리 -->

@@ -165,9 +165,6 @@
 	 #pagetable td > a{
 	 	color: #0daa62;
 	 } 
-	 .active > a{
-	 	color: #990000;
-	 }
 	 #big_table {
 	 	margin-bottom: 30px;
 	 }
@@ -204,46 +201,16 @@
 	.lineup {
 		color: white;
 	}
+	.active {
+		color: #0daa62!important;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
 
 	
-	// QnA 게시판 정렬 해준다.
-	$(document).on("click", "#l_no", function(){
-		var sort = $("#l_no_input").val();
-		var keyword = $("#l_no_input_keyword").val();
-		alert(sort);
-		alert(keyword);
-		$.ajax({
-			url : "questionBoardSort.dandy",
-			type : "POST",
-			data : "sort=" + sort + "&keyword=" + keyword,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-	});
-	$(document).on("click", "#l_contents", function(){
-		
-	});
-	$(document).on("click", "#l_name", function(){
-		
-	});
-	$(document).on("click", "#l_date", function(){
-		
-	});
-	$(document).on("click", "#l_view", function(){
-		
-	});
-	$(document).on("click", "#l_good", function(){
-		
-	});
+	
 	
 
 	</script>
@@ -297,6 +264,7 @@
 									<td class="no">
 										<a href="#" id="l_no" class="lineup">
 										<input type="hidden" id="l_no_input" value="${sort}">
+										<input type="hidden" id=l_no_input_keyword value="NO">
 										
 											<span>NO</span>
 										</a>
@@ -306,17 +274,20 @@
 									<td class="contents" id="contents">
 										<a href="#"  id="l_contents"  class="lineup">
 										<input type="hidden" id="l_content_input" value="${sort}">
+										<input type="hidden" id=l_content_input_keyword value="CONTENTS">
 											<span>CONTENTS</span>
 										</a>
 									</td>
 									<td class="name" id="name">
 										<a href="#"  id="l_name" class="lineup">
 										<input type="hidden" id="l_name_input" value="${sort}">
+										<input type="hidden" id=l_name_input_keyword value="NAME">
 											<span>NAME</span></a>
 										</td>
 									<td class="date" id="date">
 										<a href="#"  id="l_date" class="lineup">
 										<input type="hidden" id="l_date_input" value="${sort}">
+										<input type="hidden" id=l_date_input_keyword value="DATE">
 											<span>DATE</span>
 										</a>
 									</td>

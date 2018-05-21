@@ -48,7 +48,7 @@ public class QuestionBoardSortAction implements Action{
 		//내가 원하는 정렬 키워드에 맞게 정렬된 리스트의 목록을 가져온다.
 		QuestionBoardDAO qDao = QuestionBoardDAO.getInstance();
 		List<QuestionBoardDTO> list = qDao.questionSort(criDto);
-		request.setAttribute("boardlist", list);
+		request.setAttribute("questionboardlist", list);
 		request.setAttribute("sort", criDto.getSort());
 		
 		//페이지에 맞는 페이지 인덱스를 띄워줘야하기 때문에 pagemaker도 필요하다.

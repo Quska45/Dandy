@@ -1896,6 +1896,79 @@
 		});
 	});
 	
+	// QnA 게시판 정렬 해준다.
+	$(document).on("click", "#l_no", function(){
+		var sort = $("#l_no_input").val();
+		var keyword = $("#l_no_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "questionBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
+	$(document).on("click", "#l_contents", function(){
+		var sort = $("#l_content_input").val();
+		var keyword = $("#l_content_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "questionBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
+	$(document).on("click", "#l_name", function(){
+		var sort = $("#l_name_input").val();
+		var keyword = $("#l_name_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "questionBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	});
+	$(document).on("click", "#l_date", function(){
+		var sort = $("#l_date_input").val();
+		var keyword = $("#l_date_input_keyword").val();
+		alert(sort);
+		alert(keyword);
+		$.ajax({
+			url : "questionBoardSort.dandy",
+			type : "POST",
+			data : "sort=" + sort + "&keyword=" + keyword,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+	
 	/* 광진 끝 */
 	
 	
