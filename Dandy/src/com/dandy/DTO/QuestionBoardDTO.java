@@ -51,6 +51,13 @@ public class QuestionBoardDTO {
 		this.re_step = re_step;
 		this.re_level = re_level;
 	}
+	public QuestionBoardDTO(String title, String content, String writer, String question_type) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.question_type = question_type;
+	}
 	
 	
 

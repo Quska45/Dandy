@@ -47,6 +47,25 @@ public class QuestionBoardDAO {
 		}
 		
 	}
+	//QnA 게시판에 더미 데이터를 추가하는 메소드
+		public void questionInsert_dummy(QuestionBoardDTO qDto){
+			sqlSession = sqlSessionFactory.openSession();
+			try {
+				int result = sqlSession.insert("questionInsert_dummy", qDto);
+				if(result > 0) {
+					System.out.println("등록성공");
+				} else {
+					System.out.println("등록실패");
+				}
+				sqlSession.commit();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			
+		}
 	
 	//QnA게시판 리스트를 띄우는 메소드
 	public List<QuestionBoardDTO> questionList(CriteriaDTO criDto){
