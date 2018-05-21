@@ -595,39 +595,6 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		// 단어장 검색에서 enter쳤을때 작동
-		/* $("#search_keyword").keydown(function(e) {
-			alert("?");
-		    if (e.keyCode == 13){
-		    	alert("enter");
-		    	var keyword = $("#search_keyword");
-					if(keyword.val() == "") {
-						keyword.val("empty");
-					}
-				var keyword_result = keyword.val();
-				var index = "empty";
-				var page = "1";
-				var selector = "sel01";
-				var str_hash = selector + "^" + page + "^" + index + "^" + keyword_result;
-				document.location.hash = "#" + str_hash;
-				
-				$.ajax({
-					url : "movieSearchList.dandy",
-					type : "POST",
-					data : "index=" + index + "&keyword=" + keyword_result,
-					async: false,
-					success : function(result) {
-						$("#movieList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-				});
-				
-		    }   
-		}); */
-		
-		
 		// 로그인 할 때 enter키 작동
 		$("#login_pw").keydown(function(e){
 			if(e.keyCode == 13) {
@@ -677,8 +644,6 @@
 				
 			}
 		});
-		
-		
 		
 		
 		
