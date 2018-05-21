@@ -151,9 +151,6 @@
 			<tbody>
 	<!-- Q & A : title -->
 				<tr id="title_tr">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>
@@ -170,9 +167,6 @@
 	
 	<!-- 작성 제목 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>제목</span>
 					</td>
@@ -188,9 +182,6 @@
 				</tr>
 	<!-- 작성자 정보 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>작성자</span>
 					</td>
@@ -204,35 +195,8 @@
 						<span>&nbsp;</span>
 					</td>
 				</tr>
-	 <!-- 첨부파일
-				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
-					<td class="tx_cen">
-						<span>파일첨부</span>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
-					<td id="file_td">
-						<label for="file_upload">
-						<span><input type="text" class="upload_text" readonly="readonly"></span>
-						</label>
-						<div class="upload-btn_wrap">
-							<button type="button" id="filebtn"><i class="fa fa-file"></i></button>
-							<input type="file" class="input_file" name="file_upload" id="file_upload">
-						</div>
-					</td>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
-				</tr> --> 
 	<!-- 문의내용 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>문의내용</span>
 					</td>
@@ -248,9 +212,6 @@
 				</tr>
 	<!-- 작성완료 버튼 -->
 				<tr class="bin">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>

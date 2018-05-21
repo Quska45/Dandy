@@ -164,9 +164,6 @@ $(document).ready(function(){
 			<tbody>
 	<!-- Q & A : title -->
 				<tr id="title_tr">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>
@@ -182,9 +179,6 @@ $(document).ready(function(){
 				</tr>
 	<!-- 작성 제목 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>제목</span>
 					</td>
@@ -200,9 +194,6 @@ $(document).ready(function(){
 				</tr>
 	<!-- 작성자 정보 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>작성자</span>
 					</td>
@@ -218,9 +209,6 @@ $(document).ready(function(){
 				</tr>
 	<!-- 첨부파일 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>파일첨부</span>
 					</td>
@@ -242,9 +230,6 @@ $(document).ready(function(){
 				</tr>
 	<!-- 문의내용 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>내용</span>
 					</td>
@@ -260,9 +245,6 @@ $(document).ready(function(){
 				</tr>
 	<!-- 작성완료 버튼 -->
 				<tr class="bin">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>

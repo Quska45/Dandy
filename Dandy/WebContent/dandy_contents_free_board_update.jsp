@@ -155,9 +155,6 @@
 			<tbody>
 	<!-- Q & A : title -->
 				<tr id="title_tr">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>
@@ -173,9 +170,6 @@
 				</tr>
 	<!-- 수정될 게시글 번호 -->			
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>NO</span>
 					</td>
@@ -191,9 +185,6 @@
 				</tr>
 	<!-- 수정될 게시글 제목 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>제목</span>
 					</td>
@@ -209,9 +200,6 @@
 				</tr>
 	<!-- 수정될 게시글 작성자 정보 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>작성자</span>
 					</td>
@@ -227,9 +215,6 @@
 				</tr>
 	<!-- 수정될 게시글 첨부파일 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>파일첨부</span>
 					</td>
@@ -251,9 +236,6 @@
 				</tr>
 	<!-- 수정될 게시글 내용 -->
 				<tr>
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>내용</span>
 					</td>
@@ -269,9 +251,6 @@
 				</tr>
 	<!-- 게시글 수정완료 버튼 -->
 				<tr class="bin">
-					<td class="empty">
-						<span>&nbsp;</span>
-					</td>
 					<td class="tx_cen">
 						<span>&nbsp;</span>
 					</td>
