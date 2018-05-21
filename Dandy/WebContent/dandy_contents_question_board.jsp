@@ -208,43 +208,7 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	
-	//게시판 상세 페이지를 띄우는 쿼리 : QnA
-	$(document).on("click", "#boardDetailBtn", function(){
-		var bno = $(this).attr("data_num");
-		alert("bno" + bno);
-		$.ajax({
-			url : "questionBoardDetail.dandy",
-			type : "POST",
-			data : "bno=" + bno,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
 
-		});
-		
-	});
-	
-	//QnA 게시판검색기능
-	$(document).on("click", "#question_search_btn", function(){
-		var keyword = $("#question_search_keyword").val();
-		var type = $("#question_selsearch").val();
-		$.ajax({
-			url : "questionBoardSearch.dandy",
-			type : "POST",
-			data : "keyword=" + keyword + "&type=" + type,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-
-		});
-		
-	});
 	
 	// QnA 게시판 정렬 해준다.
 	$(document).on("click", "#l_no", function(){
@@ -281,34 +245,7 @@
 		
 	});
 	
-	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
-	$(document).on("click", "#wr_btn", function(){
-		var sessionLogin = $("#sessionMid").val();
-		if(sessionLogin==""){
-			$(".modal").css("display", "block");
-		} else {
-			$.ajax({
-				type : "post",
-				url : "questionBoardWrite.dandy",
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
-		}
-	});
-	
-	//페이지 이동하기
-	$(document).on("click", ".pageMove", function(){
-		var page=$(this).attr("page_num");
-		$.ajax({
-			type : "post",
-			url : "questionBoardList.dandy",
-			data: "page=" + page,
-			success : function(result) {
-				$("#boardList").html(result);
-			}
-		});
-	});
+
 	</script>
 </head>
 <body>

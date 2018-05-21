@@ -163,25 +163,6 @@ $(document).on("click", "#secret_span_flag", function(){
 	}
 });
 
-//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
-$(document).on("click", "#btn_success", function(){
-	var bno = $("#hidden_bno_update").val();
-	var title = $("#sub_input").val();
-	var writer = $("#name_input").val();
-	var flag = $("#secret_input_flag").val();
-	var content = $("#con_input").val();
-	var select = $("#qna_select").val();
-	alert(bno + ", " +title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
-	
-	$.ajax({
-		type : "post",
-		url : "boardQuestionUpdatesave.dandy",
-		data : "bno=" +bno + "&title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
-		success : function(result) {
-			$("#boardList").html(result);
-		}
-	});
-});
 
 </script>
 </head>

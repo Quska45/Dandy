@@ -289,25 +289,7 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 
-	//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 쿼리
-	$(document).on("click", "#remove_btn2", function(){
-		var bno = ${boardview.bno};
-		alert(bno);
-		$.ajax({
-			url: "questionBoardDelete.dandy",
-			type: "post",
-			data: "bno=" + bno,
-			success: function(result) {
-				$.ajax({
-					type : "post",
-					url : "questionBoardList.dandy",
-					success : function(result) {
-						$("#boardList").html(result);
-					}
-				});
-			}
-		});
-	});
+
 	
 	/* 게시판 삭제 확인 모달 */
 	$(document).ready(function(){
@@ -336,19 +318,6 @@
 		  });        
 		});
 	
-	//게시글 상세 페이지에서 수정을 누르면 수정페이지로 가는 메소드
-	$(document).on("click", "#modify_btn", function(){
-		var bno = ${boardview.bno};
-		alert(bno);
-		$.ajax({
-			url: "questionBoardUpdate.dandy",
-			type: "post",
-			data: "bno=" + bno,
-			success: function(result) {
-				$("#boardList").html(result);
-			}
-		});
-	});
 	
 		
 	//댓글창을 띄우는 콜백함수
@@ -454,30 +423,38 @@
 		});
 		
 	});  
-		 
-	// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
-	$(document).on("click", "#list_btn",function(){
+	//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 쿼리
+	$(document).on("click", "#remove_btn2", function(){
+		var bno = ${boardview.bno};
+		alert(bno);
 		$.ajax({
-			type : "post",
-			url : "questionBoardList.dandy",
-			success : function(result) {
-				$("#boardList").html(result);
+			url: "questionBoardDelete.dandy",
+			type: "post",
+			data: "bno=" + bno,
+			success: function(result) {
+				$.ajax({
+					type : "post",
+					url : "questionBoardList.dandy",
+					success : function(result) {
+						$("#boardList").html(result);
+					}
+				});
 			}
 		});
 	});
 	
-	
-	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
-	$(document).on("click", "#qustion_rewrite_btn", function(){
-		var bno = $("#question_detail_bno").val();
-			$.ajax({
-				type : "post",
-				url : "question_answer.dandy",
-				data : "bno=" + bno,
-				success : function(result) {
-					$("#boardList").html(result);
-				}
-			});
+	//게시글 상세 페이지에서 수정을 누르면 수정페이지로 가는 메소드
+	$(document).on("click", "#modify_btn", function(){
+		var bno = ${boardview.bno};
+		alert(bno);
+		$.ajax({
+			url: "questionBoardUpdate.dandy",
+			type: "post",
+			data: "bno=" + bno,
+			success: function(result) {
+				$("#boardList").html(result);
+			}
+		});
 	});
 		
 </script>

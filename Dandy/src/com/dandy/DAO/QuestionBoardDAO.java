@@ -259,6 +259,7 @@ public class QuestionBoardDAO {
 		int result = 0;
 		try {
 			result = sqlSession.delete("questionDelete", bno);
+			sqlSession.commit();
 			if(result > 0) {
 				System.out.println("삭제성공");
 			} else {

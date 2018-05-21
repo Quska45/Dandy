@@ -1724,6 +1724,180 @@
 		});
 	});
 	
+	/* 광진 시작 */
+	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
+	$(document).on("click", "#question_answer_wr_btn", function(){
+		var title = $("#sub_input").val();
+		var bno = $("#question_answer_bno").val();
+		var writer = $("#name_input").val();
+		var content = $("#con_input").val();
+		alert(title + ", " + bno  + ", " + writer  + ", " + content);
+		$.ajax({
+			type : "post",
+			url : "questionAnswerInsert.dandy",
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	
+	//내 단어장 디테일에서 내 단어장에서 삭제 누르면 삭제되게 하는 스크립트
+	$(document).on("click", "#mywordDelete", function(){
+		var mno = $("#hiddenMno").val();
+		var mid = $("#sessionMid_id").val();
+		alert(mno +","+ mid);
+		$.ajax({
+			url : "mywordDelete.dandy",
+			type : "POST",
+			data : "mno=" + mno + "&mid=" + mid,
+			success : function(result) {
+				alert("단어장을 삭제했습니다.");
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+		});
+	});
+	
+	
+
+	
+	
+	// QnA 상세 페이지에서 목록버튼 클릭하면 게시판 리스트로 돌아온다.
+	$(document).on("click", "#list_btn",function(){
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	
+	//QnA에서 답변을 눌렀을 때 답글작성 페이지로 넘어간다.
+	$(document).on("click", "#qustion_rewrite_btn", function(){
+		var bno = $("#question_detail_bno").val();
+			$.ajax({
+				type : "post",
+				url : "question_answer.dandy",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+	});
+	
+	//게시판 상세 페이지를 띄우는 쿼리 : QnA
+	$(document).on("click", "#boardDetailBtn", function(){
+		var bno = $(this).attr("data_num");
+		alert("bno" + bno);
+		$.ajax({
+			url : "questionBoardDetail.dandy",
+			type : "POST",
+			data : "bno=" + bno,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	//QnA 게시판검색기능
+	$(document).on("click", "#question_search_btn", function(){
+		var keyword = $("#question_search_keyword").val();
+		var type = $("#question_selsearch").val();
+		$.ajax({
+			url : "questionBoardSearch.dandy",
+			type : "POST",
+			data : "keyword=" + keyword + "&type=" + type,
+			success : function(result) {
+				$("#boardList").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+
+		});
+		
+	});
+	
+	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
+	$(document).on("click", "#wr_btn", function(){
+		var sessionLogin = $("#sessionMid").val();
+		if(sessionLogin==""){
+			$(".modal").css("display", "block");
+		} else {
+			$.ajax({
+				type : "post",
+				url : "questionBoardWrite.dandy",
+				success : function(result) {
+					$("#boardList").html(result);
+				}
+			});
+		}
+	});
+	
+	//페이지 이동하기
+	$(document).on("click", ".pageMove", function(){
+		var page=$(this).attr("page_num");
+		$.ajax({
+			type : "post",
+			url : "questionBoardList.dandy",
+			data: "page=" + page,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+
+	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+	$(document).on("click", "#btn_success", function(){
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var flag = $("#secret_input_flag").val();
+		var content = $("#con_input").val();
+		var select = $("#qna_select").val();
+		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		
+		$.ajax({
+			type : "post",
+			url : "boardQuestionInsertsave.dandy",
+			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
+	$(document).on("click", "#btn_success", function(){
+		var bno = $("#hidden_bno_update").val();
+		var title = $("#sub_input").val();
+		var writer = $("#name_input").val();
+		var flag = $("#secret_input_flag").val();
+		var content = $("#con_input").val();
+		var select = $("#qna_select").val();
+		alert(bno + ", " +title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		
+		$.ajax({
+			type : "post",
+			url : "boardQuestionUpdatesave.dandy",
+			data : "bno=" +bno + "&title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
+			success : function(result) {
+				$("#boardList").html(result);
+			}
+		});
+	});
+	
+	/* 광진 끝 */
+	
 	
 	
 	
