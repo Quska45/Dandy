@@ -14,7 +14,7 @@ public class QuestionBoardDTO {
 	private int re_step;
 	private int re_level;
 	private String question_type;
-	private String flag;
+	private String flag; //비밀글인지 알 수 있게 해주는 변수
 	private int replycnt;
 	private String sort;
 	

@@ -1736,19 +1736,45 @@
 	//게시판 상세 페이지를 띄우는 쿼리 : QnA
 	$(document).on("click", "#boardDetailBtn", function(){
 		var bno = $(this).attr("data_num");
+		var secret_flag = $(this).attr("secret_flag");
+		var writer = $(this).attr("writer");
+		
 		alert("bno" + bno);
-		$.ajax({
-			url : "questionBoardDetail.dandy",
-			type : "POST",
-			data : "bno=" + bno,
-			success : function(result) {
-				$("#boardList").html(result);
-			},
-			error : function() {
-				alert("System Error!!!");
+		alert(secret_flag + ", " + writer + "");
+		
+		
+		if(secret_flag == 1){
+			if(writer == $("#sessionMid_id").val()){
+				$.ajax({
+					url : "questionBoardDetail.dandy",
+					type : "POST",
+					data : "bno=" + bno,
+					success : function(result) {
+						$("#boardList").html(result);
+					},
+					error : function() {
+						alert("System Error!!!");
+					}
+		
+				});
+			} else {
+				alert("비밀글은 글을 작성한 사람만 열람할 수 있습니다.");
 			}
-
-		});
+			
+		} else{
+			$.ajax({
+				url : "questionBoardDetail.dandy",
+				type : "POST",
+				data : "bno=" + bno,
+				success : function(result) {
+					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+	
+			});
+		}
 		
 	});
 	

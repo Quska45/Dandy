@@ -327,7 +327,7 @@
 										<table>
 											<tr>
 												<td>
-													<a id="boardDetailBtn" href="#" data_num="${bDto.bno}">
+													<a id="boardDetailBtn" href="#" data_num="${bDto.bno}" secret_flag="${bDto.flag}" writer="${bDto.writer}">
 														<span class="text_black">
 															<c:forEach var ="i" begin="1" end="${bDto.re_level}">
 																&nbsp;&nbsp;&nbsp;
