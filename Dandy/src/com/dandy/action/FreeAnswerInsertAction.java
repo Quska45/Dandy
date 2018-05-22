@@ -86,7 +86,7 @@ public class FreeAnswerInsertAction implements Action{
 		ffDao.updateStep(ref, re_step);
 		
 		FreeBoardDAO fDao = FreeBoardDAO.getInstance();
-		FreeBoardDTO fDto = new FreeBoardDTO(title, content, writer, ref, re_step, re_level);
+		FreeBoardDTO fDto = new FreeBoardDTO(title, content, writer, ref, re_step, re_level, filename, filesize);
 		fDao.answerInsert(fDto);
 		
 		System.out.println("bno" + bno + "title" + title + " content" + content + "writer" + writer);

@@ -93,7 +93,7 @@ public class FreeBoardUpdateSaveAction implements Action {
 		  
 		  
 		FreeBoardDAO fDao = FreeBoardDAO.getInstance();
-		FreeBoardDTO fDto = new FreeBoardDTO(bno, title, content, writer);
+		FreeBoardDTO fDto = new FreeBoardDTO(bno, title, content, filename, filesize);
 				
 		int result = fDao.boardUpdate(fDto);
 		// 게시글을 실제로 등록하고, 게시글 등록 후 게시글 목록 페이지로 이동

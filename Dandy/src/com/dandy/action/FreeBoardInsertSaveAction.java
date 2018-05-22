@@ -67,7 +67,6 @@ public class FreeBoardInsertSaveAction implements Action{
 				  }
 				
 				
-				
 				FreeBoardDAO bDAO = FreeBoardDAO.getInstance();
 				FreeBoardDTO bDto = new FreeBoardDTO(title, content, writer, filename, filesize);
 				int result = bDAO.boardInsert(bDto);

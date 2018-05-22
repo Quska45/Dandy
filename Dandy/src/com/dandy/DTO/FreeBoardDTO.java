@@ -33,7 +33,43 @@ public class FreeBoardDTO {
 		
 	}
 	
-	
+
+
+	public FreeBoardDTO(String title, String content, String writer, int ref, int re_step, int re_level,
+			String filename, int filesize) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.ref = ref;
+		this.re_step = re_step;
+		this.re_level = re_level;
+		this.filename = filename;
+		this.filesize = filesize;
+	}
+
+
+	public FreeBoardDTO(int bno, String title, String content, String filename, int filesize) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.filename = filename;
+		this.filesize = filesize;
+	}
+
+
+	public FreeBoardDTO(int bno, String title, String content, String writer, String filename, int filesize) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.filename = filename;
+		this.filesize = filesize;
+	}
+
+
 	public FreeBoardDTO(int bno, String title, String content, String writer) {
 		super();
 		this.bno = bno;

@@ -117,7 +117,7 @@
 		<!-- 자유게시판 게시글 수정 -->
 				<update id="boardupdate" parameterType="fDTO">
 				  	UPDATE board
-				  	SET title = #{title}, content = #{content}
+				  	SET title = #{title}, content = #{content}, filename = #{filename}, filesize = #{filesize}
 				  	WHERE bno = #{bno}
 				</update>
 		<!-- 자유게시판 게시글 삭제 -->
@@ -213,8 +213,8 @@
 				</update>
 		<!-- 자유게시판 답글추가 -->
 				<insert id="answerInsert" parameterType="fDTO" >
-					INSERT INTO board (bno, title, writer, content, ref, re_step, re_level) 
-					VALUES((SELECT nvl(max(bno)+1, 1)from board), #{title}, #{writer}, #{content}, #{ref}, #{re_step}, #{re_level})
+					INSERT INTO board (bno, title, writer, content,filename, filesize, ref, re_step, re_level) 
+					VALUES((SELECT nvl(max(bno)+1, 1)from board), #{title}, #{writer}, #{content}, #{filename}, #{filesize}, #{ref}, #{re_step}, #{re_level})
 			 	</insert>
 		<!-- 자유게시판 리플출력 -->	
 			<select id="freeReplyList" resultType="rDTO">
