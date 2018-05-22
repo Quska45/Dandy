@@ -219,33 +219,33 @@
 			</div>
 	<!-- 알파벳 페이지 -->
 			<div id="alpha_page">
-				<a <c:out value="${index == '0'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="0">0</a>
-				<a <c:out value="${index == 'A'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="A">A</a>
-				<a <c:out value="${index == 'B'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="B">B</a>
-				<a <c:out value="${index == 'C'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="C">C</a>
-				<a <c:out value="${index == 'D'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="D">D</a>
-				<a <c:out value="${index == 'E'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="E">E</a>
-				<a <c:out value="${index == 'F'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="F">F</a>
-				<a <c:out value="${index == 'G'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="G">G</a>
-				<a <c:out value="${index == 'H'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="H">H</a>
-				<a <c:out value="${index == 'I'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="I">I</a>
-				<a <c:out value="${index == 'J'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="J">J</a>
-				<a <c:out value="${index == 'K'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="K">K</a>
-				<a <c:out value="${index == 'L'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="L">L</a>
-				<a <c:out value="${index == 'M'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="M">M</a>
-				<a <c:out value="${index == 'N'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="N">N</a>
-				<a <c:out value="${index == 'O'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="O">O</a>
-				<a <c:out value="${index == 'P'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="P">P</a>
-				<a <c:out value="${index == 'Q'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Q">Q</a>
-				<a <c:out value="${index == 'R'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="R">R</a>
-				<a <c:out value="${index == 'S'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="S">S</a>
-				<a <c:out value="${index == 'T'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="T">T</a>
-				<a <c:out value="${index == 'U'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="U">U</a>
-				<a <c:out value="${index == 'V'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="V">V</a>
-				<a <c:out value="${index == 'W'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="W">W</a>
-				<a <c:out value="${index == 'X'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="X">X</a>
-				<a <c:out value="${index == 'Y'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Y">Y</a>
-				<a <c:out value="${index == 'Z'? 'class=active_cahr':''}"/> href="#" class="active_index" index_num="Z">Z</a>
+				<a <c:out value="${index == '0'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="0">0</a>
+				<a <c:out value="${index == 'A'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="A">A</a>
+				<a <c:out value="${index == 'B'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="B">B</a>
+				<a <c:out value="${index == 'C'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="C">C</a>
+				<a <c:out value="${index == 'D'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="D">D</a>
+				<a <c:out value="${index == 'E'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="E">E</a>
+				<a <c:out value="${index == 'F'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="F">F</a>
+				<a <c:out value="${index == 'G'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="G">G</a>
+				<a <c:out value="${index == 'H'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="H">H</a>
+				<a <c:out value="${index == 'I'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="I">I</a>
+				<a <c:out value="${index == 'J'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="J">J</a>
+				<a <c:out value="${index == 'K'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="K">K</a>
+				<a <c:out value="${index == 'L'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="L">L</a>
+				<a <c:out value="${index == 'M'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="M">M</a>
+				<a <c:out value="${index == 'N'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="N">N</a>
+				<a <c:out value="${index == 'O'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="O">O</a>
+				<a <c:out value="${index == 'P'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="P">P</a>
+				<a <c:out value="${index == 'Q'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="Q">Q</a>
+				<a <c:out value="${index == 'R'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="R">R</a>
+				<a <c:out value="${index == 'S'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="S">S</a>
+				<a <c:out value="${index == 'T'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="T">T</a>
+				<a <c:out value="${index == 'U'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="U">U</a>
+				<a <c:out value="${index == 'V'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="V">V</a>
+				<a <c:out value="${index == 'W'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="W">W</a>
+				<a <c:out value="${index == 'X'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="X">X</a>
+				<a <c:out value="${index == 'Y'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="Y">Y</a>
+				<a <c:out value="${index == 'Z'? 'class=active_cahr':''}"/> href="javascript:;" class="active_index" index_num="Z">Z</a>
 			</div>
 			<input type="hidden" id="index_number" value="${index}">
 	<!-- 영화 포스터 -->
@@ -255,7 +255,7 @@
 					<input type="hidden" id="img" value="${ml.img}">
 					<input type="hidden" id="title" value="${ml.title}">
 						<div class="poster_frame">
-						<a href="#" class="modalLink" data_mno="${ml.mno}" data_img="${ml.img}" data_title="${ml.title}">
+						<a href="javascript:;" class="modalLink" data_mno="${ml.mno}" data_img="${ml.img}" data_title="${ml.title}">
 							<div id="movieposter">
 								<c:choose>
 									<c:when test="${empty ml.img}">
@@ -275,16 +275,16 @@
 			<div id="num_page">
 				<input type="hidden" id="save_page" name="save_page" value="${page}">
 				<c:if test="${pageMaker.prev}">
-					<a href="#" class="active_page" page_num="${pageMaker.startPage-1}">◀</a>
+					<a href="javascript:;" class="active_page" page_num="${pageMaker.startPage-1}">◀</a>
 				</c:if>
 			
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 					
-						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="#" class="active_page" page_num="${idx}">${idx}</a>
+						<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> href="javascript:;" class="active_page" page_num="${idx}">${idx}</a>
 					
 				</c:forEach>
 				<c:if test="${pageMaker.next}">
-					<a href="#" class="active_page" page_num="${pageMaker.endPage+1}">▶</a>
+					<a href="javascript:;" class="active_page" page_num="${pageMaker.endPage+1}">▶</a>
 				</c:if>
 			</div>
 			
