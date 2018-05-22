@@ -1098,7 +1098,7 @@
 		function openButton1(){
 			$("#cBody").css("height","1938px");
 			$("#content1").css("height", "auto");
-			$(".main_logo").css("display", "none");
+			$(".txtArea").css("display", "none");
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
 			$("#content1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
@@ -1130,7 +1130,7 @@
 		function openButton2() {
 			$("#cBody").css("height","1938px");
 			$("#content2").css("height", "3153px");	
-			$(".main_logo").css("display", "none");
+			$(".txtArea").css("display", "none");
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
 			$("#content2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
@@ -1163,7 +1163,7 @@
 			$("#cBody").css("height","1938px");
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
-			$(".main_logo").css("display", "none");
+			$(".txtArea").css("display", "none");
 			$("#content3").css("width", "86.9%");	
 			$("#content3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
@@ -1195,7 +1195,7 @@
 		function mainContentClose1(){
 			$("#content1").css("display", "none");
 			$("#cBody").css("height","1000px");
-			$(".main_logo").css("display", "block");
+			$(".txtArea").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con2").css("width", "33.3%");
 			$(".con2").css("right", "33.3%");
@@ -1224,7 +1224,7 @@
 		function mainContentClose2() {
 			$("#content2").css("display", "none");
 			$("#cBody").css("height","1000px");
-			$(".main_logo").css("display", "block");
+			$(".txtArea").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");
@@ -1253,7 +1253,7 @@
 		function mainContentClose3() {
 			$("#content3").css("display", "none");
 			$("#cBody").css("height","1000px");
-			$(".main_logo").css("display", "block");
+			$(".txtArea").css("display", "block");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 시작*/
 			$(".con1").css("width", "33.3%");
 			$(".con1").css("right", "66.6%");
