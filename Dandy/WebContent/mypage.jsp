@@ -134,8 +134,8 @@
 	#movieImgWrap {
 		position: relative;
 		display: inline-block;
-		width: 195px;
-		height: 281px;
+		width: 194px;
+		height: 306px;
 		margin: 10px 13px;
 		border: 1px solid #0daa62;
 		background-color: #0daa62;
@@ -147,6 +147,9 @@
    		left: 0;
 	}
 	
+	.movietitle_withe {
+		color: white;
+	}
 	
 	/* 회원정보 */
 	#member_id_line {
@@ -1242,14 +1245,14 @@
 									<c:choose>
 									<c:when test="${empty mDto.img}">
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="image/img_ready.gif"  style="width: 190px; height: 228px;">
-											<span>${mDto.title}</span>
+											<img src="image/img_ready.gif"  style="width: 190px; height: 258px;">
+											<span class="movietitle_withe">${mDto.title}</span>
 										</a>
 									</c:when>
 									<c:otherwise>
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="${mDto.img}" style="width: 190px; height: 228px;" alt="${mDto.title}">
-											<span>${mDto.title}</span>
+											<img src="${mDto.img}" style="width: 190px; height: 258px;" alt="${mDto.title}">
+											<span class="movietitle_withe">${mDto.title}</span>
 										</a>
 									</c:otherwise>
 								</c:choose>	
