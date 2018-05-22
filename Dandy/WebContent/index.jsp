@@ -1603,6 +1603,24 @@
 		});
 		
 	});
+	$(document).on("keydown", "#free_search_keyword", function(e){
+		if(e.keyCode == 13){
+			var keyword = $("#free_search_keyword").val();
+			var type = $("#free_selsearch").val();
+			$.ajax({
+				url : "freeBoardSearch.dandy",
+				type : "POST",
+				data : "keyword=" + keyword + "&type=" + type,
+				success : function(result) {
+					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+		}
+	});
 	
 	//자유게시판 : 페이지 이동
 	$(document).on("click", ".freepageMove", function(){
