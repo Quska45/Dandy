@@ -38,8 +38,6 @@ public class DiyCompleteAction implements Action {
 		System.out.println("DTO title : " + mDto.getTitle());
 		mDao.alterTable(mDto);
 		mDao.selectWord(mDto);
-		//mDao.nullDelete(mDto);
-		//mDao.updateNull(mDto);
 		mDao.delete(title);
 		mDao.selectWno(mDto);
 		List<MovieEachDTO>list = mDao.resultWord(mDto);
