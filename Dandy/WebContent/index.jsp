@@ -1738,6 +1738,25 @@
 		});
 		
 	});
+	$(document).on("keydown", "#question_search_keyword", function(e){
+		if(e.keyCode == 13){
+			var keyword = $("#question_search_keyword").val();
+			var type = $("#question_selsearch").val();
+			$.ajax({
+				url : "questionBoardSearch.dandy",
+				type : "POST",
+				data : "keyword=" + keyword + "&type=" + type,
+				success : function(result) {
+					$("#boardList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+
+			});
+		}
+	});
+	
 	
 	// QnA : 글쓰기를 누르면 게시글 작성페이지로 가는 쿼리
 	$(document).on("click", "#wr_btn", function(){
