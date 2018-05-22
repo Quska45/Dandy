@@ -671,37 +671,41 @@
 			}
 	     
 	     
-	     function movieHash() {		
-			if(document.location.hash) {
-				//hash 가 있다면 ^ 를 구분자로 하나씩 string을 추출하여 각각 페이지정보를 가져옵니다.
-				var str_hash = document.location.hash;
-				str_hash = str_hash.replace("#","");
-				arr_curpage = str_hash.split("^");
-				selector = arr_curpage[0];
-				page = arr_curpage[1];
-				index = arr_curpage[2];
-				keyword = arr_curpage[3];
-			
-				// 뒤로가기 처리.. 각각 현재페이지를 가지고 다시 ajax를 실행해줍니다.
-				$.ajax({
-					url : "movieList.dandy",
-					type : "POST",
-					data : "page=" + page + "&index=" + index + "&keyword=" + keyword,
-					success : function(result) {
-						$("#movieList").html(result);
-					},
-					error : function() {
-						alert("System Error!!!");
-					}
-				});
-				
-			} else {
-				//nothing..
-			}
-	
-		}
+	     
 	     
 	 });
+	
+	
+	function movieHash() {		
+		if(document.location.hash) {
+			//hash 가 있다면 ^ 를 구분자로 하나씩 string을 추출하여 각각 페이지정보를 가져옵니다.
+		var str_hash = document.location.hash;
+			str_hash = str_hash.replace("#","");
+			arr_curpage = str_hash.split("^");
+			selector = arr_curpage[0];
+			page = arr_curpage[1];
+			index = arr_curpage[2];
+			keyword = arr_curpage[3]; 
+		
+			// 뒤로가기 처리.. 각각 현재페이지를 가지고 다시 ajax를 실행해줍니다.
+			$.ajax({
+				url : "movieList.dandy",
+				type : "POST",
+				data : "page=" + page + "&index=" + index + "&keyword=" + keyword,
+				async: false,
+				success : function(result) {
+					$("#movieList").html(result);
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+			});
+			
+		} else {
+			//nothing..
+		}
+
+	}
 
 
 
@@ -865,6 +869,7 @@
 		$.ajax({
 			type : "post",
 			url : "movieList.dandy?index=empty&keyword=empty",
+			async: false,
 			success : function(result) {
 				$("#movieList").html(result);
 			}
@@ -890,6 +895,7 @@
 				url : "movieList.dandy",
 				type : "POST",
 				data : "page=" + page + "&index=" + index + "&keyword=" + keyword_result,
+				async: false,
 				success : function(result) {
 					$("#movieList").html(result);
 				},
@@ -919,6 +925,7 @@
 				url : "movieList.dandy",
 				type : "POST",
 				data : "index=" + index + "&keyword=empty",
+				async: false,
 				success : function(result) {
 					$("#movieList").html(result);
 				},
@@ -984,6 +991,7 @@
 			url : "contentsDetail.dandy",
 			type : "POST",
 			data : "mno=" + mno + "&img=" + img + "&title=" + title,
+			async: false,
 			success : function(result) {
 				$("#movieList").html(result);
 			},
