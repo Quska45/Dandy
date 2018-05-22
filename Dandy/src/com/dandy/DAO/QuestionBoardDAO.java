@@ -330,4 +330,30 @@ public class QuestionBoardDAO {
 		}
 	}
 	
+	//좋아요를 추가하는 기능
+	public int questionGoodcnt(Integer bno){
+		sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.update("questionBoardGoodcnt", bno);
+			sqlSession.commit();
+			if(result > 0) {
+				System.out.println("좋아요 추가 성공");
+			} else {
+				System.out.println("좋아요 추가 실패");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
 }

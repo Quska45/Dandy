@@ -62,6 +62,7 @@ import com.dandy.action.QuestionAnswerAction;
 import com.dandy.action.QuestionAnswerInsertAction;
 import com.dandy.action.QuestionBoardDeleteAction;
 import com.dandy.action.QuestionBoardDetailAction;
+import com.dandy.action.QuestionBoardGoodcntAction;
 
 /**
  * Servlet implementation class DandyFrontController
@@ -281,6 +282,10 @@ public class DandyFrontController extends HttpServlet {
 		} 
 		else if (command.equals("/questionBoardUpdate.dandy")) {
 			action = new QuestionBoardUpdateAction(); 
+			forward = action.excute(request, response); 
+		}
+		else if (command.equals("/questionBoardGoodcnt.dandy")) {
+			action = new QuestionBoardGoodcntAction(); 
 			forward = action.excute(request, response); 
 		}
 		else if (command.equals("/boardQuestionUpdatesave.dandy")) {

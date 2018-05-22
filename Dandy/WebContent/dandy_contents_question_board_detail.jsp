@@ -398,14 +398,14 @@
 	 		 }
 	 	 });
 	});
-		
+	
+	//좋아요 추가
 	$(document).on("click", "#good_fafa", function(){
 		alert("좋아요 클릭!");
-		
-		var gpoint = $("#gpoint").val();
 		var bno = ${boardview.bno};
+		alert(bno);
 		$.ajax({
-			url: "goodpoint.bizpoll",
+			url: "questionBoardGoodcnt.dandy",
 			type: "POST",
 			dataType: "json",
 			data: "bno=" + bno,
@@ -413,8 +413,8 @@
 						alert(data.gpoint);
 					if(data.gpoint >= "0"){
 						alert("좋아요 포인트 증가 성공");
-						location.reload();
 						$("#good_fafa").attr('class', 'fa fa-heart');
+						$("#goodcnt").text(parseInt($("#goodcnt").text()) + 1);
 					} else{
 						 alert("좋아요 포인트 증가 실패");
 						 return false; 
@@ -424,7 +424,6 @@
 				alert("System Error!!!");
 			}
 		});
-		
 	});  
 	//게시판 상세 페이지에서 삭제에 삭제를 누르면 글이 삭제되게 하는 쿼리
 	$(document).on("click", "#remove_btn2", function(){

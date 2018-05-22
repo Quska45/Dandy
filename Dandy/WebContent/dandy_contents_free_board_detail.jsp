@@ -369,7 +369,7 @@
 			success: function(result) {
 				$("#view").html(result);
 				$("#good_fafa").attr("class", "fa fa-heart");
-				 $("#goodcnt").text(parseInt($("#goodcnt").text()) + 1);
+				$("#goodcnt").text(parseInt($("#goodcnt").text()) + 1);
 
 			}, error: function() {
 				alert("System Error!!!");

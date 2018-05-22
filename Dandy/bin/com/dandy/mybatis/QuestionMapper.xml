@@ -180,7 +180,12 @@
 	</select>
 
 
-
+<!-- 좋아요 포인트 증가 -->
+ 	<update id="questionBoardGoodcnt">
+	  	UPDATE question_board
+	  		SET goodcnt = goodcnt+1
+	  		WHERE bno = #{bno}
+ 	</update>
 
 
 
