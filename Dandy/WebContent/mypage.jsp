@@ -132,13 +132,19 @@
 		cursor: pointer;
 	}
 	#movieImgWrap {
+		position: relative;
 		display: inline-block;
 		width: 195px;
-		height: 306px;
+		height: 281px;
 		margin: 10px 13px;
 		border: 1px solid #0daa62;
 		background-color: #0daa62;
 		border-radius: 5px;
+	}
+	.mypageImg {
+		position: absolute;
+    	top: 0;
+   		left: 0;
 	}
 	
 	
@@ -1236,12 +1242,14 @@
 									<c:choose>
 									<c:when test="${empty mDto.img}">
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="image/img_ready.gif"  style="width: 190px; height: 274px;" alt="${mDto.title}">
+											<img src="image/img_ready.gif"  style="width: 190px; height: 228px;">
+											<span>${mDto.title}</span>
 										</a>
 									</c:when>
 									<c:otherwise>
 										<a class="mypageImg" href="#" data_mno="${mDto.mno}" data_img="${mDto.img}" data_title="${mDto.title}">
-											<img src="${mDto.img}" style="width: 190px; height: 274px;" alt="${mDto.title}">
+											<img src="${mDto.img}" style="width: 190px; height: 228px;" alt="${mDto.title}">
+											<span>${mDto.title}</span>
 										</a>
 									</c:otherwise>
 								</c:choose>	
