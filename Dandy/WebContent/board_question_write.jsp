@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
@@ -254,5 +255,14 @@ $(document).on("click", "#secret_span_flag", function(){
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "con_input",
+			sSkinURI: "smarteditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	</script>
 </body>
 </html>
