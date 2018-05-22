@@ -587,8 +587,26 @@
 	}
 	.tArea {
 		color: white;
-		font-size: 40px;
-		float: left;
+		font-size: 30px;
+		/* float: left; */
+	}
+	.con_koreannametag_line {
+		margin-top: -30px;
+	}
+	.con_koreannametag {
+		color: white;
+		font-size: 28px;
+	}
+	.tArea_content {
+		font-size: 17px;
+		color: white;
+	}
+	#boardnametag_dandigreen {
+		color: #0daa62;
+		font-weight: bold;
+	}
+	#diynametag {
+		margin-left: -13px;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -2020,7 +2038,6 @@
 					<!-- 단어장을 열어주는 a 태그 시작 -->
 					<a href="#" onclick="movie_list();" class="openButton1">
 					<img src="image/index_logo/logo_voca_1.png" id="voca_logo" class="logo_class">
-					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background1">
@@ -2031,8 +2048,17 @@
 					<div class="txtArea tal1" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">단어장</p> -->
 						<img src="image/index_logo/logo_voca_2.png" class="main_logo">
-						<!-- <span class="tArea"><br>─</span> -->
+						<div class="con_koreannametag_line">
+							<span class="con_koreannametag">단어장</span>
+						</div>
+						<div class="tArea_line">
+							<span class="tArea">─</span>
+						</div>
+						<div class="tArea_content_line">
+							<span class="tArea_content">Movie Script를 활용한<br>빅데이터 기반 빈도순의 단어장을 제공합니다.</span>
+						</div>
 					</div>
+					</a>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
 				<!-- 단어장 페이지 끝 -->
@@ -2050,7 +2076,6 @@
 					<!-- 단어장을 열어주는 a 태그 시작 -->
 					<a href="#" class="openButton2" onclick="diy_page();">
 					<img src="image/index_logo/logo_diy_1.png" id="diy_logo" class="logo_class">
-					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background2">
@@ -2060,9 +2085,18 @@
 					<!-- 문구가 들어가는 div시작 -->
 					<div class="txtArea tal2" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">딕테이션</p> -->
-						<img src="image/index_logo/logo_diy_2.png" class="main_logo">
-						<!-- <span class="tArea"><br>─</span> -->
-					</div>
+						<img src="image/index_logo/logo_diy_2.png" class="main_logo" id="diynametag">
+						<div class="con_koreannametag_line">
+							<span class="con_koreannametag">Do it yourself</span>
+						</div>
+						<div class="tArea_line">
+							<span class="tArea">─</span>
+						</div>
+						<div class="tArea_content_line">
+							<span class="tArea_content">원하는 script를 활용해 나만의 단어장을 만들어보세요.</span>
+						</div>
+					</a>
+				</div>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
 				<!-- 딕테이션 페이지 끝 -->
@@ -2090,7 +2124,6 @@
 					<!-- 단어장을 열어주는 a 태그 시작 -->
 					<a href="#" class="openButton3" onclick="board_list();">
 					<img src="image/index_logo/logo_board_1.png" id="board_logo" class="logo_class">
-					</a>
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background3">
@@ -2101,8 +2134,17 @@
 					<div class="txtArea tal3" style="left:80px;">
 						<!-- <p class="main_logo" style="width: 295px;">쉐도잉</p> -->
 						<img src="image/index_logo/logo_board_2.png" class="main_logo">
-						<!-- <span class="tArea"><br>─</span> -->
+						<div class="con_koreannametag_line">
+							<span class="con_koreannametag">게시판</span>
+						</div>
+						<div class="tArea_line">
+							<span class="tArea">─</span>
+						</div>
+						<div class="tArea_content_line">
+							<span class="tArea_content">사용 후기나 개선사항을 남겨주시면 <br><span id="boardnametag_dandigreen">DANDI</span>의 발전에 도움이 됩니다.</span>
+						</div>
 					</div>
+					</a>
 					<!-- 문구가 들어가는 div끝 -->
 				</div>
 				<!-- 쉐도잉 페이지 끝 -->
