@@ -1490,6 +1490,8 @@
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$.ajax({
 			type : "post",
+			processData: false,
+            contentType: false,
 			url : "freeBoardUpdateSave.dandy",
 			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
 			success : function(result) {
@@ -1643,10 +1645,12 @@
 		var writer = $("#name_input").val();
 		var content = $("#content").val();
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		var form = $('form')[0];
+        var formData = new FormData(form);
 		$.ajax({
 			type : "post",
 			url : "freeAnswerInsert.dandy",
-			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content,
+			data : "bno=" + bno + "&title=" + title + "&writer=" + writer + "&content=" + content + "&formData=" + formData,
 			success : function(result) {
 				$("#boardList").html(result);
 			}

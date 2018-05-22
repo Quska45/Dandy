@@ -141,9 +141,23 @@
 		color: #a7a7a7;
 	}
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript">
+//자유게시판 : 게시글 작성페이지 첨부파일 input css
+$(document).ready(function(){
+	$('.upload_text').val('*첨부할 파일을 선택해 주세요.');
+	$('.input_file').change(function(){
+		var i = $(this).val();
+		$('.upload_text').val(i).css("color","black");
+		$("#filebtn").css("color","#0daa62");
+		
+	});
+});
+</script>
 </head>
 <body>
+<form role="form" action="freeAnswerInsert.dandy" method="post" enctype="multipart/form-data">
 <input type="hidden" id="free_answer_bno" value="${boardview.bno}">
 	<div id="contents">
 				<input type="hidden" id="bno" name="bno" value="${boardview.bno}">
@@ -195,6 +209,27 @@
 						<span>&nbsp;</span>
 					</td>
 				</tr>
+	<!-- 첨부파일 -->
+				<tr>
+					<td class="tx_cen">
+						<span>파일첨부</span>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+					<td id="file_td">
+						<label for="file_upload">
+						<span><input type="text" class="upload_text" ></span>
+						</label>
+						<div class="upload-btn_wrap">
+							<button type="button" id="filebtn"><i class="fa fa-file"></i></button>
+							<input type="file" class="input_file" name="file_upload" id="file_upload">
+						</div>
+					</td>
+					<td class="empty">
+						<span>&nbsp;</span>
+					</td>
+				</tr>			
 	<!-- 문의내용 -->
 				<tr>
 					<td class="tx_cen">
@@ -230,6 +265,7 @@
 			</tbody>
 		</table>
 	</div>
+	</form>
 	<script type="text/javascript">
 		var oEditors = [];
 		nhn.husky.EZCreator.createInIFrame({

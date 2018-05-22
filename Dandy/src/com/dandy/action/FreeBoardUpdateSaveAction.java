@@ -35,7 +35,7 @@ public class FreeBoardUpdateSaveAction implements Action {
 		System.out.println(bno + ", " + title + ", " + content + ", " + writer);*/
 		
 		
-		String url = "freeBoardList.dandy";
+		String url = "index.dandy";
 		
 		//파일 업로드 처리
 		File uploadDir = new File(Constants.UPLOAD_PATH);
@@ -54,9 +54,10 @@ public class FreeBoardUpdateSaveAction implements Action {
 		String title = multi.getParameter("title");
 		String writer = multi.getParameter("writer");
 		String content = multi.getParameter("content");
+		String formData = multi.getParameter("formData");
 		String filename = " "; // (공백)
 		int filesize = 0;
-		System.out.println(bno + ", " + title + ", " + writer + ", " + content);
+		System.out.println(bno + ", " + title + ", " + writer + ", " + content + ", " + formData);
 		
 		 try {
 			  // 첨부파일의 집합(배열로 가져옴)
