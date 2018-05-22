@@ -262,6 +262,7 @@
 		background-color: black;
 		opacity: 0.5;
 		position: absolute;
+		z-index: 1;
 	}
 	#mypageMovieDetailBlockClose{
 		position: absolute;
@@ -310,6 +311,8 @@
 	$(document).on("click", "#mypageMovieDetailBlockClose", function(){
 		$("#mypageMovieDetailBlock").css("display", "none");
 		$("#wrap_contents_mypage").css("display", "none");
+		$("#cBody").css("height", "1000px");
+		$("#mypage_wrap").css("height", "1000px");
 	});
 	
 	
