@@ -276,12 +276,17 @@
 				dataType :  "JSON",
 				data : "mno=" + mno + "&mid=" + mid,
 				success : function(result) {
-					if(result.flag==10){
-						alert("내 단어장에 10개의 영화가 추가되어 있습니다. : ");
-						
-					} else if(result.flag==0){
-						alert("내 단어장에 영화가 추가됐습니다.");
+					if(result.flag2 == 1){
+						alert("선택하신 영화는 이미 내 단어장에 들어 있습니다.");
+					} else {
+						if(result.flag==10){
+							alert("내 단어장에 10개의 영화가 추가되어 있습니다. : ");
+							
+						} else if(result.flag==0){
+							alert("내 단어장에 영화가 추가됐습니다.");
+						}
 					}
+					
 					$(document).on("click", ".modalLink", function() {
 						var mno = $(this).attr("data_mno");
 						var img = $(this).attr("data_img");
