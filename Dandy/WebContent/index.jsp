@@ -20,7 +20,7 @@
 		color: EEE9DD;
 	}
 	body {
-		background: #363636;
+		background: black;
 		font-family: 'Noto Sans KR', sans-serif;
 	}
 	a{
@@ -190,7 +190,7 @@
 			top: 0;
 		}
 		div.con1 {
-			background: url('image/background/bk_o12.jpg') 100% 50% no-repeat;
+			background: url('image/background/bk_o11.jpg') 100% 50% no-repeat;
 			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
@@ -233,7 +233,7 @@
 			opacity: 0.4;
 		}
 		div.con2 {
-			background: url('image/background/bk_o11.jpg') 100% 50% no-repeat;
+			background: url('image/background/bk_o12.jpg') 100% 50% no-repeat;
 			background-position: 30% -12.8%;
 			position: absolute;
 			top: 0;
@@ -286,6 +286,7 @@
 		padding: 50px 80px 120px;
 		z-index: 10;
 		background-color: #C7C7C7;
+		/* margin-top: 600px; */
 	}	
 		/* 텍스트가 들어가는 부분 시작 */
 		div.left {
@@ -487,14 +488,14 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-	#wrap_contents1 {
+	#wrap_contents_board {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
-		/* height: 1700px; */
+		height: 1300px;
 		border: 2px solid white;
 		background-color: #f7f7f7;
 		border-radius: 10px;
-		margin: 100px 200px;
+		margin: 250px 200px;
 	}
 	
 	#board_sel {
@@ -605,8 +606,56 @@
 		color: #0daa62;
 		font-weight: bold;
 	}
+	#boardnametag_dandiwhite {
+		font-weight: bold;
+		font-size: 20px;
+	}
 	#diynametag {
 		margin-left: -13px;
+	}
+	.bignametag_top {
+		margin: 100px 530px;
+	}
+	.nametag_korean {
+		margin: -100px 540px;
+	    width: 600px;
+	    height: 50px;
+	    text-align: center;
+	}
+	.nametag_korean_span {
+		font-size: 40px;
+		color: white;
+	}
+	.nametag_ {
+		width: 200px;
+	    height: 20px;
+	    margin: 100px 750px;
+	    text-align: center;
+	}
+	.nametag_span {
+		font-size: 40px;
+		color: white;
+	}
+	.top_infotag1 {
+		width: 600px;
+	    height: 20px;
+	    margin: -60px 550px;
+	    text-align: center;
+	}
+	.top_infotag_span1 {
+		font-size: 18px;
+		color: white;
+		font-weight: bold;
+	}
+	.top_infotag2 {
+		width: 600px;
+	    height: 20px;
+	    margin: 115px 550px;
+	    text-align: center;
+	}
+	.top_infotag_span2 {
+		font-size: 17px;
+		color: white;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -1101,14 +1150,14 @@
 			$(".txtArea").css("display", "none");
 			$("#content1").css("display", "block");	
 			$("#content1").css("width", "86.8%");	
-			$("#content1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
+			$("#content1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "6.5%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","80px");
-			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
+			$(".con2").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
@@ -1119,6 +1168,7 @@
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
+			$("#footer").css("margin-top","700px");
 		}
 		
 		$(".openButton1").click(function(){
@@ -1133,14 +1183,14 @@
 			$(".txtArea").css("display", "none");
 			$("#content2").css("display", "block");	
 			$("#content2").css("width", "86.9%");	
-			$("#content2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
+			$("#content2").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.7%");
 			$(".con1").css("right", "93.3%");
 			$(".con1").css("height", "97%");
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
+			$(".con1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con3").css("width", "6.5%");
 			$(".con3").css("right", "0");
@@ -1151,6 +1201,7 @@
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
+			$("#footer").css("margin-top","50px");
 		}
 		
 		$(".openButton2").click(function(){
@@ -1173,17 +1224,18 @@
 			$(".con1").css("position", "fixed");
 			$(".con1").css("top","81px");
 			$(".con1").css("top","81px");
-			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
+			$(".con1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con2").css("width", "6.5%");
 			$(".con2").css("right", "86.8%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","81px");
-			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
+			$(".con2").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '11% 0%'});
 			$("#nav").css("position", "fixed");
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 끝*/
 			$(".logo_class").css("display", "block");
+			$("#footer").css("margin-top","300px");
 		}
 		
 		$(".openButton3").click(function(){
@@ -1202,7 +1254,7 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con2").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -1215,6 +1267,7 @@
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
+			$("#footer").css("margin-top","0");
 		}
 		
 		$(".mainContentClose1").click(function(){
@@ -1231,7 +1284,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con3").css("width", "33.3%");
@@ -1243,6 +1296,7 @@
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
+			$("#footer").css("margin-top","0");
 		}
 		
 		
@@ -1260,7 +1314,7 @@
 			$(".con1").css("height", "100%");
 			$(".con1").css("position", "absolute");
 			$(".con1").css("top","0");
-			$(".con1").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			
 			
 			$(".con2").css("width", "33.3%");
@@ -1268,10 +1322,11 @@
 			$(".con2").css("height", "100%");
 			$(".con2").css("position", "absolute");
 			$(".con2").css("top","0");
-			$(".con2").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
+			$(".con2").css({"background":"url(image/background/bk_o12.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '30% -12.8%'});
 			$("#nav").css("position", "absolute");
 			/* 딕테이션과 쉐도잉이 자기 자리를 찾아감 끝*/
 			$(".logo_class").css("display", "none");
+			$("#footer").css("margin-top","0");
 		}
 		
 		$(".mainContentClose3").click(function(){
@@ -2026,6 +2081,11 @@
 			<!-- 메인콘텐츠 시작 -->
 				<!-- 단어장 등을 누르면 뜨는 컨텐츠창 시작 -->
 				<div id="content1">
+					<img src="image/index_logo/logo_voca_3.png" class="bignametag_top">
+					<div class="nametag_korean"><span class="nametag_korean_span">단어장</span></div>
+					<div class="nametag_"><span class="nametag_span">─</span></div>
+					<div class="top_infotag1"><span class="top_infotag_span1">Movie Script를 활용한<br>빅데이터 기반 빈도순의 단어장을 제공합니다.</span></div>
+					<div class="top_infotag2"><span class="top_infotag_span2">영화를 보기 전 좋아하는 영화의 단어장을 외우면<br>자막없이 영화를 보는 데에 도움이 됩니다.</span></div>
 					<img src="image/btn/btn_error_white.png" class="mainContentClose1">
 					<!-- 메인콘텐트 입니다. -->
 					<div id="movieList"></div>
@@ -2066,6 +2126,15 @@
 				
 				<!-- 딕테이션 페이지 시작 -->
 				<div id="content2">
+					<img src="image/index_logo/logo_diy_3.png" class="bignametag_top">
+					<div class="nametag_korean"><span class="nametag_korean_span">Do it yourself</span></div>
+					<div class="nametag_"><span class="nametag_span">─</span></div>
+					<div class="top_infotag1"><span class="top_infotag_span1">원하는 script를 활용해 나만의 단어장을 만들어보세요.</span></div>
+					<div class="top_infotag2">
+						<span class="top_infotag_span2">script를 붙여넣고 '단어장 만들기' 버튼을 누르시면
+						<br>단어장을 파일로 다운받을 수 있도록 지원합니다.
+						<br>가장 많이 등장하는 단어순으로 만들어지는 나만의 단어장을 만들어보세요.
+						</span></div>
 					<img src="image/btn/btn_error_white.png" class="mainContentClose2">
 					
 					<div id="diyPage"></div>
@@ -2104,8 +2173,13 @@
 				
 				<!-- 쉐도잉 페이지 시작 -->
 				<div id="content3">
+					<img src="image/index_logo/logo_board_3.png" class="bignametag_top">
+					<div class="nametag_korean"><span class="nametag_korean_span">게시판</span></div>
+					<div class="nametag_"><span class="nametag_span">─</span></div>
+					<div class="top_infotag1"><span class="top_infotag_span1">사용 후기나 개선사항을 남겨주시면 <br><span id="boardnametag_dandigreen">DANDI</span>의 발전에 도움이 됩니다.</span></div>
+					<div class="top_infotag2"><span class="top_infotag_span2"><span id="boardnametag_dandiwhite">DANDI</span>는 좋은 컨텐츠를 위해 꾸준히 노력하겠습니다.</span></div>
 					<img src="image/btn/btn_error_white.png" class="mainContentClose3">
-					<div id="wrap_contents1">
+					<div id="wrap_contents_board">
 						<div id="board_sel">
 							<div class="board_selbtn" id="qna_btn">
 								<a href="#"><span>Q & A</span></a>
