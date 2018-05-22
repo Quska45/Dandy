@@ -2036,7 +2036,7 @@
 				<div class="con1">
 					<div id="block1"></div><!-- 이걸로 메인의 요소들을 가린다. -->
 					<!-- 단어장을 열어주는 a 태그 시작 -->
-					<a href="#" onclick="movie_list();" class="openButton1">
+					<a href="javascript:;" onclick="movie_list();" class="openButton1">
 					<img src="image/index_logo/logo_voca_1.png" id="voca_logo" class="logo_class">
 					<!-- 단어장을 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
@@ -2073,10 +2073,10 @@
 				</div>
 				<div class="con2">
 					<div id="block2"></div><!-- 이걸로 메인의 요소들을 가린다. -->
-					<!-- 단어장을 열어주는 a 태그 시작 -->
+					<!-- diy를 열어주는 a 태그 시작 -->
 					<a href="#" class="openButton2" onclick="diy_page();">
 					<img src="image/index_logo/logo_diy_1.png" id="diy_logo" class="logo_class">
-					<!-- 단어장을 열어주는 a 태그 끝 -->
+					<!-- diy를 열어주는 a 태그 끝 -->
 					<!-- 백그라운드 이미지가 들어가는 페이지 시작 -->
 					<div class="background background2">
 						
