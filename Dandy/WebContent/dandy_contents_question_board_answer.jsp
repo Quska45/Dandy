@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <title>Insert title here</title>
 <style type="text/css">
 /* font-family: 'Hanna', serif; */
@@ -247,5 +248,14 @@
 			</tbody>
 		</table>
 	</div>
+		<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "con_input",
+			sSkinURI: "smarteditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	</script>
 </body>
 </html>

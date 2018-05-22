@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 /* font-family: 'Hanna', serif; */
@@ -76,7 +77,7 @@
 		width: 200px;
 		
 	}
-	#btn_success { 
+	#btn_success_update { 
 		color: #555555;
 		padding: 7px 14px;
 		font-size: 16px;
@@ -85,7 +86,7 @@
 		border-radius: 5px;
 		border: 1px solid white;
 	}
-	#btn_success:hover {
+	#btn_success_update:hover {
 		border: 1px solid #0daa62;
 		background-color: white;
 		color: #0daa62;
@@ -248,12 +249,21 @@ $(document).on("click", "#secret_span_flag", function(){
 					</td>
 					<td>
 						<div id="btn_succ">
-							<button id="btn_success">문의사항 작성완료</button>
+							<button id="btn_success_update">문의사항 작성완료</button>
 						</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "con_input",
+			sSkinURI: "smarteditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	</script>
 </body>
 </html>

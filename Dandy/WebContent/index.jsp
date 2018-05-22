@@ -1666,8 +1666,10 @@
 	});
 	
 	/* 광진 시작 */
+	
 	//QnA에서 답변쓰기를 누르면 답변이 등록된다.
 	$(document).on("click", "#question_answer_wr_btn", function(){
+		oEditors.getById["con_input"].exec("UPDATE_CONTENTS_FIELD", []);
 		var title = $("#sub_input").val();
 		var bno = $("#question_answer_bno").val();
 		var writer = $("#name_input").val();
@@ -1818,7 +1820,8 @@
 	});
 
 	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
-	$(document).on("click", "#btn_success", function(){
+	$(document).on("click", "#btn_success_write", function(){
+		oEditors.getById["con_input"].exec("UPDATE_CONTENTS_FIELD", []);
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
 		var flag = $("#secret_input_flag").val();
@@ -1829,15 +1832,16 @@
 		$.ajax({
 			type : "post",
 			url : "boardQuestionInsertsave.dandy",
-			data : "title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
+			data :"title=" + title + "&writer=" + writer + "&flag=" + flag + "&content=" + content + "&select=" + select,
 			success : function(result) {
 				$("#boardList").html(result);
 			}
 		});
 	});
 	
-	//QnA게시글 작성페이지에서 버튼을 누르면 글이 등록되게 하는 쿼리
-	$(document).on("click", "#btn_success", function(){
+	//QnA게시글 작성페이지에서 버튼을 누르면 글이 수정되게 하는 쿼리
+	$(document).on("click", "#btn_success_update", function(){
+		oEditors.getById["con_input"].exec("UPDATE_CONTENTS_FIELD", []);
 		var bno = $("#hidden_bno_update").val();
 		var title = $("#sub_input").val();
 		var writer = $("#name_input").val();
