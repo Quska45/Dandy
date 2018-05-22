@@ -60,21 +60,6 @@
 	</select>
 
 		
-<!-- Index Page Movie Search List page count -->
-	<select id="movieSearchCountPaging"  resultType="int">
-		<![CDATA[
-			SELECT count(mno)
-			FROM movieindex]]>
-			<choose>
-				<when test='keyword == "empty"'>
-					<![CDATA[WHERE mno > 0 ]]>
-				</when>
-				<otherwise>
-					<![CDATA[WHERE mno > 0 AND title LIKE '%'||#{keyword}||'%']]>
-				</otherwise>
-			</choose>
-	</select>
-
 	
 <!-- 영화 개별 단어장  -->
 	<select id="movieEach" resultType="eachDTO" parameterType="eachDTO">
