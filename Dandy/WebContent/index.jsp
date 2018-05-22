@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Dandi</title>
+<link rel="icon" type="image/png" href="image/favi_Dandi.png">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* font-family: 'Nanum Gothic', serif; */
