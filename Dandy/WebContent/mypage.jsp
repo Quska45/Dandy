@@ -16,7 +16,7 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		height: 1000px;
+		height: 1083px;
 		background-color: white;
 		position: relative;
 		font-family: 'Noto Sans KR', sans-serif;

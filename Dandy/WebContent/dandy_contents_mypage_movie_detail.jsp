@@ -257,7 +257,7 @@
 		float: left;
 	}
 	#mypageMovieDetailBlock {
-		width: 1903px;
+		width: 2116px;
 		height: 7563px;
 		background-color: black;
 		opacity: 0.5;
@@ -312,7 +312,7 @@
 		$("#mypageMovieDetailBlock").css("display", "none");
 		$("#wrap_contents_mypage").css("display", "none");
 		$("#cBody").css("height", "1000px");
-		$("#mypage_wrap").css("height", "1000px");
+		$("#mypage_wrap").css("height", "1083px");
 	});
 	
 	

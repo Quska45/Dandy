@@ -127,7 +127,7 @@
 		div#content2 {
 			position: absolute;
 			top:81.4px!important;
-			left: 126.4px;
+			left: 139.4px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
@@ -1215,7 +1215,7 @@
 			$("#content3").css("height", "3153px");	
 			$("#content3").css("display", "block");	
 			$(".txtArea").css("display", "none");
-			$("#content3").css("width", "86.9%");	
+			$("#content3").css("width", "88.2%");	
 			$("#content3").css({"background":"url(image/background/bk_o15.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '100% 0%', 'background-size':'100%'});
 			/* 단어장을 클릭하면 딕테이션과 쉐도잉이 작아지면서 위치를 옮김 시작*/
 			$(".con1").css("width", "6.5%");
@@ -1227,7 +1227,7 @@
 			$(".con1").css({"background":"url(image/background/bk_o11.jpg)" , 'background-repeat' : 'no-repeat', 'background-position': '50% 0%'});
 			
 			$(".con2").css("width", "6.5%");
-			$(".con2").css("right", "86.8%");
+			$(".con2").css("right", "87.8%");
 			$(".con2").css("height", "97%");
 			$(".con2").css("position", "fixed");
 			$(".con2").css("top","81px");
