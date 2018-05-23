@@ -146,9 +146,16 @@
 
 <!-- 정렬해주는 쿼리 -->	
 	<select id="questionSort" parameterType="criDTO" resultType="qDTO">
-		<![CDATA[SELECT *
-		FROM question_board
-		WHERE rownum BETWEEN #{pageStart} AND #{perPageNum}]]>
+	<![CDATA[
+	SELECT *
+	FROM (
+		SELECT rownum rnum,
+		a.*
+		FROM (
+			SELECT b.*, (SELECT COUNT(*) 
+					FROM question_reply d
+					WHERE b.bno = d.bno) replycnt 
+			FROM question_board b]]>
 		<if test='keyword == "NO"'>
 			<![CDATA[ORDER BY bno ${sort}]]>
 		</if>
@@ -161,7 +168,11 @@
 		<if test='keyword == "DATE"'>
 			<![CDATA[ORDER BY bno ${sort}]]>
 		</if>
-		
+		<![CDATA[
+			) a
+		)
+		WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+	]]>
 	</select>
 
 <!-- 게시글을 수정하기 위해 수정하려는 글의 정보를 가져오는 쿼리 -->
