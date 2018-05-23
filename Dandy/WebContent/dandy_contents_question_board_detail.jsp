@@ -142,7 +142,8 @@
 		border: 0 15px;
 		}
 	#bno {
-		border: 1px solid white;
+		border: none;
+		background-color: #f7f7f7;
 		text-align: center;
 		width: 100px !important;
 		font-size: 15px;
@@ -199,12 +200,12 @@
 		font-weight: bold;
 	}
 	#goodcnt {
-		background-color: white;
+		background-color: #f7f7f7;
 		width:70px;
 		height: 25px;
 		margin-bottom: 10px;
 		//font-size: 20px;
-		//color: #FFBB00;
+		//color: #0daa62;;
 		text-align: center;
 		line-height: 25px;
 		border: none;
@@ -220,7 +221,7 @@
 		color: #FFBB00;
 	}
 	#fafa_icon, #good_fafa {
-		color: #FFBB00;
+		color: #0daa62;
 	}
 	#viewcnt, #goodcnt {
 		color: #555555;
@@ -409,6 +410,7 @@
 			type: "POST",
 			dataType: "json",
 			data: "bno=" + bno,
+			async: false,
 			success: function(data) {
 						alert(data.gpoint);
 					if(data.gpoint >= "0"){
