@@ -274,6 +274,7 @@
 				type : "POST",
 				dataType :  "JSON",
 				data : "mno=" + mno + "&mid=" + mid,
+				async: false,
 				success : function(result) {
 					if(result.flag2 == 1){
 						alert("선택하신 영화는 이미 내 단어장에 들어 있습니다.");
@@ -373,7 +374,7 @@
 							</div>
 						</div>
 						<div class="myword">
-							<a href="#" id="mywordBtn">내 단어장에 추가</a>
+							<a href="javascript:;" id="mywordBtn">내 단어장에 추가</a>
 						</div>
 					</div>
 					
