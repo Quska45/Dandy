@@ -266,8 +266,8 @@
 	}
 	#mypageMovieDetailBlockClose{
 		position: absolute;
-   		top: 92px;
-   		right: 100px;
+   		top: 90px;
+   		right: 323px;
    		z-index: 60;
    		cursor: pointer;
 	}
@@ -322,7 +322,9 @@
 <body>
 	<!-- Contents : 영화별 단어장 -->
 		<div id="mypageMovieDetailBlock">
-			<div id="mypageMovieDetailBlockClose">Xsdfasdf</div>
+			<div id="mypageMovieDetailBlockClose">
+				<img src="image/btn/btn_error_gray2.png" style="width: 30px;">
+			</div>
 		</div>
 		<div id="wrap_contents_mypage">
 				<input id="hiddenMno" type="hidden" value="${mno}">
