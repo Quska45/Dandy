@@ -128,7 +128,7 @@
 		div#content2 {
 			position: absolute;
 			top:81.4px!important;
-			left: 139.4px;
+			left: 128.4px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
@@ -147,7 +147,7 @@
 		div#content3 {
 			position: absolute;
 			top:81.4px!important;
-			left: 250.8px;
+			left: 231.8px;
 			z-index: 40;
 			display: none;
 			margin: 0 auto;
