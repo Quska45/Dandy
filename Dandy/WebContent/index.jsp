@@ -2246,8 +2246,8 @@
 						<span>정지선</span>
 						<span class="divide">|</span>
 						<span>이시연</span>
-						<span class="divide">|</span>
-						<span>류영아</span>
+						<!-- <span class="divide">|</span>
+						<span>류영아</span> -->
 					<div class="address">
 					</div>
 					<p class="copy">
