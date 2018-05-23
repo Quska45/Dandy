@@ -1790,23 +1790,28 @@
 	
 	//내 단어장 디테일에서 내 단어장에서 삭제 누르면 삭제되게 하는 스크립트
 	$(document).on("click", "#mywordDelete", function(){
+		var result = confirm('정말로 삭제 하시겠습니까?');
 		var mno = $("#hiddenMno").val();
 		var mid = $("#sessionMid_id").val();
 		//alert(mno +","+ mid);
-		$.ajax({
-			url : "mywordDelete.dandy",
-			type : "POST",
-			data : "mno=" + mno + "&mid=" + mid,
-			success : function(result) {
-				alert("단어장을 삭제했습니다.");
-				$("#mypageMovieDetailBlock").css("display", "none");
-				$("#wrap_contents_mypage").css("display", "none");
-				myPageAll();
-			},
-			error : function() {
-				alert("System Error!!!");
-			}
-		});
+		if(result){
+			$.ajax({
+				url : "mywordDelete.dandy",
+				type : "POST",
+				data : "mno=" + mno + "&mid=" + mid,
+				success : function(result) {
+					alert("단어장을 삭제했습니다.");
+					$("#mypageMovieDetailBlock").css("display", "none");
+					$("#wrap_contents_mypage").css("display", "none");
+					myPageAll();
+				},
+				error : function() {
+					alert("System Error!!!");
+				}
+			});
+		} else {
+						
+		}
 	});
 	
 	
