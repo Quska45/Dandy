@@ -1086,6 +1086,35 @@
 		});
 	}
 	
+	
+	$(document).on("click", "#diy_btn", function() {
+		var session = $("#diy_session").val();
+		var title = $("#diy_title").val();
+		var text = $("#diy_text").val();
+		
+		if(title == "") {
+			alert("제목을 입력해 주세요.");
+			$("#diy_title").focus();
+			return false;
+		}
+		
+		$("#cBody").css("height","20000px");
+		$.ajax({
+			url : "diyLoading.dandy",
+			type : "POST",
+			data : "title=" + title + "&text=" + text,
+			success : function(result) {
+				$("#diyPage").html(result);
+			},
+			error : function() {
+				alert("System Error!!!");
+			}
+	
+		});
+	
+	});
+	
+	
 	$(document).on("click", "#contract_open", function(){
 		$("#constract_modal").css("display","block");
 		$(".modal").css("display", "none");
