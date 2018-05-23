@@ -397,7 +397,7 @@
 							</c:if>
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 								<td>
-									<a class="pageMove" href="#" page_num="${idx}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+									<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/> class="pageMove" href="#" page_num="${idx}">${idx}</a>
 									
 								</td>
 							</c:forEach>

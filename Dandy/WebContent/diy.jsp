@@ -16,7 +16,7 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 	
  /** contents page body */
-	#wrap_contents1 {
+	#wrap_contents_diy {
 		font-family: 'Noto Sans KR', sans-serif;
 		width: 1200px;
 		height: 1100px;
@@ -71,7 +71,7 @@
 <body>
 	<input type="hidden" id="diy_session" name="diy_session" value="${sessionScope.loginUser.mid}">
 	<!-- Contents : 영화별 단어장 -->
-	<div id="wrap_contents1">
+	<div id="wrap_contents_diy">
 			<div class="diy_title_wrap">
 				<input type="text" id="diy_title" name="diy_title" placeholder="제목을 입력해 주세요.">
 			</div>
