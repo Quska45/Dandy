@@ -265,7 +265,7 @@
 	$(document).on("click", "#mywordBtn", function(){
 		var mno = $("#hiddenMno").val();
 		var mid = $("#sessionMid_id").val();
-		alert(mno +","+ mid);
+		//alert(mno +","+ mid);
 		if(mid==""){
 			alert("로그인 해야합니다.");
 		} else{

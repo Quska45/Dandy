@@ -904,7 +904,6 @@
 	//mypage를 띄우기 위해 필요한 함수
 	function myPageAll(){
 		var mid=$("#sessionMid_id").val();
-		alert(mid);
 		
 		$.ajax({
 			type : "post",
@@ -1777,7 +1776,7 @@
 		var bno = $("#question_answer_bno").val();
 		var writer = $("#name_input").val();
 		var content = $("#con_input").val();
-		alert(title + ", " + bno  + ", " + writer  + ", " + content);
+		//alert(title + ", " + bno  + ", " + writer  + ", " + content);
 		$.ajax({
 			type : "post",
 			url : "questionAnswerInsert.dandy",
@@ -1793,7 +1792,7 @@
 	$(document).on("click", "#mywordDelete", function(){
 		var mno = $("#hiddenMno").val();
 		var mid = $("#sessionMid_id").val();
-		alert(mno +","+ mid);
+		//alert(mno +","+ mid);
 		$.ajax({
 			url : "mywordDelete.dandy",
 			type : "POST",
@@ -1842,8 +1841,8 @@
 		var secret_flag = $(this).attr("secret_flag");
 		var writer = $(this).attr("writer");
 		
-		alert("bno" + bno);
-		alert(secret_flag + ", " + writer + "");
+		//alert("bno" + bno);
+		//alert(secret_flag + ", " + writer + "");
 		
 		
 		if(secret_flag == 1){
@@ -1956,7 +1955,7 @@
 		var flag = $("#secret_input_flag").val();
 		var content = $("#con_input").val();
 		var select = $("#qna_select").val();
-		alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		//alert(title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
 		
 		$.ajax({
 			type : "post",
@@ -1977,7 +1976,7 @@
 		var flag = $("#secret_input_flag").val();
 		var content = $("#con_input").val();
 		var select = $("#qna_select").val();
-		alert(bno + ", " +title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
+		//alert(bno + ", " +title + ", " + name  + ", " +  flag + ", " + content + ", " + select);
 		
 		$.ajax({
 			type : "post",
@@ -1993,8 +1992,8 @@
 	$(document).on("click", "#l_no", function(){
 		var sort = $("#l_no_input").val();
 		var keyword = $("#l_no_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
@@ -2011,8 +2010,8 @@
 	$(document).on("click", "#l_contents", function(){
 		var sort = $("#l_content_input").val();
 		var keyword = $("#l_content_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
@@ -2029,8 +2028,8 @@
 	$(document).on("click", "#l_name", function(){
 		var sort = $("#l_name_input").val();
 		var keyword = $("#l_name_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
@@ -2047,8 +2046,8 @@
 	$(document).on("click", "#l_date", function(){
 		var sort = $("#l_date_input").val();
 		var keyword = $("#l_date_input_keyword").val();
-		alert(sort);
-		alert(keyword);
+		//alert(sort);
+		//alert(keyword);
 		$.ajax({
 			url : "questionBoardSort.dandy",
 			type : "POST",
