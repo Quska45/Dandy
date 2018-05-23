@@ -105,7 +105,6 @@
 	
 	/* 통계  */
 	.statistics {
-		border-left: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
 		width: 700px;
 		height: 200px;
