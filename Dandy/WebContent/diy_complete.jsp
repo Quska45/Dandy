@@ -160,15 +160,11 @@
   		$('.word-table-bottom tr:even').css("backgroundColor","#f5f5fc");   // even 짝수
 	});
 	
-	/* $(window).on("beforeunload", function(){
-		alert("떠날꼬야?");
-		return 'Dialog text here.';
-	}); */
-	
-	var checkUnload = true;
+		
+	/* var checkUnload = true;
     $(window).on("beforeunload", function(){
         if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
-    });
+    }); */
 
 
 </script>
