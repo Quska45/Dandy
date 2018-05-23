@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import com.dandy.DAO.MemberDAO;
 import com.dandy.DTO.MemberDTO;
 
@@ -52,11 +54,18 @@ public class MemberRegisterAction implements Action {
 		}
 		
 		
-		ActionForward forward = new ActionForward();
-		forward.setPath(url);
-		forward.setRedirect(false);
+		JSONObject jObj = new JSONObject();
+		if(result < 0) {
+			jObj.put("id", null);
+			jObj.put("pw", null);
+		} else {
+			jObj.put("id", mDto.getMid());
+			jObj.put("pw", mDto.getMpw());
+		}
+		response.setContentType("application/x-json; charset=UTF-8");
+		response.getWriter().println(jObj);
 		
-		return forward;
+		return null;
 		
 	}
 

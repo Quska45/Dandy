@@ -288,16 +288,15 @@ $(document).ready(function(){
 		
 		
 		var mid = $.trim(id.val());
+		var mpw = $.trim(pw.val());
+		var mpw2 = $.trim(pw2.val());
+		var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; // 6~20 자 이내 숫자 + 영문
+		var mname = $.trim(name.val());
 		if(mid == ""){
 			id.focus();
 			$("#idMsg").css("display", "block").css("color", "red");
 			return false;
-		}
-		
-		var mpw = $.trim(pw.val());
-		var mpw2 = $.trim(pw2.val());
-		var regPass = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; // 6~20 자 이내 숫자 + 영문
-		if(mpw == "") {
+		} else if(mpw == "") {
 			pw.focus();
 			$("#pwMsg").css("display", "block");
 			return false;
@@ -313,40 +312,54 @@ $(document).ready(function(){
 			pw2.select();
 			$("#pw2Msg").text("비밀번호가 일치하지 않습니다.").css("display", "block");
 			return false;
-		} 
-		
-		var mname = $.trim(name.val());
-		if(mname == ""){
+		} else if(mname == ""){
 			name.focus();
 			$("#nameMsg").css("display", "block");
 			return false;
-		}
-		
-		if(sex == 1){
+		} else if(sex == null){
+			$("#sexMsg").css("display", "block");
+			return false;
+		} 
+		/* else if(sex == 1){
 			$("#manlabel").css("color", "green");
 			$("#sexMsg").css("display", "none");
 		} else if(sex == 2){
 			$("#womanlabel").css("color", "green");
 			$("#sexMsg").css("display", "none");
-		} else {
-			$("#sexMsg").css("display", "block");
-			return false;
-		} 
-		
-		if(yy.val() == ""){
+		} */ 
+		else if(yy.val() == ""){
 			yy.focus();
 			$("#birthMsg").text("태어난 년도 4자리를 정확하게 입력하세요.").css("display", "block");
 			return false;
-		}
-		if(mm.val() == ""){
+		} else if(mm.val() == ""){
 			mm.focus();
 			$("#birthMsg").text("태어난 월을 선택하세요.").css("display", "block");
 			return false;
-		}
-		if(dd.val() == ""){
+		} else if(dd.val() == ""){
 			dd.focus();
 			$("#birthMsg").text("태어난 일(날짜) 2자리를 정확하게 입력하세요.").css("display", "block");
 			return false;
+		} else {
+			alert("test");
+			$.ajax({
+				url: "memberRegister.dandy",
+				type: "POST",
+				dataType :  "JSON",
+				data: "id=" + mid + "&pw=" + mpw + "&name=" + mname + "&sex=" + sex + "&yy=" + yy.val() + "&dd=" + dd.val() + "&email1=" + email1.val() + "&email2=" + email2.val() + "&phone=" + phone.val(),
+				success: (function(data){
+					if(data.id != null && data.pw != null) {
+						alert("로그인 성공");
+						//index 페이지로 이동
+						location.reload();
+					} else {
+						$("#login_id").select();
+						$("#ErrCk").text("ID, PW값을 정확히 입력하시오.").css("display", "block").css("color", "red");
+					}
+				}),
+				error: function(){
+					alert("system error");
+				}
+			});
 		}
 		
 		/* var memail = email1.val() + "@" + email2.val();
@@ -432,7 +445,6 @@ $(document).ready(function(){
 			email2.val(mailAddress);
 			email2.attr("readonly",true);
 			$("#emailMsg").css("display", "none");
-			address.focus();
 		}
 	});
 	
@@ -486,7 +498,6 @@ $(document).ready(function(){
 				<div id="join_top"><span id="join_top_logo">단디 회원가입</span></div>
 				<div><img src="image/btn/btn_error_gray3.png" id="join_close"></div>
 				<div class="join_content">
-					<form id="join_form" name="frm_member" action="memberRegister.dandy">
 						<div class="row_group">
 							<!-- 아이디  -->
 							<div class="join_row" id="idDiv">
@@ -619,10 +630,9 @@ $(document).ready(function(){
 						</div>
 						
 						<span class="btn_join">
-							<input type="submit" id="btn_submit" alt="회원가입" class="input_join" value="가입하기">
+							<input type="button" id="btn_submit" alt="회원가입" class="input_join" value="가입하기">
 							<input type="hidden" id="idCheck" name="idCheck" value="Y"/>
 						</span>
-					</form>					
 				</div>
 			</div>
 		</div>
