@@ -1799,6 +1799,9 @@
 			data : "mno=" + mno + "&mid=" + mid,
 			success : function(result) {
 				alert("단어장을 삭제했습니다.");
+				$("#mypageMovieDetailBlock").css("display", "none");
+				$("#wrap_contents_mypage").css("display", "none");
+				myPageAll();
 			},
 			error : function() {
 				alert("System Error!!!");
