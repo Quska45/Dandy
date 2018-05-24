@@ -102,13 +102,17 @@
 	}
 	
 	.myword {
-		border: 1px solid #00AE93;
+		border: 1px solid #0daa62;
 		color: white;
-		background: #00AE93;
+		background: #0daa62;
 		height: 36px;
 		line-height: 36px;
 		border-radius: 5px;
 		margin-top: 10px;
+	}
+	.myword a {
+		color: white;
+		text-decoration: none;
 	}
 	
 	
@@ -229,7 +233,7 @@
  	
  	}
  	#word-table-top {
- 		background-color: #00AE93;
+ 		background-color: #0daa62;
  		border-radius: 5px;
  		color: white;
  		font-size: 16px;
@@ -266,8 +270,8 @@
 	}
 	#mypageMovieDetailBlockClose{
 		position: absolute;
-   		top: 90px;
-   		right: 323px;
+   		top: 92px;
+   		right: 100px;
    		z-index: 60;
    		cursor: pointer;
 	}
@@ -322,16 +326,21 @@
 <body>
 	<!-- Contents : 영화별 단어장 -->
 		<div id="mypageMovieDetailBlock">
-			<div id="mypageMovieDetailBlockClose">
-				<img src="image/btn/btn_error_gray2.png" style="width: 30px;">
-			</div>
+			<div id="mypageMovieDetailBlockClose">Xsdfasdf</div>
 		</div>
 		<div id="wrap_contents_mypage">
 				<input id="hiddenMno" type="hidden" value="${mno}">
 				<div id="detail_modal_movie">
 				
 					<div id="detail_modal_poster">
-						<img src="${img}">
+						<c:choose>
+							<c:when test="${empty img}">
+								<img src="image/img_ready.gif">
+							</c:when>
+							<c:otherwise>
+								<img src="${img}">
+							</c:otherwise>
+						</c:choose>	
 					</div>
 					<div id="detail_modal_info">
 						<div id="detail_title">

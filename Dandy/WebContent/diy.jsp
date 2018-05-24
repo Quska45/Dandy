@@ -27,7 +27,7 @@
 	}
 	#diy_title {
 		width: 100%;
-		border: none;
+		border: 1px solid #d7d7d7;
 		height: 50px;
 	}
 	#diy_text {
@@ -55,6 +55,9 @@
 		width: 900px;
 		padding: 20px;
 		margin: 20px auto;
+	}
+	#diy_text {
+		border: 1px solid #d7d7d7;
 	}
  
 </style>
