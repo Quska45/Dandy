@@ -340,7 +340,6 @@ $(document).ready(function(){
 			$("#birthMsg").text("태어난 일(날짜) 2자리를 정확하게 입력하세요.").css("display", "block");
 			return false;
 		} else {
-			alert("test");
 			$.ajax({
 				url: "memberRegister.dandy",
 				type: "POST",

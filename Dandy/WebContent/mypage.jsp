@@ -731,7 +731,6 @@
 		var mno = $(this).attr("data_mno");
 		var img = $(this).attr("data_img");
 		var title = $(this).attr("data_title");
-		alert(mno + ", " + img + ", " + title);
 		$.ajax({
 			url : "mypageContentsDetail.dandy",
 			type : "POST",
