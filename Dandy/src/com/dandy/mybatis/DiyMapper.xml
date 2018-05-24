@@ -11,6 +11,7 @@
 		ADD (word VARCHAR2(255)) 
 		ADD (meaning VARCHAR2(4000))
 		ADD (wno NUMBER(5))
+		ADD (meaning2 VARCHAR2(4000))
 	</update>
 	
 	
@@ -22,7 +23,8 @@
 	<update id="completeTable" parameterType="eachDTO">
 		UPDATE ${title} SET 
 		word = #{word}, 
-		meaning = #{meaning}
+		meaning = #{meaning},
+		meaning2 = #{meaning2}
 		WHERE morpheme = #{morpheme} 
 	</update>
 

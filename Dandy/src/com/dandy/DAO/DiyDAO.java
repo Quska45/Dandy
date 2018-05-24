@@ -141,6 +141,7 @@ public class DiyDAO {
 			
 			String word = null;
 			String meaning = null;
+			String meaning2 = null;
 			
 			for(int j = 0; j < card_word.size(); j++) {
 				Elements tit_word = card_word.get(j).select("h4.tit_word");
@@ -153,6 +154,7 @@ public class DiyDAO {
 				if(tit_word.text().equals("영어사전")) {
 					word = txt_emph1.text();
 					meaning = list_search.toString();
+					meaning2 = list_search.text();
 					//System.out.println(word);
 					//System.out.println(meaning);
 					break;
@@ -169,11 +171,12 @@ public class DiyDAO {
 			System.out.println("형태소 : " + morpheme);
 			System.out.println("크롤링 단어 : " + word);
 			System.out.println("크롤링 뜻 : " + meaning);
+			System.out.println("크롤링 뜻 한글만 : " + meaning2);
 			if(meaning == null || meaning.equals("")) {
 				meaning = "null";
 				word = "null";
 			}
-			MovieEachDTO mDto = new MovieEachDTO(morpheme, word, meaning, title);
+			MovieEachDTO mDto = new MovieEachDTO(morpheme, word, meaning, title, meaning2);
 			completeTable(mDto);
 			
 		}
@@ -320,7 +323,7 @@ public class DiyDAO {
 	            cell.setCellValue(mDto.getWord());
 	            
 	            cell = row.createCell(2);
-	            cell.setCellValue(mDto.getMeaning());
+	            cell.setCellValue(mDto.getMeaning2());
 	            
 	            cell = row.createCell(3);
 	            cell.setCellValue(mDto.getFreq());

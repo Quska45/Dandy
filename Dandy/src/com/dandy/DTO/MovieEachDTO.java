@@ -9,6 +9,7 @@ public class MovieEachDTO {
 	private int wno;
 	private String tablename;
 	private String title;
+	private String meaning2;
 	
 	
 	public MovieEachDTO() {
@@ -28,6 +29,17 @@ public class MovieEachDTO {
 	
 	
 	
+	
+	public MovieEachDTO(String morpheme, String word, String meaning, String title, String meaning2) {
+		super();
+		this.morpheme = morpheme;
+		this.word = word;
+		this.meaning = meaning;
+		this.title = title;
+		this.meaning2 = meaning2;
+	}
+
+
 	public MovieEachDTO(String morpheme, String word, String meaning, String title) {
 		super();
 		this.morpheme = morpheme;
@@ -126,6 +138,16 @@ public class MovieEachDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+
+	public String getMeaning2() {
+		return meaning2;
+	}
+
+
+	public void setMeaning2(String meaning2) {
+		this.meaning2 = meaning2;
 	}
 	
 	
